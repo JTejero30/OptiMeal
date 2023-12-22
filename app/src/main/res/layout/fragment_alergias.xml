@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MVVM.Register.Alergias">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/nextQuestion2"
+            android:layout_width="207dp"
+            android:layout_height="57dp"
+            android:text="Continuar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.961" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.14">
+
+            <TextView
+                android:id="@+id/pregunta"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center"
+                android:text="¿Alguna alergia que debamos conocer?"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="weat"
+                    android:src="@drawable/weat" />
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="marisco"
+                    android:src="@drawable/marisco" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="huevo"
+                    android:src="@drawable/huevo" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="pescado"
+                    android:src="@drawable/pescado" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="cacahuete"
+                    android:src="@drawable/cacahuete" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="soja"
+                    android:src="@drawable/soja" />
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="lacteos"
+                    android:src="@drawable/lacteos" />
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="frutos"
+                    android:src="@drawable/frutos" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="apio"
+                    android:src="@drawable/apio" />
+
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="mostaza"
+                    android:src="@drawable/mostaza" />
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="sesamo"
+                    android:src="@drawable/sesamo" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="sulfitos"
+                    android:src="@drawable/sulfitos" />
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="altramuces"
+                    android:src="@drawable/altramuces" />
+
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="imageAlergie"
+                    android:layout_weight="1"
+                    android:tag="moluscos"
+                    android:src="@drawable/moluscos" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
