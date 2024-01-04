@@ -14,6 +14,7 @@ class Register : AppCompatActivity() {
     private var progreso =0
 
     private var contador = 0
+    private var bmr=0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -27,9 +28,14 @@ class Register : AppCompatActivity() {
         binding.progress.incrementProgressBy(1)
         when(progreso){
             1-> replaceFragment(PersonalData2())
-            2-> replaceFragment(Alergias())
+            2-> replaceFragment(PhysicalActivity())
             3-> replaceFragment(Objetives())
-            4-> println(jsonData)
+            4-> {
+                calcularBMR()
+                replaceFragment(Alergias())
+            }
+
+            5-> println(jsonData)
         }
     }
     //funcion que remplaza fragmentos por otros
@@ -52,4 +58,23 @@ class Register : AppCompatActivity() {
     public fun addDato(dato: Float){
         jsonData.put(dato)
     }
+    //funcion que calcula las calorias totales diarias de la persona
+    //es asincrona para hacerlo mas eficiente
+    fun calcularBMR(){
+        val sex = jsonData[5]
+        val peso= jsonData[2].toString().toDouble()
+        val altura= jsonData[1].toString().toDouble()
+        val edad=jsonData[4].toString().toInt()
+        val actividad= jsonData[6].toString().toDouble()
+        val deficit= jsonData[7].toString().toDouble()
+        /*Men: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) - (5.677 x age in years)*/
+        if(sex=="Hombre"){
+            bmr= (88.362+(13.397 * peso)+(4.799*altura)-(5.677*edad))*actividad*deficit
+        }else{
+            /*Women: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) - (4.330 x age in years)*/
+            bmr=(447.593+(9.247 * peso)+(3.098*altura)-(4.330*edad))*actividad*deficit
+        }
+        println(bmr)
+    }
+
 }

@@ -12,7 +12,7 @@ import com.example.app.databinding.FragmentPersonalDataBinding
 
 
 class Objetives : Fragment() {
-    private var _binding : FragmentObjetivesBinding? =null
+    private var _binding: FragmentObjetivesBinding? = null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,18 +22,29 @@ class Objetives : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding= FragmentObjetivesBinding.inflate(inflater,container,false)
+        _binding = FragmentObjetivesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.objetivesBu.addOnButtonCheckedListener{_,id,ischecked->
-            if(ischecked){
-                val selectedObjetiveText= view.findViewById<Button>(id).text.toString()
-                (activity as? Register)?.addDato(selectedObjetiveText)
+        binding.objetivesBu.addOnButtonCheckedListener { _, id, ischecked ->
+            if (ischecked) {
+                val selectedObjetiveTag = view.findViewById<Button>(id).tag.toString()
+                val deficit = calcularDeficit(selectedObjetiveTag)
+                (activity as? Register)?.addDato(deficit)
                 (activity as? Register)?.nextQuestion()
             }
         }
+    }
+
+    private fun calcularDeficit(selectedObjetiveTag: String): Float {
+        var deficit = 1.00f
+        when (selectedObjetiveTag) {
+            "1" -> deficit = 0.8f
+            "2" -> deficit = 1.07f
+            "3" -> deficit = 1.00f
+        }
+        return deficit
     }
 }
