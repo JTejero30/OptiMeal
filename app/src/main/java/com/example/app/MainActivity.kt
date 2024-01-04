@@ -38,19 +38,16 @@ class MainActivity : AppCompatActivity() {
         when (progress.progress) {
             0 ->
                 question.text = "¿Tienes alguna preferencia dietética?"
-
             1 -> {
                 question.text = "¿Alguna alergia que debamos conocer?"
                 ocultarGrupo(q1)
                 q2.visibility=View.VISIBLE
             }
-
             2 -> {
                 question.text = "Introduce tus datos"
                 ocultarGrupo(q2)
                 q4.visibility=View.VISIBLE
             }
-
             3 -> {
                 question.text = ""
                 mostrarGrupo(q2)

@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.example.app.User
 import com.example.app.databinding.FragmentPersonalDataBinding
+import org.json.JSONArray
 
 
 private var _binding : FragmentPersonalDataBinding? =null
@@ -36,9 +38,13 @@ class PersonalData : Fragment() {
                 //cogemos el id del pulsado y lo pasamos a string para añadirlo al array
                 val selectedDieteticId= view.findViewById<Button>(checkedId)
                 selectedDietetic= selectedDieteticId.text.toString()
+
                 (activity as? Register)?.addDato(selectedDietetic)
+
                 (activity as? Register)?.nextQuestion()
             }
         }
     }
+
+
 }

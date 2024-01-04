@@ -2,18 +2,32 @@ package com.example.app.MVVM.Register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
+import com.example.app.User
 import com.example.app.databinding.ActivityRegisterBinding
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import org.json.JSONArray
 
 class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
+    private val TAG = "YourClass" // Replace with your desired tag
 
     private val fragmentManager = supportFragmentManager
-    var jsonData : JSONArray = JSONArray()
-    private var progreso =0
+    private var jsonData: JSONArray = JSONArray()
+    private lateinit var  user: User
+    private var progreso = 0
 
     private var contador = 0
+
+    //private val db = Firebase.firestore
+
+    private val db = FirebaseFirestore.getInstance()
+    private val usersCollection: CollectionReference = db.collection("users")
+
     private var bmr=0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +47,10 @@ class Register : AppCompatActivity() {
             4-> {
                 calcularBMR()
                 replaceFragment(Alergias())
+                Log.d("comprobar", "JSON data: $jsonData")
+                val user = createUserFromJson(jsonData)
+                Log.d("comprobar", "USER data: $user")
+                usersCollection.add(user)
             }
 
             5-> println(jsonData)
@@ -77,4 +95,16 @@ class Register : AppCompatActivity() {
         println(bmr)
     }
 
+    //Funcion que pasa el json a User
+    fun createUserFromJson(jsonArray: JSONArray): User {
+        val personalData1: String? = jsonArray.optString(0)
+        val altura: Float? = jsonArray.optDouble(1).toFloat()
+        val peso: Float? = jsonArray.optDouble(2).toFloat()
+        val fecha: String? = jsonArray.optString(3)
+        val sex: String? = jsonArray.optString(4)
+        val alergiasArray: JSONArray? = jsonArray.optJSONArray(5)
+        val alergias: List<String>? = alergiasArray?.let { 0.until(it.length()).map { i -> it.optString(i) } }
+        val objetive: String = jsonArray.optString(6)
+        return User(personalData1, altura, peso, fecha, sex, alergias, objetive)
+    }
 }
