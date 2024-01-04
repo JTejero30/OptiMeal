@@ -18,7 +18,6 @@ private lateinit var selectedDietetic : String
 class PersonalData : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
     override fun onCreateView(
         inflater: LayoutInflater,
