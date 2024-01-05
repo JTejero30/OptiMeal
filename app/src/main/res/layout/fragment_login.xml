@@ -1,56 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MVVM.Register.LoginFragment">
+    tools:context=".register.LoginFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="233dp"
+        android:layout_height="600dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="70dp"
+            android:layout_height="124dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
 
-        <EditText
-            android:id="@+id/passwordEditText"
+            android:contentDescription="logo"
+            android:onClick="nextQuestion"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword" />
+            android:layout_height="23dp"
+            android:gravity="center"
+            android:text="Inicia Sesión"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="233dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword" />
 
             <Button
                 android:id="@+id/accederButton"
-                android:layout_width="wrap_content"
+                android:layout_width="178dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_marginTop="7dp"
                 android:text="Acceder" />
+
+            <TextView
+                android:id="@+id/textoRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textoRegistro"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/irRegister"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:gravity="center" />
+            android:layout_gravity="center"
+            style="@style/Widget.Material3.Button.ElevatedButton"
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Go to register"
+            android:textSize="12sp" />
+
     </LinearLayout>
 
 </FrameLayout>

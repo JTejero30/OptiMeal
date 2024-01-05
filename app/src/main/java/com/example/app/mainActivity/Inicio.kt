@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.app.MVVM.Register.RegisterView
+import com.example.app.register.RegisterView
 import com.example.app.databinding.ActivityInicioBinding
 import com.google.firebase.auth.FirebaseAuth
 

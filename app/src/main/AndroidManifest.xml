@@ -22,7 +22,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MVVM.Register.RegisterView"
+            android:name=".register.RegisterView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
