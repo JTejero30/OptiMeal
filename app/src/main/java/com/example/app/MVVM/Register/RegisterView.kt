@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import com.example.app.databinding.ActivityRegisterViewBinding
 import com.example.app.mainActivity.Inicio
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterView : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterViewBinding
@@ -29,6 +31,8 @@ class RegisterView : AppCompatActivity() {
             userLogged()
         }
         replaceFragment(LoginFragment())
+
+        checkFirestoreCollectionAccess()
     }
 
     private fun replaceFragment(fr: Fragment) {
@@ -70,5 +74,30 @@ class RegisterView : AppCompatActivity() {
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
+    }
+
+    private val TAG = "YourClass" // Replace with your desired tag
+    private val db = FirebaseFirestore.getInstance()
+    private val usersCollection: CollectionReference = db.collection("users")
+
+    fun checkFirestoreCollectionAccess() {
+        // Perform a simple read operation to check access
+        usersCollection
+            .limit(1) // Limit the query to retrieve at most one document
+            .get()
+            .addOnSuccessListener { documents ->
+                // Successfully retrieved data, it means you have access
+                if (documents.size() > 0) {
+                    // Access is confirmed
+                    Log.d(TAG, "Access confirmed to Firestore collection.")
+                } else {
+                    // Collection is empty but still indicates access
+                    Log.d(TAG, "Access confirmed to Firestore collection (collection is empty).")
+                }
+            }
+            .addOnFailureListener { e ->
+                // Handle any errors that occurred
+                Log.e(TAG, "Error accessing Firestore collection: $e")
+            }
     }
 }
