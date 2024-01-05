@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import com.example.app.MVVM.Register.userController.UserController
 import com.example.app.User
 import com.example.app.databinding.ActivityRegisterBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import org.json.JSONArray
@@ -22,6 +22,7 @@ class Register : AppCompatActivity() {
     private var contador = 0
 
     //private val db = Firebase.firestore
+    private lateinit var auth: FirebaseAuth
 
     private val db = FirebaseFirestore.getInstance()
     private val usersCollection: CollectionReference = db.collection("users")
@@ -32,7 +33,12 @@ class Register : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
 
+        if (currentUser != null) {
+            Log.d("comprobar", "User logged: ${currentUser.email}")
+        }
         //cargamos el primer fragmento
         replaceFragment(PersonalData())
     }
@@ -52,7 +58,6 @@ class Register : AppCompatActivity() {
                 Log.d("comprobar", "USER data: $user")
                 usersCollection.add(user)
             }
-
             5 -> println(jsonData)
         }
     }
@@ -114,10 +119,11 @@ class Register : AppCompatActivity() {
         val alergias: List<String>? =
             alergiasArray?.let { 0.until(it.length()).map { i -> it.optString(i) } }
         val objetive: String = jsonArray.optString(6)
+        auth = FirebaseAuth.getInstance()
 
         return User(
-            UserController.userLog?.uid,
-            UserController.userLog?.email,
+            auth.currentUser?.uid,
+            auth.currentUser?.email,
             personalData1,
             altura,
             peso,

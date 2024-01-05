@@ -3,16 +3,19 @@ package com.example.app.MVVM.Register
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
-import com.example.app.MVVM.Register.userController.UserController
-import com.example.app.R
+import androidx.fragment.app.Fragment
 import com.example.app.databinding.ActivityRegisterViewBinding
-import com.google.firebase.Firebase
+import com.example.app.mainActivity.Inicio
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
 
 class RegisterView : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterViewBinding
+    private val fragmentManager = supportFragmentManager
+
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,42 +23,47 @@ class RegisterView : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        auth = FirebaseAuth.getInstance()
 
-        val user = Firebase.auth.currentUser
+        if (auth.currentUser != null) {
+            userLogged()
+        }
+        replaceFragment(LoginFragment())
+    }
 
-        binding.registrarButton.setOnClickListener() {
-            if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty()) {
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(
-                    binding.emailEditText.text.toString(),
-                    binding.passwordEditText.text.toString()
-                ).addOnCompleteListener {
-                    if (it.isSuccessful) {
+    private fun replaceFragment(fr: Fragment) {
+        val fragment = fr
+        var fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(binding.fragmentContainer.id, fragment)
+        fragmentTransaction.commit()
+    }
 
-                        //binding.textoRegistro.text = "Registrado correctamente"
+    public fun userLogged() {
+        Log.d("comprobar", "Correct Login")
 
-                        FirebaseAuth.getInstance().signInWithEmailAndPassword(
-                            binding.emailEditText.text.toString(),
-                            binding.passwordEditText.text.toString()
-                        ).addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                if (user != null) {
-                                    UserController.logIn(user)
-                                    val questionsActivity: Intent = Intent(this, Register::class.java)
-                                    startActivity(questionsActivity)
-                                }
-                            } else {
-                                showAlert()
-                            }
-                        }
-                    } else {
-                        showAlert()
-                    }
-                }
+        val inicioActivity: Intent = Intent(this, Inicio::class.java)
+        startActivity(inicioActivity)
+    }
+
+    public fun checkLogin(email: String, password: String) {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(
+            email,
+            password
+        ).addOnCompleteListener {
+            if (it.isSuccessful) {
+                Log.d("comprobar", "Correct Login desde el fragment ")
+                //UserController.logIn(user)
+                val intent = Intent(this, Inicio::class.java)
+                startActivity(intent)
+            } else {
+                Log.d("comprobar", "Error")
+
+                showAlert()
             }
         }
     }
 
-    private fun showAlert() {
+    public fun showAlert() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
         builder.setMessage("Se ha producido un error con la autenticacion del usuario")
