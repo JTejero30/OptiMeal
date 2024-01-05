@@ -2,7 +2,6 @@ package com.example.app.MVVM.Register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.app.User
 import com.example.app.databinding.ActivityRegisterBinding
@@ -61,32 +60,26 @@ class Register : AppCompatActivity() {
             5 -> println(jsonData)
         }
     }
-
     //funcion que remplaza fragmentos por otros
-    private fun replaceFragment(fr: Fragment) {
-        val fragment = fr
+    private fun replaceFragment(fr: Fragment){
+        val fragment= fr
         var fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentContainer.id, fragment)
         fragmentTransaction.commit()
     }
-
     //añadir datos al json
-    public fun addDato(dato: String) {
+    public fun addDato(dato: String){
         jsonData.put(dato)
     }
-
-    public fun addDato(dato: Int) {
+    public fun addDato(dato: Int){
         jsonData.put(dato)
     }
-
-    public fun addDato(dato: MutableList<String>) {
+    public fun addDato(dato: MutableList<String>){
         jsonData.put(dato)
     }
-
-    public fun addDato(dato: Float) {
+    public fun addDato(dato: Float){
         jsonData.put(dato)
     }
-
     //funcion que calcula las calorias totales diarias de la persona
     //es asincrona para hacerlo mas eficiente
     fun calcularBMR() {
