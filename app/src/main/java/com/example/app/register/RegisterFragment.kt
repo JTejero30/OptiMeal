@@ -33,7 +33,6 @@ class RegisterFragment : Fragment() {
         binding.irLogin.setOnClickListener() {
             (activity as? RegisterView)?.replaceFragment(LoginFragment())
         }
-        binding.registrarButton.setOnClickListener() {
             binding.registrarButton.setOnClickListener() {
                 if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty()) {
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(
@@ -47,7 +46,6 @@ class RegisterFragment : Fragment() {
                             (activity as? RegisterView)?.showAlert()
                         }
                     }
-                }
             }
         }
     }

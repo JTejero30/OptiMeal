@@ -6,12 +6,9 @@ import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.app.MVVM.Register.Register
 import com.example.app.databinding.ActivityRegisterViewBinding
 import com.example.app.mainActivity.Inicio
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterView : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterViewBinding
@@ -31,7 +28,6 @@ class RegisterView : AppCompatActivity() {
             userLogged()
         }
         replaceFragment(LoginFragment())
-
     }
 
     public fun replaceFragment(fr: Fragment) {
