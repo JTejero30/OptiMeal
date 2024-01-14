@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.app.MVVM.Register.Register
 import com.example.app.databinding.FragmentRegisterBinding
-import com.example.app.mainActivity.Inicio
 import com.google.firebase.auth.FirebaseAuth
 
 class RegisterFragment : Fragment() {

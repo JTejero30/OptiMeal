@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_ingredients"
+        android:icon="@drawable/baseline_grocery_ingredient_24"
+        android:title="@string/title_ingredients" />
+
+    <item
+        android:id="@+id/navigation_superheros"
+        android:icon="@drawable/baseline_menu_book_24"
+        android:title="@string/title_superhero" />
+
+</menu>

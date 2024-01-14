@@ -38,7 +38,6 @@ class LoginFragment : Fragment() {
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
                     Log.d("comprobar", "Correct Login desde el fragment ")
-                    Log.d("comprobar", "Simplemente estoy probando, borrar estos ")
 
                     val intent = Intent(activity, Inicio::class.java)
                     startActivity(intent)

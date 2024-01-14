@@ -1,12 +1,19 @@
 package com.example.app.mainActivity
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
-import android.util.Log
-import com.example.app.register.RegisterView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.example.app.R
 import com.example.app.databinding.ActivityInicioBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+
 
 class Inicio : AppCompatActivity() {
     private lateinit var binding: ActivityInicioBinding
@@ -16,6 +23,35 @@ class Inicio : AppCompatActivity() {
         binding = ActivityInicioBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment?
+        //val navController = navHostFragment!!.navController
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+
+        val navController = navHostFragment.navController
+        val navView: BottomNavigationView = binding.navView
+
+
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home, R.id.navigation_ingredients, R.id.navigation_superheros
+            )
+        )
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.hide()
+
+        val toolbar2: Toolbar = findViewById(R.id.bottomAppBar)
+        setSupportActionBar(toolbar2)
+        supportActionBar?.hide()
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+
+        //Sin el nav:
+        /*
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         if (currentUser != null) {
@@ -25,6 +61,11 @@ class Inicio : AppCompatActivity() {
             auth.signOut()
             val intent = Intent(this, RegisterView::class.java)
             startActivity(intent)
-        }
+        }*/
+    }
+    // Override onSupportNavigateUp to handle Up button presses in the default ActionBar
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
