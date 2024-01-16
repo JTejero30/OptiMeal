@@ -1,12 +1,11 @@
-package com.example.app.ui.ingredients
+package com.example.app.ui.ajustes
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.app.recyclerView.adapter.SuperHeroAdapter
 import com.google.firebase.auth.FirebaseAuth
 
-class IngredientsViewModel : ViewModel(){
+class AjustesViewModel : ViewModel(){
 
 
     private val _userEmail = MutableLiveData<String>().apply {

@@ -1,4 +1,4 @@
-package com.example.app.recyclerView.adapter
+package com.example.app.ui.superhero.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

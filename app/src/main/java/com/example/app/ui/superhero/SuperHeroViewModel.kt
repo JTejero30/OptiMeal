@@ -15,6 +15,5 @@ class SuperHeroViewModel : ViewModel(){
         value = auth.currentUser?.email
     }
 
-
     val userEmail: LiveData<String> = _userEmail
 }

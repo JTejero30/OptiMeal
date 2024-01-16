@@ -8,7 +8,7 @@ class SuperHeroProvider {
                 "Spiderman",
                 "Marvel",
                 "Peter Parker",
-                "https://cursokotlin.com/wp-content/uploads/2017/07/spiderman.jpg"
+                "https://firebasestorage.googleapis.com/v0/b/menuinteligente-4bc8f.appspot.com/o/luxerati_img3.png?alt=media&token=c8d24b31-fcdf-4e64-af7d-54916eb86514"
             ),
             SuperHero(
                 "Daredevil",

@@ -14,9 +14,9 @@
 
     <fragment
         android:id="@+id/navigation_ingredients"
-        android:name="com.example.app.ui.ingredients.IngredientsFragment"
+        android:name="com.example.app.ui.ajustes.AjustesFragment"
         android:label="@string/title_ingredients"
-        tools:layout="@layout/fragment_ingredients" />
+        tools:layout="@layout/fragment_ajustes" />
 
     <fragment
         android:id="@+id/navigation_superheros"

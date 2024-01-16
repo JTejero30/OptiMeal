@@ -12,8 +12,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.app"
-        minSdk = 24
-        targetSdk = 33
+        minSdk = 21
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -77,5 +77,9 @@ dependencies {
 
     //Glide para las imagenes
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    //SplashScreen
+    implementation ("androidx.core:core-splashscreen:1.0.1")
+
 
 }
