@@ -5,10 +5,185 @@
     android:layout_height="match_parent"
     tools:context=".MVVM.Menu.Menu">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
+        <!-- Lunes -->
+        <TextView
+            android:id="@+id/lunes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lunes" />
+
+        <TextView
+            android:id="@+id/lunes_desayuno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Desayuno" />
+
+        <TextView
+            android:id="@+id/lunes_comida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comida" />
+
+        <TextView
+            android:id="@+id/lunes_cena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cena" />
+
+        <!-- Martes -->
+        <TextView
+            android:id="@+id/martes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Martes" />
+
+        <TextView
+            android:id="@+id/martes_desayuno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Desayuno" />
+
+        <TextView
+            android:id="@+id/martes_comida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comida" />
+
+        <TextView
+            android:id="@+id/martes_cena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cena" />
+
+        <!-- Miércoles -->
+        <TextView
+            android:id="@+id/miercoles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Miércoles" />
+
+        <TextView
+            android:id="@+id/miercoles_desayuno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Desayuno" />
+
+        <TextView
+            android:id="@+id/miercoles_comida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comida" />
+
+        <TextView
+            android:id="@+id/miercoles_cena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cena" />
+
+        <!-- Jueves -->
+        <TextView
+            android:id="@+id/jueves"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jueves" />
+
+        <TextView
+            android:id="@+id/jueves_desayuno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Desayuno" />
+
+        <TextView
+            android:id="@+id/jueves_comida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comida" />
+
+        <TextView
+            android:id="@+id/jueves_cena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cena" />
+
+        <!-- Viernes -->
+        <TextView
+            android:id="@+id/viernes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Viernes" />
+
+        <TextView
+            android:id="@+id/viernes_desayuno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Desayuno" />
+
+        <TextView
+            android:id="@+id/viernes_comida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comida" />
+
+        <TextView
+            android:id="@+id/viernes_cena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cena" />
+
+        <!-- Sábado -->
+        <TextView
+            android:id="@+id/sabado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sábado" />
+
+        <TextView
+            android:id="@+id/sabado_desayuno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Desayuno" />
+
+        <TextView
+            android:id="@+id/sabado_comida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comida" />
+
+        <TextView
+            android:id="@+id/sabado_cena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cena" />
+
+        <!-- Domingo -->
+        <TextView
+            android:id="@+id/domingo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Domingo" />
+
+        <TextView
+            android:id="@+id/domingo_desayuno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Desayuno" />
+
+        <TextView
+            android:id="@+id/domingo_comida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comida" />
+
+        <TextView
+            android:id="@+id/domingo_cena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cena" />
+
+    </LinearLayout>
 </FrameLayout>

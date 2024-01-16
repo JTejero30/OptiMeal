@@ -34,7 +34,7 @@ class PhysicalActivity : Fragment() {
                 val selected = view.findViewById<Button>(id)
                 val selectedTag = selected.tag
                 val multiplicador= valorSelected(selectedTag)
-                (activity as? Register)?.addDato(multiplicador)
+                (activity as? Register)?.addDato("activity",multiplicador)
                 (activity as? Register)?.nextQuestion()
             }
         }

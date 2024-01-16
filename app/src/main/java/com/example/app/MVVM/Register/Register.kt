@@ -9,13 +9,23 @@ import com.example.app.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
-import org.json.JSONArray
+
 
 class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
 
     private val fragmentManager = supportFragmentManager
-    private var jsonData: JSONArray = JSONArray()
+    private var userData: MutableMap<String, Any> = mutableMapOf(
+        "dietetic_preference" to "",
+        "height" to 0.00,
+        "weight" to 0.00,
+        "data" to "",
+        "age" to 0,
+        "sex" to "",
+        "allergies" to arrayOf<String>(),
+        "deficit" to 0.00,
+        "activity" to 0.0
+    )
     private lateinit var user: User
     private var progreso = 0
 
@@ -27,7 +37,7 @@ class Register : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     private val usersCollection: CollectionReference = db.collection("users")
 
-    private var bmr = 0.0
+    private var TDEE = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -40,6 +50,7 @@ class Register : AppCompatActivity() {
             Log.d("comprobar", "User logged: ${currentUser.email}")
         }
         //cargamos el primer fragmento
+        //TODO descomentar linea abajo y borrar otra:
         replaceFragment(PersonalData())
     }
 
@@ -51,80 +62,75 @@ class Register : AppCompatActivity() {
             2 -> replaceFragment(PhysicalActivity())
             3 -> replaceFragment(Objetives())
             4 -> {
-                calcularBMR()
+                calcularTDEE()
                 replaceFragment(Alergias())
-                Log.d("comprobar", "JSON data: $jsonData")
-                val user = createUserFromJson(jsonData)
-                Log.d("comprobar", "USER data: $user")
+
+                val user = createUserFromJson()
                 usersCollection.add(user)
             }
-            5 -> println(jsonData)
+
+            5 -> Log.d("User data:", userData.toString())
         }
     }
+
     //funcion que remplaza fragmentos por otros
-    private fun replaceFragment(fr: Fragment){
-        val fragment= fr
+    private fun replaceFragment(fr: Fragment) {
+        val fragment = fr
         var fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentContainer.id, fragment)
         fragmentTransaction.commit()
     }
+
     //añadir datos al json
-    public fun addDato(dato: String){
-        jsonData.put(dato)
+    public fun addDato(key: String, dato: Any) {
+        userData.put(key, dato)
     }
-    public fun addDato(dato: Int){
-        jsonData.put(dato)
-    }
-    public fun addDato(dato: MutableList<String>){
-        jsonData.put(dato)
-    }
-    public fun addDato(dato: Float){
-        jsonData.put(dato)
-    }
+
     //funcion que calcula las calorias totales diarias de la persona
     //es asincrona para hacerlo mas eficiente
-    fun calcularBMR() {
-        val sex = jsonData[5]
-        val peso = jsonData[2].toString().toDouble()
-        val altura = jsonData[1].toString().toDouble()
-        val edad = jsonData[4].toString().toInt()
-        val actividad = jsonData[6].toString().toDouble()
-        val deficit = jsonData[7].toString().toDouble()
+    fun calcularTDEE() {
+        val sex = userData["sex"]
+        val peso = userData["weight"].toString().toDouble()
+        val altura = userData["height"].toString().toDouble()
+        val edad = userData["age"].toString().toInt()
+        val actividad = userData["activity"].toString().toDouble()
+        val deficit = userData["deficit"].toString().toDouble()
         /*Men: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) - (5.677 x age in years)*/
+        /*del BMR sacamos el TDEE (total daily energy expenditure)*/
         if (sex == "Hombre") {
-            bmr =
+            TDEE =
                 (88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * edad)) * actividad * deficit
         } else {
             /*Women: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) - (4.330 x age in years)*/
-            bmr =
+            TDEE =
                 (447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * edad)) * actividad * deficit
         }
-        println(bmr)
+        println(TDEE)
     }
 
     //Funcion que pasa el json a User
-    fun createUserFromJson(jsonArray: JSONArray): User {
-        val personalData1: String? = jsonArray.optString(0)
-        val altura: Float? = jsonArray.optDouble(1).toFloat()
-        val peso: Float? = jsonArray.optDouble(2).toFloat()
-        val fecha: String? = jsonArray.optString(3)
-        val sex: String? = jsonArray.optString(4)
-        val alergiasArray: JSONArray? = jsonArray.optJSONArray(5)
-        val alergias: List<String>? =
-            alergiasArray?.let { 0.until(it.length()).map { i -> it.optString(i) } }
-        val objetive: String = jsonArray.optString(6)
+    fun createUserFromJson(): User {
+        val dietetic_preference: String = userData["dietetic_preference"].toString()
+        val sex = userData["sex"].toString()
+        val peso = userData["weight"].toString().toDouble()
+        val altura = userData["height"].toString().toDouble()
+        val edad = userData["age"].toString().toInt()
+        val actividad = userData["activity"].toString().toDouble()
+        val deficit = userData["deficit"].toString().toDouble()
+        val alergiasArray = userData["allergies"].toString()
         auth = FirebaseAuth.getInstance()
 
         return User(
             auth.currentUser?.uid,
             auth.currentUser?.email,
-            personalData1,
-            altura,
-            peso,
-            fecha,
+            dietetic_preference,
             sex,
-            alergias,
-            objetive
+            peso,
+            altura,
+            edad,
+            actividad,
+            deficit,
+            alergiasArray,
         )
     }
 }
