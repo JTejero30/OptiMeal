@@ -41,8 +41,6 @@ class HomeFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager(context)
         rv.adapter = homeViewModel.getData()?.let { HomeAdapter(it) }
 
-
-
         return binding.root
     }
 

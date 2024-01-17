@@ -42,8 +42,10 @@ class HomeViewModel : ViewModel(){
                 val grasas = nombre["grasas"].toString()
                 val hidratos_de_carbono = nombre["hidratos_de_carbono"].toString()
                 val calorias = nombre["calorias"].toString()
+                val imagen = nombre["imagen"].toString()
 
-                val ingredient = IngredientModel(name, proteinas, grasas, hidratos_de_carbono, calorias)
+
+                val ingredient = IngredientModel(name, proteinas, grasas, hidratos_de_carbono, calorias, imagen)
                 ingredients.add(ingredient)
             }
 

@@ -27,6 +27,8 @@ class HomeViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
         binding.hidratosDeCarbonoCard.text=ingredientModel.hidratos_de_carbono
         binding.caloriasCard.text=ingredientModel.calorias
+        Glide.with(binding.ivAvatar.context).load(ingredientModel.imagen).into(binding.ivAvatar)
+
 
 
     }

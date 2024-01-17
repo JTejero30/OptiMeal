@@ -15,11 +15,5 @@
         android:contentDescription="@string/title_ingredients"
         />
 
-    <item
-        android:id="@+id/navigation_superheros"
-        android:contentDescription="@string/title_superhero"
-        android:icon="@drawable/baseline_menu_book_24"
-        android:title="@string/title_superhero"
 
-        />
 </menu>

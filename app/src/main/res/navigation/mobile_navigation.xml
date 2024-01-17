@@ -18,11 +18,7 @@
         android:label="@string/title_ingredients"
         tools:layout="@layout/fragment_ajustes" />
 
-    <fragment
-        android:id="@+id/navigation_superheros"
-        android:name="com.example.app.ui.superhero.SuperHeroFragment"
-        android:label="@string/title_superhero"
-        tools:layout="@layout/fragment_superhero" />
+    
 
 
 
