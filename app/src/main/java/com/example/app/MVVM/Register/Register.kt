@@ -35,7 +35,6 @@ class Register : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
-
         if (currentUser != null) {
             Log.d("comprobar", "User logged: ${currentUser.email}")
         }
