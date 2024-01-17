@@ -76,10 +76,10 @@ class PersonalData2 : Fragment() {
         val peso = binding.weight.text.toString().toFloat()
         val fecha = selectedDate.toString()
         val sex = selectedSex?.text?.toString() ?: ""
-        (activity as? Register)?.addDato(altura)
-        (activity as? Register)?.addDato(peso)
-        (activity as? Register)?.addDato(fecha)
-        (activity as? Register)?.addDato(edad)
-        (activity as? Register)?.addDato(sex)
+        (activity as? Register)?.addDato("height",altura)
+        (activity as? Register)?.addDato("weight",peso)
+        (activity as? Register)?.addDato("data", fecha)
+        (activity as? Register)?.addDato("age",edad)
+        (activity as? Register)?.addDato("sex",sex)
     }
 }

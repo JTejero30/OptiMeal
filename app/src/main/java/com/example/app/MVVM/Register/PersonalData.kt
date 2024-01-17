@@ -38,7 +38,7 @@ class PersonalData : Fragment() {
                 val selectedDieteticId= view.findViewById<Button>(checkedId)
                 selectedDietetic= selectedDieteticId.text.toString()
 
-                (activity as? Register)?.addDato(selectedDietetic)
+                (activity as? Register)?.addDato("dietetic_preference",selectedDietetic)
 
                 (activity as? Register)?.nextQuestion()
             }
