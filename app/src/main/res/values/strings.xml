@@ -12,4 +12,47 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string-array name="spinner_lunes">
+        <item>Tostadas con aguacate y huevos revueltos</item>
+        <item>Ensalada de pollo con espinacas, fresas y nueces</item>
+        <item>Salmón a la parrilla con quinoa y espárragos</item>
+    </string-array>
+
+    <string-array name="spinner_martes">
+        <item>Smoothie de frutas con yogur</item>
+        <item>Pasta integral con salsa de tomate y albóndigas de pavo</item>
+        <item>Ensalada César con pollo a la plancha</item>
+    </string-array>
+
+    <string-array name="spinner_miercoles">
+        <item>Avena cocida con plátano y almendras</item>
+        <item>Wrap de pollo con verduras asadas</item>
+        <item>Stir fry de ternera con brócoli y arroz integral</item>
+    </string-array>
+
+    <string-array name="spinner_jueves">
+        <item>Panqueques de avena con arándanos</item>
+        <item>Sopa de lentejas con vegetales y aguacate</item>
+        <item>Pescado al horno con patatas asadas y espárragos</item>
+    </string-array>
+
+    <string-array name="spinner_viernes">
+        <item>Tostadas de aguacate y tomate con huevo pochado</item>
+        <item>Ensalada griega con queso feta y aceitunas</item>
+        <item>Pizza casera con base de coliflor y vegetales</item>
+    </string-array>
+
+    <string-array name="spinner_sabado">
+        <item>Batido verde con espinacas, piña y plátano</item>
+        <item>Hamburguesa de pavo con ensalada de col</item>
+        <item>Fajitas de pollo con pimientos y guarnición de maíz</item>
+    </string-array>
+
+    <string-array name="spinner_domingo">
+        <item>Omelette de champiñones y queso</item>
+        <item>Pollo al horno con batatas asadas y brócoli</item>
+        <item>Pasta integral con salsa de pesto y tomates cherry</item>
+    </string-array>
+
 </resources>

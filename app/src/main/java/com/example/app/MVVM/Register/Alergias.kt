@@ -56,7 +56,7 @@ class Alergias : Fragment() {
     }
 
     private fun addData() {
-        (activity as? Register)?.addDato(alergias)
+        (activity as? Register)?.addDato("allergies",alergias)
     }
 
     private fun removeAlergia(alergia: ImageView) {
