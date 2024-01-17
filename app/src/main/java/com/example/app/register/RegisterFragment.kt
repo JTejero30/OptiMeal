@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.app.MVVM.Register.Register
 import com.example.app.databinding.FragmentRegisterBinding
-import com.example.app.mainActivity.Inicio
 import com.google.firebase.auth.FirebaseAuth
 
 class RegisterFragment : Fragment() {
@@ -33,7 +32,6 @@ class RegisterFragment : Fragment() {
         binding.irLogin.setOnClickListener() {
             (activity as? RegisterView)?.replaceFragment(LoginFragment())
         }
-        binding.registrarButton.setOnClickListener() {
             binding.registrarButton.setOnClickListener() {
                 if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty()) {
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(
@@ -47,7 +45,6 @@ class RegisterFragment : Fragment() {
                             (activity as? RegisterView)?.showAlert()
                         }
                     }
-                }
             }
         }
     }
