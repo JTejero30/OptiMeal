@@ -21,6 +21,8 @@ class HomeViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
     fun render(ingredientModel: IngredientModel){
 
+
+        Log.d("Comprobar","HomeViewHolder Render")
         binding.nombreCard.text=ingredientModel.name
         binding.listaIngredientesCard.text=ingredientModel.proteinas
         binding.grasasCard.text=ingredientModel.grasas
