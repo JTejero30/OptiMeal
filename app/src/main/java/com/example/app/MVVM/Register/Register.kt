@@ -94,16 +94,15 @@ class Register : AppCompatActivity() {
         val edad = userData["age"].toString().toInt()
         val actividad = userData["activity"].toString().toDouble()
         val deficit = userData["deficit"].toString().toDouble()
-        /*Men: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) - (5.677 x age in years)*/
+        val variableSex = if(sex=="Hombre") 5 else -161
+
+        /*Men: BMR =(10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) + 5*/
+        /*Women: BMR = (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161*/
         /*del BMR sacamos el TDEE (total daily energy expenditure)*/
-        if (sex == "Hombre") {
-            TDEE =
-                (88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * edad)) * actividad * deficit
-        } else {
-            /*Women: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) - (4.330 x age in years)*/
-            TDEE =
-                (447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * edad)) * actividad * deficit
-        }
+
+        TDEE = ((10 * peso) + (6.25 * altura) - (5 * edad) + variableSex)* actividad * deficit
+
+
         println(TDEE)
     }
 
@@ -130,6 +129,7 @@ class Register : AppCompatActivity() {
             actividad,
             deficit,
             alergiasArray,
+            TDEE
         )
     }
 }
