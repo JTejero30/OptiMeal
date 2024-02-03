@@ -18,6 +18,12 @@
         android:label="@string/title_ingredients"
         tools:layout="@layout/fragment_ajustes" />
 
+    <fragment
+        android:id="@+id/navigation_recipes"
+        android:name="com.example.app.ui.recipes.RecipesFragment"
+        android:label="@string/title_recipes"
+        tools:layout="@layout/fragment_recipes" />
+
     
 
 

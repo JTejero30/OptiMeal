@@ -10,8 +10,6 @@ import com.example.app.databinding.FragmentAjustesBinding
 
 class AjustesFragment : Fragment() {
     private var _binding: FragmentAjustesBinding? = null
-
-
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {

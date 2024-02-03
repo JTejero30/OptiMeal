@@ -12,7 +12,20 @@
           "package_name": "com.example.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "529191917958-amokvutar7d6t63u13g2kgilttn5s99p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app",
+            "certificate_hash": "2f768022bf2301799a7ec286dbbbb0f0ce74c012"
+          }
+        },
+        {
+          "client_id": "529191917958-49k9qjo0539nqcnett9nln5voulj5dbq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAQ4DNFVhn8NluuBjmxW-bcy39DBtZNGtw"
@@ -20,7 +33,49 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529191917958-49k9qjo0539nqcnett9nln5voulj5dbq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529191917958:android:9f6513bb53722e8db1b407",
+        "android_client_info": {
+          "package_name": "com.example.bottomnavigationviewoptimeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529191917958-vp08i1icohne6qb6a7chm4pjplit7tvb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bottomnavigationviewoptimeal",
+            "certificate_hash": "2f768022bf2301799a7ec286dbbbb0f0ce74c012"
+          }
+        },
+        {
+          "client_id": "529191917958-49k9qjo0539nqcnett9nln5voulj5dbq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ4DNFVhn8NluuBjmxW-bcy39DBtZNGtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529191917958-49k9qjo0539nqcnett9nln5voulj5dbq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

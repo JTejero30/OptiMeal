@@ -17,10 +17,7 @@ class HomeViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
     //Esta clase recoge los atributos y los pinta
     //Esta funcion se va a llamar por cada uno de los Superheros, para asi pintar la vista
-
-
     fun render(ingredientModel: IngredientModel){
-
 
         Log.d("Comprobar","HomeViewHolder Render")
         binding.nombreCard.text=ingredientModel.name
@@ -29,9 +26,6 @@ class HomeViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
         binding.hidratosDeCarbonoCard.text=ingredientModel.hidratos_de_carbono
         binding.caloriasCard.text=ingredientModel.calorias
-        Glide.with(binding.ivAvatar.context).load(ingredientModel.imagen).into(binding.ivAvatar)
-
-
 
     }
 }

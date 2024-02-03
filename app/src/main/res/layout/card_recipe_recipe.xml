@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="227dp"
+                android:layout_height="145dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/nombreCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brocoli"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20sp"
+                android:paddingBottom="5sp"
+                android:text="Ingredientes:"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/listaIngredientesCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20sp"
+                android:paddingBottom="5sp"
+                android:text="Macros:"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textSize="20sp" />
+            <LinearLayout
+                android:id="@+id/listaMacrosCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

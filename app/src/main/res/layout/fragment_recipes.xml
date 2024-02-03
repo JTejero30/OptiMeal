@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ajustes.AjustesFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.recipes.RecipesFragment">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,13 +19,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.494">
 
-        <CalendarView
-            android:id="@+id/simpleCalendarView"
+
+        <ProgressBar
+            android:id="@+id/loadingIndicator"
+            android:layout_width="81dp"
+            android:layout_height="88dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recipeRV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:firstDayOfWeek="1"
-            android:minDate="01/01/2024"
-            />
+            android:background="#23ACEA00"
+
+            android:visibility="gone"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 

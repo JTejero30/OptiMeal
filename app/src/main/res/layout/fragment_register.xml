@@ -63,10 +63,10 @@
 
             <Button
                 android:id="@+id/registrarButton"
+                style="@style/Widget.Material3.Button.IconButton.Filled"
                 android:layout_width="178dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                style="@style/Widget.Material3.Button.ElevatedButton"
                 android:layout_marginTop="7dp"
                 android:text="Registrar" />
 
@@ -80,10 +80,10 @@
 
         <Button
             android:id="@+id/irLogin"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            style="@style/Widget.Material3.Button.ElevatedButton"
 
             android:text="Ir a login"
             android:textSize="12sp" />

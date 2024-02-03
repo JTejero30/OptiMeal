@@ -10,6 +10,11 @@
         android:icon="@drawable/baseline_grocery_ingredient_24"
         android:title="@string/title_ingredients" />
 
+    <item
+        android:id="@+id/navigation_recipes"
+        android:icon="@drawable/baseline_grocery_ingredient_24"
+        android:title="@string/title_recipes" />
+
 
 
 </menu>

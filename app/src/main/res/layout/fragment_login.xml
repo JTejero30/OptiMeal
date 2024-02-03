@@ -25,9 +25,11 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="23dp"
+            android:layout_height="52dp"
             android:gravity="center"
             android:text="Inicia Sesión"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -66,8 +68,8 @@
                 android:layout_width="178dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                style="@style/Widget.Material3.Button.ElevatedButton"
                 android:layout_marginTop="7dp"
+                android:backgroundTint="#029C04"
                 android:text="Acceder" />
 
             <TextView
@@ -83,10 +85,21 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            style="@style/Widget.Material3.Button.ElevatedButton"
 
+            android:backgroundTint="#8F018713"
             android:text="Go to register"
             android:textSize="12sp" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/SignIn_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
 
