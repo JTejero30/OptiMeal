@@ -48,7 +48,7 @@ class RecipesFragment : Fragment() {
             data?.let {
                 rv.layoutManager = LinearLayoutManager(context)
                 rv.adapter = RecipesAdapter(it)
-                Log.d("Comprobar", "HomeFragment rv=HomeAdapter ${rv.adapter}")
+                Log.d("Comprobar", "RecipeFragment rv=RecipeAdapter ${rv.adapter}")
             }
         }
 
