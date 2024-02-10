@@ -43,28 +43,28 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = FirebaseAuth.getInstance()
+       /* auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         if (currentUser != null) {
             Log.d("comprobar", "User logged: ${currentUser.email}")
-        }
+        }*/
         //TODO descomentar linea abajo y borrar otra:
-        replaceFragment(DieteticPreference())
+        replaceFragment(DieteticPreferenceFragment())
     }
 
     public fun nextQuestion() {
         progreso++
         binding.progress.incrementProgressBy(1)
         when (progreso) {
-            1 -> replaceFragment(PersonalData())
-            2 -> replaceFragment(Physical())
-            3 -> replaceFragment(Objetives())
+            1 -> replaceFragment(PersonalDataFragment())
+            2 -> replaceFragment(PhysicalFragment())
+            3 -> replaceFragment(ObjetivesFragment())
             4 -> {
                 calcularTDEE()
-                replaceFragment(Alergias())
+                replaceFragment(AlergiasFragment())
             }
             5 -> {
-                replaceFragment(Email())
+                replaceFragment(EmailFragment())
                 val user = createUserFromJson()
                 usersCollection.add(user)
             }

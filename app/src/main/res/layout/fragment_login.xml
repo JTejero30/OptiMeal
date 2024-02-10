@@ -69,7 +69,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="7dp"
-                android:backgroundTint="#029C04"
                 android:text="Acceder" />
 
             <TextView
@@ -86,7 +85,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
 
-            android:backgroundTint="#8F018713"
             android:text="Go to register"
             android:textSize="12sp" />
 

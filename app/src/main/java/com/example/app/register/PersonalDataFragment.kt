@@ -7,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.example.app.databinding.FragmentPersonalDataBinding
-import com.example.app.databinding.FragmentRegisterBinding
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 
-class PersonalData : Fragment() {
+class PersonalDataFragment : Fragment() {
     private var _binding: FragmentPersonalDataBinding? = null
     private val binding get() = _binding!!
     private var selectedDate: Long? = null

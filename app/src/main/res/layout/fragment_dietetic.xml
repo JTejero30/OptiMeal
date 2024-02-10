@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".register.DieteticPreference">
+    tools:context=".register.DieteticPreferenceFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -72,6 +72,8 @@
                     android:gravity="start|center_vertical"
                     android:text="Vegano" />
             </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

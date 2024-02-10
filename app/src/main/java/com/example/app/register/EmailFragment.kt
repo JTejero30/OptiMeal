@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.app.databinding.FragmentRegisterBinding
-import com.example.app.register2.LoginFragment
 import com.example.app.register2.RegisterView
 import com.google.firebase.auth.FirebaseAuth
 
-class Email : Fragment() {
+class EmailFragment : Fragment() {
     private lateinit var _binding: FragmentRegisterBinding
     private val binding get() = _binding!!
 

@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 
 import com.example.app.databinding.FragmentAlergiasBinding
 
-class Alergias : Fragment() {
+class AlergiasFragment : Fragment() {
     private var _binding: FragmentAlergiasBinding? = null
     private val binding get() = _binding!!
     private var alergias: MutableList<String> = mutableListOf()
