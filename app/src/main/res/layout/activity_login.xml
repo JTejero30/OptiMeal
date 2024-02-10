@@ -4,12 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register.EmailFragment">
+    tools:context=".register.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="600dp"
         android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="70dp"
+            android:layout_height="124dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+
+            android:contentDescription="logo"
+            android:onClick="nextQuestion"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:gravity="center"
+            android:text="Inicia Sesión"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,13 +64,12 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/registrarButton"
-                style="@style/Widget.Material3.Button.IconButton.Filled"
+                android:id="@+id/accederButton"
                 android:layout_width="178dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="7dp"
-                android:text="Registrar" />
+                android:text="Acceder" />
 
             <TextView
                 android:id="@+id/textoRegistro"
@@ -56,6 +78,26 @@
                 android:gravity="center" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/irRegister"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:text="Go to register"
+            android:textSize="12sp" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/SignIn_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
 

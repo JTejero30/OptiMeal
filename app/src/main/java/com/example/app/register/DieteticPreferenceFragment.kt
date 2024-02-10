@@ -8,9 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.app.databinding.FragmentDieteticBinding
 
-import com.example.app.databinding.FragmentPersonalDataBinding
-
-class DieteticPreference : Fragment() {
+class DieteticPreferenceFragment : Fragment() {
 
     private var _binding : FragmentDieteticBinding? =null
     private val binding get() = _binding!!

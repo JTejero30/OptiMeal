@@ -8,7 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.app.databinding.FragmentPhysicalActivityBinding
 
-class Physical : Fragment() {
+class PhysicalFragment : Fragment() {
 
     private var _binding: FragmentPhysicalActivityBinding? = null
     private val binding get() = _binding!!

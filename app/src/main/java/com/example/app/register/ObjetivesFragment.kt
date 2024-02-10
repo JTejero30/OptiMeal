@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.example.app.databinding.FragmentObjetivesBinding
-import com.example.app.register.RegisterActivity
 
 
-class Objetives : Fragment() {
+class ObjetivesFragment : Fragment() {
     private var _binding: FragmentObjetivesBinding? = null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
