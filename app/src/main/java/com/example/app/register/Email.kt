@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.app.MVVM.Register.Register
 import com.example.app.databinding.FragmentRegisterBinding
+import com.example.app.register2.LoginFragment
+import com.example.app.register2.RegisterView
 import com.google.firebase.auth.FirebaseAuth
 
-class RegisterFragment : Fragment() {
+class Email : Fragment() {
     private lateinit var _binding: FragmentRegisterBinding
     private val binding get() = _binding!!
 
@@ -29,17 +30,15 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.irLogin.setOnClickListener() {
-            (activity as? RegisterView)?.replaceFragment(LoginFragment())
-        }
             binding.registrarButton.setOnClickListener() {
+                (activity as? RegisterActivity)?.nextQuestion()
                 if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty()) {
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(
                         binding.emailEditText.text.toString(),
                         binding.passwordEditText.text.toString()
                     ).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val intent = Intent(activity, Register::class.java)
+                            val intent = Intent(activity, RegisterActivity::class.java)
                             startActivity(intent)
                         } else {
                             (activity as? RegisterView)?.showAlert()

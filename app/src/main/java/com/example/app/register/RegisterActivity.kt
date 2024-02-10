@@ -1,4 +1,4 @@
-package com.example.app.MVVM.Register
+package com.example.app.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-class Register : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
 
     private val fragmentManager = supportFragmentManager
@@ -48,27 +48,27 @@ class Register : AppCompatActivity() {
         if (currentUser != null) {
             Log.d("comprobar", "User logged: ${currentUser.email}")
         }
-        //cargamos el primer fragmento
         //TODO descomentar linea abajo y borrar otra:
-        replaceFragment(PersonalData())
+        replaceFragment(DieteticPreference())
     }
 
     public fun nextQuestion() {
         progreso++
         binding.progress.incrementProgressBy(1)
         when (progreso) {
-            1 -> replaceFragment(PersonalData2())
-            2 -> replaceFragment(PhysicalActivity())
+            1 -> replaceFragment(PersonalData())
+            2 -> replaceFragment(Physical())
             3 -> replaceFragment(Objetives())
             4 -> {
                 calcularTDEE()
                 replaceFragment(Alergias())
-
+            }
+            5 -> {
+                replaceFragment(Email())
                 val user = createUserFromJson()
                 usersCollection.add(user)
             }
-
-            5 -> Log.d("User data:", userData.toString())
+            6 -> Log.d("User data:", userData.toString())
         }
     }
 

@@ -1,19 +1,17 @@
-package com.example.app.MVVM.Register
+package com.example.app.register
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import com.example.app.R
+import androidx.fragment.app.Fragment
 import com.example.app.databinding.FragmentPhysicalActivityBinding
 
-private var _binding: FragmentPhysicalActivityBinding? = null
-private val binding get() = _binding!!
+class Physical : Fragment() {
 
-class PhysicalActivity : Fragment() {
-
+    private var _binding: FragmentPhysicalActivityBinding? = null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,8 +32,8 @@ class PhysicalActivity : Fragment() {
                 val selected = view.findViewById<Button>(id)
                 val selectedTag = selected.tag
                 val multiplicador= valorSelected(selectedTag)
-                (activity as? Register)?.addDato("activity",multiplicador)
-                (activity as? Register)?.nextQuestion()
+                (activity as? RegisterActivity)?.addDato("activity",multiplicador)
+                (activity as? RegisterActivity)?.nextQuestion()
             }
         }
     }

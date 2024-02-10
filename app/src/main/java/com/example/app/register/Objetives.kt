@@ -1,4 +1,4 @@
-package com.example.app.MVVM.Register
+package com.example.app.register
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import com.example.app.R
 import com.example.app.databinding.FragmentObjetivesBinding
-import com.example.app.databinding.FragmentPersonalDataBinding
+import com.example.app.register.RegisterActivity
 
 
 class Objetives : Fragment() {
@@ -32,8 +31,8 @@ class Objetives : Fragment() {
             if (ischecked) {
                 val selectedObjetiveTag = view.findViewById<Button>(id).tag.toString()
                 val deficit = calcularDeficit(selectedObjetiveTag)
-                (activity as? Register)?.addDato("deficit",deficit)
-                (activity as? Register)?.nextQuestion()
+                (activity as? RegisterActivity)?.addDato("deficit",deficit)
+                (activity as? RegisterActivity)?.nextQuestion()
             }
         }
     }

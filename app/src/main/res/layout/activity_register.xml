@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MVVM.Register.Register">
+    tools:context=".register.RegisterActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -37,7 +37,7 @@
         android:id="@+id/progress"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:max="5"
+        android:max="6"
         android:progress="0"
         app:hideAnimationBehavior="inward"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,4 +1,4 @@
-package com.example.app.register
+package com.example.app.register2
 
 import android.app.Activity
 import android.content.Intent
@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.example.app.R
 import com.example.app.databinding.FragmentLoginBinding
 import com.example.app.mainActivity.Inicio
+import com.example.app.register.Email
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -72,7 +73,7 @@ class LoginFragment : Fragment() {
             }
         }
         binding.irRegister.setOnClickListener() {
-            (activity as? RegisterView)?.replaceFragment(RegisterFragment())
+            (activity as? RegisterView)?.replaceFragment(Email())
         }
     }
 
