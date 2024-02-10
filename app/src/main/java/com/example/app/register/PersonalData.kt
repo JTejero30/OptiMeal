@@ -1,4 +1,4 @@
-package com.example.app.MVVM.Register
+package com.example.app.register
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,15 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import com.example.app.databinding.FragmentPersonalData2Binding
+import com.example.app.databinding.FragmentPersonalDataBinding
+import com.example.app.databinding.FragmentRegisterBinding
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 
-class PersonalData2 : Fragment() {
-    private var _binding: FragmentPersonalData2Binding? = null
+class PersonalData : Fragment() {
+    private var _binding: FragmentPersonalDataBinding? = null
     private val binding get() = _binding!!
     private var selectedDate: Long? = null
     private var edad: Int = 0
@@ -29,7 +30,7 @@ class PersonalData2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentPersonalData2Binding.inflate(inflater, container, false)
+        _binding = FragmentPersonalDataBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -45,7 +46,7 @@ class PersonalData2 : Fragment() {
         }
         binding.nextQuestion.setOnClickListener {
             registerData()
-            (activity as? Register)?.nextQuestion()
+            (activity as? RegisterActivity)?.nextQuestion()
         }
     }
 
@@ -76,10 +77,10 @@ class PersonalData2 : Fragment() {
         val peso = binding.weight.text.toString().toFloat()
         val fecha = selectedDate.toString()
         val sex = selectedSex?.text?.toString() ?: ""
-        (activity as? Register)?.addDato("height",altura)
-        (activity as? Register)?.addDato("weight",peso)
-        (activity as? Register)?.addDato("data", fecha)
-        (activity as? Register)?.addDato("age",edad)
-        (activity as? Register)?.addDato("sex",sex)
+        (activity as? RegisterActivity)?.addDato("height",altura)
+        (activity as? RegisterActivity)?.addDato("weight",peso)
+        (activity as? RegisterActivity)?.addDato("data", fecha)
+        (activity as? RegisterActivity)?.addDato("age",edad)
+        (activity as? RegisterActivity)?.addDato("sex",sex)
     }
 }

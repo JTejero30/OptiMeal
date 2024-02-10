@@ -1,20 +1,19 @@
-package com.example.app.MVVM.Register
+package com.example.app.register
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
+
 import com.example.app.databinding.FragmentAlergiasBinding
 
-
-private var _binding: FragmentAlergiasBinding? = null
-private val binding get() = _binding!!
-private var alergias: MutableList<String> = mutableListOf()
-
 class Alergias : Fragment() {
+    private var _binding: FragmentAlergiasBinding? = null
+    private val binding get() = _binding!!
+    private var alergias: MutableList<String> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +50,12 @@ class Alergias : Fragment() {
         }
         binding.nextQuestion2.setOnClickListener{
             addData()
-            (activity as? Register)?.nextQuestion()
+            (activity as? RegisterActivity)?.nextQuestion()
         }
     }
 
     private fun addData() {
-        (activity as? Register)?.addDato("allergies",alergias)
+        (activity as? RegisterActivity)?.addDato("allergies", alergias)
     }
 
     private fun removeAlergia(alergia: ImageView) {

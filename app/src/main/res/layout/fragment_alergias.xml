@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MVVM.Register.Alergias">
+    tools:context=".register.Alergias">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -61,20 +61,20 @@
                 <ImageView
                     android:id="@+id/imageView14"
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:tag="marisco"
-                    android:src="@drawable/marisco" />
+                    android:contentDescription="imageAlergie"
+                    android:src="@drawable/marisco"
+                    android:tag="marisco" />
 
                 <ImageView
                     android:id="@+id/imageView7"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="huevo"
-                    android:src="@drawable/huevo" />
+                    android:contentDescription="imageAlergie"
+                    android:src="@drawable/huevo"
+                    android:tag="huevo" />
 
                 <ImageView
                     android:id="@+id/imageView8"
