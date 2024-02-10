@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.app.databinding.FragmentMainBinding
 import com.example.app.ui.main.calendar.CalendarPagerAdapter
+import com.example.app.ui.main.menu.MenuFragment
+import com.example.app.ui.recipes.RecipesFragment
 
 class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null

@@ -1,0 +1,91 @@
+{
+  "menu_del_dia": {
+    "desayuno": {
+      "plato": "Tostadas con Aguacate y Huevo",
+      "ingredientes": [
+        {
+          "nombre": "pan integral tostado",
+          "cantidad": "2 rebanadas",
+          "calorias": 160,
+          "tipo": "carbohidratos",
+          "gramos": 30
+        },
+        {
+          "nombre": "aguacate",
+          "cantidad": "1/2",
+          "calorias": 120,
+          "tipo": "grasas",
+          "gramos": 14
+        },
+        {
+          "nombre": "huevo cocido",
+          "cantidad": "1 unidad",
+          "calorias": 70,
+          "tipo": "proteínas",
+          "gramos": 6
+        }
+      ],
+      "total_grasa": 14,
+      "total_proteina": 6,
+      "total_carbohidratos": 30
+    },
+    "comida": {
+      "plato": "Pollo al Horno con Patatas y Verduras",
+      "ingredientes": [
+        {
+          "nombre": "pechuga de pollo",
+          "cantidad": "150g",
+          "calorias": 165,
+          "tipo": "proteínas",
+          "gramos": 37
+        },
+        {
+          "nombre": "patatas al horno",
+          "cantidad": "200g",
+          "calorias": 160,
+          "tipo": "carbohidratos",
+          "gramos": 36
+        },
+        {
+          "nombre": "verduras mixtas",
+          "cantidad": "100g",
+          "calorias": 100,
+          "tipo": "vegetales",
+          "gramos": 15
+        }
+      ],
+      "total_grasa": 0,
+      "total_proteina": 0,
+      "total_carbohidratos": 0
+    },
+    "cena": {
+      "plato": "Ensalada de Salmón Ahumado y Aguacate",
+      "ingredientes": [
+        {
+          "nombre": "salmón ahumado",
+          "cantidad": "100g",
+          "calorias": 200,
+          "tipo": "proteínas",
+          "gramos": 22
+        },
+        {
+          "nombre": "aguacate",
+          "cantidad": "1/2",
+          "calorias": 120,
+          "tipo": "grasas",
+          "gramos": 14
+        },
+        {
+          "nombre": "verduras mixtas y aderezo ligero",
+          "cantidad": "varios",
+          "calorias": 406.95,
+          "tipo": "vegetales",
+          "gramos": 60
+        }
+      ],
+      "total_grasa": 14,
+      "total_proteina": 22,
+      "total_carbohidratos": 60
+    }
+  }
+}

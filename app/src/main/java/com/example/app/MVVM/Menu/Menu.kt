@@ -34,7 +34,7 @@ class Menu : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
-        pintarMenu()
+        //pintarMenu()
         return binding.root
     }
 
@@ -43,8 +43,8 @@ class Menu : Fragment() {
 
     }
 
-    private fun pintarMenu() {
-        var opciones: Array<String> = arrayOf("Desayuno", "Comida", "Cena")
+   /* private fun pintarMenu() {
+        var opciones: Array<String> = arrayOf("Desayuno", "Comida", "com.example.app.model.com.example.app.model.Cena")
         //requireContext() es una funcion para coger el contexto desde los fragmentos
         var myAdapter: ArrayAdapter<String> =
             ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, opciones)
@@ -52,5 +52,5 @@ class Menu : Fragment() {
         var lunes = binding.lunes
         //lunes.adapter = myAdapter
 
-    }
+    }*/
 }

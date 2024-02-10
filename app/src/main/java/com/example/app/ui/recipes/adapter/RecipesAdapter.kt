@@ -7,7 +7,7 @@ import com.example.app.R
 
 import com.example.app.ui.recipes.RecipeModel
 
-class RecipesAdapter(private val recipesModelList: List<RecipeModel>) :
+class RecipesAdapter(private val recipesModelList: List< RecipeModel>) :
     RecyclerView.Adapter<RecipesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

@@ -1,0 +1,31 @@
+{
+  "pucraZfdiqACxfxKl0s": {
+    "plato": "Pollo al Horno con Patatas y Verduras",
+    "ingredientes": [
+      {
+        "nombre": "pechuga de pollo",
+        "cantidad": "150g",
+        "calorias": 165,
+        "tipo": "proteínas",
+        "gramos": 37
+      },
+      {
+        "nombre": "patatas al horno",
+        "cantidad": "200g",
+        "calorias": 160,
+        "tipo": "carbohidratos",
+        "gramos": 36
+      },
+      {
+        "nombre": "verduras mixtas",
+        "cantidad": "100g",
+        "calorias": 100,
+        "tipo": "vegetales",
+        "gramos": 15
+      }
+    ],
+    "total_grasa": 0,
+    "total_proteina": 0,
+    "total_carbohidratos": 0
+  }
+}

@@ -46,6 +46,7 @@ class HomeFragment : Fragment() {
         homeViewModel.userName.observe(viewLifecycleOwner) {
             binding.textUserName.text = it
         }
+        //homeViewModel.getData3()
 
 
         binding.loadingIndicator.visibility = View.VISIBLE
