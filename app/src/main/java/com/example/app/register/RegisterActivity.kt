@@ -3,12 +3,14 @@ package com.example.app.register
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.app.User
 import com.example.app.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
+import org.json.JSONObject
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -118,6 +120,8 @@ class RegisterActivity : AppCompatActivity() {
         val alergiasArray = userData["allergies"].toString()
         auth = FirebaseAuth.getInstance()
 
+
+       // val JSONObject= JSONObject(userData)
         return User(
             auth.currentUser?.uid,
             auth.currentUser?.email,
@@ -131,5 +135,14 @@ class RegisterActivity : AppCompatActivity() {
             alergiasArray,
             TDEE
         )
+    }
+
+    public fun showAlert() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("Se ha producido un error con la autenticacion del usuario")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 }

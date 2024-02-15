@@ -13,6 +13,7 @@ import com.example.app.R
 import com.example.app.databinding.FragmentLoginBinding
 import com.example.app.mainActivity.Inicio
 import com.example.app.register.EmailFragment
+import com.example.app.register.RegisterActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -60,7 +61,7 @@ class LoginFragment : Fragment() {
                     startActivity(intent)
                 } else {
                     Log.d("comprobar", "Error")
-                    (activity as? RegisterView)?.showAlert()
+                    (activity as? RegisterActivity)?.showAlert()
                 }
             }
         }

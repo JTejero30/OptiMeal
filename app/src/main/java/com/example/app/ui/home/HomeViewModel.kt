@@ -5,6 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -21,7 +23,8 @@ class HomeViewModel : ViewModel() {
     private val _ingredientList = MutableLiveData<List<IngredientModel>>()
 
     private val auth = FirebaseAuth.getInstance()
-
+    val ref2 = db.collection("menu_dia").document(auth.currentUser?.uid.toString())
+    private lateinit var reference: DocumentReference
 
     private val _userEmail = MutableLiveData<String>().apply {
         value = auth.currentUser?.email
@@ -32,6 +35,52 @@ class HomeViewModel : ViewModel() {
 
     val userEmail: LiveData<String> = _userEmail
     val userName: LiveData<String> = _userName
+
+
+    suspend fun getData2() {
+
+        Log.d("comprobar", "referencia->${ref2}")
+
+
+        return withContext(Dispatchers.IO) {
+            val document: DocumentSnapshot = ref2.get().await()
+            if (document.exists()) {
+                Log.d("comprobar", "referenciaDocument->${document.data?.get("menu1")}")
+
+            }
+        }
+    }
+    fun getData3() {
+
+        Log.d("comprobar", "referencia->${ref2}")
+        Log.d("comprobar", "uid->${auth.currentUser?.uid.toString()}")
+        ref2.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    Log.d("comprobar", "DocumentSnapshot data: ${document.data?.get("menu1")}")
+                    reference= document.data?.get("menu1") as DocumentReference
+                    reference.get()
+                        .addOnSuccessListener { document2 ->
+                            if (document2 != null) {
+                                Log.d("comprobar", "DocumentSnapshot data: ${document2.data}")
+
+                            } else {
+                                Log.d("comprobar", "No such document")
+                            }
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.d("comprobar", "get failed with ", exception)
+                        }
+                } else {
+                    Log.d("comprobar", "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("comprobar", "get failed with ", exception)
+            }
+
+
+    }
 
 
     //Creo una funcion en suspend, para que se ejecute en segundo plano
