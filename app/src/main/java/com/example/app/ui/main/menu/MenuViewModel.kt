@@ -1,21 +1,21 @@
-package com.example.app.ui.main.menu.model
+package com.example.app.ui.main.menu
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.app.ui.main.menu.model.Ingrediente
+import com.example.app.ui.main.menu.model.MenuDelDia
+import com.example.app.ui.main.menu.model.MenuModel
+import com.example.app.ui.main.menu.model.Plato
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
 
 class MenuViewModel : ViewModel() {
 

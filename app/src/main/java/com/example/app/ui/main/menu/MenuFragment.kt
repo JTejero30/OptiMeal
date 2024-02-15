@@ -9,13 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.app.R
 import com.example.app.databinding.FragmentMenuBinding
-import com.example.app.ui.main.calendar.CalendarFragment
-import com.example.app.ui.main.menu.model.MenuViewModel
-import com.example.app.ui.recipes.adapter.RecipesAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
