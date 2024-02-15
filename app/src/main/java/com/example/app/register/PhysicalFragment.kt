@@ -33,7 +33,7 @@ class PhysicalFragment : Fragment() {
                 val selectedTag = selected.tag
                 val multiplicador= valorSelected(selectedTag)
                 (activity as? RegisterActivity)?.addDato("activity",multiplicador)
-                (activity as? RegisterActivity)?.nextQuestion()
+                (activity as? RegisterActivity)?.nextQuestion(true)
             }
         }
     }

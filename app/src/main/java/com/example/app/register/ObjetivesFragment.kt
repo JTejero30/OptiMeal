@@ -31,7 +31,7 @@ class ObjetivesFragment : Fragment() {
                 val selectedObjetiveTag = view.findViewById<Button>(id).tag.toString()
                 val deficit = calcularDeficit(selectedObjetiveTag)
                 (activity as? RegisterActivity)?.addDato("deficit",deficit)
-                (activity as? RegisterActivity)?.nextQuestion()
+                (activity as? RegisterActivity)?.nextQuestion(true)
             }
         }
     }

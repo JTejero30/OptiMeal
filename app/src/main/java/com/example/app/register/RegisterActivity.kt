@@ -29,7 +29,7 @@ class RegisterActivity : AppCompatActivity() {
         "activity" to 0.0
     )
     private lateinit var user: User
-    private var progreso = 0
+    private var progreso = -1
 
     private var contador = 0
 
@@ -45,19 +45,26 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       /* auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            Log.d("comprobar", "User logged: ${currentUser.email}")
-        }*/
-        //TODO descomentar linea abajo y borrar otra:
-        replaceFragment(DieteticPreferenceFragment())
+        binding.back.setOnClickListener{
+            nextQuestion(false)
+        }
+        nextQuestion(true)
     }
 
-    public fun nextQuestion() {
-        progreso++
-        binding.progress.incrementProgressBy(1)
+    public fun nextQuestion(avanza: Boolean) {
+
+        if(avanza) {
+            progreso++
+            binding.progress.incrementProgressBy(1)
+        }
+        else{
+            progreso--
+            binding.progress.incrementProgressBy(-1)
+        }
+        Log.d("avanza",progreso.toString())
+        //
         when (progreso) {
+            0-> replaceFragment(DieteticPreferenceFragment())
             1 -> replaceFragment(PersonalDataFragment())
             2 -> replaceFragment(PhysicalFragment())
             3 -> replaceFragment(ObjetivesFragment())

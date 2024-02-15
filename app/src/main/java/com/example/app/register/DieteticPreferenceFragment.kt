@@ -38,7 +38,7 @@ class DieteticPreferenceFragment : Fragment() {
 
                 (activity as? RegisterActivity)?.addDato("dietetic_preference", selectedDietetic)
 
-                (activity as? RegisterActivity)?.nextQuestion()
+                (activity as? RegisterActivity)?.nextQuestion(true)
             }
         }
     }

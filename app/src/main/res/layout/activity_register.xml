@@ -37,7 +37,7 @@
         android:id="@+id/progress"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:max="6"
+        android:max="7"
         android:progress="0"
         app:hideAnimationBehavior="inward"
         app:layout_constraintBottom_toBottomOf="parent"

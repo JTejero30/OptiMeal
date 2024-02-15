@@ -45,7 +45,7 @@ class PersonalDataFragment : Fragment() {
         }
         binding.nextQuestion.setOnClickListener {
             registerData()
-            (activity as? RegisterActivity)?.nextQuestion()
+            (activity as? RegisterActivity)?.nextQuestion(true)
         }
     }
 
