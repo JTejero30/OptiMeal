@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intent)
                 } else {
                     Log.d("comprobar", "Error")
-                    (this as? RegisterView)?.showAlert()
+                    (this as? RegisterActivity)?.showAlert()
                 }
             }
         }
@@ -68,7 +68,6 @@ class LoginActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-                Log.d("comprobar", "task= $task data= ${result.data}")
                 handleResults(task)
             }
         }

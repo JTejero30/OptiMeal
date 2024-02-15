@@ -12,6 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.app.R
 import com.example.app.databinding.FragmentHomeBinding
+import com.example.app.register.LoginActivity
+import com.example.app.register.RegisterActivity
 import com.example.app.register2.RegisterView
 import com.example.app.ui.home.adapter.HomeAdapter
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -77,7 +79,7 @@ class HomeFragment : Fragment() {
 
             googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
             homeViewModel.logOut()
-            val intent = Intent(activity, RegisterView::class.java)
+            val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
         }
         /*

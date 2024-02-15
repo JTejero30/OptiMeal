@@ -60,13 +60,6 @@ class RegisterView : AppCompatActivity() {
 
     }
 
-    public fun showAlert() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error con la autenticacion del usuario")
-        builder.setPositiveButton("Aceptar", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
-    }
+
 
 }

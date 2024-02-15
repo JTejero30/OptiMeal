@@ -1,0 +1,1362 @@
+Index: app/src/main/java/com/example/app/MVVM/Register/PersonalData2.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/MVVM/Register/PersonalData2.kt b/app/src/main/java/com/example/app/register/PersonalData.kt
+rename from app/src/main/java/com/example/app/MVVM/Register/PersonalData2.kt
+rename to app/src/main/java/com/example/app/register/PersonalData.kt
+--- a/app/src/main/java/com/example/app/MVVM/Register/PersonalData2.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/java/com/example/app/register/PersonalData.kt	(date 1707572004584)
+@@ -1,4 +1,4 @@
+-package com.example.app.MVVM.Register
++package com.example.app.register
+ 
+ import android.os.Bundle
+ import androidx.fragment.app.Fragment
+@@ -6,15 +6,16 @@
+ import android.view.View
+ import android.view.ViewGroup
+ import android.widget.Button
+-import com.example.app.databinding.FragmentPersonalData2Binding
++import com.example.app.databinding.FragmentPersonalDataBinding
++import com.example.app.databinding.FragmentRegisterBinding
+ import com.google.android.material.datepicker.MaterialDatePicker
+ import java.text.SimpleDateFormat
+ import java.util.Date
+ import java.util.Locale
+ 
+ 
+-class PersonalData2 : Fragment() {
+-    private var _binding: FragmentPersonalData2Binding? = null
++class PersonalData : Fragment() {
++    private var _binding: FragmentPersonalDataBinding? = null
+     private val binding get() = _binding!!
+     private var selectedDate: Long? = null
+     private var edad: Int = 0
+@@ -29,7 +30,7 @@
+         savedInstanceState: Bundle?
+     ): View? {
+         // Inflate the layout for this fragment
+-        _binding = FragmentPersonalData2Binding.inflate(inflater, container, false)
++        _binding = FragmentPersonalDataBinding.inflate(inflater, container, false)
+         return binding.root
+     }
+ 
+@@ -45,7 +46,7 @@
+         }
+         binding.nextQuestion.setOnClickListener {
+             registerData()
+-            (activity as? Register)?.nextQuestion()
++            (activity as? RegisterActivity)?.nextQuestion()
+         }
+     }
+ 
+@@ -76,10 +77,10 @@
+         val peso = binding.weight.text.toString().toFloat()
+         val fecha = selectedDate.toString()
+         val sex = selectedSex?.text?.toString() ?: ""
+-        (activity as? Register)?.addDato("height",altura)
+-        (activity as? Register)?.addDato("weight",peso)
+-        (activity as? Register)?.addDato("data", fecha)
+-        (activity as? Register)?.addDato("age",edad)
+-        (activity as? Register)?.addDato("sex",sex)
++        (activity as? RegisterActivity)?.addDato("height",altura)
++        (activity as? RegisterActivity)?.addDato("weight",peso)
++        (activity as? RegisterActivity)?.addDato("data", fecha)
++        (activity as? RegisterActivity)?.addDato("age",edad)
++        (activity as? RegisterActivity)?.addDato("sex",sex)
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/app/MVVM/Register/Register.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/MVVM/Register/Register.kt b/app/src/main/java/com/example/app/register/RegisterActivity.kt
+rename from app/src/main/java/com/example/app/MVVM/Register/Register.kt
+rename to app/src/main/java/com/example/app/register/RegisterActivity.kt
+--- a/app/src/main/java/com/example/app/MVVM/Register/Register.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/java/com/example/app/register/RegisterActivity.kt	(date 1707571924822)
+@@ -1,4 +1,4 @@
+-package com.example.app.MVVM.Register
++package com.example.app.register
+ 
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+@@ -11,7 +11,7 @@
+ import com.google.firebase.firestore.FirebaseFirestore
+ 
+ 
+-class Register : AppCompatActivity() {
++class RegisterActivity : AppCompatActivity() {
+     private lateinit var binding: ActivityRegisterBinding
+ 
+     private val fragmentManager = supportFragmentManager
+@@ -48,27 +48,27 @@
+         if (currentUser != null) {
+             Log.d("comprobar", "User logged: ${currentUser.email}")
+         }
+-        //cargamos el primer fragmento
+         //TODO descomentar linea abajo y borrar otra:
+-        replaceFragment(PersonalData())
++        replaceFragment(DieteticPreference())
+     }
+ 
+     public fun nextQuestion() {
+         progreso++
+         binding.progress.incrementProgressBy(1)
+         when (progreso) {
+-            1 -> replaceFragment(PersonalData2())
+-            2 -> replaceFragment(PhysicalActivity())
++            1 -> replaceFragment(PersonalData())
++            2 -> replaceFragment(Physical())
+             3 -> replaceFragment(Objetives())
+             4 -> {
+                 calcularTDEE()
+                 replaceFragment(Alergias())
+-
++            }
++            5 -> {
++                replaceFragment(Email())
+                 val user = createUserFromJson()
+                 usersCollection.add(user)
+             }
+-
+-            5 -> Log.d("User data:", userData.toString())
++            6 -> Log.d("User data:", userData.toString())
+         }
+     }
+ 
+Index: app/src/main/java/com/example/app/register/RegisterFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/register/RegisterFragment.kt b/app/src/main/java/com/example/app/register/Email.kt
+rename from app/src/main/java/com/example/app/register/RegisterFragment.kt
+rename to app/src/main/java/com/example/app/register/Email.kt
+--- a/app/src/main/java/com/example/app/register/RegisterFragment.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/java/com/example/app/register/Email.kt	(date 1707572482382)
+@@ -6,11 +6,12 @@
+ import android.view.View
+ import android.view.ViewGroup
+ import androidx.fragment.app.Fragment
+-import com.example.app.MVVM.Register.Register
+ import com.example.app.databinding.FragmentRegisterBinding
++import com.example.app.register2.LoginFragment
++import com.example.app.register2.RegisterView
+ import com.google.firebase.auth.FirebaseAuth
+ 
+-class RegisterFragment : Fragment() {
++class Email : Fragment() {
+     private lateinit var _binding: FragmentRegisterBinding
+     private val binding get() = _binding!!
+ 
+@@ -29,17 +30,15 @@
+ 
+     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+         super.onViewCreated(view, savedInstanceState)
+-        binding.irLogin.setOnClickListener() {
+-            (activity as? RegisterView)?.replaceFragment(LoginFragment())
+-        }
+             binding.registrarButton.setOnClickListener() {
++                (activity as? RegisterActivity)?.nextQuestion()
+                 if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty()) {
+                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(
+                         binding.emailEditText.text.toString(),
+                         binding.passwordEditText.text.toString()
+                     ).addOnCompleteListener {
+                         if (it.isSuccessful) {
+-                            val intent = Intent(activity, Register::class.java)
++                            val intent = Intent(activity, RegisterActivity::class.java)
+                             startActivity(intent)
+                         } else {
+                             (activity as? RegisterView)?.showAlert()
+Index: app/src/main/res/layout/fragment_register.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".register.RegisterFragment\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"600dp\"\r\n        android:orientation=\"vertical\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/imageView2\"\r\n            android:layout_width=\"70dp\"\r\n            android:layout_height=\"124dp\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginTop=\"16dp\"\r\n\r\n            android:contentDescription=\"logo\"\r\n            android:onClick=\"nextQuestion\"\r\n            app:srcCompat=\"@drawable/logo\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView3\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"23dp\"\r\n            android:gravity=\"center\"\r\n            android:text=\"Registrar\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"233dp\"\r\n            android:layout_marginTop=\"20dp\"\r\n            android:orientation=\"vertical\"\r\n            android:padding=\"20dp\">\r\n\r\n            <EditText\r\n                android:id=\"@+id/emailEditText\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"57dp\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:layout_marginBottom=\"7dp\"\r\n\r\n                android:autofillHints=\"\"\r\n                android:ems=\"10\"\r\n                android:hint=\"Email\"\r\n                android:inputType=\"textEmailAddress\" />\r\n\r\n            <EditText\r\n                android:id=\"@+id/passwordEditText\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"55dp\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:layout_marginBottom=\"7dp\"\r\n                android:ems=\"10\"\r\n                android:hint=\"Password\"\r\n                android:inputType=\"textPassword\" />\r\n\r\n            <Button\r\n                android:id=\"@+id/registrarButton\"\r\n                style=\"@style/Widget.Material3.Button.IconButton.Filled\"\r\n                android:layout_width=\"178dp\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_gravity=\"center\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:text=\"Registrar\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/textoRegistro\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:gravity=\"center\" />\r\n\r\n        </LinearLayout>\r\n\r\n        <Button\r\n            android:id=\"@+id/irLogin\"\r\n            style=\"@style/Widget.Material3.Button.IconButton.Filled.Tonal\"\r\n            android:layout_width=\"130dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center\"\r\n\r\n            android:text=\"Ir a login\"\r\n            android:textSize=\"12sp\" />\r\n\r\n    </LinearLayout>\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_register.xml b/app/src/main/res/layout/fragment_register.xml
+--- a/app/src/main/res/layout/fragment_register.xml	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/res/layout/fragment_register.xml	(date 1707572482436)
+@@ -4,34 +4,13 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".register.RegisterFragment">
++    tools:context=".register.Email">
+ 
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="600dp"
+         android:orientation="vertical">
+ 
+-        <ImageView
+-            android:id="@+id/imageView2"
+-            android:layout_width="70dp"
+-            android:layout_height="124dp"
+-            android:layout_gravity="center"
+-            android:layout_marginTop="16dp"
+-
+-            android:contentDescription="logo"
+-            android:onClick="nextQuestion"
+-            app:srcCompat="@drawable/logo" />
+-
+-        <TextView
+-            android:id="@+id/textView3"
+-            android:layout_width="match_parent"
+-            android:layout_height="23dp"
+-            android:gravity="center"
+-            android:text="Registrar"
+-            app:layout_constraintEnd_toEndOf="parent"
+-            app:layout_constraintStart_toStartOf="parent"
+-            app:layout_constraintTop_toTopOf="parent" />
+-
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="233dp"
+@@ -78,16 +57,6 @@
+ 
+         </LinearLayout>
+ 
+-        <Button
+-            android:id="@+id/irLogin"
+-            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+-            android:layout_width="130dp"
+-            android:layout_height="wrap_content"
+-            android:layout_gravity="center"
+-
+-            android:text="Ir a login"
+-            android:textSize="12sp" />
+-
+     </LinearLayout>
+ 
+ </FrameLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/app/MVVM/Register/Objetives.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/MVVM/Register/Objetives.kt b/app/src/main/java/com/example/app/register/Objetives.kt
+rename from app/src/main/java/com/example/app/MVVM/Register/Objetives.kt
+rename to app/src/main/java/com/example/app/register/Objetives.kt
+--- a/app/src/main/java/com/example/app/MVVM/Register/Objetives.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/java/com/example/app/register/Objetives.kt	(date 1707571543391)
+@@ -1,4 +1,4 @@
+-package com.example.app.MVVM.Register
++package com.example.app.register
+ 
+ import android.os.Bundle
+ import androidx.fragment.app.Fragment
+@@ -6,9 +6,8 @@
+ import android.view.View
+ import android.view.ViewGroup
+ import android.widget.Button
+-import com.example.app.R
+ import com.example.app.databinding.FragmentObjetivesBinding
+-import com.example.app.databinding.FragmentPersonalDataBinding
++import com.example.app.register.RegisterActivity
+ 
+ 
+ class Objetives : Fragment() {
+@@ -32,8 +31,8 @@
+             if (ischecked) {
+                 val selectedObjetiveTag = view.findViewById<Button>(id).tag.toString()
+                 val deficit = calcularDeficit(selectedObjetiveTag)
+-                (activity as? Register)?.addDato("deficit",deficit)
+-                (activity as? Register)?.nextQuestion()
++                (activity as? RegisterActivity)?.addDato("deficit",deficit)
++                (activity as? RegisterActivity)?.nextQuestion()
+             }
+         }
+     }
+Index: app/src/main/res/layout/fragment_alergias.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".MVVM.Register.Alergias\">\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\">\r\n\r\n        <Button\r\n            android:id=\"@+id/nextQuestion2\"\r\n            android:layout_width=\"207dp\"\r\n            android:layout_height=\"57dp\"\r\n            android:text=\"Continuar\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\"\r\n            app:layout_constraintVertical_bias=\"0.961\" />\r\n\r\n        <LinearLayout\r\n            android:id=\"@+id/linearLayout\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"0dp\"\r\n            android:gravity=\"center\"\r\n            android:orientation=\"vertical\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.0\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\"\r\n            app:layout_constraintVertical_bias=\"0.14\">\r\n\r\n            <TextView\r\n                android:id=\"@+id/pregunta\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"43dp\"\r\n                android:layout_marginBottom=\"48dp\"\r\n                android:gravity=\"center\"\r\n                android:text=\"¿Alguna alergia que debamos conocer?\"\r\n                android:textSize=\"16sp\" />\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginBottom=\"16dp\"\r\n                android:orientation=\"horizontal\">\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView6\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"weat\"\r\n                    android:src=\"@drawable/weat\" />\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView14\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"marisco\"\r\n                    android:src=\"@drawable/marisco\" />\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView7\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"huevo\"\r\n                    android:src=\"@drawable/huevo\" />\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView8\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"pescado\"\r\n                    android:src=\"@drawable/pescado\" />\r\n\r\n            </LinearLayout>\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginBottom=\"16dp\"\r\n                android:orientation=\"horizontal\">\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView11\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"cacahuete\"\r\n                    android:src=\"@drawable/cacahuete\" />\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView12\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"soja\"\r\n                    android:src=\"@drawable/soja\" />\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView13\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"lacteos\"\r\n                    android:src=\"@drawable/lacteos\" />\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView15\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"frutos\"\r\n                    android:src=\"@drawable/frutos\" />\r\n            </LinearLayout>\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginBottom=\"16dp\"\r\n                android:orientation=\"horizontal\">\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView16\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"apio\"\r\n                    android:src=\"@drawable/apio\" />\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView17\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"mostaza\"\r\n                    android:src=\"@drawable/mostaza\" />\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView18\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"sesamo\"\r\n                    android:src=\"@drawable/sesamo\" />\r\n            </LinearLayout>\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:orientation=\"horizontal\">\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView19\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"sulfitos\"\r\n                    android:src=\"@drawable/sulfitos\" />\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView20\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"altramuces\"\r\n                    android:src=\"@drawable/altramuces\" />\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/imageView21\"\r\n                    android:layout_width=\"0dp\"\r\n                    android:layout_height=\"60dp\"\r\n                    android:contentDescription=\"imageAlergie\"\r\n                    android:layout_weight=\"1\"\r\n                    android:tag=\"moluscos\"\r\n                    android:src=\"@drawable/moluscos\" />\r\n            </LinearLayout>\r\n        </LinearLayout>\r\n\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_alergias.xml b/app/src/main/res/layout/fragment_alergias.xml
+--- a/app/src/main/res/layout/fragment_alergias.xml	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/res/layout/fragment_alergias.xml	(date 1707572674593)
+@@ -4,7 +4,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".MVVM.Register.Alergias">
++    tools:context=".register.Alergias">
+ 
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+@@ -61,20 +61,20 @@
+                 <ImageView
+                     android:id="@+id/imageView14"
+                     android:layout_width="0dp"
+-                    android:layout_height="60dp"
++                    android:layout_height="match_parent"
++                    android:layout_weight="1"
+                     android:contentDescription="imageAlergie"
+-                    android:layout_weight="1"
+-                    android:tag="marisco"
+-                    android:src="@drawable/marisco" />
++                    android:src="@drawable/marisco"
++                    android:tag="marisco" />
+ 
+                 <ImageView
+                     android:id="@+id/imageView7"
+                     android:layout_width="0dp"
+                     android:layout_height="60dp"
+-                    android:contentDescription="imageAlergie"
+                     android:layout_weight="1"
+-                    android:tag="huevo"
+-                    android:src="@drawable/huevo" />
++                    android:contentDescription="imageAlergie"
++                    android:src="@drawable/huevo"
++                    android:tag="huevo" />
+ 
+                 <ImageView
+                     android:id="@+id/imageView8"
+Index: app/src/main/res/layout/activity_register.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".MVVM.Register.Register\">\r\n\r\n    <ImageView\r\n        android:id=\"@+id/imageView\"\r\n        android:layout_width=\"70dp\"\r\n        android:layout_height=\"124dp\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:contentDescription=\"logo\"\r\n        android:onClick=\"nextQuestion\"\r\n\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.498\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.114\"\r\n        app:srcCompat=\"@drawable/logo\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView\"\r\n        android:layout_width=\"239dp\"\r\n        android:layout_height=\"23dp\"\r\n        android:layout_marginTop=\"160dp\"\r\n        android:gravity=\"center\"\r\n        android:text=\"Ayudanos a conocerte mejor\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.771\" />\r\n\r\n    <com.google.android.material.progressindicator.LinearProgressIndicator\r\n        android:id=\"@+id/progress\"\r\n        android:layout_width=\"160dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:max=\"5\"\r\n        android:progress=\"0\"\r\n        app:hideAnimationBehavior=\"inward\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.498\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/textView\"\r\n        app:layout_constraintVertical_bias=\"0.033\"\r\n        app:trackCornerRadius=\"60dp\" />\r\n\r\n    <androidx.fragment.app.FragmentContainerView\r\n        android:id=\"@+id/fragmentContainer\"\r\n\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"0dp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.491\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/progress\"\r\n        app:layout_constraintVertical_bias=\"1.0\" />\r\n\r\n  <ImageView\r\n      android:id=\"@+id/back\"\r\n      android:layout_width=\"52dp\"\r\n      android:layout_height=\"59dp\"\r\n      app:layout_constraintBottom_toBottomOf=\"parent\"\r\n      app:layout_constraintEnd_toEndOf=\"parent\"\r\n      app:layout_constraintHorizontal_bias=\"0.044\"\r\n      app:layout_constraintStart_toStartOf=\"parent\"\r\n      app:layout_constraintTop_toTopOf=\"parent\"\r\n      app:layout_constraintVertical_bias=\"0.008\"\r\n      app:srcCompat=\"@drawable/baseline_arrow_back_ios_24\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_register.xml b/app/src/main/res/layout/activity_register.xml
+--- a/app/src/main/res/layout/activity_register.xml	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/res/layout/activity_register.xml	(date 1707572582584)
+@@ -4,7 +4,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".MVVM.Register.Register">
++    tools:context=".register.RegisterActivity">
+ 
+     <ImageView
+         android:id="@+id/imageView"
+@@ -37,7 +37,7 @@
+         android:id="@+id/progress"
+         android:layout_width="160dp"
+         android:layout_height="wrap_content"
+-        android:max="5"
++        android:max="6"
+         android:progress="0"
+         app:hideAnimationBehavior="inward"
+         app:layout_constraintBottom_toBottomOf="parent"
+Index: app/src/main/java/com/example/app/MVVM/Register/Alergias.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/app/MVVM/Register/Alergias.kt b/app/src/main/java/com/example/app/MVVM/Register/Alergias.kt
+deleted file mode 100644
+--- a/app/src/main/java/com/example/app/MVVM/Register/Alergias.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ /dev/null	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
+@@ -1,73 +0,0 @@
+-package com.example.app.MVVM.Register
+-
+-import android.graphics.Color
+-import android.os.Bundle
+-import androidx.fragment.app.Fragment
+-import android.view.LayoutInflater
+-import android.view.View
+-import android.view.ViewGroup
+-import android.widget.ImageView
+-import com.example.app.databinding.FragmentAlergiasBinding
+-
+-
+-private var _binding: FragmentAlergiasBinding? = null
+-private val binding get() = _binding!!
+-private var alergias: MutableList<String> = mutableListOf()
+-
+-class Alergias : Fragment() {
+-
+-    override fun onCreate(savedInstanceState: Bundle?) {
+-        super.onCreate(savedInstanceState)
+-
+-    }
+-
+-    override fun onCreateView(
+-        inflater: LayoutInflater, container: ViewGroup?,
+-        savedInstanceState: Bundle?
+-    ): View? {
+-        // Inflate the layout for this fragment
+-        _binding = FragmentAlergiasBinding.inflate(inflater, container, false)
+-        return binding.root
+-    }
+-
+-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+-        super.onViewCreated(view, savedInstanceState)
+-        val todasAlergias = mutableListOf<ImageView>(
+-            binding.imageView6, binding.imageView7, binding.imageView8,
+-            binding.imageView11, binding.imageView12, binding.imageView13, binding.imageView14,
+-            binding.imageView15, binding.imageView16, binding.imageView17, binding.imageView18,
+-            binding.imageView19, binding.imageView20, binding.imageView21
+-        )
+-        todasAlergias.forEach { alergia ->
+-
+-            alergia.setOnClickListener {
+-                if (!alergias.contains(alergia.tag.toString())){
+-                    añadirAlergia(alergia)
+-                }else{
+-                    removeAlergia(alergia)
+-                }
+-
+-            }
+-        }
+-        binding.nextQuestion2.setOnClickListener{
+-            addData()
+-            (activity as? Register)?.nextQuestion()
+-        }
+-    }
+-
+-    private fun addData() {
+-        (activity as? Register)?.addDato("allergies",alergias)
+-    }
+-
+-    private fun removeAlergia(alergia: ImageView) {
+-        alergia.setColorFilter(null)
+-        alergias.remove(alergia.tag.toString())
+-    }
+-
+-    private fun añadirAlergia(alergia: ImageView) {
+-        alergia.setColorFilter(Color.GRAY, android.graphics.PorterDuff.Mode.MULTIPLY)
+-        alergias.add(alergia.tag.toString())
+-    }
+-
+-
+-}
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_personal_data2.xml
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_personal_data2.xml b/app/src/main/res/layout/fragment_personal_data2.xml
+deleted file mode 100644
+--- a/app/src/main/res/layout/fragment_personal_data2.xml	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ /dev/null	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
+@@ -1,114 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    tools:context=".MVVM.Register.PersonalData2">
+-
+-    <androidx.constraintlayout.widget.ConstraintLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent">
+-
+-        <LinearLayout
+-            android:id="@+id/q4"
+-            android:layout_width="0dp"
+-            android:layout_height="564dp"
+-            android:gravity="center"
+-            android:orientation="vertical"
+-            app:layout_constraintBottom_toBottomOf="parent"
+-            app:layout_constraintEnd_toEndOf="parent"
+-            app:layout_constraintStart_toStartOf="parent"
+-            app:layout_constraintTop_toTopOf="parent">
+-
+-            <com.google.android.material.textfield.TextInputLayout
+-
+-                android:layout_width="350dp"
+-                android:layout_height="wrap_content"
+-                android:layout_marginBottom="16dp"
+-                android:hint="Altura(cm)">
+-
+-                <com.google.android.material.textfield.TextInputEditText
+-                    android:id="@+id/height"
+-                    android:layout_width="350dp"
+-                    android:layout_height="wrap_content"
+-                    android:inputType="number" />
+-            </com.google.android.material.textfield.TextInputLayout>
+-
+-            <com.google.android.material.textfield.TextInputLayout
+-
+-                android:layout_width="350dp"
+-                android:layout_height="wrap_content"
+-                android:layout_marginBottom="16dp"
+-                android:hint="Peso(kg)">
+-
+-                <com.google.android.material.textfield.TextInputEditText
+-                    android:id="@+id/weight"
+-                    android:layout_width="350dp"
+-                    android:layout_height="wrap_content"
+-                    android:inputType="number" />
+-
+-            </com.google.android.material.textfield.TextInputLayout>
+-
+-            <com.google.android.material.textfield.TextInputLayout
+-                android:id="@+id/age"
+-                android:layout_width="350dp"
+-                android:layout_height="wrap_content"
+-                android:layout_marginBottom="16dp"
+-                android:hint=" Fecha de nacimiento"
+-
+-                >
+-
+-                <com.google.android.material.textfield.TextInputEditText
+-                    android:id="@+id/dateInput"
+-                    android:layout_width="350dp"
+-                    android:layout_height="wrap_content"
+-                    android:drawableStart="@drawable/baseline_edit_calendar_24"
+-                    android:focusable="false"
+-                    android:inputType="none"
+-
+-                    />
+-
+-            </com.google.android.material.textfield.TextInputLayout>
+-
+-            <com.google.android.material.button.MaterialButtonToggleGroup
+-                android:id="@+id/sex"
+-                android:layout_width="350dp"
+-                android:layout_height="wrap_content"
+-                android:layout_marginBottom="16dp"
+-                app:singleSelection="true">
+-
+-                <Button
+-                    android:id="@+id/woman"
+-                    style="?attr/materialButtonOutlinedStyle"
+-                    android:layout_width="0dp"
+-                    android:layout_height="wrap_content"
+-                    android:layout_weight="1"
+-                    android:text="Mujer" />
+-
+-                <Button
+-                    android:id="@+id/man"
+-                    style="?attr/materialButtonOutlinedStyle"
+-                    android:layout_width="0dp"
+-                    android:layout_height="wrap_content"
+-                    android:layout_weight="1"
+-                    android:text="Hombre" />
+-
+-            </com.google.android.material.button.MaterialButtonToggleGroup>
+-
+-        </LinearLayout>
+-
+-        <Button
+-            android:id="@+id/nextQuestion"
+-            android:layout_width="207dp"
+-            android:layout_height="57dp"
+-            android:text="Continuar"
+-            app:layout_constraintBottom_toBottomOf="parent"
+-            app:layout_constraintEnd_toEndOf="parent"
+-            app:layout_constraintStart_toStartOf="parent"
+-            app:layout_constraintTop_toTopOf="parent"
+-            app:layout_constraintVertical_bias="0.961" />
+-
+-    </androidx.constraintlayout.widget.ConstraintLayout>
+-
+-</FrameLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/app/MVVM/Register/PersonalData.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/app/MVVM/Register/PersonalData.kt b/app/src/main/java/com/example/app/MVVM/Register/PersonalData.kt
+deleted file mode 100644
+--- a/app/src/main/java/com/example/app/MVVM/Register/PersonalData.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ /dev/null	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
+@@ -1,49 +0,0 @@
+-package com.example.app.MVVM.Register
+-
+-import android.os.Bundle
+-import androidx.fragment.app.Fragment
+-import android.view.LayoutInflater
+-import android.view.View
+-import android.view.ViewGroup
+-import android.widget.Button
+-import com.example.app.User
+-import com.example.app.databinding.FragmentPersonalDataBinding
+-import org.json.JSONArray
+-
+-
+-private var _binding : FragmentPersonalDataBinding? =null
+-private val binding get() = _binding!!
+-private lateinit var selectedDietetic : String
+-
+-class PersonalData : Fragment() {
+-    override fun onCreate(savedInstanceState: Bundle?) {
+-        super.onCreate(savedInstanceState)
+-    }
+-    override fun onCreateView(
+-        inflater: LayoutInflater,
+-        container: ViewGroup?,
+-        savedInstanceState: Bundle?
+-    ): View? {
+-        _binding= FragmentPersonalDataBinding.inflate(inflater,container,false)
+-        // Inflate the layout for this fragment
+-        //return inflater.inflate(R.layout.fragment_personal_data, container, false)
+-
+-        return binding.root
+-    }
+-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+-        super.onViewCreated(view, savedInstanceState)
+-        binding.dieteticPreference.addOnButtonCheckedListener{_,checkedId,isChecked->
+-            if(isChecked){
+-                //cogemos el id del pulsado y lo pasamos a string para añadirlo al array
+-                val selectedDieteticId= view.findViewById<Button>(checkedId)
+-                selectedDietetic= selectedDieteticId.text.toString()
+-
+-                (activity as? Register)?.addDato("dietetic_preference",selectedDietetic)
+-
+-                (activity as? Register)?.nextQuestion()
+-            }
+-        }
+-    }
+-
+-
+-}
+\ No newline at end of file
+Index: app/src/main/java/com/example/app/MVVM/Register/PhysicalActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/MVVM/Register/PhysicalActivity.kt b/app/src/main/java/com/example/app/register/Physical.kt
+rename from app/src/main/java/com/example/app/MVVM/Register/PhysicalActivity.kt
+rename to app/src/main/java/com/example/app/register/Physical.kt
+--- a/app/src/main/java/com/example/app/MVVM/Register/PhysicalActivity.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/java/com/example/app/register/Physical.kt	(date 1707571924858)
+@@ -1,19 +1,17 @@
+-package com.example.app.MVVM.Register
++package com.example.app.register
+ 
+ import android.os.Bundle
+-import androidx.fragment.app.Fragment
+ import android.view.LayoutInflater
+ import android.view.View
+ import android.view.ViewGroup
+ import android.widget.Button
+-import com.example.app.R
++import androidx.fragment.app.Fragment
+ import com.example.app.databinding.FragmentPhysicalActivityBinding
+ 
+-private var _binding: FragmentPhysicalActivityBinding? = null
+-private val binding get() = _binding!!
+-
+-class PhysicalActivity : Fragment() {
+-
++class Physical : Fragment() {
++
++    private var _binding: FragmentPhysicalActivityBinding? = null
++    private val binding get() = _binding!!
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+ 
+@@ -34,8 +32,8 @@
+                 val selected = view.findViewById<Button>(id)
+                 val selectedTag = selected.tag
+                 val multiplicador= valorSelected(selectedTag)
+-                (activity as? Register)?.addDato("activity",multiplicador)
+-                (activity as? Register)?.nextQuestion()
++                (activity as? RegisterActivity)?.addDato("activity",multiplicador)
++                (activity as? RegisterActivity)?.nextQuestion()
+             }
+         }
+     }
+Index: app/src/main/java/com/example/app/register/DieteticPreference.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/register/DieteticPreference.kt b/app/src/main/java/com/example/app/register/DieteticPreference.kt
+new file mode 100644
+--- /dev/null	(date 1707571980159)
++++ b/app/src/main/java/com/example/app/register/DieteticPreference.kt	(date 1707571980159)
+@@ -0,0 +1,49 @@
++package com.example.app.register
++
++import android.os.Bundle
++import android.view.LayoutInflater
++import android.view.View
++import android.view.ViewGroup
++import android.widget.Button
++import androidx.fragment.app.Fragment
++import com.example.app.databinding.FragmentDieteticBinding
++
++import com.example.app.databinding.FragmentPersonalDataBinding
++
++class DieteticPreference : Fragment() {
++
++    private var _binding : FragmentDieteticBinding? =null
++    private val binding get() = _binding!!
++
++    private lateinit var selectedDietetic : String
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++    }
++    override fun onCreateView(
++        inflater: LayoutInflater,
++        container: ViewGroup?,
++        savedInstanceState: Bundle?
++    ): View? {
++        _binding = FragmentDieteticBinding.inflate(inflater, container, false)
++        // Inflate the layout for this fragment
++        //return inflater.inflate(R.layout.fragment_personal_data, container, false)
++
++        return binding.root
++    }
++    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
++        super.onViewCreated(view, savedInstanceState)
++        binding.dieteticPreference.addOnButtonCheckedListener{ _, checkedId, isChecked->
++            if(isChecked){
++                //cogemos el id del pulsado y lo pasamos a string para añadirlo al array
++                val selectedDieteticId= view.findViewById<Button>(checkedId)
++                selectedDietetic = selectedDieteticId.text.toString()
++
++                (activity as? RegisterActivity)?.addDato("dietetic_preference", selectedDietetic)
++
++                (activity as? RegisterActivity)?.nextQuestion()
++            }
++        }
++    }
++
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/app/register/Alergias.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/register/Alergias.kt b/app/src/main/java/com/example/app/register/Alergias.kt
+new file mode 100644
+--- /dev/null	(date 1707571543337)
++++ b/app/src/main/java/com/example/app/register/Alergias.kt	(date 1707571543337)
+@@ -0,0 +1,72 @@
++package com.example.app.register
++
++import android.graphics.Color
++import android.os.Bundle
++import android.view.LayoutInflater
++import android.view.View
++import android.view.ViewGroup
++import android.widget.ImageView
++import androidx.fragment.app.Fragment
++
++import com.example.app.databinding.FragmentAlergiasBinding
++
++class Alergias : Fragment() {
++    private var _binding: FragmentAlergiasBinding? = null
++    private val binding get() = _binding!!
++    private var alergias: MutableList<String> = mutableListOf()
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++
++    }
++
++    override fun onCreateView(
++        inflater: LayoutInflater, container: ViewGroup?,
++        savedInstanceState: Bundle?
++    ): View? {
++        // Inflate the layout for this fragment
++        _binding = FragmentAlergiasBinding.inflate(inflater, container, false)
++        return binding.root
++    }
++
++    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
++        super.onViewCreated(view, savedInstanceState)
++        val todasAlergias = mutableListOf<ImageView>(
++            binding.imageView6, binding.imageView7, binding.imageView8,
++            binding.imageView11, binding.imageView12, binding.imageView13, binding.imageView14,
++            binding.imageView15, binding.imageView16, binding.imageView17, binding.imageView18,
++            binding.imageView19, binding.imageView20, binding.imageView21
++        )
++        todasAlergias.forEach { alergia ->
++
++            alergia.setOnClickListener {
++                if (!alergias.contains(alergia.tag.toString())){
++                    añadirAlergia(alergia)
++                }else{
++                    removeAlergia(alergia)
++                }
++
++            }
++        }
++        binding.nextQuestion2.setOnClickListener{
++            addData()
++            (activity as? RegisterActivity)?.nextQuestion()
++        }
++    }
++
++    private fun addData() {
++        (activity as? RegisterActivity)?.addDato("allergies", alergias)
++    }
++
++    private fun removeAlergia(alergia: ImageView) {
++        alergia.setColorFilter(null)
++        alergias.remove(alergia.tag.toString())
++    }
++
++    private fun añadirAlergia(alergia: ImageView) {
++        alergia.setColorFilter(Color.GRAY, android.graphics.PorterDuff.Mode.MULTIPLY)
++        alergias.add(alergia.tag.toString())
++    }
++
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/app/register/RegisterView.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/register/RegisterView.kt b/app/src/main/java/com/example/app/register2/RegisterView.kt
+rename from app/src/main/java/com/example/app/register/RegisterView.kt
+rename to app/src/main/java/com/example/app/register2/RegisterView.kt
+--- a/app/src/main/java/com/example/app/register/RegisterView.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/java/com/example/app/register2/RegisterView.kt	(date 1707571106275)
+@@ -1,25 +1,16 @@
+-package com.example.app.register
++package com.example.app.register2
+ 
+-import android.app.Activity
+ import android.content.Intent
+ import android.os.Bundle
+ import android.util.Log
+-import android.view.View
+-import androidx.activity.result.contract.ActivityResultContracts
+ import androidx.appcompat.app.AlertDialog
+ import androidx.appcompat.app.AppCompatActivity
+ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+ import androidx.fragment.app.Fragment
+-import com.example.app.R
+ import com.example.app.databinding.ActivityRegisterViewBinding
+ import com.example.app.mainActivity.Inicio
+-import com.google.android.gms.auth.api.signin.GoogleSignIn
+-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+ import com.google.android.gms.auth.api.signin.GoogleSignInClient
+-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+-import com.google.android.gms.tasks.Task
+ import com.google.firebase.auth.FirebaseAuth
+-import com.google.firebase.auth.GoogleAuthProvider
+ 
+ class RegisterView : AppCompatActivity() {
+     private lateinit var binding: ActivityRegisterViewBinding
+Index: app/src/main/res/layout/activity_splash.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_splash.xml b/app/src/main/res/layout/activity_splash.xml
+new file mode 100644
+--- /dev/null	(date 1707572737873)
++++ b/app/src/main/res/layout/activity_splash.xml	(date 1707572737873)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".mainActivity.SplashActivity">
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/app/ui/home/HomeViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.ui.home\r\n\r\nimport android.content.Intent\r\nimport android.util.Log\r\nimport androidx.lifecycle.LiveData\r\nimport androidx.lifecycle.MutableLiveData\r\nimport androidx.lifecycle.ViewModel\r\nimport com.example.app.R\r\nimport com.example.app.register.RegisterView\r\nimport com.google.android.gms.auth.api.signin.GoogleSignIn\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInClient\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInOptions\r\nimport com.google.firebase.auth.FirebaseAuth\r\nimport com.google.firebase.firestore.QuerySnapshot\r\nimport com.google.firebase.firestore.ktx.firestore\r\nimport com.google.firebase.ktx.Firebase\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.tasks.await\r\nimport kotlinx.coroutines.withContext\r\n\r\nclass HomeViewModel : ViewModel() {\r\n\r\n    private val db = Firebase.firestore\r\n\r\n    val ref = db.collection(\"alimentos\")\r\n\r\n    private val _ingredientList = MutableLiveData<List<IngredientModel>>()\r\n\r\n    private val auth = FirebaseAuth.getInstance()\r\n\r\n\r\n    private val _userEmail = MutableLiveData<String>().apply {\r\n        value = auth.currentUser?.email\r\n    }\r\n    private val _userName = MutableLiveData<String>().apply {\r\n        value = auth.currentUser?.displayName\r\n    }\r\n\r\n    val userEmail: LiveData<String> = _userEmail\r\n    val userName: LiveData<String> = _userName\r\n\r\n\r\n    //Creo una funcion en suspend, para que se ejecute en segundo plano\r\n    suspend fun getData(): List<IngredientModel>? {\r\n        //El withContext se utiliza para cambiar de contexto, es decir, para permitir que se realice en segundo plano desde otra clas\r\n        //El dispatcher sirve para que cuando se termine de realizar en este caso la recogida de datos, toma control sobre la ejecucion para realizar\r\n        //un cambio\r\n        return withContext(Dispatchers.IO) {\r\n            try {\r\n                //EL QuerySnapshot contiene el result de la query\r\n                //Le ponemos como await para congelar la funcion hasta que la llamada haya terminado, es decir para esperar a que se recojan todos los datos\r\n                val result: QuerySnapshot = ref.get().await()\r\n                val ingredients = mutableListOf<IngredientModel>()\r\n                //Recorremos el result para obtener todos los elementos\r\n                for (document in result.documents) {\r\n                    val name = document[\"nombre\"].toString()\r\n                    val proteinas = document[\"proteinas\"].toString()\r\n                    val grasas = document[\"grasas\"].toString()\r\n                    val hidratos_de_carbono = document[\"hidratos_de_carbono\"].toString()\r\n                    val calorias = document[\"calorias\"].toString()\r\n                    val imagen = document[\"imagen\"].toString()\r\n\r\n                    val ingredient = IngredientModel(\r\n                        name,\r\n                        proteinas,\r\n                        grasas,\r\n                        hidratos_de_carbono,\r\n                        calorias,\r\n                        imagen\r\n                    )\r\n                    ingredients.add(ingredient)\r\n                }\r\n                _ingredientList.postValue(ingredients)\r\n\r\n                //Este @withContext, simplemente es para que sea mas claro de que metododo es este return,\r\n                //en este caso de return withContext(Dispatchers.IO) de arriba\r\n                return@withContext ingredients\r\n            } catch (e: Exception) {\r\n                Log.e(\"Comprobar\", \"Error getting data: ${e.message}\")\r\n                return@withContext null\r\n            }\r\n        }\r\n    }\r\n\r\n    fun logOut() {\r\n        auth.signOut()\r\n\r\n\r\n    }\r\n\r\n    /*fun getData(): List<IngredientModel>? {\r\n        //val document = Firebase.firestore.collection(\"alimentos\").get().await()\r\n\r\n        ref.get().addOnCompleteListener { result ->\r\n            val resulSet = result.result\r\n            val ingredients = mutableListOf<IngredientModel>()\r\n\r\n            for (nombre in resulSet!!) {\r\n                val name = nombre[\"nombre\"].toString()\r\n                val proteinas = nombre[\"proteinas\"].toString()\r\n                val grasas = nombre[\"grasas\"].toString()\r\n                val hidratos_de_carbono = nombre[\"hidratos_de_carbono\"].toString()\r\n                val calorias = nombre[\"calorias\"].toString()\r\n                val imagen = nombre[\"imagen\"].toString()\r\n                val ingredient = IngredientModel(name, proteinas, grasas, hidratos_de_carbono, calorias, imagen)\r\n                ingredients.add(ingredient)\r\n            }\r\n            _ingredientList.value = ingredients\r\n        }\r\n        Log.d(\"Comprobar\", \"HomeViewModel -> ingredients list ${_ingredientList.value}\")\r\n        return _ingredientList.value\r\n    }*/\r\n    /* companion object {\r\n         val isReady: Boolean = true\r\n     }*/\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/ui/home/HomeViewModel.kt b/app/src/main/java/com/example/app/ui/home/HomeViewModel.kt
+--- a/app/src/main/java/com/example/app/ui/home/HomeViewModel.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/java/com/example/app/ui/home/HomeViewModel.kt	(date 1707571106328)
+@@ -1,15 +1,9 @@
+ package com.example.app.ui.home
+ 
+-import android.content.Intent
+ import android.util.Log
+ import androidx.lifecycle.LiveData
+ import androidx.lifecycle.MutableLiveData
+ import androidx.lifecycle.ViewModel
+-import com.example.app.R
+-import com.example.app.register.RegisterView
+-import com.google.android.gms.auth.api.signin.GoogleSignIn
+-import com.google.android.gms.auth.api.signin.GoogleSignInClient
+-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+ import com.google.firebase.auth.FirebaseAuth
+ import com.google.firebase.firestore.QuerySnapshot
+ import com.google.firebase.firestore.ktx.firestore
+Index: app/src/main/res/layout/fragment_login.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".register.LoginFragment\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"600dp\"\r\n        android:orientation=\"vertical\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/imageView2\"\r\n            android:layout_width=\"70dp\"\r\n            android:layout_height=\"124dp\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginTop=\"16dp\"\r\n\r\n            android:contentDescription=\"logo\"\r\n            android:onClick=\"nextQuestion\"\r\n            app:srcCompat=\"@drawable/logo\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView3\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"52dp\"\r\n            android:gravity=\"center\"\r\n            android:text=\"Inicia Sesión\"\r\n            android:textAppearance=\"?attr/textAppearanceTitleMedium\"\r\n            android:textSize=\"34sp\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"233dp\"\r\n            android:layout_marginTop=\"20dp\"\r\n            android:orientation=\"vertical\"\r\n            android:padding=\"20dp\">\r\n\r\n            <EditText\r\n                android:id=\"@+id/emailEditText\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"57dp\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:layout_marginBottom=\"7dp\"\r\n\r\n                android:autofillHints=\"\"\r\n                android:ems=\"10\"\r\n                android:hint=\"Email\"\r\n                android:inputType=\"textEmailAddress\" />\r\n\r\n            <EditText\r\n                android:id=\"@+id/passwordEditText\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"55dp\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:layout_marginBottom=\"7dp\"\r\n                android:ems=\"10\"\r\n                android:hint=\"Password\"\r\n                android:inputType=\"textPassword\" />\r\n\r\n            <Button\r\n                android:id=\"@+id/accederButton\"\r\n                android:layout_width=\"178dp\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_gravity=\"center\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:backgroundTint=\"#029C04\"\r\n                android:text=\"Acceder\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/textoRegistro\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:gravity=\"center\" />\r\n\r\n        </LinearLayout>\r\n\r\n        <Button\r\n            android:id=\"@+id/irRegister\"\r\n            android:layout_width=\"130dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center\"\r\n\r\n            android:backgroundTint=\"#8F018713\"\r\n            android:text=\"Go to register\"\r\n            android:textSize=\"12sp\" />\r\n\r\n        <com.google.android.gms.common.SignInButton\r\n            android:id=\"@+id/SignIn_Button\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginTop=\"0dp\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.0\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    </LinearLayout>\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_login.xml b/app/src/main/res/layout/fragment_login.xml
+--- a/app/src/main/res/layout/fragment_login.xml	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/res/layout/fragment_login.xml	(date 1707571106535)
+@@ -4,7 +4,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".register.LoginFragment">
++    tools:context=".register2.LoginFragment">
+ 
+     <LinearLayout
+         android:layout_width="match_parent"
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\"\r\n        >\r\n        <activity\r\n            android:name=\".mainActivity.Inicio\"\r\n            android:exported=\"false\"\r\n            />\r\n        <activity\r\n            android:name=\".MVVM.Register.Register\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".register.RegisterView\"\r\n            android:exported=\"true\"\r\n\r\n            android:theme=\"@style/Theme.App.starting\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/AndroidManifest.xml	(date 1707572737860)
+@@ -1,6 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools">
++
+     <uses-permission android:name="android.permission.INTERNET" />
+ 
+     <application
+@@ -11,23 +12,23 @@
+         android:label="@string/app_name"
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+-        android:theme="@style/AppTheme"
+-        >
++        android:theme="@style/AppTheme">
+         <activity
+-            android:name=".mainActivity.Inicio"
+-            android:exported="false"
+-            />
++            android:name=".mainActivity.SplashActivity"
++            android:exported="false" />
+         <activity
+-            android:name=".MVVM.Register.Register"
++            android:name=".mainActivity.Inicio"
+             android:exported="false" />
+         <activity
++            android:name=".register2.RegisterView"
++            android:exported="false"
++            android:theme="@style/Theme.App.starting" />
++        <activity
+             android:name=".MainActivity"
+             android:exported="false" />
+         <activity
+-            android:name=".register.RegisterView"
+-            android:exported="true"
+-
+-            android:theme="@style/Theme.App.starting">
++            android:name=".register.RegisterActivity"
++            android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+ 
+Index: app/src/main/java/com/example/app/register/LoginFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/register/LoginFragment.kt b/app/src/main/java/com/example/app/register2/LoginFragment.kt
+rename from app/src/main/java/com/example/app/register/LoginFragment.kt
+rename to app/src/main/java/com/example/app/register2/LoginFragment.kt
+--- a/app/src/main/java/com/example/app/register/LoginFragment.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/java/com/example/app/register2/LoginFragment.kt	(date 1707571924877)
+@@ -1,4 +1,4 @@
+-package com.example.app.register
++package com.example.app.register2
+ 
+ import android.app.Activity
+ import android.content.Intent
+@@ -12,6 +12,7 @@
+ import com.example.app.R
+ import com.example.app.databinding.FragmentLoginBinding
+ import com.example.app.mainActivity.Inicio
++import com.example.app.register.Email
+ import com.google.android.gms.auth.api.signin.GoogleSignIn
+ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+ import com.google.android.gms.auth.api.signin.GoogleSignInClient
+@@ -72,7 +73,7 @@
+             }
+         }
+         binding.irRegister.setOnClickListener() {
+-            (activity as? RegisterView)?.replaceFragment(RegisterFragment())
++            (activity as? RegisterView)?.replaceFragment(Email())
+         }
+     }
+ 
+Index: app/src/main/res/layout/fragment_physical_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:tag=\"2\"\r\n    tools:context=\".MVVM.Register.PhysicalActivity\">\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"match_parent\">\r\n\r\n        <LinearLayout\r\n            android:id=\"@+id/objetives\"\r\n            android:layout_width=\"416dp\"\r\n            android:layout_height=\"0dp\"\r\n            android:gravity=\"center\"\r\n            android:orientation=\"vertical\"\r\n            android:tag=\"4\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n            <TextView\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"43dp\"\r\n                android:layout_marginBottom=\"48dp\"\r\n                android:gravity=\"center\"\r\n                android:text=\"¿Cuál es tu nivel de ejercicio?\"\r\n                android:textSize=\"16sp\" />\r\n\r\n            <com.google.android.material.button.MaterialButtonToggleGroup\r\n                android:id=\"@+id/physicalAct\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginBottom=\"16dp\"\r\n                android:gravity=\"center\"\r\n                android:orientation=\"vertical\"\r\n                app:singleSelection=\"true\">\r\n\r\n                <Button\r\n                    android:id=\"@+id/poco\"\r\n                    style=\"@style/Widget.Material3.Button.ElevatedButton\"\r\n                    android:layout_width=\"350dp\"\r\n                    android:layout_height=\"64dp\"\r\n                    android:layout_marginBottom=\"16dp\"\r\n                    android:drawableEnd=\"@drawable/chevron_right_fill0_wght400_grad0_opsz24\"\r\n                    android:gravity=\"start|center_vertical\"\r\n                    android:tag=\"1\"\r\n                    android:text=\"Poco o ninguno\" />\r\n\r\n                <Button\r\n                    android:id=\"@+id/ligero\"\r\n                    style=\"@style/Widget.Material3.Button.ElevatedButton\"\r\n                    android:layout_width=\"350dp\"\r\n                    android:layout_height=\"64dp\"\r\n                    android:layout_marginBottom=\"16dp\"\r\n                    android:drawableEnd=\"@drawable/chevron_right_fill0_wght400_grad0_opsz24\"\r\n                    android:gravity=\"start|center_vertical\"\r\n                    android:tag=\"2\"\r\n                    android:text=\"Ligero, 1-3 dias/semana\" />\r\n\r\n                <Button\r\n                    android:id=\"@+id/moderado\"\r\n                    style=\"@style/Widget.Material3.Button.ElevatedButton\"\r\n                    android:layout_width=\"350dp\"\r\n                    android:layout_height=\"64dp\"\r\n                    android:layout_marginBottom=\"16dp\"\r\n                    android:drawableEnd=\"@drawable/chevron_right_fill0_wght400_grad0_opsz24\"\r\n                    android:gravity=\"start|center_vertical\"\r\n                    android:tag=\"3\"\r\n                    android:text=\"Moderado, 3-5 dias/semana\" />\r\n\r\n                <Button\r\n                    android:id=\"@+id/muyActivo\"\r\n                    style=\"@style/Widget.Material3.Button.ElevatedButton\"\r\n                    android:layout_width=\"350dp\"\r\n                    android:layout_height=\"64dp\"\r\n                    android:layout_marginBottom=\"16dp\"\r\n                    android:drawableEnd=\"@drawable/chevron_right_fill0_wght400_grad0_opsz24\"\r\n                    android:gravity=\"start|center_vertical\"\r\n                    android:tag=\"4\"\r\n                    android:text=\"Muy activo, 5-7 dias/semana \" />\r\n            </com.google.android.material.button.MaterialButtonToggleGroup>\r\n        </LinearLayout>\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_physical_activity.xml b/app/src/main/res/layout/fragment_physical_activity.xml
+--- a/app/src/main/res/layout/fragment_physical_activity.xml	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/res/layout/fragment_physical_activity.xml	(date 1707571924948)
+@@ -5,7 +5,7 @@
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:tag="2"
+-    tools:context=".MVVM.Register.PhysicalActivity">
++    tools:context=".register.Physical">
+ 
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="wrap_content"
+Index: app/src/main/res/layout/fragment_objetives.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".MVVM.Register.Objetives\">\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"match_parent\">\r\n\r\n        <LinearLayout\r\n            android:id=\"@+id/objetives\"\r\n            android:layout_width=\"416dp\"\r\n            android:layout_height=\"0dp\"\r\n            android:gravity=\"center\"\r\n            android:orientation=\"vertical\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n            <TextView\r\n                android:id=\"@+id/pregunta2\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"43dp\"\r\n                android:layout_marginBottom=\"48dp\"\r\n                android:gravity=\"center\"\r\n                android:text=\"¿Cuál es tu principal objetivo?\"\r\n                android:textSize=\"16sp\" />\r\n\r\n            <com.google.android.material.button.MaterialButtonToggleGroup\r\n                android:id=\"@+id/objetivesBu\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginBottom=\"16dp\"\r\n                android:gravity=\"center\"\r\n                android:orientation=\"vertical\"\r\n                app:singleSelection=\"true\">\r\n\r\n                <Button\r\n                    android:id=\"@+id/perder\"\r\n                    style=\"@style/Widget.Material3.Button.ElevatedButton\"\r\n                    android:layout_width=\"350dp\"\r\n                    android:layout_height=\"64dp\"\r\n                    android:layout_marginBottom=\"16dp\"\r\n                    android:drawableEnd=\"@drawable/chevron_right_fill0_wght400_grad0_opsz24\"\r\n                    android:gravity=\"start|center_vertical\"\r\n                    android:tag=\"1\"\r\n                    android:text=\"Perder peso\" />\r\n\r\n                <Button\r\n                    android:id=\"@+id/ganar\"\r\n                    style=\"@style/Widget.Material3.Button.ElevatedButton\"\r\n                    android:layout_width=\"350dp\"\r\n                    android:layout_height=\"64dp\"\r\n                    android:layout_marginBottom=\"16dp\"\r\n                    android:drawableEnd=\"@drawable/chevron_right_fill0_wght400_grad0_opsz24\"\r\n                    android:gravity=\"start|center_vertical\"\r\n                    android:tag=\"2\"\r\n                    android:text=\"Ganar masa muscular\" />\r\n\r\n                <Button\r\n                    android:id=\"@+id/saludable\"\r\n                    style=\"@style/Widget.Material3.Button.ElevatedButton\"\r\n                    android:layout_width=\"350dp\"\r\n                    android:layout_height=\"64dp\"\r\n                    android:layout_marginBottom=\"16dp\"\r\n                    android:drawableEnd=\"@drawable/chevron_right_fill0_wght400_grad0_opsz24\"\r\n                    android:gravity=\"start|center_vertical\"\r\n                    android:tag=\"3\"\r\n                    android:text=\"Comer más saludable\" />\r\n            </com.google.android.material.button.MaterialButtonToggleGroup>\r\n        </LinearLayout>\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_objetives.xml b/app/src/main/res/layout/fragment_objetives.xml
+--- a/app/src/main/res/layout/fragment_objetives.xml	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/res/layout/fragment_objetives.xml	(date 1707571543194)
+@@ -4,7 +4,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".MVVM.Register.Objetives">
++    tools:context=".register.Objetives">
+ 
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="wrap_content"
+Index: app/src/main/res/layout/activity_register_view.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".register.RegisterView\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"0dp\"\r\n        android:orientation=\"vertical\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.326\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.454\">\r\n\r\n        <androidx.fragment.app.FragmentContainerView\r\n            android:id=\"@+id/fragmentContainer\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\" />\r\n\r\n\r\n\r\n    </LinearLayout>\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_register_view.xml b/app/src/main/res/layout/activity_register_view.xml
+--- a/app/src/main/res/layout/activity_register_view.xml	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/res/layout/activity_register_view.xml	(date 1707571106440)
+@@ -4,7 +4,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".register.RegisterView">
++    tools:context=".register2.RegisterView">
+ 
+     <LinearLayout
+         android:layout_width="0dp"
+Index: app/src/main/res/layout/fragment_personal_data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:layout_gravity=\"center\"\r\n    tools:context=\".MVVM.Register.PersonalData\">\r\n\r\n    <!-- TODO: Update blank fragment layout -->\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"match_parent\">\r\n\r\n        <LinearLayout\r\n            android:id=\"@+id/q1\"\r\n            android:layout_width=\"416dp\"\r\n            android:layout_height=\"0dp\"\r\n            android:gravity=\"center\"\r\n            android:orientation=\"vertical\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n            <TextView\r\n                android:id=\"@+id/pregunta2\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"43dp\"\r\n                android:layout_marginBottom=\"48dp\"\r\n                android:gravity=\"center\"\r\n                android:text=\"¿Tienes alguna preferencia dietética?\"\r\n                android:textSize=\"16sp\" />\r\n\r\n            <com.google.android.material.button.MaterialButtonToggleGroup\r\n                android:id=\"@+id/dieteticPreference\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginBottom=\"16dp\"\r\n                android:gravity=\"center\"\r\n                android:orientation=\"vertical\"\r\n                app:singleSelection=\"true\">\r\n\r\n                <Button\r\n                    android:id=\"@+id/all\"\r\n                    style=\"@style/Widget.Material3.Button.ElevatedButton\"\r\n                    android:layout_width=\"350dp\"\r\n                    android:layout_height=\"64dp\"\r\n                    android:layout_marginBottom=\"16dp\"\r\n                    android:drawableEnd=\"@drawable/chevron_right_fill0_wght400_grad0_opsz24\"\r\n                    android:gravity=\"start|center_vertical\"\r\n                    android:text=\"No\" />\r\n\r\n                <Button\r\n                    android:id=\"@+id/vegetarian\"\r\n                    style=\"@style/Widget.Material3.Button.ElevatedButton\"\r\n                    android:layout_width=\"350dp\"\r\n                    android:layout_height=\"64dp\"\r\n                    android:layout_marginBottom=\"16dp\"\r\n                    android:drawableEnd=\"@drawable/chevron_right_fill0_wght400_grad0_opsz24\"\r\n                    android:gravity=\"start|center_vertical\"\r\n                    android:text=\"Vegetariano\" />\r\n\r\n                <Button\r\n                    android:id=\"@+id/vegan\"\r\n                    style=\"@style/Widget.Material3.Button.ElevatedButton\"\r\n                    android:layout_width=\"350dp\"\r\n                    android:layout_height=\"64dp\"\r\n                    android:layout_marginBottom=\"16dp\"\r\n                    android:drawableEnd=\"@drawable/chevron_right_fill0_wght400_grad0_opsz24\"\r\n                    android:gravity=\"start|center_vertical\"\r\n                    android:text=\"Vegano\" />\r\n            </com.google.android.material.button.MaterialButtonToggleGroup>\r\n        </LinearLayout>\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_personal_data.xml b/app/src/main/res/layout/fragment_personal_data.xml
+--- a/app/src/main/res/layout/fragment_personal_data.xml	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/res/layout/fragment_personal_data.xml	(date 1707571543273)
+@@ -4,19 +4,16 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:layout_gravity="center"
+-    tools:context=".MVVM.Register.PersonalData">
+-
+-    <!-- TODO: Update blank fragment layout -->
++    tools:context=".register.PersonalData">
+ 
+     <androidx.constraintlayout.widget.ConstraintLayout
+-        android:layout_width="wrap_content"
++        android:layout_width="match_parent"
+         android:layout_height="match_parent">
+ 
+         <LinearLayout
+-            android:id="@+id/q1"
+-            android:layout_width="416dp"
+-            android:layout_height="0dp"
++            android:id="@+id/q4"
++            android:layout_width="0dp"
++            android:layout_height="564dp"
+             android:gravity="center"
+             android:orientation="vertical"
+             app:layout_constraintBottom_toBottomOf="parent"
+@@ -24,55 +21,94 @@
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent">
+ 
+-            <TextView
+-                android:id="@+id/pregunta2"
+-                android:layout_width="match_parent"
+-                android:layout_height="43dp"
+-                android:layout_marginBottom="48dp"
+-                android:gravity="center"
+-                android:text="¿Tienes alguna preferencia dietética?"
+-                android:textSize="16sp" />
++            <com.google.android.material.textfield.TextInputLayout
+ 
+-            <com.google.android.material.button.MaterialButtonToggleGroup
+-                android:id="@+id/dieteticPreference"
+-                android:layout_width="match_parent"
++                android:layout_width="350dp"
+                 android:layout_height="wrap_content"
+                 android:layout_marginBottom="16dp"
+-                android:gravity="center"
+-                android:orientation="vertical"
+-                app:singleSelection="true">
++                android:hint="Altura(cm)">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/height"
++                    android:layout_width="350dp"
++                    android:layout_height="wrap_content"
++                    android:inputType="number" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-                <Button
+-                    android:id="@+id/all"
+-                    style="@style/Widget.Material3.Button.ElevatedButton"
+-                    android:layout_width="350dp"
+-                    android:layout_height="64dp"
+-                    android:layout_marginBottom="16dp"
+-                    android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
+-                    android:gravity="start|center_vertical"
+-                    android:text="No" />
++            <com.google.android.material.textfield.TextInputLayout
++
++                android:layout_width="350dp"
++                android:layout_height="wrap_content"
++                android:layout_marginBottom="16dp"
++                android:hint="Peso(kg)">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/weight"
++                    android:layout_width="350dp"
++                    android:layout_height="wrap_content"
++                    android:inputType="number" />
+ 
+-                <Button
+-                    android:id="@+id/vegetarian"
+-                    style="@style/Widget.Material3.Button.ElevatedButton"
+-                    android:layout_width="350dp"
+-                    android:layout_height="64dp"
+-                    android:layout_marginBottom="16dp"
+-                    android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
+-                    android:gravity="start|center_vertical"
+-                    android:text="Vegetariano" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/age"
++                android:layout_width="350dp"
++                android:layout_height="wrap_content"
++                android:layout_marginBottom="16dp"
++                android:hint=" Fecha de nacimiento"
++
++                >
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/dateInput"
++                    android:layout_width="350dp"
++                    android:layout_height="wrap_content"
++                    android:drawableStart="@drawable/baseline_edit_calendar_24"
++                    android:focusable="false"
++                    android:inputType="none"
++
++                    />
+ 
+-                <Button
+-                    android:id="@+id/vegan"
+-                    style="@style/Widget.Material3.Button.ElevatedButton"
+-                    android:layout_width="350dp"
+-                    android:layout_height="64dp"
+-                    android:layout_marginBottom="16dp"
+-                    android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
+-                    android:gravity="start|center_vertical"
+-                    android:text="Vegano" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++            <com.google.android.material.button.MaterialButtonToggleGroup
++                android:id="@+id/sex"
++                android:layout_width="350dp"
++                android:layout_height="wrap_content"
++                android:layout_marginBottom="16dp"
++                app:singleSelection="true">
++
++                <Button
++                    android:id="@+id/woman"
++                    style="?attr/materialButtonOutlinedStyle"
++                    android:layout_width="0dp"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Mujer" />
++
++                <Button
++                    android:id="@+id/man"
++                    style="?attr/materialButtonOutlinedStyle"
++                    android:layout_width="0dp"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Hombre" />
++
+             </com.google.android.material.button.MaterialButtonToggleGroup>
++
+         </LinearLayout>
++
++        <Button
++            android:id="@+id/nextQuestion"
++            android:layout_width="207dp"
++            android:layout_height="57dp"
++            android:text="Continuar"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent"
++            app:layout_constraintVertical_bias="0.961" />
++
+     </androidx.constraintlayout.widget.ConstraintLayout>
+ 
+ </FrameLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_dietetic.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_dietetic.xml b/app/src/main/res/layout/fragment_dietetic.xml
+new file mode 100644
+--- /dev/null	(date 1707571397679)
++++ b/app/src/main/res/layout/fragment_dietetic.xml	(date 1707571397679)
+@@ -0,0 +1,83 @@
++<?xml version="1.0" encoding="utf-8"?>
++<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:layout_gravity="center"
++    tools:context=".register.DieteticPreference">
++
++    <!-- TODO: Update blank fragment layout -->
++
++    <androidx.constraintlayout.widget.ConstraintLayout
++        android:layout_width="wrap_content"
++        android:layout_height="match_parent">
++
++        <LinearLayout
++            android:id="@+id/q1"
++            android:layout_width="416dp"
++            android:layout_height="0dp"
++            android:gravity="center"
++            android:orientation="vertical"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent">
++
++            <TextView
++                android:id="@+id/pregunta2"
++                android:layout_width="match_parent"
++                android:layout_height="43dp"
++                android:layout_marginBottom="48dp"
++                android:gravity="center"
++                android:text="¿Tienes alguna preferencia dietética?"
++                android:textSize="16sp" />
++
++            <com.google.android.material.button.MaterialButtonToggleGroup
++                android:id="@+id/dieteticPreference"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginBottom="16dp"
++                android:gravity="center"
++                android:orientation="vertical"
++                app:singleSelection="true">
++
++                <Button
++                    android:id="@+id/all"
++                    style="@style/Widget.Material3.Button.ElevatedButton"
++                    android:layout_width="350dp"
++                    android:layout_height="64dp"
++                    android:layout_marginBottom="16dp"
++                    android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
++                    android:gravity="start|center_vertical"
++                    android:text="No" />
++
++                <Button
++                    android:id="@+id/vegetarian"
++                    style="@style/Widget.Material3.Button.ElevatedButton"
++                    android:layout_width="350dp"
++                    android:layout_height="64dp"
++                    android:layout_marginBottom="16dp"
++                    android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
++                    android:gravity="start|center_vertical"
++                    android:text="Vegetariano" />
++
++                <Button
++                    android:id="@+id/vegan"
++                    style="@style/Widget.Material3.Button.ElevatedButton"
++                    android:layout_width="350dp"
++                    android:layout_height="64dp"
++                    android:layout_marginBottom="16dp"
++                    android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
++                    android:gravity="start|center_vertical"
++                    android:text="Vegano" />
++            </com.google.android.material.button.MaterialButtonToggleGroup>
++        </LinearLayout>
++    </androidx.constraintlayout.widget.ConstraintLayout>
++
++    <androidx.fragment.app.FragmentContainerView
++        android:id="@+id/fragmento"
++        android:layout_width="200dp"
++        android:layout_height="200dp" />
++
++</FrameLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/app/ui/home/HomeFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.ui.home\r\n\r\nimport android.content.Intent\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport androidx.fragment.app.Fragment\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.TextView\r\nimport androidx.lifecycle.ViewModelProvider\r\nimport androidx.lifecycle.lifecycleScope\r\nimport androidx.recyclerview.widget.LinearLayoutManager\r\nimport androidx.recyclerview.widget.RecyclerView\r\nimport com.example.app.R\r\nimport com.example.app.databinding.FragmentHomeBinding\r\nimport com.example.app.register.RegisterView\r\nimport com.example.app.ui.home.adapter.HomeAdapter\r\nimport com.google.android.gms.auth.api.signin.GoogleSignIn\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInClient\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInOptions\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.launch\r\n\r\nclass HomeFragment : Fragment() {\r\n    private var _binding: FragmentHomeBinding? = null\r\n    private val binding get() = _binding!!\r\n\r\n    private lateinit var googleSignInClient: GoogleSignInClient\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n    }\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        _binding = FragmentHomeBinding.inflate(inflater, container, false)\r\n\r\n        val homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)\r\n\r\n        homeViewModel.userEmail.observe(viewLifecycleOwner) {\r\n            binding.textUserEmail.text = it\r\n        }\r\n\r\n        homeViewModel.userName.observe(viewLifecycleOwner) {\r\n            binding.textUserName.text = it\r\n        }\r\n\r\n\r\n        binding.loadingIndicator.visibility = View.VISIBLE\r\n        binding.homeRV.visibility = View.GONE\r\n\r\n        //Aqui lanzamos la corrutina para que se ejecute en segundo plano\r\n        lifecycleScope.launch(Dispatchers.Main) {\r\n            val rv = binding.homeRV\r\n            //Y aqui dentro estamos llamando la funcion getData, que como tinee un await\r\n            //Va a esperar hasta que se recojan todos los datos\r\n            val data = homeViewModel.getData()\r\n            binding.loadingIndicator.visibility = View.GONE\r\n            binding.homeRV.visibility = View.VISIBLE\r\n\r\n            data?.let {\r\n                rv.layoutManager = LinearLayoutManager(context)\r\n                rv.adapter = HomeAdapter(it)\r\n                Log.d(\"Comprobar\", \"HomeFragment rv=HomeAdapter ${rv.adapter}\")\r\n            }\r\n        }\r\n\r\n        binding.button.setOnClickListener() {\r\n\r\n            //Esto sirve para borrar el cache de credenciales, ya que cuando cerramos sesion, se quedan las credenciales degoogle\r\n            // no da la opcion de elegir cuenta de nuevo, automaticamente se inicia con la cuenta anterior usada\r\n            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)\r\n                .requestIdToken(getString(R.string.your_web_client_id))\r\n                .requestEmail()\r\n                .build()\r\n\r\n            googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)\r\n            homeViewModel.logOut()\r\n            val intent = Intent(activity, RegisterView::class.java)\r\n            startActivity(intent)\r\n        }\r\n        /*\r\n                // Set up RecyclerView\r\n                val rv = binding.homeRV\r\n                rv.layoutManager = LinearLayoutManager(context)\r\n                val adapter = HomeAdapter(emptyList())\r\n                rv.adapter = adapter\r\n\r\n                // Set up loading indicator\r\n                val loadingIndicator = binding.imageView3\r\n                loadingIndicator.visibility = View.GONE\r\n\r\n                homeViewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->\r\n                    if (isLoading) {\r\n                        loadingIndicator.visibility = View.VISIBLE\r\n                        rv.visibility = View.INVISIBLE\r\n                    } else {\r\n                        loadingIndicator.visibility = View.GONE\r\n                        rv.visibility = View.VISIBLE\r\n                        val data = homeViewModel.getData()\r\n                        data?.let {\r\n                            rv.layoutManager = LinearLayoutManager(context)\r\n                            rv.adapter = HomeAdapter(it)\r\n\r\n                            Log.d(\"Comprobar\", \"HomeFragment rv=HomeAdapter ${rv.adapter}\")\r\n                        }\r\n                    }\r\n                }*/\r\n        /*\r\n                var rv =binding.homeRV\r\n                rv.layoutManager = LinearLayoutManager(context)\r\n                rv.adapter = homeViewModel.getData()?.let { HomeAdapter(it) }\r\n                Log.d(\"Comprobar\",\"HomeFragment rv=HomeAdapter ${rv.adapter}\")\r\n                */\r\n        return binding.root\r\n    }\r\n\r\n    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {\r\n        super.onViewCreated(view, savedInstanceState)\r\n    }\r\n\r\n    override fun onDestroyView() {\r\n        super.onDestroyView()\r\n        _binding = null\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/ui/home/HomeFragment.kt b/app/src/main/java/com/example/app/ui/home/HomeFragment.kt
+--- a/app/src/main/java/com/example/app/ui/home/HomeFragment.kt	(revision 962e802bb6f2ae7bf5b4a0326b333d46904a5833)
++++ b/app/src/main/java/com/example/app/ui/home/HomeFragment.kt	(date 1707571106511)
+@@ -7,14 +7,12 @@
+ import android.view.LayoutInflater
+ import android.view.View
+ import android.view.ViewGroup
+-import android.widget.TextView
+ import androidx.lifecycle.ViewModelProvider
+ import androidx.lifecycle.lifecycleScope
+ import androidx.recyclerview.widget.LinearLayoutManager
+-import androidx.recyclerview.widget.RecyclerView
+ import com.example.app.R
+ import com.example.app.databinding.FragmentHomeBinding
+-import com.example.app.register.RegisterView
++import com.example.app.register2.RegisterView
+ import com.example.app.ui.home.adapter.HomeAdapter
+ import com.google.android.gms.auth.api.signin.GoogleSignIn
+ import com.google.android.gms.auth.api.signin.GoogleSignInClient
+Index: app/src/main/java/com/example/app/mainActivity/SplashActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/mainActivity/SplashActivity.kt b/app/src/main/java/com/example/app/mainActivity/SplashActivity.kt
+new file mode 100644
+--- /dev/null	(date 1707572737800)
++++ b/app/src/main/java/com/example/app/mainActivity/SplashActivity.kt	(date 1707572737800)
+@@ -0,0 +1,12 @@
++package com.example.app.mainActivity
++
++import androidx.appcompat.app.AppCompatActivity
++import android.os.Bundle
++import com.example.app.R
++
++class SplashActivity : AppCompatActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_splash)
++    }
++}
+\ No newline at end of file
