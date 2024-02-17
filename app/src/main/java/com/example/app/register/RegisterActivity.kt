@@ -132,6 +132,39 @@ class RegisterActivity : AppCompatActivity() {
        // val JSONObject= JSONObject(userData)
         return User(
             auth.currentUser?.uid,
+            auth.currentUser?.uid,
+            auth.currentUser?.email,
+            dietetic_preference,
+            sex,
+            peso,
+            altura,
+            edad,
+            actividad,
+            deficit,
+            alergiasArray,
+            TDEE
+        )
+    }
+
+
+
+
+    fun createUserFromJsonGoogle(id:String): User {
+        val dietetic_preference: String = userData["dietetic_preference"].toString()
+        val sex = userData["sex"].toString()
+        val peso = userData["weight"].toString().toDouble()
+        val altura = userData["height"].toString().toDouble()
+        val edad = userData["age"].toString().toInt()
+        val actividad = userData["activity"].toString().toDouble()
+        val deficit = userData["deficit"].toString().toDouble()
+        val alergiasArray = userData["allergies"].toString()
+        auth = FirebaseAuth.getInstance()
+
+
+        // val JSONObject= JSONObject(userData)
+        return User(
+            id,
+            auth.currentUser?.uid,
             auth.currentUser?.email,
             dietetic_preference,
             sex,

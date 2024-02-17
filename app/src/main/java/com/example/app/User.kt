@@ -2,6 +2,7 @@ package com.example.app
 
 data class User(
 
+    val id: String?,
     val uid: String?,
     val email: String?,
     val dietetic_preference: String,

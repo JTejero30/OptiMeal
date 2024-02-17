@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="233dp"
+            android:layout_height="209dp"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
             android:padding="20dp">
@@ -40,22 +40,33 @@
                 android:hint="Password"
                 android:inputType="textPassword" />
 
-            <Button
-                android:id="@+id/registrarButton"
-                style="@style/Widget.Material3.Button.IconButton.Filled"
-                android:layout_width="178dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="7dp"
-                android:text="Registrar" />
-
-            <TextView
-                android:id="@+id/textoRegistro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center" />
-
         </LinearLayout>
+
+        <Button
+            android:id="@+id/registrarButton"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="7dp"
+            android:text="Registrar" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/SignIn_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textoRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
 
     </LinearLayout>
 
