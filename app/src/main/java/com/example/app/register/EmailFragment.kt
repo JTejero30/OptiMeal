@@ -42,7 +42,7 @@ class EmailFragment : Fragment() {
                         binding.passwordEditText.text.toString()
                     ).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            (activity as? RegisterActivity)?.nextQuestion()
+                            (activity as? RegisterActivity)?.nextQuestion(true)
                             val user  = (activity as? RegisterActivity)?.createUserFromJson()
                             Log.d("userLog",user.toString())
                             db.collection("users").add(user!!)

@@ -50,7 +50,7 @@ class AlergiasFragment : Fragment() {
         }
         binding.nextQuestion2.setOnClickListener{
             addData()
-            (activity as? RegisterActivity)?.nextQuestion()
+            (activity as? RegisterActivity)?.nextQuestion(true)
         }
     }
 
