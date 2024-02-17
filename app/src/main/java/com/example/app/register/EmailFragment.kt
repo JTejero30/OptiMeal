@@ -45,7 +45,7 @@ class EmailFragment : Fragment() {
                             (activity as? RegisterActivity)?.nextQuestion()
                             val user  = (activity as? RegisterActivity)?.createUserFromJson()
                             Log.d("userLog",user.toString())
-                            db.collection("users").add()
+                            db.collection("users").add(user!!)
                             val intent = Intent(activity, Inicio::class.java)
                             startActivity(intent)
                         } else {
