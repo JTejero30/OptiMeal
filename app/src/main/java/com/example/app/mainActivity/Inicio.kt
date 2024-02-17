@@ -1,9 +1,8 @@
 package com.example.app.mainActivity
 
 
-import com.example.app.model.CenaData
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -14,14 +13,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.app.R
 import com.example.app.databinding.ActivityInicioBinding
-import com.example.app.model.Desayuno
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.gson.Gson
-import java.io.IOException
-import java.io.InputStream
 
 
 class Inicio : AppCompatActivity() {
@@ -36,10 +31,7 @@ class Inicio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInicioBinding.inflate(layoutInflater)
 
-
-
         setContentView(binding.root)
-
 
         //val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment?
         //val navController = navHostFragment!!.navController
@@ -177,5 +169,10 @@ class Inicio : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+        // Al no poner nada estoy evitando que el user pueda retroceder a la pantalla anterior
     }
 }

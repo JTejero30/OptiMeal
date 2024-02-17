@@ -127,8 +127,6 @@ class HomeViewModel : ViewModel() {
 
     fun logOut() {
         auth.signOut()
-
-
     }
 
     /*fun getData(): List<IngredientModel>? {

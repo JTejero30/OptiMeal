@@ -81,6 +81,9 @@ class HomeFragment : Fragment() {
             homeViewModel.logOut()
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
+            //Cuando hago el logOut elimino la activity porque ya no la necesito
+            requireActivity().finish()
+
         }
         /*
                 // Set up RecyclerView

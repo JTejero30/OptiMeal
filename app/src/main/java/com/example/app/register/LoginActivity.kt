@@ -1,5 +1,6 @@
 package com.example.app.register
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -102,6 +103,11 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, Inicio::class.java)
             startActivity(intent)
         }
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+        // Al no poner nada estoy evitando que el user pueda retroceder a la pantalla anterior
     }
 
 }

@@ -45,11 +45,11 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       /* auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            Log.d("comprobar", "User logged: ${currentUser.email}")
-        }*/
+        /* auth = FirebaseAuth.getInstance()
+         val currentUser = auth.currentUser
+         if (currentUser != null) {
+             Log.d("comprobar", "User logged: ${currentUser.email}")
+         }*/
         //TODO descomentar linea abajo y borrar otra:
         replaceFragment(DieteticPreferenceFragment())
     }
@@ -65,11 +65,14 @@ class RegisterActivity : AppCompatActivity() {
                 calcularTDEE()
                 replaceFragment(AlergiasFragment())
             }
+
             5 -> {
                 replaceFragment(EmailFragment())
                 val user = createUserFromJson()
-                usersCollection.add(user)
+                //Estaba puesto antes esto, pero o hay que ponerlo porque ya lo añadimos desde EmailFragment
+                // usersCollection.add(user)
             }
+
             6 -> Log.d("User data:", userData.toString())
         }
     }
@@ -96,13 +99,13 @@ class RegisterActivity : AppCompatActivity() {
         val edad = userData["age"].toString().toInt()
         val actividad = userData["activity"].toString().toDouble()
         val deficit = userData["deficit"].toString().toDouble()
-        val variableSex = if(sex=="Hombre") 5 else -161
+        val variableSex = if (sex == "Hombre") 5 else -161
 
         /*Men: BMR =(10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) + 5*/
         /*Women: BMR = (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161*/
         /*del BMR sacamos el TDEE (total daily energy expenditure)*/
 
-        TDEE = ((10 * peso) + (6.25 * altura) - (5 * edad) + variableSex)* actividad * deficit
+        TDEE = ((10 * peso) + (6.25 * altura) - (5 * edad) + variableSex) * actividad * deficit
 
 
         println(TDEE)
@@ -121,7 +124,7 @@ class RegisterActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
 
-       // val JSONObject= JSONObject(userData)
+        // val JSONObject= JSONObject(userData)
         return User(
             auth.currentUser?.uid,
             auth.currentUser?.email,
