@@ -124,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         db.collection("users")
-            .whereEqualTo("id", account.id) // Adjust the field name as per your database
+            .whereEqualTo("id", account.id)
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
@@ -149,7 +149,7 @@ class LoginActivity : AppCompatActivity() {
                             Log.d("LogInGoogle", "Error UI ${it.exception.toString()}")
                         }
                     }
-                    return@addOnSuccessListener // Exit the loop if a matching document is found
+                    return@addOnSuccessListener
                 }
 
                 val builder = AlertDialog.Builder(this)
@@ -192,9 +192,9 @@ class LoginActivity : AppCompatActivity() {
                 Log.e("LogInGoogle", "No existe")
             }
             .addOnFailureListener { exception ->
-                // Handle failure gracefully
+
                 Log.e("LogInGoogle", "Error checking user data: $exception")
-                // You might want to show an error message to the user or retry
+
             }
 
 

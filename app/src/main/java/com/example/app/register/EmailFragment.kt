@@ -140,13 +140,13 @@ class EmailFragment : Fragment() {
 
 
         db.collection("users")
-            .whereEqualTo("id", account.id) // Adjust the field name as per your database
+            .whereEqualTo("id", account.id)
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     Log.d("LogInGoogle", "Existe")
 
-                    return@addOnSuccessListener // Exit the loop if a matching document is found
+                    return@addOnSuccessListener
 
                 }
                 Log.e("LogInGoogle", "No existe")
