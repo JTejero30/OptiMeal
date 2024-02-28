@@ -1,4 +1,4 @@
-package com.example.app.ui.main.menu.model
+package com.example.app.ui.main.model
 
 data class MenuModel(
     val menu_del_dia: MenuDelDia

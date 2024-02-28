@@ -1,14 +1,14 @@
-package com.example.app.ui.main.menu
+package com.example.app.ui.main
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.app.ui.main.menu.model.Ingrediente
-import com.example.app.ui.main.menu.model.MenuDelDia
-import com.example.app.ui.main.menu.model.MenuModel
-import com.example.app.ui.main.menu.model.Plato
+import com.example.app.ui.main.model.Ingrediente
+import com.example.app.ui.main.model.MenuDelDia
+import com.example.app.ui.main.model.MenuModel
+import com.example.app.ui.main.model.Plato
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ktx.firestore
@@ -55,7 +55,7 @@ class MenuViewModel : ViewModel() {
                         val menuModel = MenuModel(menuDelDia)
                         _menuModel.postValue(menuModel)
                     } else {
-                        _menuModel.postValue(null) // Post null if some data is missing
+                        _menuModel.postValue(null)
                     }
                 } else {
                     _menuModel.postValue(null)

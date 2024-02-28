@@ -1,14 +1,11 @@
-package com.example.app.ui.main.menu.adapter
+package com.example.app.ui.main.adapter
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.app.R
 import com.example.app.databinding.CardMenuBinding
-import com.example.app.databinding.CardRecipeRecipeBinding
-import com.example.app.ui.main.menu.model.MenuModel
-import com.example.app.ui.recipes.RecipeModel
+import com.example.app.ui.main.model.MenuModel
 
 class MenuViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 

@@ -1,12 +1,10 @@
-package com.example.app.ui.main.menu.adapter
+package com.example.app.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app.R
-import com.example.app.ui.main.menu.model.MenuModel
-
-import com.example.app.ui.recipes.RecipeModel
+import com.example.app.ui.main.model.MenuModel
 
 class MenuAdapter(private val menuModelList: List<MenuModel>) :
     RecyclerView.Adapter<MenuViewHolder>() {
