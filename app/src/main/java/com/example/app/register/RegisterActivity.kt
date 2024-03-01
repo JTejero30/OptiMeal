@@ -29,7 +29,7 @@ class RegisterActivity : AppCompatActivity() {
         "activity" to 0.0
     )
     private lateinit var user: User
-    private var progreso = 0
+    private var progreso = -1
 
     private var contador = 0
 
@@ -51,6 +51,10 @@ class RegisterActivity : AppCompatActivity() {
         nextQuestion(true)
     }
 
+    /*override fun onBackPressed() {
+        super.onBackPressed()
+        nextQuestion(false)
+    }*/
     public fun nextQuestion(avanza: Boolean) {
 
         if(avanza) {
@@ -75,8 +79,6 @@ class RegisterActivity : AppCompatActivity() {
             5 -> {
                 replaceFragment(EmailFragment())
                 val user = createUserFromJson()
-                //Estaba puesto antes esto, pero o hay que ponerlo porque ya lo añadimos desde EmailFragment
-                // usersCollection.add(user)
             }
             6 -> Log.d("User data:", userData.toString())
         }

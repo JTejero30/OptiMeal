@@ -11,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.app.R
 import com.example.app.databinding.FragmentRecipesBinding
-import com.example.app.ui.home.adapter.HomeAdapter
+
 import com.example.app.ui.recipes.adapter.RecipesAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

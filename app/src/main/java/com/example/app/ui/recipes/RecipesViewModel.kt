@@ -3,7 +3,6 @@ package com.example.app.ui.recipes
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.app.ui.home.IngredientModel
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -31,7 +30,6 @@ class RecipesViewModel: ViewModel() {
                     val ingredientes: List<String> = document.get("ingredientes") as? List<String> ?: emptyList()
                     val macros: List<String> = document.get("macros") as? List<String> ?: emptyList()
                     val imagen = document["imagen"].toString()
-
                     val recipe = RecipeModel(
                         name,
                         imagen,
