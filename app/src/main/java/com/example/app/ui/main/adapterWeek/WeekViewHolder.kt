@@ -34,7 +34,8 @@ class WeekViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.calendarDayOfWeek.text = dayModel.calendarDayOfWeek.toString()
 
         if (isSelected) {
-            itemView.setBackgroundColor(Color.LTGRAY)
+            itemView.setBackgroundResource(R.drawable.item_underline_background)
+
         }else{
             itemView.setBackgroundColor(Color.TRANSPARENT)
         }

@@ -28,6 +28,94 @@
       "total_grasa": 0,
       "total_proteina": 0,
       "total_carbohidratos": 0
+    },
+    {
+      "plato": "Salmón al Horno con Espárragos y Quinoa",
+      "ingredientes": [
+        {
+          "nombre": "filete de salmón",
+          "cantidad": "150g",
+          "calorias": 280,
+          "tipo": "proteínas",
+          "gramos": 30
+        },
+        {
+          "nombre": "espárragos",
+          "cantidad": "100g",
+          "calorias": 20,
+          "tipo": "vegetales",
+          "gramos": 10
+        },
+        {
+          "nombre": "quinoa cocida",
+          "cantidad": "100g",
+          "calorias": 120,
+          "tipo": "carbohidratos",
+          "gramos": 20
+        }
+      ],
+      "total_grasa": 12,
+      "total_proteina": 30,
+      "total_carbohidratos": 20
+    },
+    {
+      "plato": "Ensalada de Pollo con Aguacate y Almendras",
+      "ingredientes": [
+        {
+          "nombre": "pechuga de pollo cocida",
+          "cantidad": "150g",
+          "calorias": 165,
+          "tipo": "proteínas",
+          "gramos": 37
+        },
+        {
+          "nombre": "aguacate",
+          "cantidad": "100g",
+          "calorias": 160,
+          "tipo": "grasas",
+          "gramos": 15
+        },
+        {
+          "nombre": "almendras",
+          "cantidad": "30g",
+          "calorias": 180,
+          "tipo": "grasas",
+          "gramos": 15
+        }
+      ],
+      "total_grasa": 30,
+      "total_proteina": 37,
+      "total_carbohidratos": 0
+    },
+    {
+      "plato": "Lentejas Estofadas con Verduras y Arroz Integral",
+      "ingredientes": [
+        {
+          "nombre": "lentejas cocidas",
+          "cantidad": "200g",
+          "calorias": 230,
+          "tipo": "proteínas",
+          "gramos": 40
+        },
+        {
+          "nombre": "verduras variadas",
+          "cantidad": "150g",
+          "calorias": 50,
+          "tipo": "vegetales",
+          "gramos": 30
+        },
+        {
+          "nombre": "arroz integral cocido",
+          "cantidad": "150g",
+          "calorias": 200,
+          "tipo": "carbohidratos",
+          "gramos": 35
+        }
+      ],
+      "total_grasa": 0,
+      "total_proteina": 40,
+      "total_carbohidratos": 35
     }
+
   ]
 }

@@ -34,7 +34,6 @@ class MenuViewModel : ViewModel() {
     //val ref = db.collection("menu_dia").document(auth.currentUser?.uid.toString())
     val ref = db.collection("menu_dia").document("FOVgQNcWawUl9f4X5lrOAVQswHc2")
 
-
     private lateinit var referenceMenu: Map<String, DocumentReference>
 
     //weekModelL es una LiveData que expone la data observada, sirve para que desde el Fragment se pueda ovbservar
@@ -45,10 +44,10 @@ class MenuViewModel : ViewModel() {
     val menuModelL: LiveData<MenuModel?> get() = _menuModel
 
     private val _menuModel = MutableLiveData<MenuModel?>()
-    fun fetchData() {
+    fun fetchData(date: LocalDate) {
         viewModelScope.launch {
             try {
-                val document = ref.collection("semActual").document("2024-03-04").get().await()
+                val document = ref.collection("semActual").document(date.toString()).get().await()
                 Log.d("MenuViewModel", "document : ${document}")
 
                 if (document.exists()) {
@@ -153,7 +152,7 @@ class MenuViewModel : ViewModel() {
                 ), // Dia en español
                 year = day.year,
                 isCurrentDay = LocalDate.now() == day,
-                day = LocalDate.now(),
+                day = day,
             )
             weekModelList.add(dayModel)
         }

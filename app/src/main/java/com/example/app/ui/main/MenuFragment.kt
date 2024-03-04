@@ -21,6 +21,7 @@ import com.example.app.ui.main.model.DayModel
 import com.example.app.ui.main.model.MenuModel
 import com.example.app.ui.recipes.adapter.RecipesAdapter
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.time.DayOfWeek
 import java.time.LocalDate
@@ -28,7 +29,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.util.Locale
 
-class MenuFragment : Fragment() {
+class MenuFragment : Fragment(),DayItemClickI {
 
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
@@ -37,10 +38,8 @@ class MenuFragment : Fragment() {
 
     private val TAG = "ComprobarSemana"
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -58,69 +57,22 @@ class MenuFragment : Fragment() {
             weekModel?.let {
                 Log.d("MenuFragment", "weekMoidel--> ${weekModel.toString()}")
                 val rv = binding.weekRV
-                rv.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
-                rv.adapter = WeekAdapter(weekModel)
-            }
+                rv.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
+                //aqui creo el weekAdapter con el listener, que será este fragment
+                rv.adapter = WeekAdapter(weekModel, this)
+            }
         }
 
         binding.loadingIndicator.visibility = View.VISIBLE
-        binding.menuSV.visibility=View.GONE
+        binding.menuSV.visibility = View.GONE
 
         lifecycleScope.launch(Dispatchers.Main) {
-            menuViewModel.fetchData()
+            menuViewModel.fetchData(LocalDate.now())
             observeViewModel()
         }
 
-        /* lifecycleScope.launch(Dispatchers.Main) {
-             /*val rv = binding.menuRV*/
-             val data = menuViewModel.fetchData()
-             binding.loadingIndicator.visibility = View.GONE
-            // binding.menuRV.visibility = View.VISIBLE
-             Log.d("MenuFragment", "MenuFragment rv=MenuAdapter $data")
-
-             menuViewModel.menuModelL.observe()
-
-             data?.let {
-                 /*rv.layoutManager = LinearLayoutManager(context)
-                 rv.adapter = RecipesAdapter(it)*/
-                 Log.d("MenuFragment", "MenuFragment rv=MenuAdapter $data")
-
-                 binding.nombreCard.text = it.toString()
-
-                /* for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {
-                     val textView = TextView(binding.listaIngredientesCard.context)
-                     textView.text = ingrediente.toString()
-                     binding.listaIngredientesCard.addView(textView)
-                 }*/
-
-                 binding.displayIngredientes.setOnClickListener() {
-
-                     if (binding.listaIngredientesCard.visibility == View.VISIBLE) {
-                         binding.listaIngredientesCard.visibility = View.GONE
-                         binding.displayIngredientes.setIconResource(R.drawable.baseline_arrow_drop_down_24)
-                     } else {
-                         binding.listaIngredientesCard.visibility = View.VISIBLE
-                         binding.displayIngredientes.setIconResource(R.drawable.baseline_arrow_drop_up_24)
-                     }
-                 }
-
-                 binding.displayMacros.setOnClickListener() {
-
-                     if (binding.listaMacrosCard.visibility == View.VISIBLE) {
-                         binding.listaMacrosCard.visibility = View.GONE
-                         binding.displayMacros.setIconResource(R.drawable.baseline_arrow_drop_down_24)
-                     } else {
-                         binding.listaMacrosCard.visibility = View.VISIBLE
-                         binding.displayMacros.setIconResource(R.drawable.baseline_arrow_drop_up_24)
-                     }
-                 }
-
-
-
-             }
-         }
- */
         return binding.root
     }
 
@@ -128,10 +80,11 @@ class MenuFragment : Fragment() {
         menuViewModel.menuModelL.observe(viewLifecycleOwner) { menuModel ->
             // Update UI elements here with the new menuModel data
             binding.loadingIndicator.visibility = View.GONE
-            binding.menuSV.visibility=View.VISIBLE
+            binding.menuSV.visibility = View.VISIBLE
             menuModel?.let {
                 Log.d("MenuFragment", "weekMoidel--> ${menuModel.toString()}")
 
+                //Desayuno
                 Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
                     .into(binding.ivDesayuno)
                 binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
@@ -159,9 +112,61 @@ class MenuFragment : Fragment() {
                     }
                 }
 
-
+                //Comida
+                Glide.with(binding.ivComida.context).load(it.menu_del_dia.comida.imagen)
+                    .into(binding.ivComida)
                 binding.nombreCardComida.text = it.menu_del_dia.comida.plato
+                for (ingrediente in it.menu_del_dia.comida.ingredientes) {
+                    val textView = TextView(binding.listaIngredientesCardComida.context)
+                    textView.text = ingrediente.toString()
+                    binding.listaIngredientesCardComida.addView(textView)
+                }
+                binding.displayIngredientesComida.setOnClickListener() {
+                    if (binding.listaIngredientesCardComida.visibility == View.VISIBLE) {
+                        binding.listaIngredientesCardComida.visibility = View.GONE
+                        binding.displayIngredientesComida.setIconResource(R.drawable.baseline_arrow_drop_down_24)
+                    } else {
+                        binding.listaIngredientesCardComida.visibility = View.VISIBLE
+                        binding.displayIngredientesComida.setIconResource(R.drawable.baseline_arrow_drop_up_24)
+                    }
+                }
+                binding.displayMacrosComida.setOnClickListener() {
+                    if (binding.listaMacrosCardComida.visibility == View.VISIBLE) {
+                        binding.listaMacrosCardComida.visibility = View.GONE
+                        binding.displayMacrosComida.setIconResource(R.drawable.baseline_arrow_drop_down_24)
+                    } else {
+                        binding.listaMacrosCardComida.visibility = View.VISIBLE
+                        binding.displayMacrosComida.setIconResource(R.drawable.baseline_arrow_drop_up_24)
+                    }
+                }
 
+                //Comida
+                Glide.with(binding.ivCena.context).load(it.menu_del_dia.cena.imagen)
+                    .into(binding.ivCena)
+                binding.nombreCardCena.text = it.menu_del_dia.cena.plato
+                for (ingrediente in it.menu_del_dia.cena.ingredientes) {
+                    val textView = TextView(binding.listaIngredientesCardCena.context)
+                    textView.text = ingrediente.toString()
+                    binding.listaIngredientesCardCena.addView(textView)
+                }
+                binding.displayIngredientesCena.setOnClickListener() {
+                    if (binding.listaIngredientesCardCena.visibility == View.VISIBLE) {
+                        binding.listaIngredientesCardCena.visibility = View.GONE
+                        binding.displayIngredientesCena.setIconResource(R.drawable.baseline_arrow_drop_down_24)
+                    } else {
+                        binding.listaIngredientesCardCena.visibility = View.VISIBLE
+                        binding.displayIngredientesCena.setIconResource(R.drawable.baseline_arrow_drop_up_24)
+                    }
+                }
+                binding.displayMacrosCena.setOnClickListener() {
+                    if (binding.listaMacrosCardCena.visibility == View.VISIBLE) {
+                        binding.listaMacrosCardCena.visibility = View.GONE
+                        binding.displayMacrosCena.setIconResource(R.drawable.baseline_arrow_drop_down_24)
+                    } else {
+                        binding.listaMacrosCardCena.visibility = View.VISIBLE
+                        binding.displayMacrosCena.setIconResource(R.drawable.baseline_arrow_drop_up_24)
+                    }
+                }
             }
         }
     }
@@ -177,6 +182,20 @@ class MenuFragment : Fragment() {
             val fragment = MenuFragment()
 
             return fragment
+        }
+    }
+
+    override fun onDayItemClicked(dayModel: DayModel) {
+        Log.d("MenuFragment", "dayModel--> ${dayModel}")
+
+        binding.loadingIndicator.visibility = View.VISIBLE
+        binding.menuSV.visibility = View.GONE
+
+        lifecycleScope.launch(Dispatchers.Main) {
+
+            menuViewModel.fetchData(dayModel.day)
+            delay(500)
+            observeViewModel()
         }
     }
 }

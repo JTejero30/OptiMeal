@@ -9,11 +9,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app.R
+import com.example.app.register.RegisterActivity
+import com.example.app.ui.main.DayItemClickI
+import com.example.app.ui.main.MenuFragment
+import com.example.app.ui.main.MenuViewModel
 import com.example.app.ui.main.model.DayModel
 
-class WeekAdapter(private val weekModelList: List<DayModel>) :
+class WeekAdapter(private val weekModelList: List<DayModel>, private val listener:DayItemClickI) :
     RecyclerView.Adapter<WeekViewHolder>() {
     private var selectedPosition: Int = RecyclerView.NO_POSITION
 
@@ -45,12 +50,14 @@ class WeekAdapter(private val weekModelList: List<DayModel>) :
             //Con el holder.adapterPosition, estamos cogiendo la posicion del item que ha sido clicado dentro del recycler, y estamos cambiando la variable selectedPosition
             //Que se comprobara el el isSelected de arriba
             selectedPosition = holder.adapterPosition
-
+            listener.onDayItemClicked(item)
             //Aqui estamos llamando al notifyItemChanged con la posicion antigua y la nueva posicion seleccionada
             //El notifyItemChanged, lo que hace es ejecutar nuevamente el metodo onBindViewHolder de los items indicados en el notify,
             // para que asi tenga las nuevas posiciones actualizadas.
             notifyItemChanged(previouslySelectedPosition)
             notifyItemChanged(selectedPosition)
+
+
             Log.d("WeekViewHolder", "new : ${selectedPosition}")
 
         }

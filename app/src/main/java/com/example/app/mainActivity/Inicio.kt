@@ -79,10 +79,10 @@ class Inicio : AppCompatActivity() {
             startActivity(intent)
         }*/
 /*
-        data class DesayunosData(val cenas: List<Desayuno>)
+        data class DesayunosData(val desayunos: List<Desayuno>)
 
         try {
-            val jsonFileName = "cena.json"
+            val jsonFileName = "desayunos.json"
             val inputStream: InputStream = this.assets.open(jsonFileName)
             val size = inputStream.available()
             val buffer = ByteArray(size)
@@ -103,11 +103,11 @@ class Inicio : AppCompatActivity() {
 
             Log.d(TAG, "mealsData data: $desayunosData")
 
-            val desayunosList = desayunosData.cenas
+            val desayunosList = desayunosData.desayunos
 
             Log.d(TAG, "mealsList data: $desayunosList")
 
-            val desayunosCollection = db.collection("cenas")
+            val desayunosCollection = db.collection("desayunos")
 
             for (desayuno in desayunosList) {
                 desayunosCollection.add(desayuno)
