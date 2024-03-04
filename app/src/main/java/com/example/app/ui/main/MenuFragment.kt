@@ -149,9 +149,7 @@ class MenuFragment : Fragment() {
                         binding.displayIngredientesDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)
                     }
                 }
-
                 binding.displayMacrosDesayuno.setOnClickListener() {
-
                     if (binding.listaMacrosCardDesayuno.visibility == View.VISIBLE) {
                         binding.listaMacrosCardDesayuno.visibility = View.GONE
                         binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_down_24)
@@ -160,6 +158,10 @@ class MenuFragment : Fragment() {
                         binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)
                     }
                 }
+
+
+                binding.nombreCardComida.text = it.menu_del_dia.comida.plato
+
             }
         }
     }

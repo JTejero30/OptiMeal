@@ -1,32 +1,33 @@
 {
-
-  "PucraZfdiqACxfxKl0f": {
-    "plato": "Ensalada de Salmón Ahumado y Aguacate",
-    "ingredientes": [
-      {
-        "nombre": "salmón ahumado",
-        "cantidad": "100g",
-        "calorias": 200,
-        "tipo": "proteínas",
-        "gramos": 22
-      },
-      {
-        "nombre": "aguacate",
-        "cantidad": "1/2",
-        "calorias": 120,
-        "tipo": "grasas",
-        "gramos": 14
-      },
-      {
-        "nombre": "verduras mixtas y aderezo ligero",
-        "cantidad": "varios",
-        "calorias": 406.95,
-        "tipo": "vegetales",
-        "gramos": 60
-      }
-    ],
-    "total_grasa": 14,
-    "total_proteina": 22,
-    "total_carbohidratos": 60
-  }
+  "cenas": [
+    {
+      "plato": "Ensalada de Salmón Ahumado y Aguacate",
+      "ingredientes": [
+        {
+          "nombre": "salmón ahumado",
+          "cantidad": "100g",
+          "calorias": 200,
+          "tipo": "proteínas",
+          "gramos": 22
+        },
+        {
+          "nombre": "aguacate",
+          "cantidad": "1/2",
+          "calorias": 120,
+          "tipo": "grasas",
+          "gramos": 14
+        },
+        {
+          "nombre": "verduras mixtas y aderezo ligero",
+          "cantidad": "varios",
+          "calorias": 406.95,
+          "tipo": "vegetales",
+          "gramos": 60
+        }
+      ],
+      "total_grasa": 14,
+      "total_proteina": 22,
+      "total_carbohidratos": 60
+    }
+  ]
 }

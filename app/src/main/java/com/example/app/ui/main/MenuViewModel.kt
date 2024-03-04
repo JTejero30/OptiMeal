@@ -31,7 +31,9 @@ class MenuViewModel : ViewModel() {
     //val ref = db.collection("desayunos").document("ernesto")
 
     private val auth = FirebaseAuth.getInstance()
-    val ref = db.collection("menu_dia").document(auth.currentUser?.uid.toString())
+    //val ref = db.collection("menu_dia").document(auth.currentUser?.uid.toString())
+    val ref = db.collection("menu_dia").document("FOVgQNcWawUl9f4X5lrOAVQswHc2")
+
 
     private lateinit var referenceMenu: Map<String, DocumentReference>
 
@@ -46,10 +48,14 @@ class MenuViewModel : ViewModel() {
     fun fetchData() {
         viewModelScope.launch {
             try {
-                val document = ref.get().await()
+                val document = ref.collection("semActual").document("2024-03-04").get().await()
+                Log.d("MenuViewModel", "document : ${document}")
 
                 if (document.exists()) {
-                    referenceMenu = document.data?.get("menu1") as Map<String, DocumentReference>
+                    //referenceMenu = document.data?.get("menu1") as Map<String, DocumentReference>
+                    Log.d("MenuViewModel", "document : ${document}")
+
+                    referenceMenu = document.data?.get("menu") as Map<String, DocumentReference>
 
                     val desayunoDeferred = async { fetchPlato(referenceMenu["desayuno"]) }
                     val comidaDeferred = async { fetchPlato(referenceMenu["comida"]) }
@@ -58,6 +64,7 @@ class MenuViewModel : ViewModel() {
                     val desayuno = desayunoDeferred.await()
                     val comida = comidaDeferred.await()
                     val cena = cenaDeferred.await()
+                    Log.d("MenuViewModel", "DocumentSnapshot data: ${desayuno}")
 
                     if (desayuno != null && comida != null && cena != null) {
                         val menuDelDia = MenuDelDia(desayuno, comida, cena)
@@ -68,6 +75,8 @@ class MenuViewModel : ViewModel() {
                     }
                 } else {
                     _menuModel.postValue(null)
+                    Log.d("MenuViewModel", "No document exist : ${document}")
+
                 }
             } catch (e: Exception) {
                 _menuModel.postValue(null)
@@ -143,8 +152,9 @@ class MenuViewModel : ViewModel() {
                     Locale("es")
                 ), // Dia en español
                 year = day.year,
-                isCurrentDay = LocalDate.now()==day,
-                )
+                isCurrentDay = LocalDate.now() == day,
+                day = LocalDate.now(),
+            )
             weekModelList.add(dayModel)
         }
         _WeekModel.postValue(weekModelList)
