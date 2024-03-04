@@ -5,7 +5,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--NAVIGATION-->
-    <string name="title_home">Home</string>
+    <string name="title_userData">User</string>
     <string name="title_ingredients">Ingredients</string>
     <string name="title_recipes">Recipes</string>
 
@@ -62,6 +62,6 @@
     </string-array>
 
     <string name="your_web_client_id">529191917958-49k9qjo0539nqcnett9nln5voulj5dbq.apps.googleusercontent.com</string>
-
+    <string name="selectDietetic">Selecciona dieta</string>
 
 </resources>

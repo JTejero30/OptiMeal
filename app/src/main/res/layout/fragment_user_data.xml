@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context=".ui.user.userDataFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Peso (kg)" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/weight"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:gravity="center_vertical"
+                android:hint="peso"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Altura (cm)" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/height"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:hint="altura"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Fecha de nacimiento" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dateInput2"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:contentDescription="date"
+                android:drawableStart="@drawable/baseline_edit_calendar_24"
+                android:focusable="false"
+
+                android:inputType="none" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Tipo de dieta" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/selectDietetic"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dieteticType"
+                    android:layout_width="350dp"
+                    android:layout_height="55dp"
+                    android:contentDescription="dietta"
+                    android:inputType="none"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Ejercicio semanal" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/userActivity"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="350dp"
+                android:layout_height="55dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/userActivities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Objetivo" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/userObjetive"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <AutoCompleteTextView
+                    android:id="@+id/userObjetives"
+                    android:layout_width="350dp"
+                    android:layout_height="55dp"
+                    android:contentDescription="userObjetives"
+                    android:inputType="none"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -45,7 +45,7 @@ class Inicio : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_ingredients, R.id.navigation_recipes
+                R.id.navigation_userData, R.id.navigation_ingredients, R.id.navigation_recipes
             )
         )
 

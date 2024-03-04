@@ -59,7 +59,7 @@ class EmailFragment : Fragment() {
                         (activity as? RegisterActivity)?.nextQuestion(true)
                         val user = (activity as? RegisterActivity)?.createUserFromJson()
                         Log.d("userLog", user.toString())
-                        db.collection("users").add(user!!)
+                        db.collection("users").document(auth.currentUser?.uid.toString()).set(user!!)
                         val intent = Intent(activity, Inicio::class.java)
                         startActivity(intent)
                     } else {
@@ -165,8 +165,7 @@ class EmailFragment : Fragment() {
                         val user =
                             (activity as? RegisterActivity)?.createUserFromJsonGoogle(account.id!!)
                         Log.d("userLog", user.toString())
-                        db.collection("users").add(user!!)
-
+                        db.collection("users").document(auth.currentUser?.uid.toString()).set(user!!)
                         val intent = Intent(activity, Inicio::class.java)
                         requireActivity().finish()
                         startActivity(intent)

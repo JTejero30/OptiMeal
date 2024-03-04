@@ -30,7 +30,7 @@
                 android:layout_height="43dp"
                 android:layout_marginBottom="48dp"
                 android:gravity="center"
-                android:text="¿Tienes alguna preferencia dietética?"
+                android:text="Tipo de dieta"
                 android:textSize="16sp" />
 
             <com.google.android.material.button.MaterialButtonToggleGroup
@@ -50,7 +50,7 @@
                     android:layout_marginBottom="16dp"
                     android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
                     android:gravity="start|center_vertical"
-                    android:text="No" />
+                    android:text="Estándar" />
 
                 <Button
                     android:id="@+id/vegetarian"
@@ -60,7 +60,7 @@
                     android:layout_marginBottom="16dp"
                     android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
                     android:gravity="start|center_vertical"
-                    android:text="Vegetariano" />
+                    android:text="Vegetariana" />
 
                 <Button
                     android:id="@+id/vegan"
@@ -70,7 +70,7 @@
                     android:layout_marginBottom="16dp"
                     android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
                     android:gravity="start|center_vertical"
-                    android:text="Vegano" />
+                    android:text="Vegana" />
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
 
