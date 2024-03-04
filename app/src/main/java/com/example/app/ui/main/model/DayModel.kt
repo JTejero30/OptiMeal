@@ -4,7 +4,8 @@ data class DayModel(
     val calendarDayOfWeek: Int,
     val calendarMonth: String,
     val dayOfWeek: String,
-    val year: Int
+    val year: Int,
+    val isCurrentDay: Boolean,
 
 
-)
+    )

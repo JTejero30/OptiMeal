@@ -1,0 +1,76 @@
+Index: app/src/main/java/com/example/app/ui/recipes/RecipeModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.ui.recipes\r\n\r\ndata class RecipeModel(\r\n\r\n    val nombre:String,\r\n    val imagen: String,\r\n    val ingredients: List<String>,\r\n    val macros: List<String>\r\n\r\n)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/ui/recipes/RecipeModel.kt b/app/src/main/java/com/example/app/ui/recipes/RecipeModel.kt
+--- a/app/src/main/java/com/example/app/ui/recipes/RecipeModel.kt	
++++ b/app/src/main/java/com/example/app/ui/recipes/RecipeModel.kt	
+@@ -1,10 +1,7 @@
+ package com.example.app.ui.recipes
+-
+ data class RecipeModel(
+-
+     val nombre:String,
+     val imagen: String,
+     val ingredients: List<String>,
+     val macros: List<String>
+-
+ )
+Index: app/src/main/java/com/example/app/ui/recipes/RecipesFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.ui.recipes\r\n\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport androidx.fragment.app.Fragment\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport androidx.lifecycle.ViewModelProvider\r\nimport androidx.lifecycle.lifecycleScope\r\nimport androidx.recyclerview.widget.LinearLayoutManager\r\nimport com.example.app.R\r\nimport com.example.app.databinding.FragmentRecipesBinding\r\nimport com.example.app.ui.home.adapter.HomeAdapter\r\nimport com.example.app.ui.recipes.adapter.RecipesAdapter\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.launch\r\n\r\n\r\nclass RecipesFragment : Fragment() {\r\n    private var _binding: FragmentRecipesBinding? = null\r\n\r\n    private val binding get() = _binding!!\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n\r\n    }\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        _binding = FragmentRecipesBinding.inflate(inflater,container,false)\r\n\r\n        val recipeViewModel = ViewModelProvider(this).get(RecipesViewModel::class.java)\r\n\r\n        binding.loadingIndicator.visibility = View.VISIBLE\r\n        binding.recipeRV.visibility = View.GONE\r\n\r\n        lifecycleScope.launch(Dispatchers.Main) {\r\n            val rv = binding.recipeRV\r\n            val data = recipeViewModel.getData()\r\n            binding.loadingIndicator.visibility = View.GONE\r\n            binding.recipeRV.visibility = View.VISIBLE\r\n\r\n            data?.let {\r\n                rv.layoutManager = LinearLayoutManager(context)\r\n                rv.adapter = RecipesAdapter(it)\r\n                Log.d(\"Comprobar\", \"RecipeFragment rv=RecipeAdapter ${rv.adapter}\")\r\n            }\r\n        }\r\n\r\n        return binding.root\r\n    }\r\n\r\n    override fun onDestroyView() {\r\n        super.onDestroyView()\r\n        _binding = null\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/ui/recipes/RecipesFragment.kt b/app/src/main/java/com/example/app/ui/recipes/RecipesFragment.kt
+--- a/app/src/main/java/com/example/app/ui/recipes/RecipesFragment.kt	
++++ b/app/src/main/java/com/example/app/ui/recipes/RecipesFragment.kt	
+@@ -19,14 +19,10 @@
+ 
+ class RecipesFragment : Fragment() {
+     private var _binding: FragmentRecipesBinding? = null
+-
+     private val binding get() = _binding!!
+-
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-
+     }
+-
+     override fun onCreateView(
+         inflater: LayoutInflater,
+         container: ViewGroup?,
+Index: app/src/main/java/com/example/app/register/EmailFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.register\r\n\r\nimport android.app.Activity\r\nimport android.content.DialogInterface\r\nimport android.content.Intent\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport androidx.activity.result.contract.ActivityResultContracts\r\nimport androidx.appcompat.app.AlertDialog\r\nimport androidx.fragment.app.Fragment\r\nimport com.example.app.R\r\nimport com.example.app.databinding.FragmentRegisterBinding\r\nimport com.example.app.mainActivity.Inicio\r\nimport com.google.android.gms.auth.api.signin.GoogleSignIn\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInAccount\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInClient\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInOptions\r\nimport com.google.android.gms.tasks.Task\r\nimport com.google.firebase.auth.FirebaseAuth\r\nimport com.google.firebase.auth.GoogleAuthProvider\r\nimport com.google.firebase.firestore.ktx.firestore\r\nimport com.google.firebase.ktx.Firebase\r\n\r\nclass EmailFragment : Fragment() {\r\n    private lateinit var _binding: FragmentRegisterBinding\r\n    private val binding get() = _binding!!\r\n    private val db = Firebase.firestore\r\n\r\n    private lateinit var auth: FirebaseAuth\r\n    private lateinit var googleSignInClient: GoogleSignInClient\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n    }\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        _binding = FragmentRegisterBinding.inflate(inflater, container, false)\r\n        return binding.root\r\n    }\r\n\r\n    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {\r\n        super.onViewCreated(view, savedInstanceState)\r\n        auth = FirebaseAuth.getInstance()\r\n\r\n        binding.registrarButton.setOnClickListener() {\r\n            if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty()) {\r\n                FirebaseAuth.getInstance().createUserWithEmailAndPassword(\r\n                    binding.emailEditText.text.toString(),\r\n                    binding.passwordEditText.text.toString()\r\n                ).addOnCompleteListener {\r\n                    if (it.isSuccessful) {\r\n                        (activity as? RegisterActivity)?.nextQuestion(true)\r\n                        val user = (activity as? RegisterActivity)?.createUserFromJson()\r\n                        Log.d(\"userLog\", user.toString())\r\n                        db.collection(\"users\").add(user!!)\r\n                        val intent = Intent(activity, Inicio::class.java)\r\n                        startActivity(intent)\r\n                    } else {\r\n                        (activity as? RegisterActivity)?.showAlert()\r\n                    }\r\n                }\r\n            }\r\n        }\r\n\r\n\r\n        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)\r\n            .requestIdToken(getString(R.string.your_web_client_id))\r\n            .requestEmail()\r\n            .build()\r\n\r\n        googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)\r\n        binding.SignInButton.setOnClickListener() {\r\n            signInGoogle()\r\n            googleSignInClient.signOut()\r\n        }\r\n\r\n\r\n    }\r\n\r\n\r\n    private fun signInGoogle() {\r\n        val signInIntent = googleSignInClient.signInIntent\r\n        Log.d(\"LogInGoogle\", \"Lanzo singIn launcher. signInIntent->$signInIntent\")\r\n        launcher.launch(signInIntent)\r\n    }\r\n\r\n    private val launcher =\r\n        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->\r\n            Log.d(\r\n                \"LogInGoogle\",\r\n                \"Estoy dentro de launcher registerForActivityResult.result->$result\"\r\n            )\r\n            Log.d(\"LogInGoogle\", \"Estoy dentro de launcher result.resultCode->${result.resultCode}\")\r\n\r\n            if (result.resultCode == Activity.RESULT_OK) {\r\n\r\n                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)\r\n                Log.d(\"LogInGoogle\", \"Estoy dentro del IF en launcher task->${task}\")\r\n\r\n                handleResults(task)\r\n            }\r\n        }\r\n\r\n    private fun handleResults(task: Task<GoogleSignInAccount>) {\r\n        Log.d(\"LogInGoogle\", \"Estoy dentro de handleResults task->${task}\")\r\n\r\n        if (task.isSuccessful) {\r\n\r\n            val account: GoogleSignInAccount? = task.result\r\n            Log.d(\"LogInGoogle\", \"task isSuccesful account->${account}\")\r\n\r\n            if (account != null) {\r\n\r\n                Log.d(\"LogInGoogle\", \"updateUI->${account}\")\r\n\r\n                updateUI(account)\r\n\r\n            }\r\n        } else {\r\n            Log.d(\"LogInGoogle\", \"Error ${task.exception.toString()}\")\r\n        }\r\n    }\r\n\r\n    private fun updateUI(account: GoogleSignInAccount) {\r\n        Log.d(\"LogInGoogle\", \"-----------------------------\")\r\n\r\n        val credential = GoogleAuthProvider.getCredential(account.idToken, null)\r\n        Log.d(\"LogInGoogle\", \"updateUI credential->${credential}\")\r\n        Log.d(\"LogInGoogle\", \"account-> ${account},${account.id},${account.email}\")\r\n\r\n        Log.d(\"LogInGoogle\", \"-----------------------------\")\r\n\r\n\r\n\r\n        db.collection(\"users\")\r\n            .whereEqualTo(\"id\", account.id)\r\n            .get()\r\n            .addOnSuccessListener { documents ->\r\n                for (document in documents) {\r\n                    Log.d(\"LogInGoogle\", \"Existe\")\r\n\r\n                    return@addOnSuccessListener\r\n\r\n                }\r\n                Log.e(\"LogInGoogle\", \"No existe\")\r\n                //Esto es lo que crea el user en Autentication\r\n                auth.signInWithCredential(credential).addOnCompleteListener {\r\n                    Log.d(\r\n                        \"LogInGoogle\",\r\n                        \"Estoy dentro de auth.signInWithCredential(credential)  auth.signInWithCredential(credential)->${\r\n                            auth.signInWithCredential(credential)\r\n                        }\"\r\n                    )\r\n\r\n                    if (it.isSuccessful) {\r\n                        Log.d(\"LogInGoogle\", \"Correct Login ${account.email}\")\r\n                        Log.d(\"LogInGoogle\", \"Correct Login ${auth.currentUser?.uid}\")\r\n                        val user =\r\n                            (activity as? RegisterActivity)?.createUserFromJsonGoogle(account.id!!)\r\n                        Log.d(\"userLog\", user.toString())\r\n                        db.collection(\"users\").add(user!!)\r\n\r\n                        val intent = Intent(activity, Inicio::class.java)\r\n                        requireActivity().finish()\r\n                        startActivity(intent)\r\n                    } else {\r\n                        Log.d(\"LogInGoogle\", \"Error UI ${it.exception.toString()}\")\r\n                    }\r\n                }\r\n            }\r\n            .addOnFailureListener { exception ->\r\n                Log.e(\"LogInGoogle\", \"Error checking user data: $exception\")\r\n            }\r\n        val builder = AlertDialog.Builder(requireContext())\r\n        builder.setTitle(\"Error\")\r\n        builder.setMessage(\"Vaya! Parece que ya hay una cuenta con este correo...\")\r\n        builder.setPositiveButton(\"Cancelar\", null)\r\n        builder.setNegativeButton(\r\n            \"Ir a login\",\r\n            DialogInterface.OnClickListener { dialog, which ->\r\n\r\n                val intent = Intent(activity, LoginActivity::class.java)\r\n                startActivity(intent)\r\n                requireActivity().finish()\r\n            })\r\n        val dialog: AlertDialog = builder.create()\r\n        dialog.show()\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/register/EmailFragment.kt b/app/src/main/java/com/example/app/register/EmailFragment.kt
+--- a/app/src/main/java/com/example/app/register/EmailFragment.kt	
++++ b/app/src/main/java/com/example/app/register/EmailFragment.kt	
+@@ -59,7 +59,8 @@
+                         (activity as? RegisterActivity)?.nextQuestion(true)
+                         val user = (activity as? RegisterActivity)?.createUserFromJson()
+                         Log.d("userLog", user.toString())
+-                        db.collection("users").add(user!!)
++                        //db.collection("users").add(user!!)
++                        db.collection("users").document(auth.currentUser?.uid.toString()).set(user!!)
+                         val intent = Intent(activity, Inicio::class.java)
+                         startActivity(intent)
+                     } else {
+@@ -165,7 +166,8 @@
+                         val user =
+                             (activity as? RegisterActivity)?.createUserFromJsonGoogle(account.id!!)
+                         Log.d("userLog", user.toString())
+-                        db.collection("users").add(user!!)
++                        //db.collection("users").add(user!!)
++                        db.collection("users").document(auth.currentUser?.uid.toString()).set(user!!)
+ 
+                         val intent = Intent(activity, Inicio::class.java)
+                         requireActivity().finish()
