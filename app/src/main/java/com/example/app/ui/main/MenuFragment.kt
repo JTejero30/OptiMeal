@@ -12,6 +12,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.app.R
@@ -64,6 +67,9 @@ class MenuFragment : Fragment(),DayItemClickI {
                 rv.adapter = WeekAdapter(weekModel, this)
             }
         }
+
+
+
 
         binding.loadingIndicator.visibility = View.VISIBLE
         binding.menuSV.visibility = View.GONE
