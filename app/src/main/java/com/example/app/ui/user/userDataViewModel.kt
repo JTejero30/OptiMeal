@@ -40,7 +40,9 @@ class userDataViewModel : ViewModel() {
                     document["actividad"].toString().toDouble(),
                     document["deficit"].toString().toDouble(),
                     document["alergias"].toString(),
-                    document["tdee"].toString().toDouble()
+                    document["tdee"].toString().toDouble(),
+                    document["activityText"].toString(),
+                    document["objetivo"].toString()
                 )
                 return@withContext user
 

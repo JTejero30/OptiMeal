@@ -31,8 +31,10 @@ class PhysicalFragment : Fragment() {
             if (isCheck) {
                 val selected = view.findViewById<Button>(id)
                 val selectedTag = selected.tag
+                val textSelected= selected.text
                 val multiplicador= valorSelected(selectedTag)
                 (activity as? RegisterActivity)?.addDato("activity",multiplicador)
+                (activity as? RegisterActivity)?.addDato("activityText",textSelected)
                 (activity as? RegisterActivity)?.nextQuestion(true)
             }
         }

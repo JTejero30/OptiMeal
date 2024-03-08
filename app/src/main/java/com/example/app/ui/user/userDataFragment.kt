@@ -26,7 +26,6 @@ class userDataFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
     }
 
     override fun onCreateView(
@@ -46,8 +45,8 @@ class userDataFragment : Fragment() {
             fillUserData( binding.weight,user?.peso.toString())
             fillUserData(binding.height,user?.altura.toString())
             fillUserData(binding.dieteticType, user?.dietetic_preference.toString())
-            //TODO guardar strings de nivel actividad
-            // fillUserData(binding.userActivities,user?.actividad)
+            fillUserData(binding.userActivities,user?.activityText.toString())
+            fillUserData(binding.userObjetives, user?.objetivo.toString())
 
             fillDropDown(dietetics, binding.dieteticType)
             fillDropDown(activities, binding.userActivities)

@@ -153,8 +153,8 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 val builder = AlertDialog.Builder(this)
-                builder.setTitle("Error")
-                builder.setMessage("Vaya! Parece que no estás registrado...")
+                builder.setTitle("Bienvenido")
+                builder.setMessage("Ayudanos a conocerte más...")
                 builder.setPositiveButton("Cancelar", null)
                 builder.setNegativeButton(
                     "Ir a registro",

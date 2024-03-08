@@ -26,7 +26,9 @@ class RegisterActivity : AppCompatActivity() {
         "sex" to "",
         "allergies" to arrayOf<String>(),
         "deficit" to 0.00,
-        "activity" to 0.0
+        "activity" to 0.0,
+        "activityText" to "",
+        "objetivo" to ""
     )
     private lateinit var user: User
     private var progreso = -1
@@ -126,8 +128,10 @@ class RegisterActivity : AppCompatActivity() {
         val altura = userData["height"].toString().toDouble()
         val edad = userData["age"].toString().toInt()
         val actividad = userData["activity"].toString().toDouble()
+        val activityText= userData["activityText"].toString()
         val deficit = userData["deficit"].toString().toDouble()
         val alergiasArray = userData["allergies"].toString()
+        val objetivo = userData["objetivo"].toString()
         auth = FirebaseAuth.getInstance()
 
 
@@ -144,13 +148,11 @@ class RegisterActivity : AppCompatActivity() {
             actividad,
             deficit,
             alergiasArray,
-            TDEE
+            TDEE,
+            activityText,
+            objetivo
         )
     }
-
-
-
-
     fun createUserFromJsonGoogle(id:String): User {
         val dietetic_preference: String = userData["dietetic_preference"].toString()
         val sex = userData["sex"].toString()
@@ -158,8 +160,10 @@ class RegisterActivity : AppCompatActivity() {
         val altura = userData["height"].toString().toDouble()
         val edad = userData["age"].toString().toInt()
         val actividad = userData["activity"].toString().toDouble()
+        val activityText= userData["activityText"].toString()
         val deficit = userData["deficit"].toString().toDouble()
         val alergiasArray = userData["allergies"].toString()
+        val objetivo = userData["objetivo"].toString()
         auth = FirebaseAuth.getInstance()
 
 
@@ -176,10 +180,11 @@ class RegisterActivity : AppCompatActivity() {
             actividad,
             deficit,
             alergiasArray,
-            TDEE
+            TDEE,
+            activityText,
+            objetivo
         )
     }
-
     public fun showAlert() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")

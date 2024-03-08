@@ -13,7 +13,9 @@ data class User(
     val actividad:Double,
     val deficit:Double,
     val alergiasArray:String,
-    val TDEE: Double
+    val TDEE: Double,
+    val activityText :String,
+    val objetivo : String
 
     /*     auth.currentUser?.uid,
                 auth.currentUser?.email,

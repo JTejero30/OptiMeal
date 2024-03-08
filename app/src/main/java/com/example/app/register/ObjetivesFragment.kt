@@ -30,7 +30,9 @@ class ObjetivesFragment : Fragment() {
             if (ischecked) {
                 val selectedObjetiveTag = view.findViewById<Button>(id).tag.toString()
                 val deficit = calcularDeficit(selectedObjetiveTag)
+                val objetiveText= view.findViewById<Button>(id).text.toString()
                 (activity as? RegisterActivity)?.addDato("deficit",deficit)
+                (activity as? RegisterActivity)?.addDato("objetivo",objetiveText)
                 (activity as? RegisterActivity)?.nextQuestion(true)
             }
         }
