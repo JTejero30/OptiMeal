@@ -8,6 +8,8 @@
     <string name="title_userData">User</string>
     <string name="title_ingredients">Ingredients</string>
     <string name="title_recipes">Recipes</string>
+    <string name="title_menu">Menu</string>
+
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

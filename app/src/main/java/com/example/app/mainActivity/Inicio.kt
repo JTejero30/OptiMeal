@@ -3,6 +3,8 @@ package com.example.app.mainActivity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
@@ -12,6 +14,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.app.R
 import com.example.app.databinding.ActivityInicioBinding
+import com.example.app.model.Desayuno
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -75,11 +78,13 @@ class Inicio : AppCompatActivity() {
             val intent = Intent(this, RegisterView::class.java)
             startActivity(intent)
         }*/
-/*
-        data class DesayunosData(val desayunos: List<Desayuno>)
+
+        /******************CARGAR PLATOS*************/
+        /*
+        data class DesayunosData(val comidas: List<Desayuno>)
 
         try {
-            val jsonFileName = "desayunos.json"
+            val jsonFileName = "comida.json"
             val inputStream: InputStream = this.assets.open(jsonFileName)
             val size = inputStream.available()
             val buffer = ByteArray(size)
@@ -96,15 +101,15 @@ class Inicio : AppCompatActivity() {
             // ...
 
             val gson = Gson()
-            val desayunosData = gson.fromJson(jsonString,DesayunosData::class.java)
+            val desayunosData = gson.fromJson(jsonString, DesayunosData::class.java)
 
             Log.d(TAG, "mealsData data: $desayunosData")
 
-            val desayunosList = desayunosData.desayunos
+            val desayunosList = desayunosData.comidas
 
             Log.d(TAG, "mealsList data: $desayunosList")
 
-            val desayunosCollection = db.collection("desayunos")
+            val desayunosCollection = db.collection("comidas")
 
             for (desayuno in desayunosList) {
                 desayunosCollection.add(desayuno)
@@ -114,8 +119,8 @@ class Inicio : AppCompatActivity() {
             // Handle the exception if there's an issue reading the JSON file
             Log.e(TAG, "Error reading JSON file: $e")
             Toast.makeText(this, "Error reading JSON file", Toast.LENGTH_SHORT).show()
-        }*/
-
+        }
+*/
 
         //Cargar menu
         /*

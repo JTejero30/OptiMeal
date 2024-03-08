@@ -1,38 +1,39 @@
 package com.example.app.ui.main
 
+import android.app.Activity
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.view.Window
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.app.R
 import com.example.app.databinding.FragmentMenuBinding
 import com.example.app.ui.main.adapterWeek.WeekAdapter
+import com.example.app.ui.main.detailFragment.DialogMenuFragment
 import com.example.app.ui.main.model.DayModel
-import com.example.app.ui.main.model.MenuModel
-import com.example.app.ui.recipes.adapter.RecipesAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.time.DayOfWeek
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.time.format.TextStyle
-import java.util.Locale
 
-class MenuFragment : Fragment(),DayItemClickI {
+
+class MenuFragment : Fragment(), DayItemClickI {
 
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
@@ -54,6 +55,8 @@ class MenuFragment : Fragment(),DayItemClickI {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
 
         menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
+
+
 
         menuViewModel.getDates()
         menuViewModel.weekModelL.observe(viewLifecycleOwner) { weekModel ->
@@ -93,6 +96,12 @@ class MenuFragment : Fragment(),DayItemClickI {
                 //Desayuno
                 Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
                     .into(binding.ivDesayuno)
+                binding.ivDesayuno.setOnClickListener {
+                    val dialogFragment = DialogMenuFragment()
+                    dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)
+
+                    dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
+                }
                 binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
                 for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {
                     val textView = TextView(binding.listaIngredientesCardDesayuno.context)
@@ -121,6 +130,14 @@ class MenuFragment : Fragment(),DayItemClickI {
                 //Comida
                 Glide.with(binding.ivComida.context).load(it.menu_del_dia.comida.imagen)
                     .into(binding.ivComida)
+
+                binding.ivComida.setOnClickListener {
+                    val dialogFragment = DialogMenuFragment()
+                    dialogFragment.setMenuModel(menuModel.menu_del_dia.comida)
+
+                    dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
+                }
+
                 binding.nombreCardComida.text = it.menu_del_dia.comida.plato
                 for (ingrediente in it.menu_del_dia.comida.ingredientes) {
                     val textView = TextView(binding.listaIngredientesCardComida.context)
@@ -149,6 +166,14 @@ class MenuFragment : Fragment(),DayItemClickI {
                 //Comida
                 Glide.with(binding.ivCena.context).load(it.menu_del_dia.cena.imagen)
                     .into(binding.ivCena)
+
+                binding.ivDesayuno.setOnClickListener {
+                    val dialogFragment = DialogMenuFragment()
+                    dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)
+
+                    dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
+                }
+
                 binding.nombreCardCena.text = it.menu_del_dia.cena.plato
                 for (ingrediente in it.menu_del_dia.cena.ingredientes) {
                     val textView = TextView(binding.listaIngredientesCardCena.context)

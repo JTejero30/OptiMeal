@@ -19,12 +19,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.494">
 
-
+        <!--            android:background="#252525"
+        -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/weekRV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#252525"
             android:hapticFeedbackEnabled="false"
             android:orientation="horizontal"
             android:paddingStart="5dp"
@@ -41,11 +41,7 @@
             android:visibility="visible" />
 
         <!--Aqui uso nestedScrollView porque el hideOnScroll del navView de la vista inicio da problemas-->
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/menuSV"

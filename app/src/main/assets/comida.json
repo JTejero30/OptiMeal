@@ -1,121 +1,102 @@
 {
   "comidas": [
+
     {
-      "plato": "Pollo al Horno con Patatas y Verduras",
+      "plato": "Pavo en salsa bacon",
       "ingredientes": [
         {
-          "nombre": "pechuga de pollo",
-          "cantidad": "150g",
-          "calorias": 165,
+          "nombre": "pechuga de pavo",
+          "cantidad": "240g",
+          "calorias": 463,
           "tipo": "proteínas",
-          "gramos": 37
+          "gramos": 30
         },
         {
-          "nombre": "patatas al horno",
-          "cantidad": "200g",
-          "calorias": 160,
+          "nombre": "salsa de bacon",
+          "cantidad": "240g",
+          "calorias": 345,
+          "tipo": "grasas",
+          "gramos": 21
+        },
+        {
+          "nombre": "patata",
+          "cantidad": "240g",
+          "calorias": 165,
           "tipo": "carbohidratos",
           "gramos": 36
         },
         {
-          "nombre": "verduras mixtas",
-          "cantidad": "100g",
-          "calorias": 100,
-          "tipo": "vegetales",
-          "gramos": 15
-        }
-      ],
-      "total_grasa": 0,
-      "total_proteina": 0,
-      "total_carbohidratos": 0
-    },
-    {
-      "plato": "Salmón al Horno con Espárragos y Quinoa",
-      "ingredientes": [
-        {
-          "nombre": "filete de salmón",
-          "cantidad": "150g",
-          "calorias": 280,
-          "tipo": "proteínas",
-          "gramos": 30
-        },
-        {
-          "nombre": "espárragos",
-          "cantidad": "100g",
-          "calorias": 20,
-          "tipo": "vegetales",
-          "gramos": 10
-        },
-        {
-          "nombre": "quinoa cocida",
-          "cantidad": "100g",
-          "calorias": 120,
+          "nombre": "boniato",
+          "cantidad": "240g",
+          "calorias": 460,
           "tipo": "carbohidratos",
-          "gramos": 20
-        }
-      ],
-      "total_grasa": 12,
-      "total_proteina": 30,
-      "total_carbohidratos": 20
-    },
-    {
-      "plato": "Ensalada de Pollo con Aguacate y Almendras",
-      "ingredientes": [
-        {
-          "nombre": "pechuga de pollo cocida",
-          "cantidad": "150g",
-          "calorias": 165,
-          "tipo": "proteínas",
-          "gramos": 37
+          "gramos": 90
         },
         {
-          "nombre": "aguacate",
-          "cantidad": "100g",
-          "calorias": 160,
-          "tipo": "grasas",
-          "gramos": 15
+          "nombre": "espinacas",
+          "cantidad": "240g",
+          "calorias": 70,
+          "tipo": "vegetales",
+          "gramos": 60
         },
         {
-          "nombre": "almendras",
-          "cantidad": "30g",
-          "calorias": 180,
-          "tipo": "grasas",
-          "gramos": 15
-        }
-      ],
-      "total_grasa": 30,
-      "total_proteina": 37,
-      "total_carbohidratos": 0
-    },
-    {
-      "plato": "Lentejas Estofadas con Verduras y Arroz Integral",
-      "ingredientes": [
+          "nombre": "pasas",
+          "cantidad": "240g",
+          "calorias": 200,
+          "tipo": "frutos secos",
+          "gramos": 50
+        },
         {
-          "nombre": "lentejas cocidas",
-          "cantidad": "200g",
-          "calorias": 230,
-          "tipo": "proteínas",
+          "nombre": "ajo",
+          "cantidad": "240g",
+          "calorias": 28,
+          "tipo": "vegetales",
+          "gramos": 8
+        },
+        {
+          "nombre": "piñones",
+          "cantidad": "240g",
+          "calorias": 340,
+          "tipo": "frutos secos",
           "gramos": 40
         },
         {
-          "nombre": "verduras variadas",
-          "cantidad": "150g",
-          "calorias": 50,
-          "tipo": "vegetales",
-          "gramos": 30
+          "nombre": "hierbas provenzales",
+          "cantidad": "240g",
+          "calorias": 5,
+          "tipo": "condimentos",
+          "gramos": 5
         },
         {
-          "nombre": "arroz integral cocido",
-          "cantidad": "150g",
-          "calorias": 200,
-          "tipo": "carbohidratos",
-          "gramos": 35
+          "nombre": "sal",
+          "cantidad": "240g",
+          "calorias": 0,
+          "tipo": "condimentos",
+          "gramos": 0
+        },
+        {
+          "nombre": "pimienta",
+          "cantidad": "240g",
+          "calorias": 5,
+          "tipo": "condimentos",
+          "gramos": 5
+        },
+        {
+          "nombre": "aceite de oliva virgen",
+          "cantidad": "240g",
+          "calorias": 216,
+          "tipo": "grasas",
+          "gramos": 24
         }
       ],
-      "total_grasa": 0,
-      "total_proteina": 40,
-      "total_carbohidratos": 35
+      "total_grasa": 21,
+      "total_proteina": 30,
+      "total_carbohidratos": 45,
+      "alergenos": [
+        "APIO",
+        "LÁCTEOS",
+        "FRUTOS SECOS"
+      ]
     }
-
   ]
 }
