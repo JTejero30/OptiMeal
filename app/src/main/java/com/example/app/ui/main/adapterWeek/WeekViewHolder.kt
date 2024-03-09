@@ -40,7 +40,12 @@ class WeekViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             itemView.setBackgroundColor(Color.TRANSPARENT)
         }
         if(dayModel.isCurrentDay){
-            itemView.setBackgroundColor(Color.GRAY)
+          binding.hoyTx.visibility=View.VISIBLE
+
+        }
+        else{
+            binding.hoyTx.visibility=View.INVISIBLE
+
         }
     }
 }

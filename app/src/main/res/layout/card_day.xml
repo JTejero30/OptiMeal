@@ -45,4 +45,15 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/hoyTx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Hoy"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        android:textStyle="italic"
+        android:visibility="gone" />
+
 </LinearLayout>

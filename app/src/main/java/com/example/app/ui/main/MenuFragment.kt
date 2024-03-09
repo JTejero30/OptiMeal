@@ -66,7 +66,8 @@ class MenuFragment : Fragment(), DayItemClickI {
                 rv.layoutManager =
                     LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-
+                //Indico la posicion inical del recycler al dia actual
+                rv.scrollToPosition(weekModelList.indexOfFirst { it.isCurrentDay })
 
                 //aqui creo el weekAdapter con el listener, que será este fragment
                 rv.adapter = WeekAdapter(weekModelList, this)
