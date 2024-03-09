@@ -59,15 +59,18 @@ class MenuFragment : Fragment(), DayItemClickI {
 
 
         menuViewModel.getDates()
-        menuViewModel.weekModelL.observe(viewLifecycleOwner) { weekModel ->
-            weekModel?.let {
-                Log.d("MenuFragment", "weekMoidel--> ${weekModel.toString()}")
+        menuViewModel.weekModelL.observe(viewLifecycleOwner) { weekModelList ->
+            weekModelList?.let {
+                Log.d("MenuFragment", "weekMoidel--> ${weekModelList.toString()}")
                 val rv = binding.weekRV
                 rv.layoutManager =
                     LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
+
+
                 //aqui creo el weekAdapter con el listener, que será este fragment
-                rv.adapter = WeekAdapter(weekModel, this)
+                rv.adapter = WeekAdapter(weekModelList, this)
+
             }
         }
 

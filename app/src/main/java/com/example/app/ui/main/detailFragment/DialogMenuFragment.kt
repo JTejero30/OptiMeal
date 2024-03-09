@@ -1,5 +1,6 @@
 package com.example.app.ui.main.detailFragment
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -32,9 +33,31 @@ class DialogMenuFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setStyle(STYLE_NORMAL, android.R.style.Theme_Black_NoTitleBar_Fullscreen)
 
+
     }
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.apply {
+            val params = attributes
+            params.windowAnimations = R.style.DialogAnimation
+            attributes = params
+        }
+    }
+
+
+    override fun dismiss() {
+        dialog?.window?.apply {
+            val params = attributes
+            params.windowAnimations = R.style.DialogAnimation
+            attributes = params
+        }
+        super.dismiss()
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,30 +73,31 @@ class DialogMenuFragment : DialogFragment() {
              .into(binding.ivDesayuno)*/
         binding.loadingIndicator.visibility = View.VISIBLE
         binding.dataLL.visibility = View.GONE
-        binding.ivDesayunoLL.visibility = View.GONE
+        binding.dataLL2.visibility = View.GONE
+
+        binding.ivMenuLL.visibility = View.INVISIBLE
 
         Picasso.get()
             .load(menuModelPlatoL.imagen)
             .into(binding.ivDesayuno)
 
-
-
         Picasso.get()
             .load(menuModelPlatoL.imagen)
             .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {
                 override fun onSuccess() {
-                    binding.ivDesayunoLL.background = binding.ivDesayuno.drawable
+                    binding.ivMenuLL.background = binding.ivDesayuno.drawable
 
                     binding.loadingIndicator.visibility = View.GONE
                     binding.dataLL.visibility = View.VISIBLE
-                    binding.ivDesayunoLL.visibility = View.VISIBLE
+                    binding.ivMenuLL.visibility = View.VISIBLE
+                    binding.dataLL2.visibility = View.VISIBLE
 
                 }
-
                 override fun onError(e: Exception?) {
                     binding.loadingIndicator.visibility = View.GONE
                     binding.dataLL.visibility = View.VISIBLE
-                    binding.ivDesayunoLL.visibility = View.VISIBLE
+                    binding.ivMenuLL.visibility = View.VISIBLE
+                    binding.dataLL2.visibility = View.VISIBLE
 
                 }
             })
@@ -101,9 +125,6 @@ class DialogMenuFragment : DialogFragment() {
 
             binding.listaIngredientesCardDesayuno.addView(textViewNombre)
         }
-
-
-
 
         binding.btnClose.setOnClickListener {
             Log.d("DialogMenuFragment", "Clickado")

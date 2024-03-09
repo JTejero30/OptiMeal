@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/ivDesayunoLL"
+            android:id="@+id/ivMenuLL"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:gravity="center_horizontal|top"
@@ -63,7 +63,6 @@
         </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/dataLL"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="3dp"
@@ -87,6 +86,7 @@
                     android:visibility="visible" />
 
                 <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+                    android:id="@+id/dataLL"
                     style="?attr/materialCardViewFilledStyle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -226,6 +226,7 @@
                 </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
 
                 <LinearLayout
+                    android:id="@+id/dataLL2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"

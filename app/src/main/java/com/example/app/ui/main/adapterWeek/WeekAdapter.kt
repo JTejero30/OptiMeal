@@ -32,6 +32,10 @@ class WeekAdapter(private val weekModelList: List<DayModel>, private val listene
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: WeekViewHolder, position: Int) {
         val item = weekModelList[position]
+
+        Log.d("WeekViewHolder", "day : ${ weekModelList[position]}")
+
+
         //La variable isSelected, se guarda para tod0 el adapter, lo que quiere decir que se quedara hasta que se cambie en el onclick
         //por defecto es -1
         val isSelected = selectedPosition == position
@@ -50,7 +54,10 @@ class WeekAdapter(private val weekModelList: List<DayModel>, private val listene
             //Con el holder.adapterPosition, estamos cogiendo la posicion del item que ha sido clicado dentro del recycler, y estamos cambiando la variable selectedPosition
             //Que se comprobara el el isSelected de arriba
             selectedPosition = holder.adapterPosition
+
+
             listener.onDayItemClicked(item)
+
             //Aqui estamos llamando al notifyItemChanged con la posicion antigua y la nueva posicion seleccionada
             //El notifyItemChanged, lo que hace es ejecutar nuevamente el metodo onBindViewHolder de los items indicados en el notify,
             // para que asi tenga las nuevas posiciones actualizadas.
