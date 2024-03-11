@@ -89,4 +89,12 @@ class userDataViewModel : ViewModel() {
                 }
             }
     }
+
+    fun logOut(requireContext: Context) {
+        val auth = FirebaseAuth.getInstance()
+        auth.signOut()
+        val intent = Intent(requireContext, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        requireContext.startActivity(intent)
+    }
 }

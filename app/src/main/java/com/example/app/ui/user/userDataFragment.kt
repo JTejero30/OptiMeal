@@ -99,8 +99,11 @@ class userDataFragment : Fragment() {
             }
         }
         binding.deleteAccountB.setOnClickListener{deleteAccount()}
+        binding.logOut.setOnClickListener{logOut()}
         return binding.root
     }
+
+
 
     private fun fillUserData(dropDown: AutoCompleteTextView, userData: String) {
         val index = dietetics.indexOf(userData)
@@ -131,7 +134,7 @@ class userDataFragment : Fragment() {
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
     /*https://dev.to/rohitjakhar/hide-keyboard-in-android-using-kotlin-in-20-second-18gp*/
-    fun deleteAccount() {
+    private fun deleteAccount() {
 
        val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Confirmar eliminación")
@@ -145,5 +148,18 @@ class userDataFragment : Fragment() {
         builder.create()
         builder.show()
 
+    }
+    private fun logOut() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Cerrar sesión")
+        builder.setMessage("¿Desea cerrar sesión?")
+        builder.setPositiveButton("Sí") { _, _ ->
+            viewModel.logOut(requireContext())
+        }
+        builder.setNegativeButton("No") { _, _ ->
+
+        }
+        builder.create()
+        builder.show()
     }
 }

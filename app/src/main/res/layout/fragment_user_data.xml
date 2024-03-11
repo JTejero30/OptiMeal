@@ -29,7 +29,7 @@
                 android:layout_width="350dp"
                 android:layout_height="55dp"
                 android:gravity="center_vertical"
-                android:hint="peso"
+                android:hint="Peso"
                 android:inputType="numberDecimal" />
 
             <TextView
@@ -43,7 +43,7 @@
                 android:id="@+id/height"
                 android:layout_width="350dp"
                 android:layout_height="55dp"
-                android:hint="altura"
+                android:hint="Altura"
                 android:inputType="number" />
 
             <TextView
@@ -82,7 +82,7 @@
                     android:layout_width="350dp"
                     android:layout_height="55dp"
                     android:contentDescription="dietta"
-                    android:inputType="none"/>
+                    android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,7 +103,7 @@
                     android:id="@+id/userActivities"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none"/>
+                    android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,9 +126,17 @@
                     android:layout_width="350dp"
                     android:layout_height="55dp"
                     android:contentDescription="userObjetives"
-                    android:inputType="none"/>
+                    android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/logOut"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Cerrar sesión" />
 
             <Button
                 android:id="@+id/deleteAccountB"
@@ -137,6 +145,8 @@
                 android:layout_height="wrap_content"
                 android:text="BORRAR CUENTA"
                 app:icon="@drawable/trash_svgrepo_com__1_" />
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
