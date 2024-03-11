@@ -1,8 +1,16 @@
 package com.example.app.ui.user
 
+import android.content.Context
+import android.content.Intent
+import android.util.Log
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import com.example.app.User
+import com.example.app.register.LoginActivity
+import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
@@ -15,8 +23,8 @@ class userDataViewModel : ViewModel() {
     private val db = Firebase.firestore
 
     val userCollection = db.collection("users")
-    val auth = FirebaseAuth.getInstance()
-    val uidUser= auth.currentUser!!.uid
+    private val auth = FirebaseAuth.getInstance()
+    val uidUser = auth.currentUser!!.uid
     val userDocument = userCollection.document(uidUser).get()
     suspend fun getData(): User? {
         //coger el documento del usuario que esta logeado
@@ -24,7 +32,7 @@ class userDataViewModel : ViewModel() {
         return withContext(Dispatchers.IO) {
             try {
                 //cogemos el document del usuario actualmente logeado
-                val uidUser= auth.currentUser!!.uid
+                val uidUser = auth.currentUser!!.uid
                 val document = userCollection.document(uidUser).get().await()
 
                 //creamos la instancia del objeto User
@@ -51,9 +59,34 @@ class userDataViewModel : ViewModel() {
             }
         }
     }
-    fun updateData(user: User?, dato: String, campo: String) {
+
+    fun updateData(user: User?, dato: Any, campo: String) {
 
         val data = hashMapOf(campo to dato)
         userCollection.document(user!!.uid!!).update(data as Map<String, Any>)
+    }
+    fun deleteAccount(requireContext: Context) {
+        val db = FirebaseFirestore.getInstance()
+        val user = Firebase.auth.currentUser!!
+        val documentReference = db.collection("users").document(user.uid)
+        //hay que relogear al user para hacer esta operacion.
+        //TODO ojo aqui la contraseña
+        val credential = EmailAuthProvider
+            .getCredential(user.email.toString(), "1234")
+        user.reauthenticate(credential)
+        //borramos los datos de la tabla user
+        documentReference.delete()
+        //borramos el Authentication
+        user.delete()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val intent = Intent(requireContext, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    requireContext.startActivity(intent)
+
+                }else{
+                    Log.d("deleteAccount", "No borrado.")
+                }
+            }
     }
 }

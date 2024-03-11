@@ -129,14 +129,14 @@
                     android:inputType="none"/>
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <Button
+                android:id="@+id/deleteAccountB"
                 style="@style/Widget.Material3.Button.TextButton.Icon"
-                android:id="@+id/textButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BORRAR CUENTA"
-                app:icon="@drawable/trash_svgrepo_com__1_"
-                />
+                app:icon="@drawable/trash_svgrepo_com__1_" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
