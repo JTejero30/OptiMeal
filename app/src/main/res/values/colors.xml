@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primario50">#f9ffeb</color>
+    <color name="primario500">#D5FE73</color>
+
+    <color name="input_border">#E3E3E3</color>
+    <color name="texto_negro">#141414</color>
+
+
+
     <color name="seed">#6AD991</color>
     <color name="md_theme_light_primary">#006D3A</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>

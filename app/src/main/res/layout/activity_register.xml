@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register.RegisterActivity">
+    tools:context=".register.RegisterActivity"
+    android:background="@drawable/optimeal_background2">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,19 +20,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.114"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/optimeal_icon_black" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="239dp"
         android:layout_height="23dp"
         android:layout_marginTop="160dp"
+        android:fontFamily="@font/montserrat_regular"
         android:gravity="center"
         android:text="Ayudanos a conocerte mejor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progress"

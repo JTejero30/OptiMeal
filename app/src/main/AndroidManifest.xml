@@ -11,8 +11,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:supportsRtl="true">
         <activity
             android:name=".register.LoginActivity"
             android:exported="true" >
@@ -25,10 +24,6 @@
         <activity
             android:name=".mainActivity.Inicio"
             android:exported="false" />
-        <activity
-            android:name=".register2.RegisterView"
-            android:exported="false"
-            android:theme="@style/Theme.App.starting" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />

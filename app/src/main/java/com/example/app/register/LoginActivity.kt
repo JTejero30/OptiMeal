@@ -14,7 +14,6 @@ import com.example.app.User
 import com.example.app.databinding.ActivityLoginBinding
 import com.example.app.databinding.ActivityRegisterBinding
 import com.example.app.mainActivity.Inicio
-import com.example.app.register2.RegisterView
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient

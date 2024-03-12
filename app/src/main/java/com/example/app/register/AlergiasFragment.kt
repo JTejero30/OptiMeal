@@ -1,6 +1,7 @@
 package com.example.app.register
 
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -64,7 +65,7 @@ class AlergiasFragment : Fragment() {
     }
 
     private fun añadirAlergia(alergia: ImageView) {
-        alergia.setColorFilter(Color.GRAY, android.graphics.PorterDuff.Mode.MULTIPLY)
+        alergia.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP)
         alergias.add(alergia.tag.toString())
     }
 

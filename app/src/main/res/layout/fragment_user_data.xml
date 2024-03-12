@@ -9,7 +9,8 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="80dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:text="Peso (kg)" />
 
             <com.google.android.material.textfield.TextInputEditText
@@ -37,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:text="Altura (cm)" />
 
             <com.google.android.material.textfield.TextInputEditText
@@ -51,6 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:text="Fecha de nacimiento" />
 
             <com.google.android.material.textfield.TextInputEditText
@@ -68,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:text="Tipo de dieta" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -91,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:text="Ejercicio semanal" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -112,6 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:text="Objetivo" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -132,11 +139,18 @@
 
             <Button
                 android:id="@+id/logOut"
-                style="@style/Widget.Material3.Button.TextButton.Icon"
+                style="@style/TransparentButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Cerrar sesión" />
+                android:fontFamily="@font/ppmori_regular"
+                android:padding="0dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="2dp"
+                android:text="Cerrar sesión"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="18dp" />
 
             <Button
                 android:id="@+id/deleteAccountB"
