@@ -46,6 +46,7 @@ class userDataFragment : Fragment() {
     ): View? {
         _binding = FragmentUserDataBinding.inflate(inflater, container, false)
         val userDataViewModel =ViewModelProvider(this).get(userDataViewModel::class.java)
+        val name = userDataViewModel.name
         viewModel= userDataViewModel
         inputMap["peso"] = binding.weight
         inputMap["altura"] = binding.height
@@ -56,6 +57,8 @@ class userDataFragment : Fragment() {
         //hacemos la llamada asyncrona del metodo getData()
         lifecycleScope.launch(Dispatchers.Main) {
             val user = userDataViewModel.getData()
+            binding.emailUser.text=user?.email
+            binding.userName.text=name
             user.let {
                 Log.d("lambda", it.toString())
             }

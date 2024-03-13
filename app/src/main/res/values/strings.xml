@@ -66,5 +66,7 @@
     <string name="go_to_register">Registrate</string>
     <string name="acceder">Log in</string>
     <string name="email">Email</string>
+    <string name="a_n_no_tienes_cuenta">¿Aún no tienes cuenta?</string>
+    <string name="reg_strate">Regístrate</string>
 
 </resources>

@@ -26,6 +26,7 @@ class userDataViewModel : ViewModel() {
     private val auth = FirebaseAuth.getInstance()
     val uidUser = auth.currentUser!!.uid
     val userDocument = userCollection.document(uidUser).get()
+    val name= auth.currentUser?.displayName
     suspend fun getData(): User? {
         //coger el documento del usuario que esta logeado
 

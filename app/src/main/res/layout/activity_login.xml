@@ -72,23 +72,16 @@
 
             <Button
                 android:id="@+id/accederButton"
+                style="@style/greenButton"
                 android:layout_width="match_parent"
                 android:layout_height="57dp"
                 android:layout_gravity="center"
-                android:layout_margin="0dp"
-                android:background="@drawable/background_green"
-                android:fontFamily="@font/montserrat_regular"
-                android:gravity="center"
-                android:text="@string/acceder"
-                android:textColor="#141414"
-                android:textColorLink="#141414"
-                android:textSize="16sp"
-                android:textStyle="bold"
                 app:icon="@drawable/baseline_arrow_forward_24"
                 app:iconGravity="textEnd"
                 app:iconPadding="8dp"
                 app:iconSize="20dp"
-                app:iconTint="#000000" />
+                app:iconTint="@color/negro"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -100,12 +93,11 @@
 
             <Button
                 android:id="@+id/SignIn_Button"
-
+                style="@style/greenButton"
                 android:layout_width="match_parent"
                 android:layout_height="57dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="0dp"
-                android:background="@drawable/background_black"
                 android:drawableStart="@drawable/google"
                 android:fontFamily="@font/montserrat_regular"
                 android:isScrollContainer="false"
@@ -113,7 +105,8 @@
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:icon="@drawable/google" />
+                app:icon="@drawable/google"
+                app:iconGravity="textStart"/>
 
         </LinearLayout>
 
@@ -128,18 +121,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="¿Aún no tienes cuenta?"
+                android:text="@string/a_n_no_tienes_cuenta"
                 android:textColor="@color/texto_negro"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/registrate"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/montserrat_regular"
-                android:text=" Regístrate"
+                android:text="@string/reg_strate"
                 android:textColor="@color/primario700"
                 android:textSize="18dp"
                 android:textStyle="bold" />
