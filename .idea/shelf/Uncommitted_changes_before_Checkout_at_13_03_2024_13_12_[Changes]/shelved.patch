@@ -1,0 +1,15 @@
+Index: app/src/main/res/drawable/background_green.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<shape xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:shape=\"rectangle\">\r\n    <corners android:radius=\"10dp\" />\r\n</shape>\r\n
+===================================================================
+diff --git a/app/src/main/res/drawable/background_green.xml b/app/src/main/res/drawable/background_green.xml
+--- a/app/src/main/res/drawable/background_green.xml	
++++ b/app/src/main/res/drawable/background_green.xml	
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <shape xmlns:android="http://schemas.android.com/apk/res/android"
+     android:shape="rectangle">
++    <solid android:color="@color/primario500"/>
+     <corners android:radius="10dp" />
+ </shape>

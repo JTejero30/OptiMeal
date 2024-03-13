@@ -1,0 +1,67 @@
+Index: app/src/main/res/layout/activity_login.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/primario50\"\r\n    tools:context=\".register.LoginActivity\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:orientation=\"vertical\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/imageView2\"\r\n            android:layout_width=\"312dp\"\r\n            android:layout_height=\"124dp\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginTop=\"64dp\"\r\n\r\n            android:contentDescription=\"logo\"\r\n            android:onClick=\"nextQuestion\"\r\n            app:srcCompat=\"@drawable/optimeal_icon_black\" />\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"298dp\"\r\n            android:layout_marginTop=\"20dp\"\r\n            android:gravity=\"center\"\r\n            android:orientation=\"vertical\"\r\n            android:padding=\"20dp\">\r\n\r\n            <EditText\r\n                android:id=\"@+id/emailEditText\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"57dp\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:layout_marginBottom=\"7dp\"\r\n                android:autofillHints=\"\"\r\n                android:background=\"@drawable/border_input\"\r\n                android:ems=\"10\"\r\n                android:fontFamily=\"@font/montserrat_regular\"\r\n                android:hint=\"@string/email\"\r\n                android:inputType=\"textEmailAddress\"\r\n                android:paddingStart=\"8dp\" />\r\n\r\n            <EditText\r\n                android:id=\"@+id/passwordEditText\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"55dp\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:layout_marginBottom=\"7dp\"\r\n                android:background=\"@drawable/border_input\"\r\n                android:ems=\"10\"\r\n                android:fontFamily=\"@font/montserrat_regular\"\r\n                android:hint=\"Password\"\r\n                android:inputType=\"textPassword\"\r\n                android:paddingStart=\"8dp\" />\r\n\r\n            <Button\r\n                android:id=\"@+id/accederButton\"\r\n                style=\"@style/buttonGreenStyle\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"57dp\"\r\n                android:layout_gravity=\"center\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:drawableEnd=\"@drawable/baseline_arrow_back_ios_24\"\r\n                android:fontFamily=\"@font/montserrat_regular\"\r\n                android:gravity=\"center\"\r\n                android:text=\"@string/acceder\"\r\n                android:textColor=\"#141414\"\r\n                android:textColorLink=\"#141414\"\r\n                android:textSize=\"16sp\"\r\n                android:textStyle=\"bold\"\r\n                app:icon=\"@drawable/baseline_arrow_forward_24\"\r\n                app:iconGravity=\"textEnd\"\r\n                app:iconPadding=\"8dp\"\r\n                app:iconSize=\"20dp\"\r\n                app:iconTint=\"#000000\" />\r\n        </LinearLayout>\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:gravity=\"center_horizontal|center_vertical\"\r\n            android:orientation=\"vertical\">\r\n\r\n            <Button\r\n                android:id=\"@+id/irRegister\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_gravity=\"center\"\r\n                android:background=\"@drawable/background_transparent\"\r\n                android:fontFamily=\"@font/montserrat_regular\"\r\n                android:text=\"@string/go_to_register\"\r\n                android:textColor=\"#141414\"\r\n\r\n                android:textSize=\"16sp\" />\r\n\r\n            <Button\r\n                android:id=\"@+id/SignIn_Button\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_gravity=\"center\"\r\n                android:layout_marginTop=\"0dp\"\r\n                android:background=\"@drawable/background_transparent\"\r\n                android:drawableLeft=\"@drawable/google\"\r\n                android:fontFamily=\"@font/montserrat_regular\"\r\n                android:text=\"Inicia con Google\"\r\n                android:textColor=\"#141414\"\r\n                android:textSize=\"16sp\"\r\n                app:layout_constraintEnd_toEndOf=\"parent\"\r\n                app:layout_constraintHorizontal_bias=\"0.0\"\r\n                app:layout_constraintStart_toStartOf=\"parent\"\r\n                app:layout_constraintTop_toTopOf=\"parent\" />\r\n        </LinearLayout>\r\n\r\n\r\n    </LinearLayout>\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_login.xml b/app/src/main/res/layout/activity_login.xml
+--- a/app/src/main/res/layout/activity_login.xml	
++++ b/app/src/main/res/layout/activity_login.xml	
+@@ -65,7 +65,6 @@
+                 android:layout_height="57dp"
+                 android:layout_gravity="center"
+                 android:layout_marginTop="7dp"
+-                android:drawableEnd="@drawable/baseline_arrow_back_ios_24"
+                 android:fontFamily="@font/montserrat_regular"
+                 android:gravity="center"
+                 android:text="@string/acceder"
+@@ -86,25 +85,15 @@
+             android:gravity="center_horizontal|center_vertical"
+             android:orientation="vertical">
+ 
+-            <Button
+-                android:id="@+id/irRegister"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_gravity="center"
+-                android:background="@drawable/background_transparent"
+-                android:fontFamily="@font/montserrat_regular"
+-                android:text="@string/go_to_register"
+-                android:textColor="#141414"
+-
+-                android:textSize="16sp" />
+-
+             <Button
+                 android:id="@+id/SignIn_Button"
+-                android:layout_width="wrap_content"
++                android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
++                android:layout_marginLeft="10dp"
+                 android:layout_marginTop="0dp"
+-                android:background="@drawable/background_transparent"
++                android:layout_marginRight="10dp"
++                android:background="@drawable/background_green"
+                 android:drawableLeft="@drawable/google"
+                 android:fontFamily="@font/montserrat_regular"
+                 android:text="Inicia con Google"
+@@ -114,6 +103,18 @@
+                 app:layout_constraintHorizontal_bias="0.0"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toTopOf="parent" />
++
++            <Button
++                android:id="@+id/irRegister"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_gravity="center"
++                android:background="@drawable/background_transparent"
++                android:fontFamily="@font/montserrat_regular"
++                android:text="@string/go_to_register"
++                android:textColor="#141414"
++
++                android:textSize="16sp" />
+         </LinearLayout>
+ 
+ 
