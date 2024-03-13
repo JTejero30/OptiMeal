@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
             signInGoogle()
             googleSignInClient.signOut()
         }
-        binding.irRegister.setOnClickListener() {
+        binding.registrate.setOnClickListener() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }

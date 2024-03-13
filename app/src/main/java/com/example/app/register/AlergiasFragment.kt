@@ -65,7 +65,7 @@ class AlergiasFragment : Fragment() {
     }
 
     private fun añadirAlergia(alergia: ImageView) {
-        alergia.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP)
+        alergia.setColorFilter(Color.parseColor("#D873FF"), PorterDuff.Mode.SRC_ATOP)
         alergias.add(alergia.tag.toString())
     }
 
