@@ -1,6 +1,7 @@
 package com.example.app.register
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +22,6 @@ class PersonalDataFragment : Fragment() {
     private var selectedSex: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -45,7 +45,6 @@ class PersonalDataFragment : Fragment() {
         }
         binding.nextQuestion.setOnClickListener {
             registerData()
-            (activity as? RegisterActivity)?.nextQuestion(true)
         }
     }
 
@@ -62,7 +61,6 @@ class PersonalDataFragment : Fragment() {
             editText.setText(formatedDateString.toString())
             calcularEdad(selectedDate)
         }
-
         picker.show(childFragmentManager, picker.toString())
     }
 
@@ -72,14 +70,35 @@ class PersonalDataFragment : Fragment() {
     }
 
     fun registerData() {
-        val altura = binding.height.text.toString().toFloat()
-        val peso = binding.weight.text.toString().toFloat()
-        val fecha = selectedDate.toString()
-        val sex = selectedSex?.text?.toString() ?: ""
-        (activity as? RegisterActivity)?.addDato("height",altura)
-        (activity as? RegisterActivity)?.addDato("weight",peso)
-        (activity as? RegisterActivity)?.addDato("data", fecha)
-        (activity as? RegisterActivity)?.addDato("age",edad)
-        (activity as? RegisterActivity)?.addDato("sex",sex)
+
+
+        if (binding.height.text.toString().isEmpty() || binding.weight.text.toString()
+                .isEmpty() || selectedDate==null || selectedSex?.text.toString()
+                .equals(null)
+        ) {
+            (activity as? RegisterActivity)?.showAlertError(
+                "Vaya!",
+                "Faltan algunos campos por rellenar"
+            )
+
+        } else {
+            val altura = binding.height.text.toString().toFloat()
+            val peso = binding.weight.text.toString().toFloat()
+            val fecha = selectedDate.toString()
+            val sex = selectedSex?.text?.toString() ?: ""
+            Log.d(
+                "RevisarDatos",
+                "ERRORAltura->${altura.toString().isEmpty()} Peso->${
+                    peso.toString().isEmpty()
+                } Fecha->${fecha.toString().isEmpty()} Sex->${sex.toString().isEmpty()}"
+            )
+            (activity as? RegisterActivity)?.addDato("height", altura)
+            (activity as? RegisterActivity)?.addDato("weight", peso)
+            (activity as? RegisterActivity)?.addDato("data", fecha)
+            (activity as? RegisterActivity)?.addDato("age", edad)
+            (activity as? RegisterActivity)?.addDato("sex", sex)
+
+            (activity as? RegisterActivity)?.nextQuestion(true)
+        }
     }
 }

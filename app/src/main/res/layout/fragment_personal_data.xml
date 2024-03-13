@@ -99,8 +99,9 @@
 
         </LinearLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextQuestion"
+            style="@style/greenButton"
             android:layout_width="207dp"
             android:layout_height="57dp"
             android:text="Continuar"
@@ -109,6 +110,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.961" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
