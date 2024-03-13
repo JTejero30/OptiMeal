@@ -31,10 +31,12 @@ class MenuViewModel : ViewModel() {
     //val ref = db.collection("desayunos").document("ernesto")
 
     private val auth = FirebaseAuth.getInstance()
-    //val ref = db.collection("menu_dia").document(auth.currentUser?.uid.toString())
-    val ref = db.collection("menu_dia").document("FOVgQNcWawUl9f4X5lrOAVQswHc2")
 
-    private lateinit var referenceMenu: Map<String, DocumentReference>
+    //val ref = db.collection("menu_dia").document(auth.currentUser?.uid.toString())
+    val ref = db.collection("menu_dia").document(auth.currentUser!!.uid)
+
+
+    //private lateinit var referenceMenu: Map<String, DocumentReference>
 
     //weekModelL es una LiveData que expone la data observada, sirve para que desde el Fragment se pueda ovbservar
     val weekModelL: LiveData<MutableList<DayModel>?> get() = _WeekModel
@@ -45,6 +47,8 @@ class MenuViewModel : ViewModel() {
 
     private val _menuModel = MutableLiveData<MenuModel?>()
     fun fetchData(date: LocalDate) {
+        Log.d("borrar", auth.currentUser!!.uid)
+
         viewModelScope.launch {
             try {
                 val document = ref.collection("semActual").document(date.toString()).get().await()
@@ -54,16 +58,33 @@ class MenuViewModel : ViewModel() {
                     //referenceMenu = document.data?.get("menu1") as Map<String, DocumentReference>
                     Log.d("MenuViewModel", "document : ${document}")
 
-                    referenceMenu = document.data?.get("menu") as Map<String, DocumentReference>
+                    // referenceMenu = document.data?.get("menu") as Map<String, DocumentReference>
+                    val desayunoReference: DocumentReference? =
+                        document.data?.get("desayuno") as? DocumentReference
+                    val cenaference: DocumentReference? =
+                        document.data?.get("cena") as? DocumentReference
 
-                    val desayunoDeferred = async { fetchPlato(referenceMenu["desayuno"]) }
-                    val comidaDeferred = async { fetchPlato(referenceMenu["comida"]) }
-                    val cenaDeferred = async { fetchPlato(referenceMenu["cena"]) }
+                    val comidaReference: DocumentReference? =
+                        document.data?.get("comida") as? DocumentReference
 
-                    val desayuno = desayunoDeferred.await()
+                    //val desayunoDeferred = async { fetchPlato(referenceMenu["desayuno"]) }
+
+                    Log.d("MenuViewModel", "Docuenmntrefernce ${comidaReference}")
+
+
+                    val desayunoDeferred = async { fetchPlato(desayunoReference) }
+                    val comidaDeferred = async { fetchPlato(comidaReference) }
+                    val cenaDeferred = async { fetchPlato(cenaference) }
+
+                    /*val desayuno = desayunoDeferred.await()
                     val comida = comidaDeferred.await()
-                    val cena = cenaDeferred.await()
-                    Log.d("MenuViewModel", "DocumentSnapshot data: ${desayuno}")
+                    val cena = cenaDeferred.await()*/
+                    val desayuno = comidaDeferred.await()
+                    val comida = comidaDeferred.await()
+
+                    val cena = comidaDeferred.await()
+                    Log.d("MenuViewModel", "comida data: ${comida}")
+
 
                     if (desayuno != null && comida != null && cena != null) {
                         val menuDelDia = MenuDelDia(desayuno, comida, cena)
@@ -89,6 +110,8 @@ class MenuViewModel : ViewModel() {
             val document = reference?.get()?.await()
             if (document != null && document.exists()) {
                 val menuData = document.data as Map<String, *>
+                Log.d("MenuViewModel", "Menu data fetchPlato: ${menuData}")
+
                 createPlato(menuData)
             } else {
                 null
@@ -103,25 +126,30 @@ class MenuViewModel : ViewModel() {
         val plato = data?.get("plato").toString()
         val imagen = data?.get("imagen").toString()
 
+        Log.d("MenuViewModel", "Menu data createPlato: ${data}")
+
+
         val ingredientesData = data?.get("ingredientes") as? List<Map<*, *>> ?: emptyList()
         val ingredientes = ingredientesData.map { ingredienteData ->
             Ingrediente(
                 ingredienteData["nombre"].toString(),
-                ingredienteData["cantidad"].toString(),
-                ingredienteData["calorias"].toString().toDouble(),
-                ingredienteData["tipo"].toString(),
-                ingredienteData["gramos"].toString().toInt()
+                ingredienteData["cantidad"].toString()
+                /*ingredienteData["calorias"].toString().toDouble(),
+                    ingredienteData["tipo"].toString(),
+                    ingredienteData["gramos"].toString().toDouble()*/
             )
+
         }
-        val total_grasa = data?.get("total_grasa").toString().toInt()
-        val total_proteina = data?.get("total_proteina").toString().toInt()
-        val total_carbohidratos = data?.get("total_carbohidratos").toString().toInt()
+        val total_grasa = data?.get("total_grasa").toString().toDouble()
+        val total_proteina = data?.get("total_proteina").toString().toDouble()
+        val total_carbohidratos = data?.get("total_carbohidratos").toString().toDouble()
 
-        Log.d("MenuViewModel", "DocumentSnapshot data: ${imagen}")
-        Log.d("MenuViewModel", "DocumentSnapshot data: ${data}")
+        val intrucciones = data?.get("instrucciones").toString()
 
 
-        return Plato(plato, ingredientes, total_grasa, total_proteina, total_carbohidratos, imagen)
+
+
+        return Plato(plato, ingredientes, total_grasa, total_proteina, total_carbohidratos, imagen,intrucciones)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

@@ -225,98 +225,125 @@
                     </LinearLayout>
                 </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
 
-                <LinearLayout
-                    android:id="@+id/dataLL2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
 
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        app:dividerInsetEnd="16dp"
-                        app:dividerInsetStart="16dp" />
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
+                        android:id="@+id/dataLL2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="start|center_vertical"
-                        android:orientation="horizontal">
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            app:dividerInsetEnd="16dp"
+                            app:dividerInsetStart="16dp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center|center_horizontal|center_vertical"
-                            android:gravity="center|center_horizontal|center_vertical"
+                            android:gravity="center|start"
                             android:text="Ingredientes:"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:textColor="?android:attr/textColorSecondary"
                             android:textSize="25sp"
                             android:textStyle="bold|italic" />
 
-                    </LinearLayout>
 
+                        <GridLayout
+                            android:id="@+id/listaIngredientesCardDesayuno"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|center_horizontal|center_vertical"
+                            android:alignmentMode="alignMargins"
+                            android:columnCount="2"
+                            android:orientation="horizontal"
+                            android:padding="8dp"
+                            android:rowCount="4"
+                            android:useDefaultMargins="true"
+                            android:visibility="visible" />
 
-                    <GridLayout
-                        android:id="@+id/listaIngredientesCardDesayuno"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|center_horizontal|center_vertical"
-                        android:alignmentMode="alignMargins"
-                        android:columnCount="2"
-                        android:orientation="horizontal"
-                        android:padding="8dp"
-                        android:rowCount="4"
-                        android:useDefaultMargins="true"
-                        android:visibility="visible" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="start|center_vertical"
-                        android:orientation="horizontal">
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            app:dividerInsetEnd="16dp"
+                            app:dividerInsetStart="16dp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center|center_horizontal|center_vertical"
-                            android:gravity="center|center_horizontal|center_vertical"
-                            android:text="Macros:"
+                            android:layout_marginBottom="7dp"
+                            android:gravity="center|start"
+                            android:text="Instrucciones:"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:textColor="?android:attr/textColorSecondary"
-                            android:textSize="20sp" />
+                            android:textSize="25sp"
+                            android:textStyle="bold|italic" />
 
-                        <com.google.android.material.button.MaterialButton
+                        <TextView
+                            android:id="@+id/instruccionesTx"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Instrucciones"
+                            android:textAlignment="textStart"
+                            app:lineHeight="25dp" />
 
-                            android:id="@+id/displayMacrosDesayuno"
-                            style="?attr/borderlessButtonStyle"
-                            android:layout_width="49dp"
-                            android:layout_height="match_parent"
-                            app:icon="@drawable/baseline_arrow_drop_down_24"
-                            app:iconPadding="0dp"
-                            app:iconSize="36dp" />
+                        <!--   <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:gravity="start|center_vertical"
+                               android:orientation="horizontal">
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="match_parent"
+                                   android:layout_gravity="center|center_horizontal|center_vertical"
+                                   android:gravity="center|center_horizontal|center_vertical"
+                                   android:text="Macros:"
+                                   android:textAppearance="?attr/textAppearanceBodyMedium"
+                                   android:textColor="?android:attr/textColorSecondary"
+                                   android:textSize="20sp" />
+
+                               <com.google.android.material.button.MaterialButton
+
+                                   android:id="@+id/displayMacrosDesayuno"
+                                   style="?attr/borderlessButtonStyle"
+                                   android:layout_width="49dp"
+                                   android:layout_height="match_parent"
+                                   app:icon="@drawable/baseline_arrow_drop_down_24"
+                                   app:iconPadding="0dp"
+                                   app:iconSize="36dp" />
+                           </LinearLayout>
+
+                           <com.google.android.material.divider.MaterialDivider
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:layout_marginTop="8dp"
+                               android:layout_marginBottom="8dp"
+                               app:dividerInsetEnd="3dp"
+                               app:dividerInsetStart="3dp" />
+
+                           <LinearLayout
+                               android:id="@+id/listaMacrosCardDesayuno"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:orientation="vertical"
+                               android:visibility="gone" />-->
+
+
                     </LinearLayout>
 
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        app:dividerInsetEnd="3dp"
-                        app:dividerInsetStart="3dp" />
-
-                    <LinearLayout
-                        android:id="@+id/listaMacrosCardDesayuno"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:visibility="gone" />
-
-
-                </LinearLayout>
+                </ScrollView>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>

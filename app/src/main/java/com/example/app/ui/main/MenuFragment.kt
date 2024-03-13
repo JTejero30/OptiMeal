@@ -27,10 +27,14 @@ import com.example.app.databinding.FragmentMenuBinding
 import com.example.app.ui.main.adapterWeek.WeekAdapter
 import com.example.app.ui.main.detailFragment.DialogMenuFragment
 import com.example.app.ui.main.model.DayModel
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.time.LocalDate
+
+import com.google.firebase.storage.ktx.storage
+import com.squareup.picasso.Picasso
 
 
 class MenuFragment : Fragment(), DayItemClickI {
@@ -41,6 +45,8 @@ class MenuFragment : Fragment(), DayItemClickI {
     private lateinit var menuViewModel: MenuViewModel
 
     private val TAG = "ComprobarSemana"
+
+    val storage = Firebase.storage
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,21 +98,49 @@ class MenuFragment : Fragment(), DayItemClickI {
     private fun observeViewModel() {
         menuViewModel.menuModelL.observe(viewLifecycleOwner) { menuModel ->
             // Update UI elements here with the new menuModel data
-            binding.loadingIndicator.visibility = View.GONE
-            binding.menuSV.visibility = View.VISIBLE
+
             menuModel?.let {
                 Log.d("MenuFragment", "weekMoidel--> ${menuModel.toString()}")
 
                 //Desayuno
-                Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
-                    .into(binding.ivDesayuno)
+
+                binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
+
+                val imageName = it.menu_del_dia.desayuno.imagen
+
+                val imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
+                imageRef.downloadUrl.addOnSuccessListener { uri ->
+                    val imageUrl = uri.toString()
+               /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
+                        .into(binding.ivDesayuno)*/
+
+                    Picasso.get()
+                        .load(imageUrl)
+                        .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {
+                            override fun onSuccess() {
+                                binding.loadingIndicator.visibility = View.GONE
+                                binding.menuSV.visibility = View.VISIBLE
+                            }
+                            override fun onError(e: Exception?) {
+                                binding.loadingIndicator.visibility = View.VISIBLE
+                                binding.menuSV.visibility = View.GONE
+                                Log.e("MenuFragment", "Error getting download URL", e)
+                            }
+                        })
+
+
+
+                }.addOnFailureListener { exception ->
+                    Log.e("MenuFragment", "Error getting download URL", exception)
+                }
+
                 binding.ivDesayuno.setOnClickListener {
                     val dialogFragment = DialogMenuFragment()
                     dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)
 
                     dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
                 }
-                binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
+                /*
                 for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {
                     val textView = TextView(binding.listaIngredientesCardDesayuno.context)
                     textView.text = ingrediente.toString()
@@ -129,7 +163,7 @@ class MenuFragment : Fragment(), DayItemClickI {
                         binding.listaMacrosCardDesayuno.visibility = View.VISIBLE
                         binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)
                     }
-                }
+                }*/
 
                 //Comida
                 Glide.with(binding.ivComida.context).load(it.menu_del_dia.comida.imagen)
@@ -143,7 +177,9 @@ class MenuFragment : Fragment(), DayItemClickI {
                 }
 
                 binding.nombreCardComida.text = it.menu_del_dia.comida.plato
-                for (ingrediente in it.menu_del_dia.comida.ingredientes) {
+
+
+                /*for (ingrediente in it.menu_del_dia.comida.ingredientes) {
                     val textView = TextView(binding.listaIngredientesCardComida.context)
                     textView.text = ingrediente.toString()
                     binding.listaIngredientesCardComida.addView(textView)
@@ -165,20 +201,22 @@ class MenuFragment : Fragment(), DayItemClickI {
                         binding.listaMacrosCardComida.visibility = View.VISIBLE
                         binding.displayMacrosComida.setIconResource(R.drawable.baseline_arrow_drop_up_24)
                     }
-                }
+                }*/
 
                 //Comida
                 Glide.with(binding.ivCena.context).load(it.menu_del_dia.cena.imagen)
                     .into(binding.ivCena)
 
-                binding.ivDesayuno.setOnClickListener {
+                binding.ivCena.setOnClickListener {
                     val dialogFragment = DialogMenuFragment()
-                    dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)
+                    dialogFragment.setMenuModel(menuModel.menu_del_dia.cena)
 
                     dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
                 }
 
                 binding.nombreCardCena.text = it.menu_del_dia.cena.plato
+
+                /*
                 for (ingrediente in it.menu_del_dia.cena.ingredientes) {
                     val textView = TextView(binding.listaIngredientesCardCena.context)
                     textView.text = ingrediente.toString()
@@ -201,7 +239,7 @@ class MenuFragment : Fragment(), DayItemClickI {
                         binding.listaMacrosCardCena.visibility = View.VISIBLE
                         binding.displayMacrosCena.setIconResource(R.drawable.baseline_arrow_drop_up_24)
                     }
-                }
+                }*/
             }
         }
     }
@@ -229,7 +267,7 @@ class MenuFragment : Fragment(), DayItemClickI {
         lifecycleScope.launch(Dispatchers.Main) {
 
             menuViewModel.fetchData(dayModel.day)
-            delay(500)
+            delay(1500)
             observeViewModel()
         }
     }

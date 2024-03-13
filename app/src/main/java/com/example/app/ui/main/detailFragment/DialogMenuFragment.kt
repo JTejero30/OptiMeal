@@ -17,6 +17,8 @@ import com.example.app.R
 import com.example.app.databinding.FragmentDialogMenuBinding
 import com.example.app.ui.main.model.MenuModel
 import com.example.app.ui.main.model.Plato
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import com.squareup.picasso.Picasso
 
 
@@ -26,6 +28,9 @@ class DialogMenuFragment : DialogFragment() {
     private var toolbar: Toolbar? = null
     private var btnClose: Button? = null
     private var _binding: FragmentDialogMenuBinding? = null
+
+    val storage = Firebase.storage
+
 
     private val binding get() = _binding!!
 
@@ -74,35 +79,34 @@ class DialogMenuFragment : DialogFragment() {
         binding.loadingIndicator.visibility = View.VISIBLE
         binding.dataLL.visibility = View.GONE
         binding.dataLL2.visibility = View.GONE
-
         binding.ivMenuLL.visibility = View.INVISIBLE
 
-        Picasso.get()
-            .load(menuModelPlatoL.imagen)
-            .into(binding.ivDesayuno)
+        val imageName = menuModelPlatoL.imagen
+        var imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
+        Log.d("MenuFragment", "Image URL desayuno : $imageRef")
+        imageRef.downloadUrl.addOnSuccessListener { uri ->
+            val imageUrl = uri.toString()
+            Picasso.get()
+                .load(imageUrl)
+                .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {
+                    override fun onSuccess() {
+                        binding.ivMenuLL.background = binding.ivDesayuno.drawable
+                        binding.loadingIndicator.visibility = View.GONE
+                        binding.dataLL.visibility = View.VISIBLE
+                        binding.ivMenuLL.visibility = View.VISIBLE
+                        binding.dataLL2.visibility = View.VISIBLE
+                    }
+                    override fun onError(e: Exception?) {
+                        binding.loadingIndicator.visibility = View.GONE
+                        binding.dataLL.visibility = View.VISIBLE
+                        binding.ivMenuLL.visibility = View.VISIBLE
+                        binding.dataLL2.visibility = View.VISIBLE
+                    }
+                })
 
-        Picasso.get()
-            .load(menuModelPlatoL.imagen)
-            .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {
-                override fun onSuccess() {
-                    binding.ivMenuLL.background = binding.ivDesayuno.drawable
-
-                    binding.loadingIndicator.visibility = View.GONE
-                    binding.dataLL.visibility = View.VISIBLE
-                    binding.ivMenuLL.visibility = View.VISIBLE
-                    binding.dataLL2.visibility = View.VISIBLE
-
-                }
-                override fun onError(e: Exception?) {
-                    binding.loadingIndicator.visibility = View.GONE
-                    binding.dataLL.visibility = View.VISIBLE
-                    binding.ivMenuLL.visibility = View.VISIBLE
-                    binding.dataLL2.visibility = View.VISIBLE
-
-                }
-            })
-
-
+        }.addOnFailureListener { exception ->
+            Log.e("MenuFragment", "Error getting download URL", exception)
+        }
 
         binding.nombreCardDesayuno.text = menuModelPlatoL.plato + " (450g)"
 
@@ -112,6 +116,7 @@ class DialogMenuFragment : DialogFragment() {
 
         binding.grasasTx.text = menuModelPlatoL.total_grasa.toString() + "g"
 
+        binding.instruccionesTx.text = menuModelPlatoL.intrucciones.toString()
 
         for (ingrediente in menuModelPlatoL.ingredientes) {
             val textViewCantidad = TextView(binding.listaIngredientesCardDesayuno.context)
