@@ -24,8 +24,4 @@
         android:label="@string/title_recipes"
         tools:layout="@layout/fragment_recipes" />
 
-    
-
-
-
 </navigation>

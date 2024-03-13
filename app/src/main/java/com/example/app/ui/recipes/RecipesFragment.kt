@@ -11,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.app.R
 import com.example.app.databinding.FragmentRecipesBinding
-
 import com.example.app.ui.recipes.adapter.RecipesAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,14 +18,10 @@ import kotlinx.coroutines.launch
 
 class RecipesFragment : Fragment() {
     private var _binding: FragmentRecipesBinding? = null
-
     private val binding get() = _binding!!
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

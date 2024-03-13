@@ -1,0 +1,234 @@
+Index: app/src/main/res/layout/activity_inicio.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:id=\"@+id/container\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n\r\n    <androidx.coordinatorlayout.widget.CoordinatorLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:orientation=\"vertical\">\r\n\r\n\r\n        <com.google.android.material.bottomappbar.BottomAppBar\r\n            android:id=\"@+id/bottomAppBar\"\r\n            style=\"@style/Widget.Material3.BottomAppBar\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"38dp\"\r\n            android:layout_gravity=\"top\"\r\n            app:hideOnScroll=\"true\"\r\n            app:menu=\"@menu/top_app_bar\"\r\n\r\n            app:navigationIcon=\"@drawable/ic_home_black_24dp\"\r\n\r\n\r\n            />\r\n\r\n        <androidx.fragment.app.FragmentContainerView\r\n            android:id=\"@+id/nav_host_fragment_activity_main\"\r\n            android:name=\"androidx.navigation.fragment.NavHostFragment\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n\r\n            android:layout_marginTop=\"40dp\"\r\n            app:navGraph=\"@navigation/mobile_navigation\" />\r\n\r\n        <com.google.android.material.bottomnavigation.BottomNavigationView\r\n            android:id=\"@+id/nav_view\"\r\n\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"0dp\"\r\n            android:layout_marginEnd=\"0dp\"\r\n            android:layout_gravity=\"bottom\"\r\n\r\n            app:hideOnScroll=\"true\"\r\n            app:layout_behavior=\"@string/hide_bottom_view_on_scroll_behavior\"\r\n\r\n            app:menu=\"@menu/bottom_nav_menu\" />\r\n\r\n        <androidx.appcompat.widget.Toolbar\r\n            android:id=\"@+id/toolbar\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"0dp\"\r\n            app:popupTheme=\"@style/ThemeOverlay.AppCompat.Light\" />\r\n\r\n\r\n\r\n\r\n    </androidx.coordinatorlayout.widget.CoordinatorLayout>\r\n\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_inicio.xml b/app/src/main/res/layout/activity_inicio.xml
+--- a/app/src/main/res/layout/activity_inicio.xml	(revision 627150ac36c33ca1224a86aacc9710999c52dcdc)
++++ b/app/src/main/res/layout/activity_inicio.xml	(date 1710331868000)
+@@ -13,19 +13,19 @@
+         android:orientation="vertical">
+ 
+ 
+-        <com.google.android.material.bottomappbar.BottomAppBar
+-            android:id="@+id/bottomAppBar"
+-            style="@style/Widget.Material3.BottomAppBar"
+-            android:layout_width="match_parent"
+-            android:layout_height="38dp"
+-            android:layout_gravity="top"
+-            app:hideOnScroll="true"
+-            app:menu="@menu/top_app_bar"
++        <!--      <com.google.android.material.bottomappbar.BottomAppBar
++                  android:id="@+id/bottomAppBar"
++                  style="@style/Widget.Material3.BottomAppBar"
++                  android:layout_width="match_parent"
++                  android:layout_height="38dp"
++                  android:layout_gravity="top"
++                  app:hideOnScroll="true"
++                  app:menu="@menu/top_app_bar"
+ 
+-            app:navigationIcon="@drawable/ic_home_black_24dp"
++                  app:navigationIcon="@drawable/ic_home_black_24dp"
+ 
+ 
+-            />
++                  />-->
+ 
+         <androidx.fragment.app.FragmentContainerView
+             android:id="@+id/nav_host_fragment_activity_main"
+@@ -33,7 +33,7 @@
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+ 
+-            android:layout_marginTop="40dp"
++            android:layout_marginTop="10dp"
+             app:navGraph="@navigation/mobile_navigation" />
+ 
+         <com.google.android.material.bottomnavigation.BottomNavigationView
+@@ -41,9 +41,9 @@
+ 
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
++            android:layout_gravity="bottom"
+             android:layout_marginStart="0dp"
+             android:layout_marginEnd="0dp"
+-            android:layout_gravity="bottom"
+ 
+             app:hideOnScroll="true"
+             app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+@@ -57,8 +57,6 @@
+             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+ 
+ 
+-
+-
+     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+ 
+ 
+Index: app/src/main/res/layout/activity_login.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".register.LoginActivity\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"600dp\"\r\n        android:orientation=\"vertical\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/imageView2\"\r\n            android:layout_width=\"70dp\"\r\n            android:layout_height=\"124dp\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginTop=\"16dp\"\r\n\r\n            android:contentDescription=\"logo\"\r\n            android:onClick=\"nextQuestion\"\r\n            app:srcCompat=\"@drawable/logo\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView3\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"52dp\"\r\n            android:gravity=\"center\"\r\n            android:text=\"Inicia Sesión\"\r\n            android:textAppearance=\"?attr/textAppearanceTitleMedium\"\r\n            android:textSize=\"34sp\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"233dp\"\r\n            android:layout_marginTop=\"20dp\"\r\n            android:orientation=\"vertical\"\r\n            android:padding=\"20dp\">\r\n\r\n            <EditText\r\n                android:id=\"@+id/emailEditText\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"57dp\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:layout_marginBottom=\"7dp\"\r\n\r\n                android:autofillHints=\"\"\r\n                android:ems=\"10\"\r\n                android:hint=\"Email\"\r\n                android:inputType=\"textEmailAddress\" />\r\n\r\n            <EditText\r\n                android:id=\"@+id/passwordEditText\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"55dp\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:layout_marginBottom=\"7dp\"\r\n                android:ems=\"10\"\r\n                android:hint=\"Password\"\r\n                android:inputType=\"textPassword\" />\r\n\r\n            <Button\r\n                android:id=\"@+id/accederButton\"\r\n                android:layout_width=\"178dp\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_gravity=\"center\"\r\n                android:layout_marginTop=\"7dp\"\r\n                android:text=\"Acceder\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/textoRegistro\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:gravity=\"center\" />\r\n\r\n        </LinearLayout>\r\n\r\n        <Button\r\n            android:id=\"@+id/irRegister\"\r\n            android:layout_width=\"130dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center\"\r\n\r\n            android:text=\"Go to register\"\r\n            android:textSize=\"12sp\" />\r\n\r\n        <com.google.android.gms.common.SignInButton\r\n            android:id=\"@+id/SignIn_Button\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginTop=\"0dp\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.0\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    </LinearLayout>\r\n\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_login.xml b/app/src/main/res/layout/activity_login.xml
+--- a/app/src/main/res/layout/activity_login.xml	(revision 627150ac36c33ca1224a86aacc9710999c52dcdc)
++++ b/app/src/main/res/layout/activity_login.xml	(date 1710331868000)
+@@ -65,6 +65,7 @@
+ 
+             <Button
+                 android:id="@+id/accederButton"
++                style="@style/Widget.Material3.MaterialTimePicker.Button"
+                 android:layout_width="178dp"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+Index: app/src/main/assets/comida.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"pucraZfdiqACxfxKl0s\": {\r\n    \"plato\": \"Pollo al Horno con Patatas y Verduras\",\r\n    \"ingredientes\": [\r\n      {\r\n        \"nombre\": \"pechuga de pollo\",\r\n        \"cantidad\": \"150g\",\r\n        \"calorias\": 165,\r\n        \"tipo\": \"proteínas\",\r\n        \"gramos\": 37\r\n      },\r\n      {\r\n        \"nombre\": \"patatas al horno\",\r\n        \"cantidad\": \"200g\",\r\n        \"calorias\": 160,\r\n        \"tipo\": \"carbohidratos\",\r\n        \"gramos\": 36\r\n      },\r\n      {\r\n        \"nombre\": \"verduras mixtas\",\r\n        \"cantidad\": \"100g\",\r\n        \"calorias\": 100,\r\n        \"tipo\": \"vegetales\",\r\n        \"gramos\": 15\r\n      }\r\n    ],\r\n    \"total_grasa\": 0,\r\n    \"total_proteina\": 0,\r\n    \"total_carbohidratos\": 0\r\n  }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/assets/comida.json b/app/src/main/assets/comida.json
+--- a/app/src/main/assets/comida.json	(revision 627150ac36c33ca1224a86aacc9710999c52dcdc)
++++ b/app/src/main/assets/comida.json	(date 1710331874000)
+@@ -1,31 +1,0 @@
+-{
+-  "pucraZfdiqACxfxKl0s": {
+-    "plato": "Pollo al Horno con Patatas y Verduras",
+-    "ingredientes": [
+-      {
+-        "nombre": "pechuga de pollo",
+-        "cantidad": "150g",
+-        "calorias": 165,
+-        "tipo": "proteínas",
+-        "gramos": 37
+-      },
+-      {
+-        "nombre": "patatas al horno",
+-        "cantidad": "200g",
+-        "calorias": 160,
+-        "tipo": "carbohidratos",
+-        "gramos": 36
+-      },
+-      {
+-        "nombre": "verduras mixtas",
+-        "cantidad": "100g",
+-        "calorias": 100,
+-        "tipo": "vegetales",
+-        "gramos": 15
+-      }
+-    ],
+-    "total_grasa": 0,
+-    "total_proteina": 0,
+-    "total_carbohidratos": 0
+-  }
+-}
+\ No newline at end of file
+Index: app/src/main/assets/cena.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n\r\n  \"PucraZfdiqACxfxKl0f\": {\r\n    \"plato\": \"Ensalada de Salmón Ahumado y Aguacate\",\r\n    \"ingredientes\": [\r\n      {\r\n        \"nombre\": \"salmón ahumado\",\r\n        \"cantidad\": \"100g\",\r\n        \"calorias\": 200,\r\n        \"tipo\": \"proteínas\",\r\n        \"gramos\": 22\r\n      },\r\n      {\r\n        \"nombre\": \"aguacate\",\r\n        \"cantidad\": \"1/2\",\r\n        \"calorias\": 120,\r\n        \"tipo\": \"grasas\",\r\n        \"gramos\": 14\r\n      },\r\n      {\r\n        \"nombre\": \"verduras mixtas y aderezo ligero\",\r\n        \"cantidad\": \"varios\",\r\n        \"calorias\": 406.95,\r\n        \"tipo\": \"vegetales\",\r\n        \"gramos\": 60\r\n      }\r\n    ],\r\n    \"total_grasa\": 14,\r\n    \"total_proteina\": 22,\r\n    \"total_carbohidratos\": 60\r\n  }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/assets/cena.json b/app/src/main/assets/cena.json
+--- a/app/src/main/assets/cena.json	(revision 627150ac36c33ca1224a86aacc9710999c52dcdc)
++++ b/app/src/main/assets/cena.json	(date 1710331874000)
+@@ -1,32 +1,0 @@
+-{
+-
+-  "PucraZfdiqACxfxKl0f": {
+-    "plato": "Ensalada de Salmón Ahumado y Aguacate",
+-    "ingredientes": [
+-      {
+-        "nombre": "salmón ahumado",
+-        "cantidad": "100g",
+-        "calorias": 200,
+-        "tipo": "proteínas",
+-        "gramos": 22
+-      },
+-      {
+-        "nombre": "aguacate",
+-        "cantidad": "1/2",
+-        "calorias": 120,
+-        "tipo": "grasas",
+-        "gramos": 14
+-      },
+-      {
+-        "nombre": "verduras mixtas y aderezo ligero",
+-        "cantidad": "varios",
+-        "calorias": 406.95,
+-        "tipo": "vegetales",
+-        "gramos": 60
+-      }
+-    ],
+-    "total_grasa": 14,
+-    "total_proteina": 22,
+-    "total_carbohidratos": 60
+-  }
+-}
+\ No newline at end of file
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id(\"com.android.application\")\r\n    id(\"org.jetbrains.kotlin.android\")\r\n    //Firebase\r\n    id(\"com.google.gms.google-services\")\r\n\r\n}\r\n\r\nandroid {\r\n    namespace = \"com.example.app\"\r\n    compileSdk = 34\r\n\r\n    defaultConfig {\r\n        applicationId = \"com.example.app\"\r\n        minSdk = 21\r\n        targetSdk = 34\r\n        versionCode = 1\r\n        versionName = \"1.0\"\r\n\r\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            isMinifyEnabled = false\r\n            proguardFiles(\r\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\r\n                \"proguard-rules.pro\"\r\n            )\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility = JavaVersion.VERSION_1_8\r\n        targetCompatibility = JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = \"1.8\"\r\n    }\r\n    sourceSets {\r\n        getByName(\"main\") {\r\n            res {\r\n                srcDirs(\"src\\\\main\\\\res\", \"src\\\\main\\\\res\\\\layoutRegister2\")\r\n            }\r\n        }\r\n    }\r\n    buildFeatures{\r\n        viewBinding= true\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation(\"androidx.core:core-ktx:1.12.0\")\r\n    implementation(\"androidx.appcompat:appcompat:1.6.1\")\r\n    implementation(\"com.google.android.material:material:1.11.0\")\r\n    implementation(\"androidx.constraintlayout:constraintlayout:2.1.4\")\r\n    implementation(\"androidx.annotation:annotation:1.7.1\")\r\n    implementation(\"androidx.lifecycle:lifecycle-livedata-ktx:2.7.0\")\r\n    implementation(\"androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0\")\r\n    implementation(\"androidx.gridlayout:gridlayout:1.0.0\")\r\n    implementation(\"androidx.navigation:navigation-fragment-ktx:2.7.7\")\r\n    implementation(\"androidx.navigation:navigation-ui-ktx:2.7.7\")\r\n    implementation(\"androidx.legacy:legacy-support-v4:1.0.0\")\r\n\r\n\r\n\r\n    testImplementation(\"junit:junit:4.13.2\")\r\n    androidTestImplementation(\"androidx.test.ext:junit:1.1.5\")\r\n    androidTestImplementation(\"androidx.test.espresso:espresso-core:3.5.1\")\r\n\r\n    //Firebase\r\n    implementation(platform(\"com.google.firebase:firebase-bom:32.5.0\"))\r\n    implementation(\"com.google.firebase:firebase-analytics\")\r\n    implementation(\"com.google.firebase:firebase-auth-ktx\")\r\n    implementation(\"com.google.android.gms:play-services-auth:20.7.0\")\r\n\r\n    implementation(\"com.google.firebase:firebase-firestore\")\r\n\r\n    //ImageView\r\n    implementation (\"com.squareup.picasso:picasso:2.71828\")\r\n\r\n    //Glide para las imagenes\r\n    implementation (\"com.github.bumptech.glide:glide:4.16.0\")\r\n\r\n    //SplashScreen\r\n    implementation (\"androidx.core:core-splashscreen:1.0.1\")\r\n\r\n    //Json\r\n    implementation (\"com.squareup.retrofit2:retrofit:2.9.0\")\r\n    implementation (\"com.squareup.retrofit2:converter-gson:2.9.0\")\r\n\r\n\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	(revision 627150ac36c33ca1224a86aacc9710999c52dcdc)
++++ b/app/build.gradle.kts	(date 1710331868000)
+@@ -76,6 +76,9 @@
+ 
+     implementation("com.google.firebase:firebase-firestore")
+ 
++    implementation ("com.google.firebase:firebase-storage-ktx")
++
++
+     //ImageView
+     implementation ("com.squareup.picasso:picasso:2.71828")
+ 
+Index: app/src/main/java/com/example/app/model/Desayuno.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.model\r\n\r\ndata class Desayuno(\r\n    val plato: String,\r\n    val ingredientes: List<Ingrediente>,\r\n    val total_grasa: Int,\r\n    val total_proteina: Int,\r\n    val total_carbohidratos: Int\r\n\r\n\r\n)\r\n\r\ndata class Ingrediente(\r\n    val nombre: String,\r\n    val cantidad: String,\r\n    val calorias: Double,\r\n    val tipo: String,\r\n    val gramos: Int\r\n)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/app/model/Desayuno.kt b/app/src/main/java/com/example/app/model/Desayuno.kt
+--- a/app/src/main/java/com/example/app/model/Desayuno.kt	(revision 627150ac36c33ca1224a86aacc9710999c52dcdc)
++++ b/app/src/main/java/com/example/app/model/Desayuno.kt	(date 1710331868000)
+@@ -1,19 +1,22 @@
+ package com.example.app.model
+ 
+-data class Desayuno(
++data class PlatoBD(
+     val plato: String,
+-    val ingredientes: List<Ingrediente>,
+-    val total_grasa: Int,
+-    val total_proteina: Int,
+-    val total_carbohidratos: Int
++    val ingredientes: List<Ingrediente>?,
++    val total_grasa:Double,
++    val total_proteina: Double,
++    val total_carbohidratos: Double,
++    val total_kilocalorias: Double,
++
++    val imagen:String,
+ 
+ 
+-)
++    )
+ 
+ data class Ingrediente(
+     val nombre: String,
+     val cantidad: String,
+     val calorias: Double,
+     val tipo: String,
+-    val gramos: Int
++    val gramos: Double
+ )

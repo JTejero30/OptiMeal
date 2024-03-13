@@ -1,0 +1,632 @@
+Index: app/src/main/res/layout/fragment_dialog_menu.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".ui.main.detailFragment.DialogMenuFragment\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:orientation=\"vertical\">\r\n\r\n        <LinearLayout\r\n            android:id=\"@+id/ivMenuLL\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"300dp\"\r\n            android:gravity=\"center_horizontal|top\"\r\n            android:orientation=\"horizontal\">\r\n\r\n            <ImageView\r\n                android:id=\"@+id/ivDesayuno\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"1dp\"\r\n                android:layout_weight=\"0.001\"\r\n                android:visibility=\"gone\" />\r\n\r\n            <Button\r\n                android:id=\"@+id/btnClose\"\r\n                style=\"@style/Widget.Material3.Button.IconButton.Filled.Tonal\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginLeft=\"10dp\"\r\n                android:layout_marginTop=\"25dp\"\r\n                android:layout_weight=\".1\"\r\n                android:textSize=\"0dp\"\r\n                app:icon=\"@drawable/baseline_close_24\"\r\n                app:iconGravity=\"textEnd\"\r\n                app:iconPadding=\"0dp\"\r\n                app:iconSize=\"30dp\" />\r\n\r\n            <View\r\n                android:id=\"@+id/divider\"\r\n                android:layout_width=\"1dp\"\r\n                android:layout_height=\"match_parent\"\r\n                android:layout_weight=\"5\" />\r\n\r\n            <Button\r\n                android:id=\"@+id/button\"\r\n                style=\"@style/Widget.Material3.Button.IconButton.Filled.Tonal\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"25dp\"\r\n                android:layout_marginRight=\"10dp\"\r\n                android:layout_weight=\".1\"\r\n                android:textSize=\"0dp\"\r\n                app:icon=\"@drawable/baseline_star_border_24\"\r\n                app:iconGravity=\"textEnd\"\r\n                app:iconPadding=\"0dp\"\r\n                app:iconSize=\"30dp\" />\r\n\r\n        </LinearLayout>\r\n\r\n        <com.google.android.material.card.MaterialCardView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_marginLeft=\"3dp\"\r\n            android:layout_marginTop=\"-30dp\"\r\n            android:layout_marginRight=\"3dp\"\r\n            android:layout_marginBottom=\"8dp\">\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:orientation=\"vertical\">\r\n\r\n\r\n                <ProgressBar\r\n                    android:id=\"@+id/loadingIndicator\"\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"88dp\"\r\n                    android:layout_centerInParent=\"true\"\r\n                    android:layout_gravity=\"center\"\r\n                    android:indeterminate=\"true\"\r\n                    android:visibility=\"visible\" />\r\n\r\n                <com.google.android.material.circularreveal.cardview.CircularRevealCardView\r\n                    android:id=\"@+id/dataLL\"\r\n                    style=\"?attr/materialCardViewFilledStyle\"\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:layout_marginLeft=\"15dp\"\r\n                    android:layout_marginTop=\"10dp\"\r\n                    android:layout_marginRight=\"15dp\">\r\n\r\n\r\n                    <LinearLayout\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"match_parent\"\r\n                        android:orientation=\"vertical\"\r\n                        android:padding=\"10dp\">\r\n\r\n\r\n                        <TextView\r\n                            android:id=\"@+id/nombreCardDesayuno\"\r\n\r\n                            android:layout_width=\"wrap_content\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_gravity=\"center_horizontal|center_vertical\"\r\n                            android:text=\"Brocoli\"\r\n                            android:textAlignment=\"center\"\r\n                            android:textAppearance=\"?attr/textAppearanceTitleMedium\"\r\n                            android:textSize=\"21sp\"\r\n                            app:lineHeight=\"30dp\" />\r\n\r\n\r\n                        <LinearLayout\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:layout_marginTop=\"10dp\"\r\n                            android:orientation=\"horizontal\">\r\n\r\n                            <LinearLayout\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"match_parent\"\r\n                                android:layout_weight=\"1\"\r\n                                android:gravity=\"center\"\r\n                                android:orientation=\"vertical\"\r\n                                android:paddingTop=\"5dp\"\r\n                                android:paddingBottom=\"5dp\">\r\n\r\n                                <TextView\r\n                                    android:id=\"@+id/caloriasTx\"\r\n                                    android:layout_width=\"wrap_content\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:gravity=\"center\"\r\n                                    android:text=\"463 \" />\r\n\r\n                                <TextView\r\n                                    android:layout_width=\"wrap_content\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:gravity=\"center\"\r\n                                    android:text=\"Kilocalorías\"\r\n                                    android:textSize=\"10sp\" />\r\n                            </LinearLayout>\r\n\r\n                            <LinearLayout\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"match_parent\"\r\n                                android:layout_weight=\"1\"\r\n                                android:gravity=\"center\"\r\n                                android:orientation=\"vertical\"\r\n                                android:paddingTop=\"5dp\"\r\n                                android:paddingBottom=\"5dp\">\r\n\r\n                                <TextView\r\n                                    android:id=\"@+id/proteinasTx\"\r\n                                    android:layout_width=\"wrap_content\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:gravity=\"center\"\r\n                                    android:text=\"30g\" />\r\n\r\n                                <TextView\r\n                                    android:layout_width=\"wrap_content\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:gravity=\"center\"\r\n                                    android:text=\"Proteínas\"\r\n                                    android:textSize=\"10sp\" />\r\n                            </LinearLayout>\r\n\r\n                            <LinearLayout\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"match_parent\"\r\n                                android:layout_weight=\"1\"\r\n                                android:gravity=\"center\"\r\n                                android:orientation=\"vertical\"\r\n                                android:paddingTop=\"5dp\"\r\n                                android:paddingBottom=\"5dp\">\r\n\r\n                                <TextView\r\n                                    android:id=\"@+id/carboHidratosTx\"\r\n                                    android:layout_width=\"wrap_content\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:layout_weight=\"1\"\r\n                                    android:gravity=\"center\"\r\n                                    android:text=\"45g\" />\r\n\r\n                                <TextView\r\n                                    android:layout_width=\"wrap_content\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:layout_weight=\"1\"\r\n                                    android:gravity=\"center\"\r\n                                    android:text=\"Carbohidratos\"\r\n                                    android:textSize=\"10sp\" />\r\n                            </LinearLayout>\r\n\r\n                            <LinearLayout\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"match_parent\"\r\n                                android:layout_weight=\"1\"\r\n                                android:gravity=\"center\"\r\n                                android:orientation=\"vertical\"\r\n                                android:paddingTop=\"5dp\"\r\n                                android:paddingBottom=\"5dp\">\r\n\r\n                                <TextView\r\n                                    android:id=\"@+id/grasasTx\"\r\n                                    android:layout_width=\"wrap_content\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:gravity=\"center\"\r\n                                    android:text=\"21g\" />\r\n\r\n                                <TextView\r\n                                    android:layout_width=\"wrap_content\"\r\n                                    android:layout_height=\"wrap_content\"\r\n                                    android:gravity=\"center\"\r\n                                    android:text=\"Grasas\"\r\n                                    android:textSize=\"10sp\" />\r\n                            </LinearLayout>\r\n\r\n                        </LinearLayout>\r\n\r\n\r\n                    </LinearLayout>\r\n                </com.google.android.material.circularreveal.cardview.CircularRevealCardView>\r\n\r\n                <LinearLayout\r\n                    android:id=\"@+id/dataLL2\"\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:orientation=\"vertical\"\r\n                    android:padding=\"16dp\">\r\n\r\n                    <com.google.android.material.divider.MaterialDivider\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_marginTop=\"8dp\"\r\n                        android:layout_marginBottom=\"8dp\"\r\n                        app:dividerInsetEnd=\"16dp\"\r\n                        app:dividerInsetStart=\"16dp\" />\r\n\r\n                    <LinearLayout\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:gravity=\"start|center_vertical\"\r\n                        android:orientation=\"horizontal\">\r\n\r\n                        <TextView\r\n                            android:layout_width=\"wrap_content\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:layout_gravity=\"center|center_horizontal|center_vertical\"\r\n                            android:gravity=\"center|center_horizontal|center_vertical\"\r\n                            android:text=\"Ingredientes:\"\r\n                            android:textAppearance=\"?attr/textAppearanceBodyMedium\"\r\n                            android:textColor=\"?android:attr/textColorSecondary\"\r\n                            android:textSize=\"25sp\"\r\n                            android:textStyle=\"bold|italic\" />\r\n\r\n                    </LinearLayout>\r\n\r\n\r\n                    <GridLayout\r\n                        android:id=\"@+id/listaIngredientesCardDesayuno\"\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_gravity=\"center|center_horizontal|center_vertical\"\r\n                        android:alignmentMode=\"alignMargins\"\r\n                        android:columnCount=\"2\"\r\n                        android:orientation=\"horizontal\"\r\n                        android:padding=\"8dp\"\r\n                        android:rowCount=\"4\"\r\n                        android:useDefaultMargins=\"true\"\r\n                        android:visibility=\"visible\" />\r\n\r\n                    <LinearLayout\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:gravity=\"start|center_vertical\"\r\n                        android:orientation=\"horizontal\">\r\n\r\n                        <TextView\r\n                            android:layout_width=\"wrap_content\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:layout_gravity=\"center|center_horizontal|center_vertical\"\r\n                            android:gravity=\"center|center_horizontal|center_vertical\"\r\n                            android:text=\"Macros:\"\r\n                            android:textAppearance=\"?attr/textAppearanceBodyMedium\"\r\n                            android:textColor=\"?android:attr/textColorSecondary\"\r\n                            android:textSize=\"20sp\" />\r\n\r\n                        <com.google.android.material.button.MaterialButton\r\n\r\n                            android:id=\"@+id/displayMacrosDesayuno\"\r\n                            style=\"?attr/borderlessButtonStyle\"\r\n                            android:layout_width=\"49dp\"\r\n                            android:layout_height=\"match_parent\"\r\n                            app:icon=\"@drawable/baseline_arrow_drop_down_24\"\r\n                            app:iconPadding=\"0dp\"\r\n                            app:iconSize=\"36dp\" />\r\n                    </LinearLayout>\r\n\r\n                    <com.google.android.material.divider.MaterialDivider\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_marginTop=\"8dp\"\r\n                        android:layout_marginBottom=\"8dp\"\r\n                        app:dividerInsetEnd=\"3dp\"\r\n                        app:dividerInsetStart=\"3dp\" />\r\n\r\n                    <LinearLayout\r\n                        android:id=\"@+id/listaMacrosCardDesayuno\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:orientation=\"vertical\"\r\n                        android:visibility=\"gone\" />\r\n\r\n\r\n                </LinearLayout>\r\n            </LinearLayout>\r\n\r\n        </com.google.android.material.card.MaterialCardView>\r\n\r\n    </LinearLayout>\r\n\r\n</FrameLayout>
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_dialog_menu.xml b/app/src/main/res/layout/fragment_dialog_menu.xml
+--- a/app/src/main/res/layout/fragment_dialog_menu.xml	
++++ b/app/src/main/res/layout/fragment_dialog_menu.xml	
+@@ -225,98 +225,125 @@
+                     </LinearLayout>
+                 </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+ 
+-                <LinearLayout
+-                    android:id="@+id/dataLL2"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:orientation="vertical"
+-                    android:padding="16dp">
++
++                <ScrollView
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content">
++
++                    <LinearLayout
++                        android:id="@+id/dataLL2"
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:orientation="vertical"
++                        android:padding="16dp">
+ 
+-                    <com.google.android.material.divider.MaterialDivider
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginTop="8dp"
+-                        android:layout_marginBottom="8dp"
+-                        app:dividerInsetEnd="16dp"
+-                        app:dividerInsetStart="16dp" />
++                        <com.google.android.material.divider.MaterialDivider
++                            android:layout_width="match_parent"
++                            android:layout_height="wrap_content"
++                            android:layout_marginTop="8dp"
++                            android:layout_marginBottom="8dp"
++                            app:dividerInsetEnd="16dp"
++                            app:dividerInsetStart="16dp" />
+ 
+-                    <LinearLayout
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:gravity="start|center_vertical"
+-                        android:orientation="horizontal">
+-
+                         <TextView
+-                            android:layout_width="wrap_content"
++                            android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             android:layout_gravity="center|center_horizontal|center_vertical"
+-                            android:gravity="center|center_horizontal|center_vertical"
++                            android:gravity="center|start"
+                             android:text="Ingredientes:"
+                             android:textAppearance="?attr/textAppearanceBodyMedium"
+                             android:textColor="?android:attr/textColorSecondary"
+                             android:textSize="25sp"
+                             android:textStyle="bold|italic" />
+ 
+-                    </LinearLayout>
+-
+ 
+-                    <GridLayout
+-                        android:id="@+id/listaIngredientesCardDesayuno"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:layout_gravity="center|center_horizontal|center_vertical"
+-                        android:alignmentMode="alignMargins"
+-                        android:columnCount="2"
+-                        android:orientation="horizontal"
+-                        android:padding="8dp"
+-                        android:rowCount="4"
+-                        android:useDefaultMargins="true"
+-                        android:visibility="visible" />
++                        <GridLayout
++                            android:id="@+id/listaIngredientesCardDesayuno"
++                            android:layout_width="match_parent"
++                            android:layout_height="wrap_content"
++                            android:layout_gravity="center|center_horizontal|center_vertical"
++                            android:alignmentMode="alignMargins"
++                            android:columnCount="2"
++                            android:orientation="horizontal"
++                            android:padding="8dp"
++                            android:rowCount="4"
++                            android:useDefaultMargins="true"
++                            android:visibility="visible" />
+ 
+-                    <LinearLayout
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:gravity="start|center_vertical"
+-                        android:orientation="horizontal">
++                        <com.google.android.material.divider.MaterialDivider
++                            android:layout_width="match_parent"
++                            android:layout_height="wrap_content"
++                            android:layout_marginTop="8dp"
++                            android:layout_marginBottom="8dp"
++                            app:dividerInsetEnd="16dp"
++                            app:dividerInsetStart="16dp" />
++
++                        <TextView
++                            android:layout_width="match_parent"
++                            android:layout_height="match_parent"
++                            android:layout_gravity="center|center_horizontal|center_vertical"
++                            android:layout_marginBottom="7dp"
++                            android:gravity="center|start"
++                            android:text="Instrucciones:"
++                            android:textAppearance="?attr/textAppearanceBodyMedium"
++                            android:textColor="?android:attr/textColorSecondary"
++                            android:textSize="25sp"
++                            android:textStyle="bold|italic" />
++
++                        <TextView
++                            android:id="@+id/instruccionesTx"
++                            android:layout_width="match_parent"
++                            android:layout_height="wrap_content"
++                            android:text="Instrucciones"
++                            android:textAlignment="textStart"
++                            app:lineHeight="25dp" />
++
++                        <!--   <LinearLayout
++                               android:layout_width="match_parent"
++                               android:layout_height="wrap_content"
++                               android:gravity="start|center_vertical"
++                               android:orientation="horizontal">
+ 
+-                        <TextView
+-                            android:layout_width="wrap_content"
+-                            android:layout_height="match_parent"
+-                            android:layout_gravity="center|center_horizontal|center_vertical"
+-                            android:gravity="center|center_horizontal|center_vertical"
+-                            android:text="Macros:"
+-                            android:textAppearance="?attr/textAppearanceBodyMedium"
+-                            android:textColor="?android:attr/textColorSecondary"
+-                            android:textSize="20sp" />
++                               <TextView
++                                   android:layout_width="wrap_content"
++                                   android:layout_height="match_parent"
++                                   android:layout_gravity="center|center_horizontal|center_vertical"
++                                   android:gravity="center|center_horizontal|center_vertical"
++                                   android:text="Macros:"
++                                   android:textAppearance="?attr/textAppearanceBodyMedium"
++                                   android:textColor="?android:attr/textColorSecondary"
++                                   android:textSize="20sp" />
+ 
+-                        <com.google.android.material.button.MaterialButton
++                               <com.google.android.material.button.MaterialButton
+ 
+-                            android:id="@+id/displayMacrosDesayuno"
+-                            style="?attr/borderlessButtonStyle"
+-                            android:layout_width="49dp"
+-                            android:layout_height="match_parent"
+-                            app:icon="@drawable/baseline_arrow_drop_down_24"
+-                            app:iconPadding="0dp"
+-                            app:iconSize="36dp" />
+-                    </LinearLayout>
++                                   android:id="@+id/displayMacrosDesayuno"
++                                   style="?attr/borderlessButtonStyle"
++                                   android:layout_width="49dp"
++                                   android:layout_height="match_parent"
++                                   app:icon="@drawable/baseline_arrow_drop_down_24"
++                                   app:iconPadding="0dp"
++                                   app:iconSize="36dp" />
++                           </LinearLayout>
+ 
+-                    <com.google.android.material.divider.MaterialDivider
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginTop="8dp"
+-                        android:layout_marginBottom="8dp"
+-                        app:dividerInsetEnd="3dp"
+-                        app:dividerInsetStart="3dp" />
++                           <com.google.android.material.divider.MaterialDivider
++                               android:layout_width="match_parent"
++                               android:layout_height="wrap_content"
++                               android:layout_marginTop="8dp"
++                               android:layout_marginBottom="8dp"
++                               app:dividerInsetEnd="3dp"
++                               app:dividerInsetStart="3dp" />
+ 
+-                    <LinearLayout
+-                        android:id="@+id/listaMacrosCardDesayuno"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:orientation="vertical"
+-                        android:visibility="gone" />
++                           <LinearLayout
++                               android:id="@+id/listaMacrosCardDesayuno"
++                               android:layout_width="wrap_content"
++                               android:layout_height="wrap_content"
++                               android:orientation="vertical"
++                               android:visibility="gone" />-->
+ 
+ 
+-                </LinearLayout>
++                    </LinearLayout>
++
++                </ScrollView>
+             </LinearLayout>
+ 
+         </com.google.android.material.card.MaterialCardView>
+Index: app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n\r\n    <style name=\"DialogAnimation\">\r\n        <item name=\"android:windowEnterAnimation\">@anim/fade_in</item>\r\n        <item name=\"android:windowExitAnimation\">@anim/fade_out</item>\r\n\r\n    </style>\r\n\r\n\r\n</resources>
+===================================================================
+diff --git a/app/src/main/res/values/styles.xml b/app/src/main/res/values/styles.xml
+--- a/app/src/main/res/values/styles.xml	
++++ b/app/src/main/res/values/styles.xml	
+@@ -4,7 +4,6 @@
+     <style name="DialogAnimation">
+         <item name="android:windowEnterAnimation">@anim/fade_in</item>
+         <item name="android:windowExitAnimation">@anim/fade_out</item>
+-
+     </style>
+ 
+ 
+Index: app/src/main/java/com/example/app/ui/main/detailFragment/DialogMenuFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.ui.main.detailFragment\r\n\r\nimport android.content.DialogInterface\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.Button\r\nimport android.widget.ImageView\r\nimport android.widget.TextView\r\nimport androidx.appcompat.widget.Toolbar\r\nimport androidx.fragment.app.DialogFragment\r\nimport androidx.fragment.app.FragmentManager\r\nimport com.bumptech.glide.Glide\r\nimport com.example.app.R\r\nimport com.example.app.databinding.FragmentDialogMenuBinding\r\nimport com.example.app.ui.main.model.MenuModel\r\nimport com.example.app.ui.main.model.Plato\r\nimport com.squareup.picasso.Picasso\r\n\r\n\r\nclass DialogMenuFragment : DialogFragment() {\r\n    /**/\r\n\r\n    private var toolbar: Toolbar? = null\r\n    private var btnClose: Button? = null\r\n    private var _binding: FragmentDialogMenuBinding? = null\r\n\r\n    private val binding get() = _binding!!\r\n\r\n    private lateinit var menuModelPlatoL: Plato\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n\r\n        setStyle(STYLE_NORMAL, android.R.style.Theme_Black_NoTitleBar_Fullscreen)\r\n\r\n\r\n    }\r\n\r\n    override fun onStart() {\r\n        super.onStart()\r\n        dialog?.window?.apply {\r\n            val params = attributes\r\n            params.windowAnimations = R.style.DialogAnimation\r\n            attributes = params\r\n        }\r\n    }\r\n\r\n\r\n    override fun dismiss() {\r\n        dialog?.window?.apply {\r\n            val params = attributes\r\n            params.windowAnimations = R.style.DialogAnimation\r\n            attributes = params\r\n        }\r\n        super.dismiss()\r\n    }\r\n\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View {\r\n        super.onCreateView(inflater, container, savedInstanceState)\r\n        _binding = FragmentDialogMenuBinding.inflate(inflater, container, false)\r\n        //toolbar = view.findViewById(R.id.toolbar)\r\n        /**/\r\n        //Desayuno\r\n        /* Glide.with(binding.ivDesayuno.context).load(menuModelPlatoL.imagen)\r\n             .into(binding.ivDesayuno)*/\r\n        binding.loadingIndicator.visibility = View.VISIBLE\r\n        binding.dataLL.visibility = View.GONE\r\n        binding.dataLL2.visibility = View.GONE\r\n\r\n        binding.ivMenuLL.visibility = View.INVISIBLE\r\n\r\n        Picasso.get()\r\n            .load(menuModelPlatoL.imagen)\r\n            .into(binding.ivDesayuno)\r\n\r\n        Picasso.get()\r\n            .load(menuModelPlatoL.imagen)\r\n            .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {\r\n                override fun onSuccess() {\r\n                    binding.ivMenuLL.background = binding.ivDesayuno.drawable\r\n\r\n                    binding.loadingIndicator.visibility = View.GONE\r\n                    binding.dataLL.visibility = View.VISIBLE\r\n                    binding.ivMenuLL.visibility = View.VISIBLE\r\n                    binding.dataLL2.visibility = View.VISIBLE\r\n\r\n                }\r\n                override fun onError(e: Exception?) {\r\n                    binding.loadingIndicator.visibility = View.GONE\r\n                    binding.dataLL.visibility = View.VISIBLE\r\n                    binding.ivMenuLL.visibility = View.VISIBLE\r\n                    binding.dataLL2.visibility = View.VISIBLE\r\n\r\n                }\r\n            })\r\n\r\n\r\n\r\n        binding.nombreCardDesayuno.text = menuModelPlatoL.plato + \" (450g)\"\r\n\r\n        binding.proteinasTx.text = menuModelPlatoL.total_proteina.toString() + \"g\"\r\n\r\n        binding.carboHidratosTx.text = menuModelPlatoL.total_carbohidratos.toString() + \"g\"\r\n\r\n        binding.grasasTx.text = menuModelPlatoL.total_grasa.toString() + \"g\"\r\n\r\n\r\n        for (ingrediente in menuModelPlatoL.ingredientes) {\r\n            val textViewCantidad = TextView(binding.listaIngredientesCardDesayuno.context)\r\n            textViewCantidad.text = ingrediente.cantidad + \" \"\r\n            textViewCantidad.textSize = 15F\r\n            binding.listaIngredientesCardDesayuno.addView(textViewCantidad)\r\n\r\n            val textViewNombre = TextView(binding.listaIngredientesCardDesayuno.context)\r\n            textViewNombre.text = ingrediente.nombre\r\n            textViewNombre.textSize = 15F\r\n\r\n            binding.listaIngredientesCardDesayuno.addView(textViewNombre)\r\n        }\r\n\r\n        binding.btnClose.setOnClickListener {\r\n            Log.d(\"DialogMenuFragment\", \"Clickado\")\r\n            dismiss()\r\n        }\r\n        return binding.root\r\n    }\r\n\r\n    fun setMenuModel(menuModelPlato: Plato) {\r\n        menuModelPlatoL = menuModelPlato\r\n    }\r\n\r\n    companion object {\r\n        const val TAG = \"example_dialog\"\r\n\r\n        fun display(fragmentManager: FragmentManager?, menuModel: MenuModel): DialogFragment {\r\n            val DialogFragment = DialogFragment()\r\n            if (fragmentManager != null) {\r\n                DialogFragment.show(fragmentManager, TAG)\r\n            }\r\n            return DialogFragment\r\n        }\r\n    }\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/example/app/ui/main/detailFragment/DialogMenuFragment.kt b/app/src/main/java/com/example/app/ui/main/detailFragment/DialogMenuFragment.kt
+--- a/app/src/main/java/com/example/app/ui/main/detailFragment/DialogMenuFragment.kt	
++++ b/app/src/main/java/com/example/app/ui/main/detailFragment/DialogMenuFragment.kt	
+@@ -17,6 +17,8 @@
+ import com.example.app.databinding.FragmentDialogMenuBinding
+ import com.example.app.ui.main.model.MenuModel
+ import com.example.app.ui.main.model.Plato
++import com.google.firebase.ktx.Firebase
++import com.google.firebase.storage.ktx.storage
+ import com.squareup.picasso.Picasso
+ 
+ 
+@@ -27,6 +29,9 @@
+     private var btnClose: Button? = null
+     private var _binding: FragmentDialogMenuBinding? = null
+ 
++    val storage = Firebase.storage
++
++
+     private val binding get() = _binding!!
+ 
+     private lateinit var menuModelPlatoL: Plato
+@@ -74,35 +79,34 @@
+         binding.loadingIndicator.visibility = View.VISIBLE
+         binding.dataLL.visibility = View.GONE
+         binding.dataLL2.visibility = View.GONE
+-
+         binding.ivMenuLL.visibility = View.INVISIBLE
+ 
+-        Picasso.get()
+-            .load(menuModelPlatoL.imagen)
+-            .into(binding.ivDesayuno)
+-
+-        Picasso.get()
+-            .load(menuModelPlatoL.imagen)
+-            .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {
+-                override fun onSuccess() {
+-                    binding.ivMenuLL.background = binding.ivDesayuno.drawable
+-
+-                    binding.loadingIndicator.visibility = View.GONE
+-                    binding.dataLL.visibility = View.VISIBLE
+-                    binding.ivMenuLL.visibility = View.VISIBLE
+-                    binding.dataLL2.visibility = View.VISIBLE
+-
+-                }
+-                override fun onError(e: Exception?) {
+-                    binding.loadingIndicator.visibility = View.GONE
+-                    binding.dataLL.visibility = View.VISIBLE
+-                    binding.ivMenuLL.visibility = View.VISIBLE
+-                    binding.dataLL2.visibility = View.VISIBLE
+-
+-                }
+-            })
++        val imageName = menuModelPlatoL.imagen
++        var imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
++        Log.d("MenuFragment", "Image URL desayuno : $imageRef")
++        imageRef.downloadUrl.addOnSuccessListener { uri ->
++            val imageUrl = uri.toString()
++            Picasso.get()
++                .load(imageUrl)
++                .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {
++                    override fun onSuccess() {
++                        binding.ivMenuLL.background = binding.ivDesayuno.drawable
++                        binding.loadingIndicator.visibility = View.GONE
++                        binding.dataLL.visibility = View.VISIBLE
++                        binding.ivMenuLL.visibility = View.VISIBLE
++                        binding.dataLL2.visibility = View.VISIBLE
++                    }
++                    override fun onError(e: Exception?) {
++                        binding.loadingIndicator.visibility = View.GONE
++                        binding.dataLL.visibility = View.VISIBLE
++                        binding.ivMenuLL.visibility = View.VISIBLE
++                        binding.dataLL2.visibility = View.VISIBLE
++                    }
++                })
+ 
+-
++        }.addOnFailureListener { exception ->
++            Log.e("MenuFragment", "Error getting download URL", exception)
++        }
+ 
+         binding.nombreCardDesayuno.text = menuModelPlatoL.plato + " (450g)"
+ 
+@@ -112,6 +116,7 @@
+ 
+         binding.grasasTx.text = menuModelPlatoL.total_grasa.toString() + "g"
+ 
++        binding.instruccionesTx.text = menuModelPlatoL.intrucciones.toString()
+ 
+         for (ingrediente in menuModelPlatoL.ingredientes) {
+             val textViewCantidad = TextView(binding.listaIngredientesCardDesayuno.context)
+Index: app/src/main/java/com/example/app/ui/main/model/MenuModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.ui.main.model\r\n\r\ndata class MenuModel(\r\n    val menu_del_dia: MenuDelDia\r\n)\r\ndata class MenuDelDia(\r\n    val desayuno: Plato,\r\n    val comida: Plato,\r\n    val cena: Plato\r\n)\r\n\r\ndata class Plato(\r\n    val plato: String,\r\n    val ingredientes: List<Ingrediente>,\r\n    val total_grasa: Int,\r\n    val total_proteina: Int,\r\n    val total_carbohidratos: Int,\r\n    val imagen: String\r\n\r\n    )\r\n\r\ndata class Ingrediente(\r\n    val nombre: String,\r\n    val cantidad: String,\r\n    val calorias: Double,\r\n    val tipo: String,\r\n    val gramos: Int\r\n)\r\n\r\n\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/app/ui/main/model/MenuModel.kt b/app/src/main/java/com/example/app/ui/main/model/MenuModel.kt
+--- a/app/src/main/java/com/example/app/ui/main/model/MenuModel.kt	
++++ b/app/src/main/java/com/example/app/ui/main/model/MenuModel.kt	
+@@ -12,19 +12,24 @@
+ data class Plato(
+     val plato: String,
+     val ingredientes: List<Ingrediente>,
+-    val total_grasa: Int,
+-    val total_proteina: Int,
+-    val total_carbohidratos: Int,
+-    val imagen: String
++    val total_grasa: Double,
++    val total_proteina: Double,
++    val total_carbohidratos: Double,
++
++
++
++    val imagen: String,
++    val intrucciones: String
++
+ 
+     )
+ 
+ data class Ingrediente(
+     val nombre: String,
+     val cantidad: String,
+-    val calorias: Double,
++  /*  val calorias: Double,
+     val tipo: String,
+-    val gramos: Int
++    val gramos: Double*/
+ )
+ 
+ 
+Index: app/src/main/java/com/example/app/ui/main/MenuViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.ui.main\r\n\r\nimport android.os.Build\r\nimport android.util.Log\r\nimport androidx.annotation.RequiresApi\r\nimport androidx.lifecycle.LiveData\r\nimport androidx.lifecycle.MutableLiveData\r\nimport androidx.lifecycle.ViewModel\r\nimport androidx.lifecycle.viewModelScope\r\nimport com.example.app.ui.main.model.DayModel\r\nimport com.example.app.ui.main.model.Ingrediente\r\nimport com.example.app.ui.main.model.MenuDelDia\r\nimport com.example.app.ui.main.model.MenuModel\r\nimport com.example.app.ui.main.model.Plato\r\nimport com.google.firebase.auth.FirebaseAuth\r\nimport com.google.firebase.firestore.DocumentReference\r\nimport com.google.firebase.firestore.ktx.firestore\r\nimport com.google.firebase.ktx.Firebase\r\nimport kotlinx.coroutines.async\r\nimport kotlinx.coroutines.launch\r\nimport kotlinx.coroutines.tasks.await\r\nimport java.time.LocalDate\r\nimport java.time.format.DateTimeFormatter\r\nimport java.time.format.TextStyle\r\nimport java.util.Locale\r\n\r\nclass MenuViewModel : ViewModel() {\r\n\r\n    private val db = Firebase.firestore\r\n\r\n    //val ref = db.collection(\"desayunos\").document(\"ernesto\")\r\n\r\n    private val auth = FirebaseAuth.getInstance()\r\n    //val ref = db.collection(\"menu_dia\").document(auth.currentUser?.uid.toString())\r\n    val ref = db.collection(\"menu_dia\").document(\"FOVgQNcWawUl9f4X5lrOAVQswHc2\")\r\n\r\n    private lateinit var referenceMenu: Map<String, DocumentReference>\r\n\r\n    //weekModelL es una LiveData que expone la data observada, sirve para que desde el Fragment se pueda ovbservar\r\n    val weekModelL: LiveData<MutableList<DayModel>?> get() = _WeekModel\r\n\r\n    //_WeekModel es una variable privada que almacenará la data\r\n    private val _WeekModel = MutableLiveData<MutableList<DayModel>?>()\r\n    val menuModelL: LiveData<MenuModel?> get() = _menuModel\r\n\r\n    private val _menuModel = MutableLiveData<MenuModel?>()\r\n    fun fetchData(date: LocalDate) {\r\n        viewModelScope.launch {\r\n            try {\r\n                val document = ref.collection(\"semActual\").document(date.toString()).get().await()\r\n                Log.d(\"MenuViewModel\", \"document : ${document}\")\r\n\r\n                if (document.exists()) {\r\n                    //referenceMenu = document.data?.get(\"menu1\") as Map<String, DocumentReference>\r\n                    Log.d(\"MenuViewModel\", \"document : ${document}\")\r\n\r\n                    referenceMenu = document.data?.get(\"menu\") as Map<String, DocumentReference>\r\n\r\n                    val desayunoDeferred = async { fetchPlato(referenceMenu[\"desayuno\"]) }\r\n                    val comidaDeferred = async { fetchPlato(referenceMenu[\"comida\"]) }\r\n                    val cenaDeferred = async { fetchPlato(referenceMenu[\"cena\"]) }\r\n\r\n                    val desayuno = desayunoDeferred.await()\r\n                    val comida = comidaDeferred.await()\r\n                    val cena = cenaDeferred.await()\r\n                    Log.d(\"MenuViewModel\", \"DocumentSnapshot data: ${desayuno}\")\r\n\r\n                    if (desayuno != null && comida != null && cena != null) {\r\n                        val menuDelDia = MenuDelDia(desayuno, comida, cena)\r\n                        val menuModel = MenuModel(menuDelDia)\r\n                        _menuModel.postValue(menuModel)\r\n                    } else {\r\n                        _menuModel.postValue(null)\r\n                    }\r\n                } else {\r\n                    _menuModel.postValue(null)\r\n                    Log.d(\"MenuViewModel\", \"No document exist : ${document}\")\r\n\r\n                }\r\n            } catch (e: Exception) {\r\n                _menuModel.postValue(null)\r\n                e.printStackTrace()\r\n            }\r\n        }\r\n    }\r\n\r\n    private suspend fun fetchPlato(reference: DocumentReference?): Plato? {\r\n        return try {\r\n            val document = reference?.get()?.await()\r\n            if (document != null && document.exists()) {\r\n                val menuData = document.data as Map<String, *>\r\n                createPlato(menuData)\r\n            } else {\r\n                null\r\n            }\r\n        } catch (e: Exception) {\r\n            e.printStackTrace()\r\n            null\r\n        }\r\n    }\r\n\r\n    private fun createPlato(data: Map<*, *>?): Plato {\r\n        val plato = data?.get(\"plato\").toString()\r\n        val imagen = data?.get(\"imagen\").toString()\r\n\r\n        val ingredientesData = data?.get(\"ingredientes\") as? List<Map<*, *>> ?: emptyList()\r\n        val ingredientes = ingredientesData.map { ingredienteData ->\r\n            Ingrediente(\r\n                ingredienteData[\"nombre\"].toString(),\r\n                ingredienteData[\"cantidad\"].toString(),\r\n                ingredienteData[\"calorias\"].toString().toDouble(),\r\n                ingredienteData[\"tipo\"].toString(),\r\n                ingredienteData[\"gramos\"].toString().toInt()\r\n            )\r\n        }\r\n        val total_grasa = data?.get(\"total_grasa\").toString().toInt()\r\n        val total_proteina = data?.get(\"total_proteina\").toString().toInt()\r\n        val total_carbohidratos = data?.get(\"total_carbohidratos\").toString().toInt()\r\n\r\n        Log.d(\"MenuViewModel\", \"DocumentSnapshot data: ${imagen}\")\r\n        Log.d(\"MenuViewModel\", \"DocumentSnapshot data: ${data}\")\r\n\r\n\r\n        return Plato(plato, ingredientes, total_grasa, total_proteina, total_carbohidratos, imagen)\r\n    }\r\n\r\n    @RequiresApi(Build.VERSION_CODES.O)\r\n    fun getDates() {\r\n        val weekManager = WeekManager()\r\n        val startDate = LocalDate.now()\r\n        val daysOfWeek = weekManager.getDaysOfWeek(startDate)\r\n        Log.d(\"WeekManager\", \"Today--> ${LocalDate.now()}\")\r\n        Log.d(\"WeekManager\", \"daysOfWeek--> ${daysOfWeek.toString()}\")\r\n\r\n        var weekModelList: MutableList<DayModel> = mutableListOf()\r\n\r\n        val dateFormatter = DateTimeFormatter.ofPattern(\"E\", Locale(\"es\"))\r\n\r\n        for (day in daysOfWeek) {\r\n            day.format(dateFormatter)\r\n            Log.d(\"WeekManager\", \"dayformat--> ${day}\")\r\n\r\n            val dayModel = DayModel(\r\n                calendarDayOfWeek = day.dayOfMonth,\r\n                calendarMonth = day.month.getDisplayName(\r\n                    TextStyle.SHORT,\r\n                    Locale(\"es\")\r\n                ), // Mes en español\r\n                dayOfWeek = day.dayOfWeek.getDisplayName(\r\n                    TextStyle.SHORT,\r\n                    Locale(\"es\")\r\n                ), // Dia en español\r\n                year = day.year,\r\n                isCurrentDay = LocalDate.now() == day,\r\n                day = day,\r\n            )\r\n            weekModelList.add(dayModel)\r\n        }\r\n        _WeekModel.postValue(weekModelList)\r\n    }\r\n\r\n    /* suspend fun getData(): MenuModel? {\r\n\r\n\r\n       return withContext(Dispatchers.IO) {\r\n           try {\r\n               val document: DocumentSnapshot = ref.get().await()\r\n               if (document.exists()) {\r\n                   reference= document.data?.get(\"menu1\") as DocumentReference\r\n\r\n                   reference.get()\r\n                       .addOnSuccessListener { document2 ->\r\n                           if (document2 != null) {\r\n                               Log.d(\"comprobar\", \"DocumentSnapshot data: ${document2.data}\")\r\n\r\n                           } else {\r\n                               Log.d(\"comprobar\", \"No such document\")\r\n                           }\r\n                       }\r\n                       .addOnFailureListener { exception ->\r\n                           Log.d(\"comprobar\", \"get failed with \", exception)\r\n                       }\r\n                   val menuData = document.data?.get(\"menu_del_dia\") as Map<String, *>\r\n\r\n                   val desayunoData = menuData[\"desayuno\"] as? Map<String, *>\r\n                   val comidaData = menuData[\"desayuno\"] as? Map<String, *>\r\n                   val cenaData = menuData[\"desayuno\"] as? Map<String, *>\r\n\r\n                   Log.d(\"MenuViewModel\", \" DesayunoData ${desayunoData}\")\r\n\r\n\r\n                   val desayuno = createPlato(desayunoData)\r\n                   val comida = createPlato(comidaData)\r\n                   val cena = createPlato(cenaData)\r\n                   Log.d(\"MenuViewModel\", \" desayuno ${desayuno}\")\r\n\r\n                   val menuDelDia = MenuDelDia(desayuno, comida, cena)\r\n                   val menuModel = MenuModel(menuDelDia)\r\n\r\n                   _menuModel.postValue(menuModel)\r\n                   Log.d(\"MenuViewModel\", \"Retorna $menuModel\")\r\n\r\n                   return@withContext menuModel\r\n               } else {\r\n                   Log.d(\"MenuViewModel\", \"Document does not exist\")\r\n                   return@withContext null\r\n               }\r\n           } catch (e: Exception) {\r\n               Log.e(\"MenuViewModel\", \"Error getting data: ${e.message}\")\r\n               return@withContext null\r\n           }\r\n       }\r\n   }*/\r\n}\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/app/ui/main/MenuViewModel.kt b/app/src/main/java/com/example/app/ui/main/MenuViewModel.kt
+--- a/app/src/main/java/com/example/app/ui/main/MenuViewModel.kt	
++++ b/app/src/main/java/com/example/app/ui/main/MenuViewModel.kt	
+@@ -31,10 +31,12 @@
+     //val ref = db.collection("desayunos").document("ernesto")
+ 
+     private val auth = FirebaseAuth.getInstance()
++
+     //val ref = db.collection("menu_dia").document(auth.currentUser?.uid.toString())
+-    val ref = db.collection("menu_dia").document("FOVgQNcWawUl9f4X5lrOAVQswHc2")
++    val ref = db.collection("menu_dia").document(auth.currentUser!!.uid)
+ 
+-    private lateinit var referenceMenu: Map<String, DocumentReference>
++
++    //private lateinit var referenceMenu: Map<String, DocumentReference>
+ 
+     //weekModelL es una LiveData que expone la data observada, sirve para que desde el Fragment se pueda ovbservar
+     val weekModelL: LiveData<MutableList<DayModel>?> get() = _WeekModel
+@@ -45,6 +47,8 @@
+ 
+     private val _menuModel = MutableLiveData<MenuModel?>()
+     fun fetchData(date: LocalDate) {
++        Log.d("borrar", auth.currentUser!!.uid)
++
+         viewModelScope.launch {
+             try {
+                 val document = ref.collection("semActual").document(date.toString()).get().await()
+@@ -54,16 +58,33 @@
+                     //referenceMenu = document.data?.get("menu1") as Map<String, DocumentReference>
+                     Log.d("MenuViewModel", "document : ${document}")
+ 
+-                    referenceMenu = document.data?.get("menu") as Map<String, DocumentReference>
++                    // referenceMenu = document.data?.get("menu") as Map<String, DocumentReference>
++                    val desayunoReference: DocumentReference? =
++                        document.data?.get("desayuno") as? DocumentReference
++                    val cenaference: DocumentReference? =
++                        document.data?.get("cena") as? DocumentReference
++
++                    val comidaReference: DocumentReference? =
++                        document.data?.get("comida") as? DocumentReference
++
++                    //val desayunoDeferred = async { fetchPlato(referenceMenu["desayuno"]) }
++
++                    Log.d("MenuViewModel", "Docuenmntrefernce ${comidaReference}")
+ 
+-                    val desayunoDeferred = async { fetchPlato(referenceMenu["desayuno"]) }
+-                    val comidaDeferred = async { fetchPlato(referenceMenu["comida"]) }
+-                    val cenaDeferred = async { fetchPlato(referenceMenu["cena"]) }
+ 
+-                    val desayuno = desayunoDeferred.await()
++                    val desayunoDeferred = async { fetchPlato(desayunoReference) }
++                    val comidaDeferred = async { fetchPlato(comidaReference) }
++                    val cenaDeferred = async { fetchPlato(cenaference) }
++
++                    /*val desayuno = desayunoDeferred.await()
+                     val comida = comidaDeferred.await()
+-                    val cena = cenaDeferred.await()
+-                    Log.d("MenuViewModel", "DocumentSnapshot data: ${desayuno}")
++                    val cena = cenaDeferred.await()*/
++                    val desayuno = comidaDeferred.await()
++                    val comida = comidaDeferred.await()
++
++                    val cena = comidaDeferred.await()
++                    Log.d("MenuViewModel", "comida data: ${comida}")
++
+ 
+                     if (desayuno != null && comida != null && cena != null) {
+                         val menuDelDia = MenuDelDia(desayuno, comida, cena)
+@@ -89,6 +110,8 @@
+             val document = reference?.get()?.await()
+             if (document != null && document.exists()) {
+                 val menuData = document.data as Map<String, *>
++                Log.d("MenuViewModel", "Menu data fetchPlato: ${menuData}")
++
+                 createPlato(menuData)
+             } else {
+                 null
+@@ -103,25 +126,30 @@
+         val plato = data?.get("plato").toString()
+         val imagen = data?.get("imagen").toString()
+ 
++        Log.d("MenuViewModel", "Menu data createPlato: ${data}")
++
++
+         val ingredientesData = data?.get("ingredientes") as? List<Map<*, *>> ?: emptyList()
+         val ingredientes = ingredientesData.map { ingredienteData ->
+             Ingrediente(
+                 ingredienteData["nombre"].toString(),
+-                ingredienteData["cantidad"].toString(),
+-                ingredienteData["calorias"].toString().toDouble(),
+-                ingredienteData["tipo"].toString(),
+-                ingredienteData["gramos"].toString().toInt()
++                ingredienteData["cantidad"].toString()
++                /*ingredienteData["calorias"].toString().toDouble(),
++                    ingredienteData["tipo"].toString(),
++                    ingredienteData["gramos"].toString().toDouble()*/
+             )
++
+         }
+-        val total_grasa = data?.get("total_grasa").toString().toInt()
+-        val total_proteina = data?.get("total_proteina").toString().toInt()
+-        val total_carbohidratos = data?.get("total_carbohidratos").toString().toInt()
++        val total_grasa = data?.get("total_grasa").toString().toDouble()
++        val total_proteina = data?.get("total_proteina").toString().toDouble()
++        val total_carbohidratos = data?.get("total_carbohidratos").toString().toDouble()
+ 
+-        Log.d("MenuViewModel", "DocumentSnapshot data: ${imagen}")
+-        Log.d("MenuViewModel", "DocumentSnapshot data: ${data}")
++        val intrucciones = data?.get("instrucciones").toString()
+ 
+ 
+-        return Plato(plato, ingredientes, total_grasa, total_proteina, total_carbohidratos, imagen)
++
++
++        return Plato(plato, ingredientes, total_grasa, total_proteina, total_carbohidratos, imagen,intrucciones)
+     }
+ 
+     @RequiresApi(Build.VERSION_CODES.O)
+Index: app/src/main/java/com/example/app/ui/main/MenuFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.ui.main\r\n\r\nimport android.app.Activity\r\nimport android.app.Dialog\r\nimport android.graphics.Color\r\nimport android.graphics.drawable.ColorDrawable\r\nimport android.os.Build\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport android.view.Gravity\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.view.Window\r\nimport android.view.WindowManager\r\nimport android.widget.TextView\r\nimport androidx.annotation.RequiresApi\r\nimport androidx.fragment.app.DialogFragment\r\nimport androidx.fragment.app.Fragment\r\nimport androidx.fragment.app.FragmentManager\r\nimport androidx.lifecycle.ViewModelProvider\r\nimport androidx.lifecycle.lifecycleScope\r\nimport androidx.recyclerview.widget.LinearLayoutManager\r\nimport com.bumptech.glide.Glide\r\nimport com.example.app.R\r\nimport com.example.app.databinding.FragmentMenuBinding\r\nimport com.example.app.ui.main.adapterWeek.WeekAdapter\r\nimport com.example.app.ui.main.detailFragment.DialogMenuFragment\r\nimport com.example.app.ui.main.model.DayModel\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.delay\r\nimport kotlinx.coroutines.launch\r\nimport java.time.LocalDate\r\n\r\n\r\nclass MenuFragment : Fragment(), DayItemClickI {\r\n\r\n    private var _binding: FragmentMenuBinding? = null\r\n    private val binding get() = _binding!!\r\n\r\n    private lateinit var menuViewModel: MenuViewModel\r\n\r\n    private val TAG = \"ComprobarSemana\"\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n    }\r\n\r\n    @RequiresApi(Build.VERSION_CODES.O)\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        _binding = FragmentMenuBinding.inflate(inflater, container, false)\r\n\r\n        menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)\r\n\r\n\r\n\r\n        menuViewModel.getDates()\r\n        menuViewModel.weekModelL.observe(viewLifecycleOwner) { weekModelList ->\r\n            weekModelList?.let {\r\n                Log.d(\"MenuFragment\", \"weekMoidel--> ${weekModelList.toString()}\")\r\n                val rv = binding.weekRV\r\n                rv.layoutManager =\r\n                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)\r\n\r\n                //Indico la posicion inical del recycler al dia actual\r\n                rv.scrollToPosition(weekModelList.indexOfFirst { it.isCurrentDay })\r\n\r\n                //aqui creo el weekAdapter con el listener, que será este fragment\r\n                rv.adapter = WeekAdapter(weekModelList, this)\r\n\r\n            }\r\n        }\r\n\r\n\r\n\r\n\r\n        binding.loadingIndicator.visibility = View.VISIBLE\r\n        binding.menuSV.visibility = View.GONE\r\n\r\n        lifecycleScope.launch(Dispatchers.Main) {\r\n            menuViewModel.fetchData(LocalDate.now())\r\n            observeViewModel()\r\n        }\r\n\r\n        return binding.root\r\n    }\r\n\r\n    private fun observeViewModel() {\r\n        menuViewModel.menuModelL.observe(viewLifecycleOwner) { menuModel ->\r\n            // Update UI elements here with the new menuModel data\r\n            binding.loadingIndicator.visibility = View.GONE\r\n            binding.menuSV.visibility = View.VISIBLE\r\n            menuModel?.let {\r\n                Log.d(\"MenuFragment\", \"weekMoidel--> ${menuModel.toString()}\")\r\n\r\n                //Desayuno\r\n                Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)\r\n                    .into(binding.ivDesayuno)\r\n                binding.ivDesayuno.setOnClickListener {\r\n                    val dialogFragment = DialogMenuFragment()\r\n                    dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)\r\n\r\n                    dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)\r\n                }\r\n                binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato\r\n                for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {\r\n                    val textView = TextView(binding.listaIngredientesCardDesayuno.context)\r\n                    textView.text = ingrediente.toString()\r\n                    binding.listaIngredientesCardDesayuno.addView(textView)\r\n                }\r\n                binding.displayIngredientesDesayuno.setOnClickListener() {\r\n                    if (binding.listaIngredientesCardDesayuno.visibility == View.VISIBLE) {\r\n                        binding.listaIngredientesCardDesayuno.visibility = View.GONE\r\n                        binding.displayIngredientesDesayuno.setIconResource(R.drawable.baseline_arrow_drop_down_24)\r\n                    } else {\r\n                        binding.listaIngredientesCardDesayuno.visibility = View.VISIBLE\r\n                        binding.displayIngredientesDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)\r\n                    }\r\n                }\r\n                binding.displayMacrosDesayuno.setOnClickListener() {\r\n                    if (binding.listaMacrosCardDesayuno.visibility == View.VISIBLE) {\r\n                        binding.listaMacrosCardDesayuno.visibility = View.GONE\r\n                        binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_down_24)\r\n                    } else {\r\n                        binding.listaMacrosCardDesayuno.visibility = View.VISIBLE\r\n                        binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)\r\n                    }\r\n                }\r\n\r\n                //Comida\r\n                Glide.with(binding.ivComida.context).load(it.menu_del_dia.comida.imagen)\r\n                    .into(binding.ivComida)\r\n\r\n                binding.ivComida.setOnClickListener {\r\n                    val dialogFragment = DialogMenuFragment()\r\n                    dialogFragment.setMenuModel(menuModel.menu_del_dia.comida)\r\n\r\n                    dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)\r\n                }\r\n\r\n                binding.nombreCardComida.text = it.menu_del_dia.comida.plato\r\n                for (ingrediente in it.menu_del_dia.comida.ingredientes) {\r\n                    val textView = TextView(binding.listaIngredientesCardComida.context)\r\n                    textView.text = ingrediente.toString()\r\n                    binding.listaIngredientesCardComida.addView(textView)\r\n                }\r\n                binding.displayIngredientesComida.setOnClickListener() {\r\n                    if (binding.listaIngredientesCardComida.visibility == View.VISIBLE) {\r\n                        binding.listaIngredientesCardComida.visibility = View.GONE\r\n                        binding.displayIngredientesComida.setIconResource(R.drawable.baseline_arrow_drop_down_24)\r\n                    } else {\r\n                        binding.listaIngredientesCardComida.visibility = View.VISIBLE\r\n                        binding.displayIngredientesComida.setIconResource(R.drawable.baseline_arrow_drop_up_24)\r\n                    }\r\n                }\r\n                binding.displayMacrosComida.setOnClickListener() {\r\n                    if (binding.listaMacrosCardComida.visibility == View.VISIBLE) {\r\n                        binding.listaMacrosCardComida.visibility = View.GONE\r\n                        binding.displayMacrosComida.setIconResource(R.drawable.baseline_arrow_drop_down_24)\r\n                    } else {\r\n                        binding.listaMacrosCardComida.visibility = View.VISIBLE\r\n                        binding.displayMacrosComida.setIconResource(R.drawable.baseline_arrow_drop_up_24)\r\n                    }\r\n                }\r\n\r\n                //Comida\r\n                Glide.with(binding.ivCena.context).load(it.menu_del_dia.cena.imagen)\r\n                    .into(binding.ivCena)\r\n\r\n                binding.ivDesayuno.setOnClickListener {\r\n                    val dialogFragment = DialogMenuFragment()\r\n                    dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)\r\n\r\n                    dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)\r\n                }\r\n\r\n                binding.nombreCardCena.text = it.menu_del_dia.cena.plato\r\n                for (ingrediente in it.menu_del_dia.cena.ingredientes) {\r\n                    val textView = TextView(binding.listaIngredientesCardCena.context)\r\n                    textView.text = ingrediente.toString()\r\n                    binding.listaIngredientesCardCena.addView(textView)\r\n                }\r\n                binding.displayIngredientesCena.setOnClickListener() {\r\n                    if (binding.listaIngredientesCardCena.visibility == View.VISIBLE) {\r\n                        binding.listaIngredientesCardCena.visibility = View.GONE\r\n                        binding.displayIngredientesCena.setIconResource(R.drawable.baseline_arrow_drop_down_24)\r\n                    } else {\r\n                        binding.listaIngredientesCardCena.visibility = View.VISIBLE\r\n                        binding.displayIngredientesCena.setIconResource(R.drawable.baseline_arrow_drop_up_24)\r\n                    }\r\n                }\r\n                binding.displayMacrosCena.setOnClickListener() {\r\n                    if (binding.listaMacrosCardCena.visibility == View.VISIBLE) {\r\n                        binding.listaMacrosCardCena.visibility = View.GONE\r\n                        binding.displayMacrosCena.setIconResource(R.drawable.baseline_arrow_drop_down_24)\r\n                    } else {\r\n                        binding.listaMacrosCardCena.visibility = View.VISIBLE\r\n                        binding.displayMacrosCena.setIconResource(R.drawable.baseline_arrow_drop_up_24)\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n    override fun onDestroyView() {\r\n        super.onDestroyView()\r\n        _binding = null\r\n    }\r\n\r\n    // Inside MenuFragment class\r\n    companion object {\r\n        fun newInstance(): MenuFragment {\r\n            val fragment = MenuFragment()\r\n\r\n            return fragment\r\n        }\r\n    }\r\n\r\n    override fun onDayItemClicked(dayModel: DayModel) {\r\n        Log.d(\"MenuFragment\", \"dayModel--> ${dayModel}\")\r\n\r\n        binding.loadingIndicator.visibility = View.VISIBLE\r\n        binding.menuSV.visibility = View.GONE\r\n\r\n        lifecycleScope.launch(Dispatchers.Main) {\r\n\r\n            menuViewModel.fetchData(dayModel.day)\r\n            delay(500)\r\n            observeViewModel()\r\n        }\r\n    }\r\n}\r\n\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/app/ui/main/MenuFragment.kt b/app/src/main/java/com/example/app/ui/main/MenuFragment.kt
+--- a/app/src/main/java/com/example/app/ui/main/MenuFragment.kt	
++++ b/app/src/main/java/com/example/app/ui/main/MenuFragment.kt	
+@@ -27,11 +27,15 @@
+ import com.example.app.ui.main.adapterWeek.WeekAdapter
+ import com.example.app.ui.main.detailFragment.DialogMenuFragment
+ import com.example.app.ui.main.model.DayModel
++import com.google.firebase.ktx.Firebase
+ import kotlinx.coroutines.Dispatchers
+ import kotlinx.coroutines.delay
+ import kotlinx.coroutines.launch
+ import java.time.LocalDate
+ 
++import com.google.firebase.storage.ktx.storage
++import com.squareup.picasso.Picasso
++
+ 
+ class MenuFragment : Fragment(), DayItemClickI {
+ 
+@@ -42,6 +46,8 @@
+ 
+     private val TAG = "ComprobarSemana"
+ 
++    val storage = Firebase.storage
++
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+     }
+@@ -92,21 +98,49 @@
+     private fun observeViewModel() {
+         menuViewModel.menuModelL.observe(viewLifecycleOwner) { menuModel ->
+             // Update UI elements here with the new menuModel data
+-            binding.loadingIndicator.visibility = View.GONE
+-            binding.menuSV.visibility = View.VISIBLE
++
+             menuModel?.let {
+                 Log.d("MenuFragment", "weekMoidel--> ${menuModel.toString()}")
+ 
+                 //Desayuno
+-                Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
+-                    .into(binding.ivDesayuno)
++
++                binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
++
++                val imageName = it.menu_del_dia.desayuno.imagen
++
++                val imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
++                imageRef.downloadUrl.addOnSuccessListener { uri ->
++                    val imageUrl = uri.toString()
++               /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
++                        .into(binding.ivDesayuno)*/
++
++                    Picasso.get()
++                        .load(imageUrl)
++                        .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {
++                            override fun onSuccess() {
++                                binding.loadingIndicator.visibility = View.GONE
++                                binding.menuSV.visibility = View.VISIBLE
++                            }
++                            override fun onError(e: Exception?) {
++                                binding.loadingIndicator.visibility = View.VISIBLE
++                                binding.menuSV.visibility = View.GONE
++                                Log.e("MenuFragment", "Error getting download URL", e)
++                            }
++                        })
++
++
++
++                }.addOnFailureListener { exception ->
++                    Log.e("MenuFragment", "Error getting download URL", exception)
++                }
++
+                 binding.ivDesayuno.setOnClickListener {
+                     val dialogFragment = DialogMenuFragment()
+                     dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)
+ 
+                     dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
+                 }
+-                binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
++                /*
+                 for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {
+                     val textView = TextView(binding.listaIngredientesCardDesayuno.context)
+                     textView.text = ingrediente.toString()
+@@ -129,7 +163,7 @@
+                         binding.listaMacrosCardDesayuno.visibility = View.VISIBLE
+                         binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)
+                     }
+-                }
++                }*/
+ 
+                 //Comida
+                 Glide.with(binding.ivComida.context).load(it.menu_del_dia.comida.imagen)
+@@ -143,7 +177,9 @@
+                 }
+ 
+                 binding.nombreCardComida.text = it.menu_del_dia.comida.plato
+-                for (ingrediente in it.menu_del_dia.comida.ingredientes) {
++
++
++                /*for (ingrediente in it.menu_del_dia.comida.ingredientes) {
+                     val textView = TextView(binding.listaIngredientesCardComida.context)
+                     textView.text = ingrediente.toString()
+                     binding.listaIngredientesCardComida.addView(textView)
+@@ -165,20 +201,22 @@
+                         binding.listaMacrosCardComida.visibility = View.VISIBLE
+                         binding.displayMacrosComida.setIconResource(R.drawable.baseline_arrow_drop_up_24)
+                     }
+-                }
++                }*/
+ 
+                 //Comida
+                 Glide.with(binding.ivCena.context).load(it.menu_del_dia.cena.imagen)
+                     .into(binding.ivCena)
+ 
+-                binding.ivDesayuno.setOnClickListener {
++                binding.ivCena.setOnClickListener {
+                     val dialogFragment = DialogMenuFragment()
+-                    dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)
++                    dialogFragment.setMenuModel(menuModel.menu_del_dia.cena)
+ 
+                     dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
+                 }
+ 
+                 binding.nombreCardCena.text = it.menu_del_dia.cena.plato
++
++                /*
+                 for (ingrediente in it.menu_del_dia.cena.ingredientes) {
+                     val textView = TextView(binding.listaIngredientesCardCena.context)
+                     textView.text = ingrediente.toString()
+@@ -201,7 +239,7 @@
+                         binding.listaMacrosCardCena.visibility = View.VISIBLE
+                         binding.displayMacrosCena.setIconResource(R.drawable.baseline_arrow_drop_up_24)
+                     }
+-                }
++                }*/
+             }
+         }
+     }
+@@ -229,7 +267,7 @@
+         lifecycleScope.launch(Dispatchers.Main) {
+ 
+             menuViewModel.fetchData(dayModel.day)
+-            delay(500)
++            delay(1500)
+             observeViewModel()
+         }
+     }

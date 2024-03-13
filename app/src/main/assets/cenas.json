@@ -1,0 +1,120 @@
+{
+  "cenas": [
+    {
+      "plato": "Ensalada de Salmón Ahumado y Aguacate",
+      "ingredientes": [
+        {
+          "nombre": "salmón ahumado",
+          "cantidad": "100g",
+          "calorias": 200,
+          "tipo": "proteínas",
+          "gramos": 22
+        },
+        {
+          "nombre": "aguacate",
+          "cantidad": "1/2",
+          "calorias": 120,
+          "tipo": "grasas",
+          "gramos": 14
+        },
+        {
+          "nombre": "verduras mixtas y aderezo ligero",
+          "cantidad": "varios",
+          "calorias": 406.95,
+          "tipo": "vegetales",
+          "gramos": 60
+        }
+      ],
+      "total_grasa": 14,
+      "total_proteina": 22,
+      "total_carbohidratos": 60
+    },
+    {
+      "plato": "Sopa de Verduras con Tofu a la Plancha",
+      "ingredientes": [
+        {
+          "nombre": "tofu",
+          "cantidad": "150g",
+          "calorias": 180,
+          "tipo": "proteínas",
+          "gramos": 15
+        },
+        {
+          "nombre": "verduras variadas (zanahoria, calabacín, puerro, etc.)",
+          "cantidad": "200g",
+          "calorias": 80,
+          "tipo": "vegetales",
+          "gramos": 30
+        },
+        {
+          "nombre": "caldo de verduras",
+          "cantidad": "1 taza",
+          "calorias": 30,
+          "tipo": "vegetales",
+          "gramos": 200
+        }
+      ],
+      "total_grasa": 5,
+      "total_proteina": 15,
+      "total_carbohidratos": 30
+    },
+    {
+      "plato": "Rollitos de Lechuga con Pollo y Salsa de Maní",
+      "ingredientes": [
+        {
+          "nombre": "pechuga de pollo cocida y desmenuzada",
+          "cantidad": "150g",
+          "calorias": 200,
+          "tipo": "proteínas",
+          "gramos": 30
+        },
+        {
+          "nombre": "lechuga iceberg",
+          "cantidad": "varios hojas",
+          "calorias": 10,
+          "tipo": "vegetales",
+          "gramos": 50
+        },
+        {
+          "nombre": "salsa de maní (cacahuate)",
+          "cantidad": "2 cucharadas",
+          "calorias": 180,
+          "tipo": "grasas",
+          "gramos": 15
+        }
+      ],
+      "total_grasa": 15,
+      "total_proteina": 30,
+      "total_carbohidratos": 0
+    },
+    {
+      "plato": "Pescado al Horno con Espárragos y Batata Asada",
+      "ingredientes": [
+        {
+          "nombre": "filete de pescado blanco (merluza, lenguado, etc.)",
+          "cantidad": "150g",
+          "calorias": 200,
+          "tipo": "proteínas",
+          "gramos": 30
+        },
+        {
+          "nombre": "espárragos",
+          "cantidad": "100g",
+          "calorias": 20,
+          "tipo": "vegetales",
+          "gramos": 10
+        },
+        {
+          "nombre": "batata",
+          "cantidad": "150g",
+          "calorias": 150,
+          "tipo": "carbohidratos",
+          "gramos": 30
+        }
+      ],
+      "total_grasa": 0,
+      "total_proteina": 30,
+      "total_carbohidratos": 30
+    }
+  ]
+}

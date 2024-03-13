@@ -1,0 +1,411 @@
+{
+  "comidas": [
+    {
+      "plato": "Tacos de cochinita pibil",
+      "ingredientes": [
+        {
+          "nombre": "cochinita pibil",
+          "cantidad": "200g",
+          "calorias": 600,
+          "tipo": "proteínas",
+          "gramos": 200
+        },
+        {
+          "nombre": "tortillas de maíz",
+          "cantidad": "6 unidades",
+          "calorias": 360,
+          "tipo": "carbohidratos",
+          "gramos": 240
+        },
+        {
+          "nombre": "cebolla morada encurtida",
+          "cantidad": "70g",
+          "calorias": 30,
+          "tipo": "vegetales",
+          "gramos": 70
+        },
+        {
+          "nombre": "salsa de habanero",
+          "cantidad": "3 cucharadas",
+          "calorias": 90,
+          "tipo": "condimentos",
+          "gramos": 45
+        }
+      ],
+      "total_grasa": 61,
+      "total_proteina": 44,
+      "total_carbohidratos": 55,
+      "total_gramos": 400,
+      "total_kilocalorias": 952
+    },
+    {
+      "plato": "Pollo a la griega",
+      "ingredientes": [
+        {
+          "nombre": "pollo",
+          "cantidad": "450g",
+          "calorias": 580,
+          "tipo": "proteínas",
+          "gramos": 450
+        },
+        {
+          "nombre": "salsa griega",
+          "cantidad": "2 cucharadas",
+          "calorias": 120,
+          "tipo": "grasas",
+          "gramos": 30
+        },
+        {
+          "nombre": "ensalada griega",
+          "cantidad": "200g",
+          "calorias": 160,
+          "tipo": "vegetales",
+          "gramos": 200
+        }
+      ],
+      "total_grasa": 32,
+      "total_proteina": 41,
+      "total_carbohidratos": 31,
+      "total_gramos": 450,
+      "total_kilocalorias": 580
+    },
+    {
+      "plato": "Vacío de ternera a la pimienta",
+      "ingredientes": [
+        {
+          "nombre": "ternera",
+          "cantidad": "450g",
+          "calorias": 738,
+          "tipo": "proteínas",
+          "gramos": 450
+        },
+        {
+          "nombre": "salsa de pimienta",
+          "cantidad": "2 cucharadas",
+          "calorias": 120,
+          "tipo": "grasas",
+          "gramos": 30
+        },
+        {
+          "nombre": "guarnición de verduras",
+          "cantidad": "200g",
+          "calorias": 160,
+          "tipo": "vegetales",
+          "gramos": 200
+        }
+      ],
+      "total_grasa": 31,
+      "total_proteina": 55,
+      "total_carbohidratos": 43,
+      "total_gramos": 450,
+      "total_kilocalorias": 738
+    },
+    {
+      "plato": "Salmón salsa cítrica con patata y menestra de verduras",
+      "ingredientes": [
+        {
+          "nombre": "salmón",
+          "cantidad": "200g",
+          "calorias": 352,
+          "tipo": "proteínas",
+          "gramos": 200
+        },
+        {
+          "nombre": "salsa cítrica",
+          "cantidad": "2 cucharadas",
+          "calorias": 60,
+          "tipo": "grasas",
+          "gramos": 30
+        },
+        {
+          "nombre": "patata",
+          "cantidad": "150g",
+          "calorias": 135,
+          "tipo": "carbohidratos",
+          "gramos": 150
+        },
+        {
+          "nombre": "menestra de verduras",
+          "cantidad": "100g",
+          "calorias": 141,
+          "tipo": "vegetales",
+          "gramos": 100
+        }
+      ],
+      "total_grasa": 35,
+      "total_proteina": 54,
+      "total_carbohidratos": 39,
+      "total_gramos": 450,
+      "total_kilocalorias": 688
+    },
+    {
+      "plato": "Noodles con salmón",
+      "ingredientes": [
+        {
+          "nombre": "salmón",
+          "cantidad": "200g",
+          "calorias": 352,
+          "tipo": "proteínas",
+          "gramos": 200
+        },
+        {
+          "nombre": "noodles",
+          "cantidad": "220g",
+          "calorias": 307,
+          "tipo": "carbohidratos",
+          "gramos": 220
+        },
+        {
+          "nombre": "salsa",
+          "cantidad": "2 cucharadas",
+          "calorias": 0,
+          "tipo": "otros",
+          "gramos": 30
+        }
+      ],
+      "total_grasa": 21,
+      "total_proteina": 34,
+      "total_carbohidratos": 83,
+      "total_gramos": 420,
+      "total_kilocalorias": 659
+    },
+    {
+      "plato": "Pavo al chimichurri con patata, boniato y col salteada",
+      "ingredientes": [
+        {
+          "nombre": "pavo",
+          "cantidad": "150g",
+          "calorias": 225,
+          "tipo": "proteínas",
+          "gramos": 150
+        },
+        {
+          "nombre": "chimichurri",
+          "cantidad": "2 cucharadas",
+          "calorias": 60,
+          "tipo": "grasas",
+          "gramos": 30
+        },
+        {
+          "nombre": "patata",
+          "cantidad": "100g",
+          "calorias": 86,
+          "tipo": "carbohidratos",
+          "gramos": 100
+        },
+        {
+          "nombre": "boniato",
+          "cantidad": "100g",
+          "calorias": 90,
+          "tipo": "carbohidratos",
+          "gramos": 100
+        },
+        {
+          "nombre": "col",
+          "cantidad": "100g",
+          "calorias": 30,
+          "tipo": "vegetales",
+          "gramos": 100
+        }
+      ],
+      "total_grasa": 20,
+      "total_proteina": 35,
+      "total_carbohidratos": 29,
+      "total_gramos": 450,
+      "total_kilocalorias": 450
+    },
+    {
+      "plato": "Albóndigas en salsa de almendra",
+      "ingredientes": [
+        {
+          "nombre": "albóndigas",
+          "cantidad": "250g",
+          "calorias": 500,
+          "tipo": "proteínas",
+          "gramos": 250
+        },
+        {
+          "nombre": "salsa de almendra",
+          "cantidad": "150g",
+          "calorias": 309,
+          "tipo": "grasas",
+          "gramos": 150
+        },
+        {
+          "nombre": "patata",
+          "cantidad": "50g",
+          "calorias": 45,
+          "tipo": "carbohidratos",
+          "gramos": 50
+        }
+      ],
+      "total_grasa": 67,
+      "total_proteina": 9,
+      "total_carbohidratos": 64,
+      "total_gramos": 450,
+      "total_kilocalorias": 909
+    },
+    {
+      "plato": "Arroz de presa y alcachofas",
+      "ingredientes": [
+        {
+          "nombre": "presa",
+          "cantidad": "200g",
+          "calorias": 400,
+          "tipo": "proteínas",
+          "gramos": 200
+        },
+        {
+          "nombre": "alcachofas",
+          "cantidad": "150g",
+          "calorias": 90,
+          "tipo": "vegetales",
+          "gramos": 150
+        },
+        {
+          "nombre": "arroz",
+          "cantidad": "70g",
+          "calorias": 182,
+          "tipo": "carbohidratos",
+          "gramos": 70
+        }
+      ],
+      "total_grasa": 32,
+      "total_proteina": 26,
+      "total_carbohidratos": 70,
+      "total_gramos": 420,
+      "total_kilocalorias": 672
+    },
+    {
+      "plato": "Garbanzos con bacalao y espinacas",
+      "ingredientes": [
+        {
+          "nombre": "garbanzos",
+          "cantidad": "200g",
+          "calorias": 360,
+          "tipo": "proteínas",
+          "gramos": 200
+        },
+        {
+          "nombre": "bacalao",
+          "cantidad": "150g",
+          "calorias": 195,
+          "tipo": "proteínas",
+          "gramos": 150
+        },
+        {
+          "nombre": "espinacas",
+          "cantidad": "100g",
+          "calorias": 16,
+          "tipo": "vegetales",
+          "gramos": 100
+        }
+      ],
+      "total_grasa": 19,
+      "total_proteina": 42,
+      "total_carbohidratos": 58,
+      "total_gramos": 450,
+      "total_kilocalorias": 571
+    },
+    {
+      "plato": "Crema de Calabaza Fácil",
+      "ingredientes": [
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": "1 cucharada"
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": "4 dientes"
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": "1"
+        },
+        {
+          "nombre": "calabaza",
+          "cantidad": "900 gramos"
+        },
+        {
+          "nombre": "caldo de verduras",
+          "cantidad": "360 mililitros"
+        },
+        {
+          "nombre": "leche de coco",
+          "cantidad": "400 mililitros"
+        }
+      ],
+      "instrucciones": [
+        "Calienta el aceite en una olla y agrega el ajo y la cebolla. Cocina a fuego medio-alto durante unos 2-3 minutos, o hasta que comiencen a dorarse.",
+        "Echa la calabaza y cocina durante unos 2-3 minutos más.",
+        "Añade el resto de ingredientes y cuando rompa a hervir cocina fuego medio durante unos 15 minutos o hasta que la calabaza esté tierna.",
+        "Bate con una batidora de mano en la propia olla y sirve. También puedes usar una batidora de vaso si lo prefieres."
+      ],
+      "total_grasa": 24,
+      "total_proteina": 5,
+      "total_carbohidratos": 22,
+      "total_gramos": 900,
+      "total_kilocalorias": 298
+    },
+    {
+      "plato": "Alubias viudas",
+      "ingredientes": [
+        {
+          "nombre": "Alubias rojas",
+          "cantidad": "252g"
+        },
+        {
+          "nombre": "Caldo de verduras",
+          "cantidad": "1 litro"
+        },
+        {
+          "nombre": "Puerro",
+          "cantidad": "100g"
+        },
+        {
+          "nombre": "Pimientos de piquillo",
+          "cantidad": "100g"
+        },
+        {
+          "nombre": "Sofrito de cebolla",
+          "cantidad": "100g"
+        },
+        {
+          "nombre": "Pulpa de choricero",
+          "cantidad": "100g"
+        },
+        {
+          "nombre": "Salsa de soja",
+          "cantidad": "50ml"
+        },
+        {
+          "nombre": "Aceite de oliva",
+          "cantidad": "50ml"
+        },
+        {
+          "nombre": "Vermut rojo",
+          "cantidad": "50ml"
+        },
+        {
+          "nombre": "Oloroso",
+          "cantidad": "50ml"
+        },
+        {
+          "nombre": "Vino tinto",
+          "cantidad": "50ml"
+        },
+        {
+          "nombre": "Ajo asado",
+          "cantidad": "Cantidad necesaria"
+        }
+      ],
+      "instrucciones": "Lavamos las alubias y las ponemos a cocer en agua fría. Mientras tanto, en una cazuela, sofreímos el puerro, el pimiento de piquillo y la cebolla. Agregamos la pulpa de choricero, el ajo asado y las alubias ya cocidas. Añadimos el vermut, el vino tinto, el oloroso y la salsa de soja. Dejamos cocinar todo junto y servimos caliente.",
+      "contenido": "Alubias rojas (56%), caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil, ajo, aceite de oliva, jengibre, laurel), puerro, pimientos de piquillo, sofrito de cebolla, zanahoria, pimiento rojo, pulpa de choricero, salsa de soja, aceite de oliva, vermut rojo, Oloroso, vino tinto, ajo asado, sal, perejil, jengibre, pimentón dulce, pimentón picante, comino, tomillo y laurel. Gluten, soja y apio.",
+      "total_kilocalorias": 524.52,
+      "total_grasa": 12.15,
+      "total_proteina": 21.15,
+      "total_carbohidratos": 61.20,
+      "total_gramos": 450
+    }
+  ]
+}

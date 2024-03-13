@@ -1,0 +1,263 @@
+Index: app/src/main/java/com/example/app/ui/main/menu/MenuFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.app.ui.main.menu\r\n\r\nimport androidx.lifecycle.ViewModelProvider\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport androidx.fragment.app.Fragment\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.TextView\r\nimport androidx.lifecycle.lifecycleScope\r\nimport com.bumptech.glide.Glide\r\nimport com.example.app.R\r\nimport com.example.app.databinding.FragmentMenuBinding\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.launch\r\n\r\nclass MenuFragment : Fragment() {\r\n\r\n    private var _binding:FragmentMenuBinding? = null\r\n    private val binding get() = _binding!!\r\n\r\n    private lateinit var menuViewModel: MenuViewModel\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n\r\n    }\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        _binding = FragmentMenuBinding.inflate(inflater,container,false)\r\n\r\n        menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)\r\n\r\n        binding.loadingIndicator.visibility = View.VISIBLE\r\n      //  binding.menuRV.visibility = View.GONE\r\n        Log.d(\"MenuFragment\", \"MenuFragment rv=MenuAdapter \")\r\n        lifecycleScope.launch(Dispatchers.Main) {\r\n            menuViewModel.fetchData() // Start fetching data\r\n        }\r\n\r\n        observeViewModel()\r\n\r\n       /* lifecycleScope.launch(Dispatchers.Main) {\r\n            /*val rv = binding.menuRV*/\r\n            val data = menuViewModel.fetchData()\r\n            binding.loadingIndicator.visibility = View.GONE\r\n           // binding.menuRV.visibility = View.VISIBLE\r\n            Log.d(\"MenuFragment\", \"MenuFragment rv=MenuAdapter $data\")\r\n\r\n            menuViewModel.menuModelL.observe()\r\n\r\n            data?.let {\r\n                /*rv.layoutManager = LinearLayoutManager(context)\r\n                rv.adapter = RecipesAdapter(it)*/\r\n                Log.d(\"MenuFragment\", \"MenuFragment rv=MenuAdapter $data\")\r\n\r\n                binding.nombreCard.text = it.toString()\r\n\r\n               /* for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {\r\n                    val textView = TextView(binding.listaIngredientesCard.context)\r\n                    textView.text = ingrediente.toString()\r\n                    binding.listaIngredientesCard.addView(textView)\r\n                }*/\r\n\r\n                binding.displayIngredientes.setOnClickListener() {\r\n\r\n                    if (binding.listaIngredientesCard.visibility == View.VISIBLE) {\r\n                        binding.listaIngredientesCard.visibility = View.GONE\r\n                        binding.displayIngredientes.setIconResource(R.drawable.baseline_arrow_drop_down_24)\r\n                    } else {\r\n                        binding.listaIngredientesCard.visibility = View.VISIBLE\r\n                        binding.displayIngredientes.setIconResource(R.drawable.baseline_arrow_drop_up_24)\r\n                    }\r\n                }\r\n\r\n                binding.displayMacros.setOnClickListener() {\r\n\r\n                    if (binding.listaMacrosCard.visibility == View.VISIBLE) {\r\n                        binding.listaMacrosCard.visibility = View.GONE\r\n                        binding.displayMacros.setIconResource(R.drawable.baseline_arrow_drop_down_24)\r\n                    } else {\r\n                        binding.listaMacrosCard.visibility = View.VISIBLE\r\n                        binding.displayMacros.setIconResource(R.drawable.baseline_arrow_drop_up_24)\r\n                    }\r\n                }\r\n\r\n\r\n\r\n            }\r\n        }\r\n*/\r\n        return binding.root\r\n    }\r\n    private fun observeViewModel() {\r\n        menuViewModel.menuModelL.observe(viewLifecycleOwner) { menuModel ->\r\n            // Update UI elements here with the new menuModel data\r\n            binding.loadingIndicator.visibility = View.GONE\r\n\r\n            menuModel?.let {\r\n\r\n                Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen).into(binding.ivDesayuno)\r\n\r\n\r\n                binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato\r\n\r\n                 for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {\r\n                     val textView = TextView(binding.listaIngredientesCardDesayuno.context)\r\n                     textView.text = ingrediente.toString()\r\n                     binding.listaIngredientesCardDesayuno.addView(textView)\r\n                 }\r\n\r\n                binding.displayIngredientesDesayuno.setOnClickListener() {\r\n\r\n                    if (binding.listaIngredientesCardDesayuno.visibility == View.VISIBLE) {\r\n                        binding.listaIngredientesCardDesayuno.visibility = View.GONE\r\n                        binding.displayIngredientesDesayuno.setIconResource(R.drawable.baseline_arrow_drop_down_24)\r\n                    } else {\r\n                        binding.listaIngredientesCardDesayuno.visibility = View.VISIBLE\r\n                        binding.displayIngredientesDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)\r\n                    }\r\n                }\r\n\r\n                binding.displayMacrosDesayuno.setOnClickListener() {\r\n\r\n                    if (binding.listaMacrosCardDesayuno.visibility == View.VISIBLE) {\r\n                        binding.listaMacrosCardDesayuno.visibility = View.GONE\r\n                        binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_down_24)\r\n                    } else {\r\n                        binding.listaMacrosCardDesayuno.visibility = View.VISIBLE\r\n                        binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n    override fun onDestroyView() {\r\n        super.onDestroyView()\r\n        _binding = null\r\n    }\r\n\r\n    companion object {\r\n        fun newInstance(): MenuFragment {\r\n            val fragment = MenuFragment()\r\n\r\n            return fragment\r\n        }\r\n    }\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/example/app/ui/main/menu/MenuFragment.kt b/app/src/main/java/com/example/app/ui/main/menu/MenuFragment.kt
+--- a/app/src/main/java/com/example/app/ui/main/menu/MenuFragment.kt	
++++ b/app/src/main/java/com/example/app/ui/main/menu/MenuFragment.kt	
+@@ -1,5 +1,6 @@
+ package com.example.app.ui.main.menu
+ 
++import android.os.Build
+ import androidx.lifecycle.ViewModelProvider
+ import android.os.Bundle
+ import android.util.Log
+@@ -8,36 +9,65 @@
+ import android.view.View
+ import android.view.ViewGroup
+ import android.widget.TextView
++import androidx.annotation.RequiresApi
+ import androidx.lifecycle.lifecycleScope
+ import com.bumptech.glide.Glide
+ import com.example.app.R
+ import com.example.app.databinding.FragmentMenuBinding
+ import kotlinx.coroutines.Dispatchers
+ import kotlinx.coroutines.launch
++import java.time.DayOfWeek
++import java.time.LocalDate
++
++import java.time.temporal.TemporalAdjusters
++
+ 
+ class MenuFragment : Fragment() {
+ 
+-    private var _binding:FragmentMenuBinding? = null
++    private var _binding: FragmentMenuBinding? = null
+     private val binding get() = _binding!!
+ 
+     private lateinit var menuViewModel: MenuViewModel
+ 
++    private val TAG = "ComprobarCalendar"
++
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+ 
+     }
+ 
++    @RequiresApi(Build.VERSION_CODES.O)
+     override fun onCreateView(
+         inflater: LayoutInflater,
+         container: ViewGroup?,
+         savedInstanceState: Bundle?
+     ): View? {
+-        _binding = FragmentMenuBinding.inflate(inflater,container,false)
++        _binding = FragmentMenuBinding.inflate(inflater, container, false)
+ 
+         menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
++        val weekManager = WeekManager()
++
++        weekManager.getCurrentWeek()
++
++
++        weekManager.getPreviousWeek()
++
++
++        weekManager.getNextWeek()
++
++
++        val startDate = LocalDate.of(
++            2024,
++            2,
++            12
++        ) // Por ejemplo, para la semana que comienza el 12 de febrero de 2024
++        val daysOfWeek = weekManager.getDaysOfWeek(startDate)
++        for (day in daysOfWeek) {
++            Log.d(TAG, day.toString())
++        }
+ 
+         binding.loadingIndicator.visibility = View.VISIBLE
+-      //  binding.menuRV.visibility = View.GONE
++        //  binding.menuRV.visibility = View.GONE
+         Log.d("MenuFragment", "MenuFragment rv=MenuAdapter ")
+         lifecycleScope.launch(Dispatchers.Main) {
+             menuViewModel.fetchData() // Start fetching data
+@@ -45,57 +75,58 @@
+ 
+         observeViewModel()
+ 
+-       /* lifecycleScope.launch(Dispatchers.Main) {
+-            /*val rv = binding.menuRV*/
+-            val data = menuViewModel.fetchData()
+-            binding.loadingIndicator.visibility = View.GONE
+-           // binding.menuRV.visibility = View.VISIBLE
+-            Log.d("MenuFragment", "MenuFragment rv=MenuAdapter $data")
++        /* lifecycleScope.launch(Dispatchers.Main) {
++             /*val rv = binding.menuRV*/
++             val data = menuViewModel.fetchData()
++             binding.loadingIndicator.visibility = View.GONE
++            // binding.menuRV.visibility = View.VISIBLE
++             Log.d("MenuFragment", "MenuFragment rv=MenuAdapter $data")
+ 
+-            menuViewModel.menuModelL.observe()
++             menuViewModel.menuModelL.observe()
+ 
+-            data?.let {
+-                /*rv.layoutManager = LinearLayoutManager(context)
+-                rv.adapter = RecipesAdapter(it)*/
+-                Log.d("MenuFragment", "MenuFragment rv=MenuAdapter $data")
++             data?.let {
++                 /*rv.layoutManager = LinearLayoutManager(context)
++                 rv.adapter = RecipesAdapter(it)*/
++                 Log.d("MenuFragment", "MenuFragment rv=MenuAdapter $data")
+ 
+-                binding.nombreCard.text = it.toString()
++                 binding.nombreCard.text = it.toString()
+ 
+-               /* for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {
+-                    val textView = TextView(binding.listaIngredientesCard.context)
+-                    textView.text = ingrediente.toString()
+-                    binding.listaIngredientesCard.addView(textView)
+-                }*/
++                /* for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {
++                     val textView = TextView(binding.listaIngredientesCard.context)
++                     textView.text = ingrediente.toString()
++                     binding.listaIngredientesCard.addView(textView)
++                 }*/
+ 
+-                binding.displayIngredientes.setOnClickListener() {
++                 binding.displayIngredientes.setOnClickListener() {
+ 
+-                    if (binding.listaIngredientesCard.visibility == View.VISIBLE) {
+-                        binding.listaIngredientesCard.visibility = View.GONE
+-                        binding.displayIngredientes.setIconResource(R.drawable.baseline_arrow_drop_down_24)
+-                    } else {
+-                        binding.listaIngredientesCard.visibility = View.VISIBLE
+-                        binding.displayIngredientes.setIconResource(R.drawable.baseline_arrow_drop_up_24)
+-                    }
+-                }
++                     if (binding.listaIngredientesCard.visibility == View.VISIBLE) {
++                         binding.listaIngredientesCard.visibility = View.GONE
++                         binding.displayIngredientes.setIconResource(R.drawable.baseline_arrow_drop_down_24)
++                     } else {
++                         binding.listaIngredientesCard.visibility = View.VISIBLE
++                         binding.displayIngredientes.setIconResource(R.drawable.baseline_arrow_drop_up_24)
++                     }
++                 }
+ 
+-                binding.displayMacros.setOnClickListener() {
++                 binding.displayMacros.setOnClickListener() {
+ 
+-                    if (binding.listaMacrosCard.visibility == View.VISIBLE) {
+-                        binding.listaMacrosCard.visibility = View.GONE
+-                        binding.displayMacros.setIconResource(R.drawable.baseline_arrow_drop_down_24)
+-                    } else {
+-                        binding.listaMacrosCard.visibility = View.VISIBLE
+-                        binding.displayMacros.setIconResource(R.drawable.baseline_arrow_drop_up_24)
+-                    }
+-                }
++                     if (binding.listaMacrosCard.visibility == View.VISIBLE) {
++                         binding.listaMacrosCard.visibility = View.GONE
++                         binding.displayMacros.setIconResource(R.drawable.baseline_arrow_drop_down_24)
++                     } else {
++                         binding.listaMacrosCard.visibility = View.VISIBLE
++                         binding.displayMacros.setIconResource(R.drawable.baseline_arrow_drop_up_24)
++                     }
++                 }
+ 
+ 
+ 
+-            }
+-        }
+-*/
++             }
++         }
++ */
+         return binding.root
+     }
++
+     private fun observeViewModel() {
+         menuViewModel.menuModelL.observe(viewLifecycleOwner) { menuModel ->
+             // Update UI elements here with the new menuModel data
+@@ -103,16 +134,17 @@
+ 
+             menuModel?.let {
+ 
+-                Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen).into(binding.ivDesayuno)
++                Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
++                    .into(binding.ivDesayuno)
+ 
+ 
+                 binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
+ 
+-                 for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {
+-                     val textView = TextView(binding.listaIngredientesCardDesayuno.context)
+-                     textView.text = ingrediente.toString()
+-                     binding.listaIngredientesCardDesayuno.addView(textView)
+-                 }
++                for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {
++                    val textView = TextView(binding.listaIngredientesCardDesayuno.context)
++                    textView.text = ingrediente.toString()
++                    binding.listaIngredientesCardDesayuno.addView(textView)
++                }
+ 
+                 binding.displayIngredientesDesayuno.setOnClickListener() {
+ 
+@@ -138,6 +170,7 @@
+             }
+         }
+     }
++
+     override fun onDestroyView() {
+         super.onDestroyView()
+         _binding = null
+@@ -150,4 +183,47 @@
+             return fragment
+         }
+     }
+-}
+\ No newline at end of file
++}
++
++@RequiresApi(Build.VERSION_CODES.O)
++class WeekManager {
++    private val TAG = "ComprobarCalendar"
++
++    fun getCurrentWeek(): Pair<LocalDate, LocalDate> {
++        val today = LocalDate.now()
++        val startOfWeek = today.with(DayOfWeek.MONDAY)
++        val endOfWeek = today.with(DayOfWeek.SUNDAY)
++        Log.d(TAG, "getCurrentWeek: $startOfWeek - $endOfWeek")
++        return Pair(startOfWeek, endOfWeek)
++    }
++
++    fun getPreviousWeek(): Pair<LocalDate, LocalDate> {
++        val (startOfWeek, _) = getCurrentWeek()
++        val startOfPreviousWeek = startOfWeek.minusWeeks(1)
++        val endOfPreviousWeek = startOfPreviousWeek.with(DayOfWeek.SUNDAY)
++        Log.d(TAG, "getPreviousWeek: $startOfPreviousWeek - $endOfPreviousWeek")
++        return Pair(startOfPreviousWeek, endOfPreviousWeek)
++    }
++
++    fun getNextWeek(): Pair<LocalDate, LocalDate> {
++        val (_, endOfWeek) = getCurrentWeek()
++        val startOfNextWeek = endOfWeek.plusDays(1)
++        val endOfNextWeek = startOfNextWeek.with(DayOfWeek.SUNDAY)
++        Log.d(TAG, "getNextWeek: $startOfNextWeek - $endOfNextWeek")
++        return Pair(startOfNextWeek, endOfNextWeek)
++    }
++
++    fun getDaysOfWeek(startDate: LocalDate): List<LocalDate> {
++        val startOfWeek = startDate.with(DayOfWeek.MONDAY)
++        val endOfWeek = startDate.with(DayOfWeek.SUNDAY)
++
++        val daysOfWeek = mutableListOf<LocalDate>()
++        var currentDay = startOfWeek
++        while (currentDay.isBefore(endOfWeek) || currentDay == endOfWeek) {
++            daysOfWeek.add(currentDay)
++            currentDay = currentDay.plusDays(1)
++        }
++
++        return daysOfWeek
++    }
++}
