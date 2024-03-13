@@ -52,19 +52,29 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.accederButton.setOnClickListener() {
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(
-                binding.emailEditText.text.toString(),
-                binding.passwordEditText.text.toString()
-            ).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    Log.d("comprobar", "Correct Login desde el fragment ")
-                    val intent = Intent(this, Inicio::class.java)
-                    startActivity(intent)
-                } else {
-                    Log.d("comprobar", "Error")
-                    showAlert()
+            if (binding.emailEditText.text.toString()
+                    .isNotEmpty() && binding.passwordEditText.text.toString().isNotEmpty()
+            ) {
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                    binding.emailEditText.text.toString(),
+                    binding.passwordEditText.text.toString()
+                ).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        Log.d("comprobar", "Correct Login desde el fragment ")
+                        val intent = Intent(this, Inicio::class.java)
+                        startActivity(intent)
+                    } else {
+                        Log.d("comprobar", "Vaya!")
+                        showAlertError("Vaya!", "El Usuario o la contraseña no son correctos")
+
+                    }
                 }
+            } else {
+
+                showAlertError("Vaya!", "Rellene todos los campos")
+
             }
+
         }
     }
 
@@ -120,8 +130,6 @@ class LoginActivity : AppCompatActivity() {
 
         Log.d("LogInGoogle", "-----------------------------")
 
-
-
         db.collection("users")
             .whereEqualTo("id", account.id)
             .get()
@@ -145,6 +153,7 @@ class LoginActivity : AppCompatActivity() {
                             val intent = Intent(this, Inicio::class.java)
                             startActivity(intent)
                         } else {
+                            showAlertError("Error", "Error en la autenticación de google")
                             Log.d("LogInGoogle", "Error UI ${it.exception.toString()}")
                         }
                     }
@@ -218,6 +227,15 @@ class LoginActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
         builder.setMessage("Se ha producido un error con la autenticacion del usuario")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
+    public fun showAlertError(msgError: String, msgMs: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(msgError)
+        builder.setMessage(msgMs)
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()

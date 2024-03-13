@@ -193,4 +193,13 @@ class RegisterActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
+
+    public fun showAlertError(msgError: String, msgMs: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(msgError)
+        builder.setMessage(msgMs)
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
 }

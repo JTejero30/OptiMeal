@@ -59,13 +59,30 @@ class EmailFragment : Fragment() {
                         (activity as? RegisterActivity)?.nextQuestion(true)
                         val user = (activity as? RegisterActivity)?.createUserFromJson()
                         Log.d("userLog", user.toString())
-                        db.collection("users").document(auth.currentUser?.uid.toString()).set(user!!)
+                        db.collection("users").document(auth.currentUser?.uid.toString())
+                            .set(user!!)
                         val intent = Intent(activity, Inicio::class.java)
                         startActivity(intent)
                     } else {
-                        (activity as? RegisterActivity)?.showAlert()
+
+                        if (binding.passwordEditText.text.length < 6) {
+                            (activity as? RegisterActivity)?.showAlertError(
+                                "Vaya!",
+                                "Pruebe con una contraseña más segura"
+                            )
+                        } else {
+                            (activity as? RegisterActivity)?.showAlertError(
+                                "Vaya!",
+                                "Se ha producido un error con la autenticacion del usuario"
+                            )
+                        }
                     }
                 }
+            } else {
+                (activity as? RegisterActivity)?.showAlertError(
+                    "Vaya!",
+                    "Rellene todos los campos"
+                )
             }
         }
 
@@ -145,6 +162,23 @@ class EmailFragment : Fragment() {
                 for (document in documents) {
                     Log.d("LogInGoogle", "Existe")
 
+
+                    val builder = AlertDialog.Builder(requireContext())
+                    builder.setTitle("Vaya!")
+                    builder.setMessage("Parece que ya hay una cuenta con este correo...")
+                    builder.setPositiveButton("Cancelar", null)
+                    builder.setNegativeButton(
+                        "Ir a login",
+                        DialogInterface.OnClickListener { dialog, which ->
+
+                            val intent = Intent(activity, LoginActivity::class.java)
+                            startActivity(intent)
+                            requireActivity().finish()
+                        })
+                    val dialog: AlertDialog = builder.create()
+                    dialog.show()
+
+
                     return@addOnSuccessListener
 
                 }
@@ -164,32 +198,23 @@ class EmailFragment : Fragment() {
                         val user =
                             (activity as? RegisterActivity)?.createUserFromJsonGoogle(account.id!!)
                         Log.d("userLog", user.toString())
-                        db.collection("users").document(auth.currentUser?.uid.toString()).set(user!!)
+                        db.collection("users").document(auth.currentUser?.uid.toString())
+                            .set(user!!)
                         val intent = Intent(activity, Inicio::class.java)
                         requireActivity().finish()
                         startActivity(intent)
                     } else {
                         Log.d("LogInGoogle", "Error UI ${it.exception.toString()}")
+
+
                     }
                 }
             }
             .addOnFailureListener { exception ->
                 Log.e("LogInGoogle", "Error checking user data: $exception")
-            }
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Error")
-        builder.setMessage("Vaya! Parece que ya hay una cuenta con este correo...")
-        builder.setPositiveButton("Cancelar", null)
-        builder.setNegativeButton(
-            "Ir a login",
-            DialogInterface.OnClickListener { dialog, which ->
 
-                val intent = Intent(activity, LoginActivity::class.java)
-                startActivity(intent)
-                requireActivity().finish()
-            })
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
+
+            }
 
 
     }

@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="209dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
             android:padding="20dp">
@@ -21,37 +21,92 @@
             <EditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
-                android:layout_height="57dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"
 
                 android:autofillHints=""
                 android:ems="10"
                 android:hint="Email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:padding="15dp" />
 
             <EditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"
                 android:ems="10"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:padding="15dp" />
 
         </LinearLayout>
 
-        <Button
+<!--        <Button
             android:id="@+id/registrarButton"
             style="@style/Widget.Material3.Button.IconButton.Filled"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="7dp"
-            android:text="Registrar" />
+            android:text="Registrar" />-->
 
-        <com.google.android.gms.common.SignInButton
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/registrarButton"
+                style="@style/greenButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:isScrollContainer="false"
+                android:text="Registrar"
+                android:textAlignment="center"
+                app:iconSize="20dp"
+                app:iconTint="@color/negro" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/materialDivider4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                app:dividerInsetEnd="16dp"
+                app:dividerInsetStart="16dp" />
+
+            <android.widget.Button
+                android:id="@+id/SignIn_Button"
+                style="@style/blackButton"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:drawableStart="@drawable/google_white"
+                android:fontFamily="@font/montserrat_regular"
+                android:isScrollContainer="false"
+                android:padding="15dp"
+                android:text="Registrar con Google"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:icon="@drawable/google_white"
+                app:iconGravity="textStart"
+                app:iconTint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textoRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!--<com.google.android.gms.common.SignInButton
             android:id="@+id/SignIn_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,13 +115,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textoRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center" />
+            app:layout_constraintTop_toTopOf="parent" />-->
 
     </LinearLayout>
 
