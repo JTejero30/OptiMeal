@@ -75,7 +75,6 @@
                             android:paddingTop="10dp">
 
                             <Button
-                                android:id="@+id/button2"
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
 
                                 android:layout_width="wrap_content"
@@ -101,7 +100,6 @@
                                 android:textSize="27sp" />
 
                             <Button
-                                android:id="@+id/button3"
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
 
                                 android:layout_width="wrap_content"
@@ -116,7 +114,6 @@
                         </LinearLayout>
 
                         <com.google.android.material.divider.MaterialDivider
-                            android:id="@+id/materialDivider"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
@@ -265,6 +262,62 @@
                         android:orientation="vertical">
 
                         <!-- Media -->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp">
+
+                            <Button
+                                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight=".1"
+                                app:icon="@drawable/baseline_refresh_24"
+                                app:iconGravity="textEnd"
+                                app:iconPadding="0dp"
+                                app:iconSize="30dp" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal|center_vertical"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Comida"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textSize="27sp" />
+
+                            <Button
+                                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight=".1"
+                                app:icon="@drawable/baseline_star_border_24"
+                                app:iconGravity="textEnd"
+                                app:iconPadding="0dp"
+                                app:iconSize="30dp" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/materialDivider"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            app:dividerInsetEnd="16dp"
+                            app:dividerInsetStart="16dp" />
+
                         <ImageView
                             android:id="@+id/ivComida"
 
@@ -277,15 +330,6 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="16dp">
-
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal|center_vertical"
-                                android:text="Comida"
-                                android:textAppearance="?attr/textAppearanceTitleMedium"
-                                android:textSize="27sp" />
 
                             <TextView
                                 android:id="@+id/nombreCardComida"
@@ -416,6 +460,61 @@
                         android:orientation="vertical">
 
                         <!-- Media -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp">
+
+                            <Button
+                                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight=".1"
+                                app:icon="@drawable/baseline_refresh_24"
+                                app:iconGravity="textEnd"
+                                app:iconPadding="0dp"
+                                app:iconSize="30dp" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal|center_vertical"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Cena"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textSize="27sp" />
+
+                            <Button
+                                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight=".1"
+                                app:icon="@drawable/baseline_star_border_24"
+                                app:iconGravity="textEnd"
+                                app:iconPadding="0dp"
+                                app:iconSize="30dp" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/materialDivider2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            app:dividerInsetEnd="16dp"
+                            app:dividerInsetStart="16dp" />
+
                         <ImageView
                             android:id="@+id/ivCena"
 
@@ -428,15 +527,6 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="16dp">
-
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal|center_vertical"
-                                android:text="Cena"
-                                android:textAppearance="?attr/textAppearanceTitleMedium"
-                                android:textSize="27sp" />
 
                             <TextView
                                 android:id="@+id/nombreCardCena"

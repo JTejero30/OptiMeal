@@ -69,7 +69,6 @@ class EmailFragment : Fragment() {
             }
         }
 
-
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.your_web_client_id))
             .requestEmail()

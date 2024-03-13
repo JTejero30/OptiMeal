@@ -106,33 +106,8 @@ class MenuFragment : Fragment(), DayItemClickI {
 
                 binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
 
-                val imageName = it.menu_del_dia.desayuno.imagen
-
-                val imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
-                imageRef.downloadUrl.addOnSuccessListener { uri ->
-                    val imageUrl = uri.toString()
-               /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
-                        .into(binding.ivDesayuno)*/
-
-                    Picasso.get()
-                        .load(imageUrl)
-                        .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {
-                            override fun onSuccess() {
-                                binding.loadingIndicator.visibility = View.GONE
-                                binding.menuSV.visibility = View.VISIBLE
-                            }
-                            override fun onError(e: Exception?) {
-                                binding.loadingIndicator.visibility = View.VISIBLE
-                                binding.menuSV.visibility = View.GONE
-                                Log.e("MenuFragment", "Error getting download URL", e)
-                            }
-                        })
-
-
-
-                }.addOnFailureListener { exception ->
-                    Log.e("MenuFragment", "Error getting download URL", exception)
-                }
+                Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
+                    .into(binding.ivDesayuno)
 
                 binding.ivDesayuno.setOnClickListener {
                     val dialogFragment = DialogMenuFragment()
@@ -166,8 +141,35 @@ class MenuFragment : Fragment(), DayItemClickI {
                 }*/
 
                 //Comida
-                Glide.with(binding.ivComida.context).load(it.menu_del_dia.comida.imagen)
-                    .into(binding.ivComida)
+
+
+                val imageName = it.menu_del_dia.comida.imagen
+
+                val imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
+                imageRef.downloadUrl.addOnSuccessListener { uri ->
+                    val imageUrl = uri.toString()
+                    /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
+                             .into(binding.ivDesayuno)*/
+
+                    Picasso.get()
+                        .load(imageUrl)
+                        .into(binding.ivComida, object : com.squareup.picasso.Callback {
+                            override fun onSuccess() {
+                                binding.loadingIndicator.visibility = View.GONE
+                                binding.menuSV.visibility = View.VISIBLE
+                            }
+
+                            override fun onError(e: Exception?) {
+                                binding.loadingIndicator.visibility = View.VISIBLE
+                                binding.menuSV.visibility = View.GONE
+                                Log.e("MenuFragment", "Error getting download URL", e)
+                            }
+                        })
+
+                }.addOnFailureListener { exception ->
+                    Log.e("MenuFragment", "Error getting download URL", exception)
+                }
+
 
                 binding.ivComida.setOnClickListener {
                     val dialogFragment = DialogMenuFragment()
@@ -175,6 +177,10 @@ class MenuFragment : Fragment(), DayItemClickI {
 
                     dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
                 }
+
+
+
+
 
                 binding.nombreCardComida.text = it.menu_del_dia.comida.plato
 
@@ -203,7 +209,7 @@ class MenuFragment : Fragment(), DayItemClickI {
                     }
                 }*/
 
-                //Comida
+                //Cena
                 Glide.with(binding.ivCena.context).load(it.menu_del_dia.cena.imagen)
                     .into(binding.ivCena)
 

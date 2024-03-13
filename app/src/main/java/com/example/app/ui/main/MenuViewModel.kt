@@ -79,11 +79,15 @@ class MenuViewModel : ViewModel() {
                     /*val desayuno = desayunoDeferred.await()
                     val comida = comidaDeferred.await()
                     val cena = cenaDeferred.await()*/
-                    val desayuno = comidaDeferred.await()
+                    val desayuno = desayunoDeferred.await()
                     val comida = comidaDeferred.await()
+                    val cena = cenaDeferred.await()
+                    Log.d("MenuViewModel", "deayuonp data: ${desayuno}")
 
-                    val cena = comidaDeferred.await()
                     Log.d("MenuViewModel", "comida data: ${comida}")
+                    Log.d("MenuViewModel", "cena data: ${cena}")
+
+
 
 
                     if (desayuno != null && comida != null && cena != null) {
@@ -149,7 +153,15 @@ class MenuViewModel : ViewModel() {
 
 
 
-        return Plato(plato, ingredientes, total_grasa, total_proteina, total_carbohidratos, imagen,intrucciones)
+        return Plato(
+            plato,
+            ingredientes,
+            total_grasa,
+            total_proteina,
+            total_carbohidratos,
+            imagen,
+            intrucciones
+        )
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
