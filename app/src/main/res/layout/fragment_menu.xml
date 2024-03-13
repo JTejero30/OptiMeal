@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,11 +25,12 @@
             android:id="@+id/weekRV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:hapticFeedbackEnabled="false"
             android:orientation="horizontal"
             android:paddingStart="5dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="25dp" />
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp" />
 
         <ProgressBar
             android:id="@+id/loadingIndicator"
@@ -65,6 +66,64 @@
                         android:orientation="vertical">
 
                         <!-- Media -->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp">
+
+                            <Button
+                                android:id="@+id/button2"
+                                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight=".1"
+                                app:icon="@drawable/baseline_refresh_24"
+                                app:iconGravity="textEnd"
+                                app:iconPadding="0dp"
+                                app:iconSize="30dp" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal|center_vertical"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Desayuno"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textSize="27sp" />
+
+                            <Button
+                                android:id="@+id/button3"
+                                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight=".1"
+                                app:icon="@drawable/baseline_star_border_24"
+                                app:iconGravity="textEnd"
+                                app:iconPadding="0dp"
+                                app:iconSize="30dp" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/materialDivider"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            app:dividerInsetEnd="16dp"
+                            app:dividerInsetStart="16dp" />
+
                         <ImageView
                             android:id="@+id/ivDesayuno"
 
@@ -77,14 +136,6 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal|center_vertical"
-                                android:text="Desayuno"
-                                android:textAppearance="?attr/textAppearanceTitleMedium"
-                                android:textSize="27sp" />
 
                             <TextView
                                 android:id="@+id/nombreCardDesayuno"
@@ -106,96 +157,96 @@
                                 app:dividerInsetEnd="16dp"
                                 app:dividerInsetStart="16dp" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start|center_vertical"
-                                android:orientation="horizontal">
+                            <!-- <LinearLayout
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:gravity="start|center_vertical"
+                                 android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center|center_horizontal|center_vertical"
-                                    android:gravity="center|center_horizontal|center_vertical"
-                                    android:text="Ingredientes:"
-                                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                                    android:textColor="?android:attr/textColorSecondary"
-                                    android:textSize="20sp" />
+                                 <TextView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="match_parent"
+                                     android:layout_gravity="center|center_horizontal|center_vertical"
+                                     android:gravity="center|center_horizontal|center_vertical"
+                                     android:text="Ingredientes:"
+                                     android:textAppearance="?attr/textAppearanceBodyMedium"
+                                     android:textColor="?android:attr/textColorSecondary"
+                                     android:textSize="20sp" />
 
-                                <com.google.android.material.button.MaterialButton
+                                 <com.google.android.material.button.MaterialButton
 
-                                    android:id="@+id/displayIngredientesDesayuno"
-                                    style="?attr/borderlessButtonStyle"
-                                    android:layout_width="49dp"
-                                    android:layout_height="match_parent"
-                                    app:icon="@drawable/baseline_arrow_drop_down_24"
-                                    app:iconPadding="0dp"
-                                    app:iconSize="36dp" />
-                            </LinearLayout>
+                                     android:id="@+id/displayIngredientesDesayuno"
+                                     style="?attr/borderlessButtonStyle"
+                                     android:layout_width="49dp"
+                                     android:layout_height="match_parent"
+                                     app:icon="@drawable/baseline_arrow_drop_down_24"
+                                     app:iconPadding="0dp"
+                                     app:iconSize="36dp" />
+                             </LinearLayout>
 
-                            <com.google.android.material.divider.MaterialDivider
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:dividerInsetEnd="3dp"
-                                app:dividerInsetStart="3dp" />
+                             <com.google.android.material.divider.MaterialDivider
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_marginTop="8dp"
+                                 android:layout_marginBottom="8dp"
+                                 app:dividerInsetEnd="3dp"
+                                 app:dividerInsetStart="3dp" />
 
 
-                            <GridLayout
-                                android:id="@+id/listaIngredientesCardDesayuno"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center|center_horizontal|center_vertical"
-                                android:alignmentMode="alignMargins"
-                                android:columnCount="2"
-                                android:orientation="horizontal"
-                                android:padding="8dp"
-                                android:rowCount="4"
-                                android:useDefaultMargins="true"
-                                android:visibility="gone" />
+                             <GridLayout
+                                 android:id="@+id/listaIngredientesCardDesayuno"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_gravity="center|center_horizontal|center_vertical"
+                                 android:alignmentMode="alignMargins"
+                                 android:columnCount="2"
+                                 android:orientation="horizontal"
+                                 android:padding="8dp"
+                                 android:rowCount="4"
+                                 android:useDefaultMargins="true"
+                                 android:visibility="gone" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start|center_vertical"
-                                android:orientation="horizontal">
+                             <LinearLayout
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:gravity="start|center_vertical"
+                                 android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center|center_horizontal|center_vertical"
-                                    android:gravity="center|center_horizontal|center_vertical"
-                                    android:text="Macros:"
-                                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                                    android:textColor="?android:attr/textColorSecondary"
-                                    android:textSize="20sp" />
+                                 <TextView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="match_parent"
+                                     android:layout_gravity="center|center_horizontal|center_vertical"
+                                     android:gravity="center|center_horizontal|center_vertical"
+                                     android:text="Macros:"
+                                     android:textAppearance="?attr/textAppearanceBodyMedium"
+                                     android:textColor="?android:attr/textColorSecondary"
+                                     android:textSize="20sp" />
 
-                                <com.google.android.material.button.MaterialButton
+                                 <com.google.android.material.button.MaterialButton
 
-                                    android:id="@+id/displayMacrosDesayuno"
-                                    style="?attr/borderlessButtonStyle"
-                                    android:layout_width="49dp"
-                                    android:layout_height="match_parent"
-                                    app:icon="@drawable/baseline_arrow_drop_down_24"
-                                    app:iconPadding="0dp"
-                                    app:iconSize="36dp" />
-                            </LinearLayout>
+                                     android:id="@+id/displayMacrosDesayuno"
+                                     style="?attr/borderlessButtonStyle"
+                                     android:layout_width="49dp"
+                                     android:layout_height="match_parent"
+                                     app:icon="@drawable/baseline_arrow_drop_down_24"
+                                     app:iconPadding="0dp"
+                                     app:iconSize="36dp" />
+                             </LinearLayout>
 
-                            <com.google.android.material.divider.MaterialDivider
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:dividerInsetEnd="3dp"
-                                app:dividerInsetStart="3dp" />
+                             <com.google.android.material.divider.MaterialDivider
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_marginTop="8dp"
+                                 android:layout_marginBottom="8dp"
+                                 app:dividerInsetEnd="3dp"
+                                 app:dividerInsetStart="3dp" />
 
-                            <LinearLayout
-                                android:id="@+id/listaMacrosCardDesayuno"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:visibility="gone" />
+                             <LinearLayout
+                                 android:id="@+id/listaMacrosCardDesayuno"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:orientation="vertical"
+                                 android:visibility="gone" />-->
 
 
                         </LinearLayout>
@@ -256,96 +307,96 @@
                                 app:dividerInsetEnd="16dp"
                                 app:dividerInsetStart="16dp" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start|center_vertical"
-                                android:orientation="horizontal">
+                            <!--      <LinearLayout
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:gravity="start|center_vertical"
+                                      android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center|center_horizontal|center_vertical"
-                                    android:gravity="center|center_horizontal|center_vertical"
-                                    android:text="Ingredientes:"
-                                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                                    android:textColor="?android:attr/textColorSecondary"
-                                    android:textSize="20sp" />
+                                      <TextView
+                                          android:layout_width="wrap_content"
+                                          android:layout_height="match_parent"
+                                          android:layout_gravity="center|center_horizontal|center_vertical"
+                                          android:gravity="center|center_horizontal|center_vertical"
+                                          android:text="Ingredientes:"
+                                          android:textAppearance="?attr/textAppearanceBodyMedium"
+                                          android:textColor="?android:attr/textColorSecondary"
+                                          android:textSize="20sp" />
 
-                                <com.google.android.material.button.MaterialButton
+                                      <com.google.android.material.button.MaterialButton
 
-                                    android:id="@+id/displayIngredientesComida"
-                                    style="?attr/borderlessButtonStyle"
-                                    android:layout_width="49dp"
-                                    android:layout_height="match_parent"
-                                    app:icon="@drawable/baseline_arrow_drop_down_24"
-                                    app:iconPadding="0dp"
-                                    app:iconSize="36dp" />
-                            </LinearLayout>
+                                          android:id="@+id/displayIngredientesComida"
+                                          style="?attr/borderlessButtonStyle"
+                                          android:layout_width="49dp"
+                                          android:layout_height="match_parent"
+                                          app:icon="@drawable/baseline_arrow_drop_down_24"
+                                          app:iconPadding="0dp"
+                                          app:iconSize="36dp" />
+                                  </LinearLayout>
 
-                            <com.google.android.material.divider.MaterialDivider
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:dividerInsetEnd="3dp"
-                                app:dividerInsetStart="3dp" />
+                                  <com.google.android.material.divider.MaterialDivider
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:layout_marginTop="8dp"
+                                      android:layout_marginBottom="8dp"
+                                      app:dividerInsetEnd="3dp"
+                                      app:dividerInsetStart="3dp" />
 
 
-                            <GridLayout
-                                android:id="@+id/listaIngredientesCardComida"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center|center_horizontal|center_vertical"
-                                android:alignmentMode="alignMargins"
-                                android:columnCount="2"
-                                android:orientation="horizontal"
-                                android:padding="8dp"
-                                android:rowCount="4"
-                                android:useDefaultMargins="true"
-                                android:visibility="gone" />
+                                  <GridLayout
+                                      android:id="@+id/listaIngredientesCardComida"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:layout_gravity="center|center_horizontal|center_vertical"
+                                      android:alignmentMode="alignMargins"
+                                      android:columnCount="2"
+                                      android:orientation="horizontal"
+                                      android:padding="8dp"
+                                      android:rowCount="4"
+                                      android:useDefaultMargins="true"
+                                      android:visibility="gone" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start|center_vertical"
-                                android:orientation="horizontal">
+                                  <LinearLayout
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:gravity="start|center_vertical"
+                                      android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center|center_horizontal|center_vertical"
-                                    android:gravity="center|center_horizontal|center_vertical"
-                                    android:text="Macros:"
-                                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                                    android:textColor="?android:attr/textColorSecondary"
-                                    android:textSize="20sp" />
+                                      <TextView
+                                          android:layout_width="wrap_content"
+                                          android:layout_height="match_parent"
+                                          android:layout_gravity="center|center_horizontal|center_vertical"
+                                          android:gravity="center|center_horizontal|center_vertical"
+                                          android:text="Macros:"
+                                          android:textAppearance="?attr/textAppearanceBodyMedium"
+                                          android:textColor="?android:attr/textColorSecondary"
+                                          android:textSize="20sp" />
 
-                                <com.google.android.material.button.MaterialButton
+                                      <com.google.android.material.button.MaterialButton
 
-                                    android:id="@+id/displayMacrosComida"
-                                    style="?attr/borderlessButtonStyle"
-                                    android:layout_width="49dp"
-                                    android:layout_height="match_parent"
-                                    app:icon="@drawable/baseline_arrow_drop_down_24"
-                                    app:iconPadding="0dp"
-                                    app:iconSize="36dp" />
-                            </LinearLayout>
+                                          android:id="@+id/displayMacrosComida"
+                                          style="?attr/borderlessButtonStyle"
+                                          android:layout_width="49dp"
+                                          android:layout_height="match_parent"
+                                          app:icon="@drawable/baseline_arrow_drop_down_24"
+                                          app:iconPadding="0dp"
+                                          app:iconSize="36dp" />
+                                  </LinearLayout>
 
-                            <com.google.android.material.divider.MaterialDivider
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:dividerInsetEnd="3dp"
-                                app:dividerInsetStart="3dp" />
+                                  <com.google.android.material.divider.MaterialDivider
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:layout_marginTop="8dp"
+                                      android:layout_marginBottom="8dp"
+                                      app:dividerInsetEnd="3dp"
+                                      app:dividerInsetStart="3dp" />
 
-                            <LinearLayout
-                                android:id="@+id/listaMacrosCardComida"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:visibility="gone" />
+                                  <LinearLayout
+                                      android:id="@+id/listaMacrosCardComida"
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:orientation="vertical"
+                                      android:visibility="gone" />-->
 
 
                         </LinearLayout>
@@ -407,97 +458,97 @@
                                 app:dividerInsetEnd="16dp"
                                 app:dividerInsetStart="16dp" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start|center_vertical"
-                                android:orientation="horizontal">
+                            <!--               <LinearLayout
+                                               android:layout_width="match_parent"
+                                               android:layout_height="wrap_content"
+                                               android:gravity="start|center_vertical"
+                                               android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center|center_horizontal|center_vertical"
-                                    android:gravity="center|center_horizontal|center_vertical"
-                                    android:text="Ingredientes:"
-                                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                                    android:textColor="?android:attr/textColorSecondary"
-                                    android:textSize="20sp" />
+                                               <TextView
+                                                   android:layout_width="wrap_content"
+                                                   android:layout_height="match_parent"
+                                                   android:layout_gravity="center|center_horizontal|center_vertical"
+                                                   android:gravity="center|center_horizontal|center_vertical"
+                                                   android:text="Ingredientes:"
+                                                   android:textAppearance="?attr/textAppearanceBodyMedium"
+                                                   android:textColor="?android:attr/textColorSecondary"
+                                                   android:textSize="20sp" />
 
-                                <com.google.android.material.button.MaterialButton
+                                               <com.google.android.material.button.MaterialButton
 
-                                    android:id="@+id/displayIngredientesCena"
-                                    style="?attr/borderlessButtonStyle"
-                                    android:layout_width="49dp"
-                                    android:layout_height="match_parent"
-                                    app:icon="@drawable/baseline_arrow_drop_down_24"
-                                    app:iconPadding="0dp"
-                                    app:iconSize="36dp" />
-                            </LinearLayout>
+                                                   android:id="@+id/displayIngredientesCena"
+                                                   style="?attr/borderlessButtonStyle"
+                                                   android:layout_width="49dp"
+                                                   android:layout_height="match_parent"
+                                                   app:icon="@drawable/baseline_arrow_drop_down_24"
+                                                   app:iconPadding="0dp"
+                                                   app:iconSize="36dp" />
+                                           </LinearLayout>
 
-                            <com.google.android.material.divider.MaterialDivider
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:dividerInsetEnd="3dp"
-                                app:dividerInsetStart="3dp" />
+                                           <com.google.android.material.divider.MaterialDivider
+                                               android:layout_width="match_parent"
+                                               android:layout_height="wrap_content"
+                                               android:layout_marginTop="8dp"
+                                               android:layout_marginBottom="8dp"
+                                               app:dividerInsetEnd="3dp"
+                                               app:dividerInsetStart="3dp" />
 
 
-                            <GridLayout
-                                android:id="@+id/listaIngredientesCardCena"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center|center_horizontal|center_vertical"
-                                android:alignmentMode="alignMargins"
-                                android:columnCount="2"
-                                android:orientation="horizontal"
-                                android:padding="8dp"
-                                android:rowCount="4"
-                                android:useDefaultMargins="true"
-                                android:visibility="gone" />
+                                           <GridLayout
+                                               android:id="@+id/listaIngredientesCardCena"
+                                               android:layout_width="match_parent"
+                                               android:layout_height="wrap_content"
+                                               android:layout_gravity="center|center_horizontal|center_vertical"
+                                               android:alignmentMode="alignMargins"
+                                               android:columnCount="2"
+                                               android:orientation="horizontal"
+                                               android:padding="8dp"
+                                               android:rowCount="4"
+                                               android:useDefaultMargins="true"
+                                               android:visibility="gone" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start|center_vertical"
-                                android:orientation="horizontal">
+                                           <LinearLayout
+                                               android:layout_width="match_parent"
+                                               android:layout_height="wrap_content"
+                                               android:gravity="start|center_vertical"
+                                               android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center|center_horizontal|center_vertical"
-                                    android:gravity="center|center_horizontal|center_vertical"
-                                    android:text="Macros:"
-                                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                                    android:textColor="?android:attr/textColorSecondary"
-                                    android:textSize="20sp" />
+                                               <TextView
+                                                   android:layout_width="wrap_content"
+                                                   android:layout_height="match_parent"
+                                                   android:layout_gravity="center|center_horizontal|center_vertical"
+                                                   android:gravity="center|center_horizontal|center_vertical"
+                                                   android:text="Macros:"
+                                                   android:textAppearance="?attr/textAppearanceBodyMedium"
+                                                   android:textColor="?android:attr/textColorSecondary"
+                                                   android:textSize="20sp" />
 
-                                <com.google.android.material.button.MaterialButton
+                                               <com.google.android.material.button.MaterialButton
 
-                                    android:id="@+id/displayMacrosCena"
-                                    style="?attr/borderlessButtonStyle"
-                                    android:layout_width="49dp"
-                                    android:layout_height="match_parent"
-                                    app:icon="@drawable/baseline_arrow_drop_down_24"
-                                    app:iconPadding="0dp"
-                                    app:iconSize="36dp" />
-                            </LinearLayout>
+                                                   android:id="@+id/displayMacrosCena"
+                                                   style="?attr/borderlessButtonStyle"
+                                                   android:layout_width="49dp"
+                                                   android:layout_height="match_parent"
+                                                   app:icon="@drawable/baseline_arrow_drop_down_24"
+                                                   app:iconPadding="0dp"
+                                                   app:iconSize="36dp" />
+                                           </LinearLayout>
 
-                            <com.google.android.material.divider.MaterialDivider
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:dividerInsetEnd="3dp"
-                                app:dividerInsetStart="3dp" />
+                                           <com.google.android.material.divider.MaterialDivider
+                                               android:layout_width="match_parent"
+                                               android:layout_height="wrap_content"
+                                               android:layout_marginTop="8dp"
+                                               android:layout_marginBottom="8dp"
+                                               app:dividerInsetEnd="3dp"
+                                               app:dividerInsetStart="3dp" />
 
-                            <LinearLayout
-                                android:id="@+id/listaMacrosCardCena"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:visibility="gone" />
-
+                                           <LinearLayout
+                                               android:id="@+id/listaMacrosCardCena"
+                                               android:layout_width="wrap_content"
+                                               android:layout_height="wrap_content"
+                                               android:orientation="vertical"
+                                               android:visibility="gone" />
+               -->
 
                         </LinearLayout>
                     </LinearLayout>

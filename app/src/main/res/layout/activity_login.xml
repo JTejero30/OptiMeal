@@ -65,6 +65,7 @@
 
             <Button
                 android:id="@+id/accederButton"
+                style="@style/Widget.Material3.MaterialTimePicker.Button"
                 android:layout_width="178dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

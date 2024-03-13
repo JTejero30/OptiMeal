@@ -1,0 +1,264 @@
+{
+  "comidas": [
+    {
+      "plato": "Pavo en salsa bacon",
+      "ingredientes": [
+        {
+          "nombre": "pechuga de pavo",
+          "cantidad": "240g",
+          "calorias": 463,
+          "tipo": "proteínas",
+          "gramos": 30
+        },
+        {
+          "nombre": "salsa de bacon",
+          "cantidad": "240g",
+          "calorias": 345,
+          "tipo": "grasas",
+          "gramos": 21
+        },
+        {
+          "nombre": "patata",
+          "cantidad": "240g",
+          "calorias": 165,
+          "tipo": "carbohidratos",
+          "gramos": 36
+        },
+        {
+          "nombre": "boniato",
+          "cantidad": "240g",
+          "calorias": 460,
+          "tipo": "carbohidratos",
+          "gramos": 90
+        },
+        {
+          "nombre": "espinacas",
+          "cantidad": "240g",
+          "calorias": 70,
+          "tipo": "vegetales",
+          "gramos": 60
+        },
+        {
+          "nombre": "pasas",
+          "cantidad": "240g",
+          "calorias": 200,
+          "tipo": "frutos secos",
+          "gramos": 50
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": "240g",
+          "calorias": 28,
+          "tipo": "vegetales",
+          "gramos": 8
+        },
+        {
+          "nombre": "piñones",
+          "cantidad": "240g",
+          "calorias": 340,
+          "tipo": "frutos secos",
+          "gramos": 40
+        },
+        {
+          "nombre": "hierbas provenzales",
+          "cantidad": "240g",
+          "calorias": 5,
+          "tipo": "condimentos",
+          "gramos": 5
+        },
+        {
+          "nombre": "sal",
+          "cantidad": "240g",
+          "calorias": 0,
+          "tipo": "condimentos",
+          "gramos": 0
+        },
+        {
+          "nombre": "pimienta",
+          "cantidad": "240g",
+          "calorias": 5,
+          "tipo": "condimentos",
+          "gramos": 5
+        },
+        {
+          "nombre": "aceite de oliva virgen",
+          "cantidad": "240g",
+          "calorias": 216,
+          "tipo": "grasas",
+          "gramos": 24
+        }
+      ],
+      "total_grasa": 21,
+      "total_proteina": 30,
+      "total_carbohidratos": 45,
+      "alergenos": [
+        "APIO",
+        "LÁCTEOS",
+        "FRUTOS SECOS"
+      ]
+    },
+    {
+      "plato": "Filete ruso con salsa oporto, patatas y verduras escalivadas",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/menuinteligente-4bc8f.appspot.com/o/comidas%2Ffilete_ruso_oporto.jpg?alt=media&token=fda00860-a158-4874-ae0b-d9285437fb54",
+      "ingredientes": [
+        {
+          "nombre": "filete ruso",
+          "cantidad": "1 unidad",
+          "calorias": 250,
+          "tipo": "proteínas",
+          "gramos": 150
+        },
+        {
+          "nombre": "salsa oporto",
+          "cantidad": "2 cucharadas",
+          "calorias": 60,
+          "tipo": "grasas",
+          "gramos": 30
+        },
+        {
+          "nombre": "patatas",
+          "cantidad": "150g",
+          "calorias": 135,
+          "tipo": "carbohidratos",
+          "gramos": 150
+        },
+        {
+          "nombre": "verduras escalivadas (pimientos, cebolla, berenjena, etc.)",
+          "cantidad": "200g",
+          "calorias": 100,
+          "tipo": "vegetales",
+          "gramos": 200
+        }
+      ],
+      "total_grasa": 35.88,
+      "total_proteina": 30.82,
+      "total_carbohidratos": 48.30,
+      "total_gramos": 46,
+      "total_kilocalorias": 690.46
+    },
+    {
+      "plato": "Contramuslo con salsa piri piri, arroz y verduras",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/menuinteligente-4bc8f.appspot.com/o/comidas%2Fcontramuslo-con-salsa-piri-piri-arroz-y-verduras_B.jpg?alt=media&token=8c52e74a-d489-4981-a814-411445383a2c",
+      "ingredientes": [
+        {
+          "nombre": "contramuslo de pollo",
+          "cantidad": "1 unidad",
+          "calorias": 200,
+          "tipo": "proteínas",
+          "gramos": 150
+        },
+        {
+          "nombre": "salsa piri piri",
+          "cantidad": "2 cucharadas",
+          "calorias": 30,
+          "tipo": "grasas",
+          "gramos": 30
+        },
+        {
+          "nombre": "arroz",
+          "cantidad": "150g",
+          "calorias": 135,
+          "tipo": "carbohidratos",
+          "gramos": 150
+        },
+        {
+          "nombre": "verduras mixtas (pimientos, cebolla, zanahoria, etc.)",
+          "cantidad": "200g",
+          "calorias": 194.82,
+          "tipo": "vegetales",
+          "gramos": 200
+        }
+      ],
+      "total_grasa": 18.40,
+      "total_proteina": 46.00,
+      "total_carbohidratos": 54.28,
+      "total_gramos": 460,
+      "total_kilocalorias": 559.82
+    },
+    {
+      "plato": "Cerdo agridulce, arroz y verduritas",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/menuinteligente-4bc8f.appspot.com/o/comidas%2Fcerdo-agridulce-arroz-y-verduritas_B.jpg?alt=media&token=56e73b61-03fc-4217-9cb7-2a68b2d87960",
+      "ingredientes": [
+        {
+          "nombre": "cerdo",
+          "cantidad": "150g",
+          "calorias": 328.50,
+          "tipo": "proteínas",
+          "gramos": 150
+        },
+        {
+          "nombre": "salsa agridulce",
+          "cantidad": "4 cucharadas",
+          "calorias": 140,
+          "tipo": "grasas",
+          "gramos": 60
+        },
+        {
+          "nombre": "arroz",
+          "cantidad": "150g",
+          "calorias": 135,
+          "tipo": "carbohidratos",
+          "gramos": 150
+        },
+        {
+          "nombre": "verduritas (pimientos, zanahorias, cebolla, etc.)",
+          "cantidad": "200g",
+          "calorias": 156.42,
+          "tipo": "vegetales",
+          "gramos": 200
+        }
+      ],
+      "total_grasa": 36.80,
+      "total_proteina": 46.46,
+      "total_carbohidratos": 62.56,
+      "total_gramos": 460,
+      "total_kilocalorias": 759.92
+    },
+    {
+      "plato": "Lasaña de pavo y pesto",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/menuinteligente-4bc8f.appspot.com/o/comidas%2Flasana-de-pavo-y-pesto_B.jpg?alt=media&token=c333917e-3032-43ea-8e7e-b69035110748",
+      "ingredientes": [
+        {
+          "nombre": "pavo",
+          "cantidad": "100g",
+          "calorias": 192.00,
+          "tipo": "proteínas",
+          "gramos": 100
+        },
+        {
+          "nombre": "pesto",
+          "cantidad": "4 cucharadas",
+          "calorias": 320,
+          "tipo": "grasas",
+          "gramos": 60
+        },
+        {
+          "nombre": "pasta de lasaña",
+          "cantidad": "150g",
+          "calorias": 540,
+          "tipo": "carbohidratos",
+          "gramos": 150
+        },
+        {
+          "nombre": "queso rallado",
+          "cantidad": "50g",
+          "calorias": 120,
+          "tipo": "grasas",
+          "gramos": 50
+        },
+        {
+          "nombre": "salsa de tomate",
+          "cantidad": "200g",
+          "calorias": 224,
+          "tipo": "vegetales",
+          "gramos": 200
+        }
+      ],
+      "total_grasa": 54.80,
+      "total_proteina": 24.40,
+      "total_carbohidratos": 73.20,
+      "total_gramos": 400,
+      "total_kilocalorias": 896.00
+    }
+  ]
+}
