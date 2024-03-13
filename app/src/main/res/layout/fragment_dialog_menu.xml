@@ -95,7 +95,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
-                    app:cardBackgroundColor="@color/primario500">
+                    app:cardBackgroundColor="@color/primario300">
 
 
                     <LinearLayout
@@ -111,6 +111,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal|center_vertical"
+                            android:fontFamily="@font/montserrat_regular"
                             android:text="Brocoli"
                             android:textAlignment="center"
                             android:textAppearance="?attr/textAppearanceTitleMedium"
@@ -145,6 +146,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:gravity="center"
                                     android:text="Kilocalorías"
                                     android:textColor="@android:color/black"
@@ -171,6 +173,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:gravity="center"
                                     android:text="Proteínas"
                                     android:textColor="@android:color/black"
@@ -199,6 +202,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:gravity="center"
                                     android:text="Carbohidratos"
                                     android:textColor="@android:color/black"
@@ -225,6 +229,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_regular"
                                     android:gravity="center"
                                     android:text="Grasas"
                                     android:textColor="@android:color/black"
@@ -261,12 +266,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center|center_horizontal|center_vertical"
+                            android:fontFamily="@font/montserrat_regular"
                             android:gravity="center|start"
                             android:text="Ingredientes:"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:textColor="@android:color/black"
                             android:textSize="25sp"
-                            android:textStyle="bold|italic" />
+                            android:textStyle="bold" />
 
 
                         <GridLayout
@@ -295,12 +301,13 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="center|center_horizontal|center_vertical"
                             android:layout_marginBottom="7dp"
+                            android:fontFamily="@font/montserrat_regular"
                             android:gravity="center|start"
                             android:text="Instrucciones:"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:textColor="@android:color/black"
                             android:textSize="25sp"
-                            android:textStyle="bold|italic" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/instruccionesTx"

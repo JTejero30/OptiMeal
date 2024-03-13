@@ -113,7 +113,7 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:isScrollContainer="false"
                 android:padding="15dp"
-                android:text="Conrinuar con Google"
+                android:text="Continue with Google"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -137,7 +137,7 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:text="@string/a_n_no_tienes_cuenta"
                 android:textColor="@color/texto_negro"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -149,7 +149,7 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:text="@string/reg_strate"
                 android:textColor="@color/primario700"
-                android:textSize="18dp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
