@@ -92,7 +92,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp">
+                    android:layout_marginRight="15dp"
+                    app:cardBackgroundColor="@color/primario500">
 
 
                     <LinearLayout
@@ -111,6 +112,7 @@
                             android:text="Brocoli"
                             android:textAlignment="center"
                             android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textColor="@android:color/black"
                             android:textSize="21sp"
                             app:lineHeight="30dp" />
 
@@ -135,13 +137,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="463 " />
+                                    android:text="463 "
+                                    android:textColor="@android:color/black" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Kilocalorías"
+                                    android:textColor="@android:color/black"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -159,13 +163,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="30g" />
+                                    android:text="30g"
+                                    android:textColor="@android:color/black" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Proteínas"
+                                    android:textColor="@android:color/black"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -184,7 +190,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="45g" />
+                                    android:text="45g"
+                                    android:textColor="@android:color/black" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -192,6 +199,7 @@
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:text="Carbohidratos"
+                                    android:textColor="@android:color/black"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -209,13 +217,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="21g" />
+                                    android:text="21g"
+                                    android:textColor="@android:color/black" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Grasas"
+                                    android:textColor="@android:color/black"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -252,7 +262,7 @@
                             android:gravity="center|start"
                             android:text="Ingredientes:"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
-                            android:textColor="?android:attr/textColorSecondary"
+                            android:textColor="@android:color/black"
                             android:textSize="25sp"
                             android:textStyle="bold|italic" />
 
@@ -286,7 +296,7 @@
                             android:gravity="center|start"
                             android:text="Instrucciones:"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
-                            android:textColor="?android:attr/textColorSecondary"
+                            android:textColor="@android:color/black"
                             android:textSize="25sp"
                             android:textStyle="bold|italic" />
 
@@ -296,6 +306,7 @@
                             android:layout_height="wrap_content"
                             android:text="Instrucciones"
                             android:textAlignment="textStart"
+                            android:textColor="@android:color/black"
                             app:lineHeight="25dp" />
 
                         <!--   <LinearLayout
