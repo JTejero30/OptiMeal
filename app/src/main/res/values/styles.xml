@@ -7,7 +7,7 @@
     </style>
 
 
-    <style name="buttonGreenStyle" parent="android:Widget.Button">
+    <style name="greenButton" parent="android:Widget.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
