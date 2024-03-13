@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".register.RegisterActivity"
-    android:background="@drawable/optimeal_background2">
+    android:background="@color/primario50">
 
     <ImageView
         android:id="@+id/imageView"

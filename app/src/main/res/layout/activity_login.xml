@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
@@ -25,11 +26,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="298dp"
+            android:layout_height="180dp"
             android:layout_marginTop="20dp"
-            android:gravity="center"
+            android:gravity="center|top"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
 
             <EditText
                 android:id="@+id/emailEditText"
@@ -43,29 +45,38 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:paddingStart="8dp" />
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
 
             <EditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
                 android:background="@drawable/border_input"
                 android:ems="10"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:paddingStart="8dp" />
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
 
             <Button
                 android:id="@+id/accederButton"
-                style="@style/buttonGreenStyle"
                 android:layout_width="match_parent"
                 android:layout_height="57dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="7dp"
-                android:drawableEnd="@drawable/baseline_arrow_back_ios_24"
+                android:layout_margin="0dp"
+                android:background="@drawable/background_green"
                 android:fontFamily="@font/montserrat_regular"
                 android:gravity="center"
                 android:text="@string/acceder"
@@ -82,38 +93,57 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/irRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/background_transparent"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="@string/go_to_register"
-                android:textColor="#141414"
-
-                android:textSize="16sp" />
+            android:layout_height="84dp"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
 
             <Button
                 android:id="@+id/SignIn_Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="0dp"
-                android:background="@drawable/background_transparent"
-                android:drawableLeft="@drawable/google"
+                android:background="@drawable/background_black"
+                android:drawableStart="@drawable/google"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Inicia con Google"
-                android:textColor="#141414"
+                android:isScrollContainer="false"
+                android:text="Continue with Google"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textStyle="bold"
+                app:icon="@drawable/google" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="108dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="¿Aún no tienes cuenta?"
+                android:textColor="@color/texto_negro"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/registrate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_regular"
+                android:text=" Regístrate"
+                android:textColor="@color/primario700"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
         </LinearLayout>
 
 

@@ -2,9 +2,12 @@
 <resources>
     <color name="primario50">#f9ffeb</color>
     <color name="primario500">#D5FE73</color>
+    <color name="primario700">#82B701</color>
 
     <color name="input_border">#E3E3E3</color>
     <color name="texto_negro">#141414</color>
+    <color name="negro">#000000</color>
+
 
 
 
