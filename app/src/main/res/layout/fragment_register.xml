@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +28,7 @@
 
                 android:autofillHints=""
                 android:ems="10"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:padding="15dp" />
 
@@ -37,21 +38,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="15dp" />
 
         </LinearLayout>
 
-<!--        <Button
-            android:id="@+id/registrarButton"
-            style="@style/Widget.Material3.Button.IconButton.Filled"
-            android:layout_width="178dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="7dp"
-            android:text="Registrar" />-->
+        <!--        <Button
+                    android:id="@+id/registrarButton"
+                    style="@style/Widget.Material3.Button.IconButton.Filled"
+                    android:layout_width="178dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
+                    android:text="Registrar" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,7 +68,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:isScrollContainer="false"
-                android:text="Registrar"
+                android:text="@string/registrar"
                 android:textAlignment="center"
                 app:iconSize="20dp"
                 app:iconTint="@color/negro" />
@@ -91,7 +93,7 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:isScrollContainer="false"
                 android:padding="15dp"
-                android:text="Registrar con Google"
+                android:text="@string/registrar_con_google"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold"

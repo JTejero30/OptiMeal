@@ -14,7 +14,7 @@
             android:id="@+id/nextQuestion2"
             android:layout_width="207dp"
             android:layout_height="57dp"
-            android:text="Continuar"
+            android:text="@string/continuar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
                 android:layout_height="43dp"
                 android:layout_marginBottom="48dp"
                 android:gravity="center"
-                android:text="¿Alguna alergia que debamos conocer?"
+                android:text="@string/alguna_alergia_que_debamos_conocer"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -53,17 +53,17 @@
                     android:id="@+id/imageView6"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="weat"
-                    android:src="@drawable/weat" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/weat"
+                    android:tag="weat" />
 
                 <ImageView
                     android:id="@+id/imageView14"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:contentDescription="imageAlergie"
+                    android:contentDescription="@string/imagen_alergia"
                     android:src="@drawable/marisco"
                     android:tag="marisco" />
 
@@ -72,7 +72,7 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:contentDescription="imageAlergie"
+                    android:contentDescription="@string/imagen_alergia"
                     android:src="@drawable/huevo"
                     android:tag="huevo" />
 
@@ -80,10 +80,10 @@
                     android:id="@+id/imageView8"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="pescado"
-                    android:src="@drawable/pescado" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/pescado"
+                    android:tag="pescado" />
 
             </LinearLayout>
 
@@ -97,37 +97,37 @@
                     android:id="@+id/imageView11"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="cacahuete"
-                    android:src="@drawable/cacahuete" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/cacahuete"
+                    android:tag="cacahuete" />
 
                 <ImageView
                     android:id="@+id/imageView12"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="soja"
-                    android:src="@drawable/soja" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/soja"
+                    android:tag="soja" />
 
                 <ImageView
                     android:id="@+id/imageView13"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="lacteos"
-                    android:src="@drawable/lacteos" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/lacteos"
+                    android:tag="lacteos" />
 
                 <ImageView
                     android:id="@+id/imageView15"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="frutos"
-                    android:src="@drawable/frutos" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/frutos"
+                    android:tag="frutos" />
             </LinearLayout>
 
             <LinearLayout
@@ -140,28 +140,28 @@
                     android:id="@+id/imageView16"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="apio"
-                    android:src="@drawable/apio" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/apio"
+                    android:tag="apio" />
 
                 <ImageView
                     android:id="@+id/imageView17"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="mostaza"
-                    android:src="@drawable/mostaza" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/mostaza"
+                    android:tag="mostaza" />
 
                 <ImageView
                     android:id="@+id/imageView18"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="sesamo"
-                    android:src="@drawable/sesamo" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/sesamo"
+                    android:tag="sesamo" />
             </LinearLayout>
 
             <LinearLayout
@@ -173,28 +173,28 @@
                     android:id="@+id/imageView19"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="sulfitos"
-                    android:src="@drawable/sulfitos" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/sulfitos"
+                    android:tag="sulfitos" />
 
                 <ImageView
                     android:id="@+id/imageView20"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="altramuces"
-                    android:src="@drawable/altramuces" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/altramuces"
+                    android:tag="altramuces" />
 
                 <ImageView
                     android:id="@+id/imageView21"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:contentDescription="imageAlergie"
                     android:layout_weight="1"
-                    android:tag="moluscos"
-                    android:src="@drawable/moluscos" />
+                    android:contentDescription="@string/imagen_alergia"
+                    android:src="@drawable/moluscos"
+                    android:tag="moluscos" />
             </LinearLayout>
         </LinearLayout>
 

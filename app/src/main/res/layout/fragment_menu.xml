@@ -31,20 +31,18 @@
             android:orientation="horizontal"
             android:paddingStart="5dp"
             android:paddingTop="10dp"
+            android:paddingEnd="5dp"
             android:paddingBottom="5dp" />
 
         <ProgressBar
             android:id="@+id/loadingIndicator"
             android:layout_width="81dp"
             android:layout_height="88dp"
-            android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:indeterminate="true"
             android:visibility="visible" />
 
         <!--Aqui uso nestedScrollView porque el hideOnScroll del navView de la vista inicio da problemas-->
-
-
         <androidx.core.widget.NestedScrollView
             android:id="@+id/menuSV"
             android:layout_width="match_parent"
@@ -82,7 +80,7 @@
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:layout_weight=".1"
                                 app:icon="@drawable/baseline_refresh_24"
                                 app:iconGravity="textEnd"
@@ -98,7 +96,7 @@
                                 android:gravity="center"
                                 android:paddingTop="10dp"
                                 android:paddingBottom="10dp"
-                                android:text="Desayuno"
+                                android:text="@string/desayuno"
                                 android:textAppearance="?attr/textAppearanceTitleMedium"
                                 android:textSize="27sp" />
 
@@ -107,7 +105,7 @@
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
+                                android:layout_marginEnd="10dp"
                                 android:layout_weight=".1"
                                 app:icon="@drawable/baseline_star_border_24"
                                 app:iconGravity="textEnd"
@@ -129,6 +127,7 @@
 
                             android:layout_width="match_parent"
                             android:layout_height="194dp"
+                            android:contentDescription="@string/imagen_comida"
                             android:scaleType="centerCrop" />
 
                         <LinearLayout
@@ -143,7 +142,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal|center_vertical"
-                                android:text="Brocoli"
+                                android:text="@string/comida_no_encontrada"
                                 android:textAlignment="center"
                                 android:textAppearance="?attr/textAppearanceTitleMedium"
                                 android:textSize="21sp"
@@ -278,7 +277,7 @@
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:layout_weight=".1"
                                 app:icon="@drawable/baseline_refresh_24"
                                 app:iconGravity="textEnd"
@@ -294,7 +293,7 @@
                                 android:gravity="center"
                                 android:paddingTop="10dp"
                                 android:paddingBottom="10dp"
-                                android:text="Comida"
+                                android:text="@string/comida"
                                 android:textAppearance="?attr/textAppearanceTitleMedium"
                                 android:textSize="27sp" />
 
@@ -303,7 +302,7 @@
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
+                                android:layout_marginEnd="10dp"
                                 android:layout_weight=".1"
                                 app:icon="@drawable/baseline_star_border_24"
                                 app:iconGravity="textEnd"
@@ -326,6 +325,7 @@
 
                             android:layout_width="match_parent"
                             android:layout_height="194dp"
+                            android:contentDescription="@string/imagen_comida"
                             android:scaleType="centerCrop" />
 
                         <LinearLayout
@@ -340,7 +340,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal|center_vertical"
-                                android:text="Brocoli"
+                                android:text="@string/comida_no_encontrada"
                                 android:textAlignment="center"
                                 android:textAppearance="?attr/textAppearanceTitleMedium"
                                 android:textSize="21sp"
@@ -475,7 +475,7 @@
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:layout_weight=".1"
                                 app:icon="@drawable/baseline_refresh_24"
                                 app:iconGravity="textEnd"
@@ -491,7 +491,7 @@
                                 android:gravity="center"
                                 android:paddingTop="10dp"
                                 android:paddingBottom="10dp"
-                                android:text="Cena"
+                                android:text="@string/cena"
                                 android:textAppearance="?attr/textAppearanceTitleMedium"
                                 android:textSize="27sp" />
 
@@ -500,7 +500,7 @@
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
+                                android:layout_marginEnd="10dp"
                                 android:layout_weight=".1"
                                 app:icon="@drawable/baseline_star_border_24"
                                 app:iconGravity="textEnd"
@@ -523,7 +523,8 @@
 
                             android:layout_width="match_parent"
                             android:layout_height="194dp"
-                            android:scaleType="centerCrop" />
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/imagen_comida" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -537,7 +538,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal|center_vertical"
-                                android:text="Brocoli"
+                                android:text="@string/comida_no_encontrada"
                                 android:textAlignment="center"
                                 android:textAppearance="?attr/textAppearanceTitleMedium"
                                 android:textSize="21sp"

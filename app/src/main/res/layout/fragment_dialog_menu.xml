@@ -25,6 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:layout_weight="0.001"
+                android:contentDescription="@string/imagen_comida"
                 android:visibility="gone" />
 
             <Button
@@ -32,10 +33,10 @@
                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="25dp"
                 android:layout_weight=".1"
-                android:textSize="0dp"
+                android:textSize="0sp"
                 app:icon="@drawable/baseline_close_24"
                 app:iconGravity="textEnd"
                 app:iconPadding="0dp"
@@ -53,9 +54,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight=".1"
-                android:textSize="0dp"
+                android:textSize="0sp"
                 app:icon="@drawable/baseline_star_border_24"
                 app:iconGravity="textEnd"
                 app:iconPadding="0dp"
@@ -82,7 +83,6 @@
                     android:id="@+id/loadingIndicator"
                     android:layout_width="match_parent"
                     android:layout_height="88dp"
-                    android:layout_centerInParent="true"
                     android:layout_gravity="center"
                     android:indeterminate="true"
                     android:visibility="visible" />
@@ -112,7 +112,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal|center_vertical"
                             android:fontFamily="@font/montserrat_regular"
-                            android:text="Brocoli"
+                            android:text="@string/comida_no_encontrada"
                             android:textAlignment="center"
                             android:textAppearance="?attr/textAppearanceTitleMedium"
                             android:textColor="@android:color/black"
@@ -124,6 +124,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginTop="10dp"
+                            android:baselineAligned="false"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -148,9 +149,10 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_regular"
                                     android:gravity="center"
-                                    android:text="Kilocalorías"
+                                    android:text="@string/kilocalorias"
                                     android:textColor="@android:color/black"
-                                    android:textSize="10sp" />
+                                    android:textSize="10sp"
+                                    tools:ignore="SmallSp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -167,7 +169,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="30g"
+                                    android:text="@string/comida_no_encontrada"
                                     android:textColor="@android:color/black" />
 
                                 <TextView
@@ -175,9 +177,10 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_regular"
                                     android:gravity="center"
-                                    android:text="Proteínas"
+                                    android:text="@string/proteinas"
                                     android:textColor="@android:color/black"
-                                    android:textSize="10sp" />
+                                    android:textSize="10sp"
+                                    tools:ignore="SmallSp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -195,7 +198,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="45g"
+                                    android:text="@string/comida_no_encontrada"
                                     android:textColor="@android:color/black" />
 
                                 <TextView
@@ -204,9 +207,10 @@
                                     android:layout_weight="1"
                                     android:fontFamily="@font/montserrat_regular"
                                     android:gravity="center"
-                                    android:text="Carbohidratos"
+                                    android:text="@string/carbohidratos"
                                     android:textColor="@android:color/black"
-                                    android:textSize="10sp" />
+                                    android:textSize="10sp"
+                                    tools:ignore="SmallSp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -223,7 +227,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="21g"
+                                    android:text="@string/comida_no_encontrada"
                                     android:textColor="@android:color/black" />
 
                                 <TextView
@@ -231,9 +235,10 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_regular"
                                     android:gravity="center"
-                                    android:text="Grasas"
+                                    android:text="@string/grasas"
                                     android:textColor="@android:color/black"
-                                    android:textSize="10sp" />
+                                    android:textSize="10sp"
+                                    tools:ignore="SmallSp" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -268,7 +273,7 @@
                             android:layout_gravity="center|center_horizontal|center_vertical"
                             android:fontFamily="@font/montserrat_regular"
                             android:gravity="center|start"
-                            android:text="Ingredientes:"
+                            android:text="@string/ingredientes"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:textColor="@android:color/black"
                             android:textSize="25sp"
@@ -303,7 +308,7 @@
                             android:layout_marginBottom="7dp"
                             android:fontFamily="@font/montserrat_regular"
                             android:gravity="center|start"
-                            android:text="Instrucciones:"
+                            android:text="@string/instrucciones"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:textColor="@android:color/black"
                             android:textSize="25sp"
@@ -313,7 +318,7 @@
                             android:id="@+id/instruccionesTx"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Instrucciones"
+                            android:text="@string/instrucciones"
                             android:textAlignment="textStart"
                             android:textColor="@android:color/black"
                             app:lineHeight="25dp" />

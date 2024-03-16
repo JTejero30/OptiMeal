@@ -10,13 +10,13 @@
         android:id="@+id/navigation_userData"
         android:name="com.example.app.ui.user.userDataFragment"
         android:label="@string/title_userData"
-        tools:layout="@layout/fragment_user_data"/>
+        tools:layout="@layout/fragment_user_data" />
 
     <fragment
-        android:id="@+id/navigation_ingredients"
+        android:id="@+id/navigation_menu"
         android:name="com.example.app.ui.main.MenuFragment"
-        android:label="@string/title_ingredients"
-        tools:layout="@layout/fragment_main" />
+        android:label="@string/title_menu"
+        tools:layout="@layout/fragment_menu" />
 
     <fragment
         android:id="@+id/navigation_recipes"

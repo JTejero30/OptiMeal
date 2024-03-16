@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/navigation_ingredients"
+        android:id="@+id/navigation_menu"
         android:icon="@drawable/baseline_grocery_ingredient_24"
         android:title="@string/title_ingredients"
         android:contentDescription="@string/title_ingredients"
