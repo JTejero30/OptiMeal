@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -27,6 +28,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.io.IOException
@@ -84,7 +86,7 @@ class Inicio : AppCompatActivity() {
 
         /***************CARGAR MENUS*************/
 
-        /*lifecycleScope.launch(Dispatchers.Main) {
+       /* lifecycleScope.launch(Dispatchers.Main) {
             //val data = getData("comidas_wetaca", 700, 23, 23, 60)
             val data = getData("comidas_wetaca", 200, 1, 1, 1)
             data?.let {

@@ -62,8 +62,6 @@ class MenuFragment : Fragment(), DayItemClickI {
 
         menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
 
-
-
         menuViewModel.getDates()
         menuViewModel.weekModelL.observe(viewLifecycleOwner) { weekModelList ->
             weekModelList?.let {
@@ -77,12 +75,8 @@ class MenuFragment : Fragment(), DayItemClickI {
 
                 //aqui creo el weekAdapter con el listener, que será este fragment
                 rv.adapter = WeekAdapter(weekModelList, this)
-
             }
         }
-
-
-
 
         binding.loadingIndicator.visibility = View.VISIBLE
         binding.menuSV.visibility = View.GONE
@@ -103,12 +97,9 @@ class MenuFragment : Fragment(), DayItemClickI {
                 Log.d("MenuFragment", "weekMoidel--> ${menuModel.toString()}")
 
                 //Desayuno
-
                 binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
-
                 Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
                     .into(binding.ivDesayuno)
-
                 binding.ivDesayuno.setOnClickListener {
                     val dialogFragment = DialogMenuFragment()
                     dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)
@@ -141,8 +132,6 @@ class MenuFragment : Fragment(), DayItemClickI {
                 }*/
 
                 //Comida
-
-
                 val imageName = it.menu_del_dia.comida.imagen
 
                 val imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
@@ -150,7 +139,6 @@ class MenuFragment : Fragment(), DayItemClickI {
                     val imageUrl = uri.toString()
                     /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
                              .into(binding.ivDesayuno)*/
-
                     Picasso.get()
                         .load(imageUrl)
                         .into(binding.ivComida, object : com.squareup.picasso.Callback {
@@ -158,7 +146,6 @@ class MenuFragment : Fragment(), DayItemClickI {
                                 binding.loadingIndicator.visibility = View.GONE
                                 binding.menuSV.visibility = View.VISIBLE
                             }
-
                             override fun onError(e: Exception?) {
                                 binding.loadingIndicator.visibility = View.VISIBLE
                                 binding.menuSV.visibility = View.GONE
