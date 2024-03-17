@@ -7,7 +7,6 @@
     android:layout_gravity="center"
     tools:context=".register.DieteticPreferenceFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -30,7 +29,7 @@
                 android:layout_height="43dp"
                 android:layout_marginBottom="48dp"
                 android:gravity="center"
-                android:text="Tipo de dieta"
+                android:text="@string/tipo_de_dieta"
                 android:textSize="16sp" />
 
             <com.google.android.material.button.MaterialButtonToggleGroup
@@ -50,7 +49,7 @@
                     android:layout_marginBottom="16dp"
                     android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
                     android:gravity="start|center_vertical"
-                    android:text="Estándar" />
+                    android:text="@string/estandar" />
 
                 <Button
                     android:id="@+id/vegetarian"
@@ -60,7 +59,7 @@
                     android:layout_marginBottom="16dp"
                     android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
                     android:gravity="start|center_vertical"
-                    android:text="Vegetariana" />
+                    android:text="@string/vegetariana" />
 
                 <Button
                     android:id="@+id/vegan"
@@ -70,7 +69,7 @@
                     android:layout_marginBottom="16dp"
                     android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
                     android:gravity="start|center_vertical"
-                    android:text="Vegana" />
+                    android:text="@string/vegana" />
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
 

@@ -15,14 +15,13 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="370dp"
-            android:layout_height="163dp"
+            android:layout_width="320dp"
+            android:layout_height="124dp"
             android:layout_gravity="center"
             android:layout_marginTop="0dp"
 
+            android:contentDescription="logoImagen"
             android:layout_marginBottom="40dp"
-            android:contentDescription="logo"
-            android:onClick="nextQuestion"
             app:srcCompat="@drawable/optimeal_icon_black" />
 
         <LinearLayout

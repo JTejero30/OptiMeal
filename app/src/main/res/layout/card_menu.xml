@@ -19,6 +19,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="194dp"
+            android:contentDescription="@string/imagen_comida"
             android:scaleType="centerCrop" />
 
         <LinearLayout
@@ -34,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:text="Brocoli"
+                android:text="@string/comida_no_encontrada"
                 android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textSize="34sp" />
 
@@ -58,7 +59,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center|center_horizontal|center_vertical"
                     android:gravity="center|center_horizontal|center_vertical"
-                    android:text="Ingredientes:"
+                    android:text="@string/ingredientes"
                     android:textAppearance="?attr/textAppearanceBodyMedium"
                     android:textColor="?android:attr/textColorSecondary"
                     android:textSize="20sp" />
@@ -94,7 +95,7 @@
                 android:padding="8dp"
                 android:rowCount="4"
                 android:useDefaultMargins="true"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -108,7 +109,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center|center_horizontal|center_vertical"
                     android:gravity="center|center_horizontal|center_vertical"
-                    android:text="Macros:"
+                    android:text="@string/macros"
                     android:textAppearance="?attr/textAppearanceBodyMedium"
                     android:textColor="?android:attr/textColorSecondary"
                     android:textSize="20sp" />
@@ -130,7 +131,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 app:dividerInsetEnd="3dp"
-                app:dividerInsetStart="3dp"/>
+                app:dividerInsetStart="3dp" />
 
             <LinearLayout
                 android:id="@+id/listaMacrosCard"

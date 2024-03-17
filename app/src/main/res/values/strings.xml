@@ -6,7 +6,7 @@
 
     <!--NAVIGATION-->
     <string name="title_userData">User</string>
-    <string name="title_ingredients">Ingredients</string>
+    <string name="title_ingredients">Menu</string>
     <string name="title_recipes">Recipes</string>
     <string name="title_menu">Menu</string>
 
@@ -70,5 +70,84 @@
     <string name="email">Email</string>
     <string name="a_n_no_tienes_cuenta">¿Aún no tienes cuenta?</string>
     <string name="reg_strate">Regístrate</string>
+
+    <!--fragment_menu-->
+    <string name="desayuno">Desayuno</string>
+    <string name="comida_no_encontrada">null</string>
+    <string name="comida">Comida</string>
+    <string name="cena">Cena</string>
+    <string name="imagen_comida">imagen_comida</string>
+
+    <!--card_day_fragment-->
+    <string name="lun">lun</string>
+    <string name="day_week">28</string>
+    <string name="month_week">feb</string>
+    <string name="hoy_week">Hoy</string>
+
+    <!--card_menu_fragent-->
+    <string name="ingredientes">Ingredientes:</string>
+    <string name="macros">Macros:</string>
+
+    <!--activity_login-->
+    <string name="logo_image">logo</string>
+    <string name="password">Password</string>
+    <string name="continuar_con_google">Continuar con Google</string>
+
+    <!--activity_register-->
+    <string name="ayudanos_a_conocerte_mejor">Ayudanos a conocerte mejor</string>
+    <string name="fecla_atras_drawable">flechaDrawable</string>
+    <string name="continuar">Continuar</string>
+    <string name="alguna_alergia_que_debamos_conocer">¿Alguna alergia que debamos conocer?</string>
+    <string name="imagen_alergia">imagenAlergia</string>
+
+    <!--fragment_dialog_menu-->
+    <string name="kilocalorias">Kilocalorías</string>
+    <string name="proteinas">Proteínas</string>
+    <string name="carbohidratos">Carbohidratos</string>
+    <string name="grasas">Grasas</string>
+    <string name="instrucciones">Instrucciones:</string>
+
+    <!--fragment_dietetic-->
+    <string name="estandar">Estándar</string>
+    <string name="vegetariana">Vegetariana</string>
+    <string name="vegana">Vegana</string>
+    <string name="tipo_de_dieta">Tipo de dieta</string>
+
+    <!--fragment_objetives-->
+    <string name="perder_peso">Perder peso</string>
+    <string name="ganar_masa_muscular">Ganar masa muscular</string>
+    <string name="comer_m_s_saludable">Comer más saludable</string>
+    <string name="cual_es_tu_principal_objetivo">¿Cuál es tu principal objetivo?</string>
+
+    <!--fragment_personal_data-->
+    <string name="altura_cm">Altura (cm)</string>
+    <string name="peso_kg">Peso (kg)</string>
+    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
+    <string name="mujer">Mujer</string>
+    <string name="hombre">Hombre</string>
+
+    <!--fragment_physical_activity-->
+    <string name="cual_es_tu_nivel_de_ejercicio">¿Cuál es tu nivel de ejercicio?</string>
+    <string name="poco_o_ninguno">Poco o ninguno</string>
+    <string name="ligero_1_3_dias_semana">Ligero, 1–3 días/semana</string>
+    <string name="moderado_3_5_dias_semana">Moderado, 3–5 días/semana</string>
+    <string name="muy_activo_5_7_dias_semana">Muy activo, 5–7 días/semana</string>
+
+    <!--fragment_register-->
+    <string name="registrar">Registrar</string>
+    <string name="registrar_con_google">Registrar con Google</string>
+
+    <!--fragment_user_data-->
+    <string name="image_foto_perfil">foto de perfil</string>
+    <string name="peso">Peso</string>
+    <string name="altura">Altura</string>
+    <string name="date">date</string>
+    <string name="dieta">dieta</string>
+    <string name="ejercicio_semanal">Ejercicio semanal</string>
+    <string name="objetivo">Objetivo</string>
+    <string name="userobjetives">userObjetives</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="borrar_cuenta">BORRAR CUENTA</string>
+
 
 </resources>

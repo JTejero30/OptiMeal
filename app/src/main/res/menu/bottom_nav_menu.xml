@@ -6,7 +6,7 @@
         android:title="@string/title_userData" />
 
     <item
-        android:id="@+id/navigation_ingredients"
+        android:id="@+id/navigation_menu"
         android:icon="@drawable/baseline_menu_book_24"
         android:title="@string/title_menu" />
 

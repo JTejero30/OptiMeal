@@ -25,9 +25,7 @@
         <activity
             android:name=".mainActivity.Inicio"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+
         <activity
             android:name=".register.RegisterActivity"
             android:exported="false">

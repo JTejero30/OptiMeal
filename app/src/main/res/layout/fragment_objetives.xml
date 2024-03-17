@@ -27,7 +27,7 @@
                 android:layout_height="43dp"
                 android:layout_marginBottom="48dp"
                 android:gravity="center"
-                android:text="¿Cuál es tu principal objetivo?"
+                android:text="@string/cual_es_tu_principal_objetivo"
                 android:textSize="16sp" />
 
             <com.google.android.material.button.MaterialButtonToggleGroup
@@ -48,7 +48,7 @@
                     android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
                     android:gravity="start|center_vertical"
                     android:tag="1"
-                    android:text="Perder peso" />
+                    android:text="@string/perder_peso" />
 
                 <Button
                     android:id="@+id/ganar"
@@ -59,7 +59,7 @@
                     android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
                     android:gravity="start|center_vertical"
                     android:tag="2"
-                    android:text="Ganar masa muscular" />
+                    android:text="@string/ganar_masa_muscular" />
 
                 <Button
                     android:id="@+id/saludable"
@@ -70,7 +70,7 @@
                     android:drawableEnd="@drawable/chevron_right_fill0_wght400_grad0_opsz24"
                     android:gravity="start|center_vertical"
                     android:tag="3"
-                    android:text="Comer más saludable" />
+                    android:text="@string/comer_m_s_saludable" />
             </com.google.android.material.button.MaterialButtonToggleGroup>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

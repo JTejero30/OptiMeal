@@ -67,7 +67,7 @@ class Inicio : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_userData, R.id.navigation_ingredients, R.id.navigation_recipes
+                R.id.navigation_userData, R.id.navigation_menu, R.id.navigation_recipes
             )
         )
 
@@ -86,7 +86,7 @@ class Inicio : AppCompatActivity() {
 
         /***************CARGAR MENUS*************/
 
-        /*lifecycleScope.launch(Dispatchers.Main) {
+       /* lifecycleScope.launch(Dispatchers.Main) {
             //val data = getData("comidas_wetaca", 700, 23, 23, 60)
             val data = getData("comidas_wetaca", 200, 1, 1, 1)
             data?.let {
