@@ -7,6 +7,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.app.model.IngredienteNutri
+import com.example.app.model.InstruccionesNutri
+import com.example.app.model.PlatoNutri
 import com.example.app.ui.main.model.DayModel
 import com.example.app.ui.main.model.Ingrediente
 import com.example.app.ui.main.model.MenuDelDia
@@ -149,10 +152,6 @@ class MenuViewModel : ViewModel() {
         val total_carbohidratos = data?.get("total_carbohidratos").toString().toDouble()
 
         val intrucciones = data?.get("instrucciones").toString()
-
-
-
-
         return Plato(
             plato,
             ingredientes,
@@ -163,6 +162,62 @@ class MenuViewModel : ViewModel() {
             intrucciones
         )
     }
+
+    private suspend fun fetchPlatoNutri(reference: DocumentReference?): Plato? {
+        return try {
+            val document = reference?.get()?.await()
+            if (document != null && document.exists()) {
+                val menuData = document.data as Map<String, *>
+                Log.d("MenuViewModel", "Menu data fetchPlato: ${menuData}")
+
+                createPlato(menuData)
+            } else {
+                null
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+    private fun createPlatoNutri(data: Map<*, *>?): PlatoNutri {
+        val plato = data?.get("plato").toString()
+        val imagen = data?.get("imagen").toString()
+
+        Log.d("MenuViewModel", "Menu data createPlato: ${data}")
+
+
+        val ingredientesData = data?.get("ingredientes") as? List<IngredienteNutri> ?: emptyList()
+        val ingredientes = ingredientesData.map { ingrediente ->
+            IngredienteNutri(ingrediente.toString())
+        }
+        val total_grasa = data?.get("total_grasa").toString().toDouble()
+        val total_proteina = data?.get("total_proteina").toString().toDouble()
+        val total_carbohidratos = data?.get("total_carbohidratos").toString().toDouble()
+        val contenido = data?.get("contenido").toString()
+
+        //val intrucciones = data?.get("instrucciones").toString()
+        val instruccionesData =
+            data?.get("instrucciones") as? List<InstruccionesNutri> ?: emptyList()
+
+        val instrucciones = instruccionesData.map { instruccion ->
+            InstruccionesNutri(instruccion.toString())
+        }
+
+        val total_kilocalorias = data?.get("total_kilocalorias").toString().toInt()
+
+        return PlatoNutri(
+            plato,
+            ingredientes,
+            contenido,
+            instrucciones,
+            total_grasa,
+            total_proteina,
+            total_carbohidratos,
+            total_kilocalorias,
+            imagen
+        )
+    }
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getDates() {

@@ -17,6 +17,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.app.R
 import com.example.app.databinding.ActivityInicioBinding
+import com.example.app.model.PlatoNutri
 import com.example.app.model.PlatoWetaca
 import com.example.app.ui.main.WeekManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -86,20 +87,22 @@ class Inicio : AppCompatActivity() {
 
         /***************CARGAR MENUS*************/
 
-       /* lifecycleScope.launch(Dispatchers.Main) {
-            //val data = getData("comidas_wetaca", 700, 23, 23, 60)
-            val data = getData("comidas_wetaca", 200, 1, 1, 1)
-            data?.let {
+        /* lifecycleScope.launch(Dispatchers.Main) {
+             //val data = getData("comidas_wetaca", 700, 23, 23, 60)
+             val data = getData("comidas_wetaca", 200, 1, 1, 1)
+             data?.let {
 
-                Log.d("CreacionMenu", "PLatos ${it.random()}")
-                Log.d("CreacionMenu", "PLatos ${it}")
+                 Log.d("CreacionMenu", "PLatos ${it.random()}")
+                 Log.d("CreacionMenu", "PLatos ${it}")
 
-                cargarMenu("menu_dia", it, "comida")
-            }
-        }*/
+                 cargarMenu("menu_dia", it, "comida")
+             }
+         }*/
 
         /***************CARGAR PLATOS*************/
         // cargarPlatos()
+
+        //cargarPlatosNutri()
     }
 
     // Override onSupportNavigateUp to handle Up button presses in the default ActionBar
@@ -157,6 +160,47 @@ class Inicio : AppCompatActivity() {
 
     }
 
+    fun cargarPlatosNutri() {
+        data class PlatosData(val comidasNutri: List<PlatoNutri>)
+
+        try {
+            val jsonFileName = "platosNutri.json"
+            val inputStream: InputStream = this.assets.open(jsonFileName)
+            val size = inputStream.available()
+            val buffer = ByteArray(size)
+            inputStream.read(buffer)
+            inputStream.close()
+
+            // Convert the byte array to a String (assuming UTF-8 encoding)
+            val jsonString = String(buffer, Charsets.UTF_8)
+
+            // Log or display the JSON data
+            Log.d(TAG, "JSON data: $jsonString")
+
+            // Now you can parse the JSON string and further process the data
+            // ...
+
+            val gson = Gson()
+            val platoData = gson.fromJson(jsonString, PlatosData::class.java)
+
+            Log.d(TAG, "mealsData data: $platoData")
+
+            val platosList = platoData.comidasNutri
+
+            Log.d(TAG, "mealsList data: $platosList")
+
+            val platosCollection = db.collection("comidas_nutri")
+
+            for (plato in platosList) {
+                platosCollection.add(plato)
+            }
+
+        } catch (e: IOException) {
+            // Handle the exception if there's an issue reading the JSON file
+            Log.e(TAG, "Error reading JSON file: $e")
+            Toast.makeText(this, "Error reading JSON file", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     fun cargarPlatos() {
         data class PlatosData(val comidasWetaca: List<PlatoWetaca>)

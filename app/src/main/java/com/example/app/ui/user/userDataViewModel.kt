@@ -35,7 +35,7 @@ class userDataViewModel : ViewModel() {
                 //cogemos el document del usuario actualmente logeado
                 val uidUser = auth.currentUser!!.uid
                 val document = userCollection.document(uidUser).get().await()
-
+                val imagen = document["imagen"]
                 //creamos la instancia del objeto User
                 val user = User(
                     document["id"].toString(),
