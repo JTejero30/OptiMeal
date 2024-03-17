@@ -10,7 +10,6 @@ import com.example.app.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
-import org.json.JSONObject
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -132,6 +131,7 @@ class RegisterActivity : AppCompatActivity() {
         val deficit = userData["deficit"].toString().toDouble()
         val alergiasArray = userData["allergies"].toString()
         val objetivo = userData["objetivo"].toString()
+
         auth = FirebaseAuth.getInstance()
 
 
@@ -150,7 +150,8 @@ class RegisterActivity : AppCompatActivity() {
             alergiasArray,
             TDEE,
             activityText,
-            objetivo
+            objetivo,
+            "gs://menuinteligente-4bc8f.appspot.com/images/user_no_image.jpg"
         )
     }
     fun createUserFromJsonGoogle(id:String): User {
@@ -182,7 +183,8 @@ class RegisterActivity : AppCompatActivity() {
             alergiasArray,
             TDEE,
             activityText,
-            objetivo
+            objetivo,
+            "gs://menuinteligente-4bc8f.appspot.com/images/user_no_image.jpg"
         )
     }
     public fun showAlert() {

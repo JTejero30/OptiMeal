@@ -3,7 +3,6 @@ package com.example.app.ui.user
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import com.example.app.User
 import com.example.app.register.LoginActivity
@@ -13,9 +12,12 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import java.util.UUID
+import android.net.Uri as Uri1
 
 
 class userDataViewModel : ViewModel() {
@@ -24,9 +26,13 @@ class userDataViewModel : ViewModel() {
 
     val userCollection = db.collection("users")
     private val auth = FirebaseAuth.getInstance()
+    private val storage = FirebaseStorage.getInstance()
     val uidUser = auth.currentUser!!.uid
     val userDocument = userCollection.document(uidUser).get()
     val name= auth.currentUser?.displayName
+   // val document = userCollection.document(uidUser).get(document["imagen"])
+
+
     suspend fun getData(): User? {
         //coger el documento del usuario que esta logeado
 
@@ -51,7 +57,8 @@ class userDataViewModel : ViewModel() {
                     document["alergias"].toString(),
                     document["tdee"].toString().toDouble(),
                     document["activityText"].toString(),
-                    document["objetivo"].toString()
+                    document["objetivo"].toString(),
+                    document["imageUrl"].toString()
                 )
                 return@withContext user
 
@@ -97,5 +104,51 @@ class userDataViewModel : ViewModel() {
         val intent = Intent(requireContext, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         requireContext.startActivity(intent)
+    }
+    fun subirPhotoFirebase(uri: Uri1) {
+        val storageRef = storage.reference
+
+        // Crear un nombre único para el archivo
+        val imageName = UUID.randomUUID().toString()
+
+        // Crear una referencia al archivo en Firebase Storage usando el nombre único
+        val imageRef = storageRef.child("images/$imageName")
+
+        // Subir el archivo al almacenamiento de Firebase
+        val uploadTask = imageRef.putFile(uri)
+
+        // Manejar los resultados de la carga del archivo
+        uploadTask.continueWithTask { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let {
+                    throw it
+                }
+            }
+            // Continuar con la tarea de obtener la URL de descarga del archivo
+            imageRef.downloadUrl
+        }.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                // URL de descarga del archivo
+                val downloadUri = task.result
+
+                // Obtener el ID de usuario actual
+                val uidUser = auth.currentUser!!.uid
+
+                // Referencia al documento del usuario
+                val userDocumentRef = db.collection("users").document(uidUser)
+
+                // Actualizar el campo de URL de imagen en el documento del usuario
+                userDocumentRef
+                    .update("imageUrl", downloadUri.toString())
+                    .addOnSuccessListener {
+                        // La URL de la imagen se ha guardado correctamente en Firestore
+                    }
+                    .addOnFailureListener { exception ->
+                        // Manejar el error al guardar la URL de la imagen
+                    }
+            } else {
+                // Manejar el error al obtener la URL de descarga del archivo
+            }
+        }
     }
 }

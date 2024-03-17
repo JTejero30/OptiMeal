@@ -3,6 +3,7 @@ package com.example.app.ui.user
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
@@ -13,11 +14,15 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.app.databinding.FragmentUserDataBinding
 import com.google.android.material.textfield.TextInputEditText
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -67,7 +72,7 @@ class userDataFragment : Fragment() {
             fillUserData(binding.dieteticType, user?.dietetic_preference.toString())
             fillUserData(binding.userActivities, user?.activityText.toString())
             fillUserData(binding.userObjetives, user?.objetivo.toString())
-
+            cargarPhoto(user?.image)
             fillDropDown(dietetics, binding.dieteticType)
             fillDropDown(activities, binding.userActivities)
             fillDropDown(objetives, binding.userObjetives)
@@ -103,10 +108,19 @@ class userDataFragment : Fragment() {
         }
         binding.deleteAccountB.setOnClickListener{deleteAccount()}
         binding.logOut.setOnClickListener{logOut()}
+
+        selectorPhotos()
+
         return binding.root
     }
 
-
+    override fun onResume() {
+        super.onResume()
+//        cargarPhoto()
+    }
+    private fun cargarPhoto(image: Any?) {
+        Glide.with(binding.userPhoto.context).load(image).into(binding.userPhoto)
+    }
 
     private fun fillUserData(dropDown: AutoCompleteTextView, userData: String) {
         val index = dietetics.indexOf(userData)
@@ -165,4 +179,22 @@ class userDataFragment : Fragment() {
         builder.create()
         builder.show()
     }
+    private fun selectorPhotos() {
+        val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            // Callback is invoked after the user selects a media item or closes the
+            // photo picker.
+            if (uri != null) {
+                binding.userPhoto.setImageURI(uri)
+                viewModel.subirPhotoFirebase(uri)
+            } else {
+                Log.d("PhotoPicker", "No media selected")
+            }
+        }
+        binding.userPhoto.setOnClickListener{
+            pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+        }
+    }
+
+
+
 }

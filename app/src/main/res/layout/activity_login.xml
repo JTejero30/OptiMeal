@@ -15,11 +15,12 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="320dp"
-            android:layout_height="124dp"
+            android:layout_width="370dp"
+            android:layout_height="163dp"
             android:layout_gravity="center"
             android:layout_marginTop="0dp"
 
+            android:layout_marginBottom="40dp"
             android:contentDescription="logo"
             android:onClick="nextQuestion"
             app:srcCompat="@drawable/optimeal_icon_black" />
@@ -112,7 +113,8 @@
                 android:drawableStart="@drawable/google_white"
                 android:fontFamily="@font/montserrat_regular"
                 android:isScrollContainer="false"
-                android:padding="15dp"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
                 android:text="Continue with Google"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
