@@ -4,11 +4,16 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.res.ResourcesCompat
 import com.example.app.R
 import com.example.app.User
 import com.example.app.databinding.ActivityLoginBinding
@@ -29,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
     private val db = Firebase.firestore
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private var password = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,7 +82,12 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
+        binding.passwordEditText.setOnClickListener{
+            mostrarContrasena()
+        }
     }
+
+
 
     private fun signInGoogle() {
         val signInIntent = googleSignInClient.signInIntent
@@ -240,5 +251,20 @@ class LoginActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
+    private fun mostrarContrasena() {
+        password = !password
+        val ver : Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.ver,null)
+        val esconder : Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.esconder,null)
+        val pass : Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.pass,null)
 
+        if(password){
+            binding.passwordEditText.setCompoundDrawablesWithIntrinsicBounds(pass,null,ver,null)
+            binding.passwordEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
+        }else{
+            binding.passwordEditText.setCompoundDrawablesWithIntrinsicBounds(pass,null,esconder,null)
+            binding.passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
+
+        }
+
+    }
 }
