@@ -34,13 +34,17 @@
             android:paddingEnd="5dp"
             android:paddingBottom="5dp" />
 
-        <ProgressBar
+ <!--       <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/loadingIndicator"
             android:layout_width="81dp"
             android:layout_height="88dp"
             android:layout_gravity="center"
             android:indeterminate="true"
-            android:visibility="visible" />
+            app:trackThickness="7dp"
+            app:indicatorSize="60dp"
+            android:visibility="visible" />-->
+
+
 
         <!--Aqui uso nestedScrollView porque el hideOnScroll del navView de la vista inicio da problemas-->
         <androidx.core.widget.NestedScrollView
@@ -59,9 +63,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:background="@color/primario50">
-
+                    android:background="@color/primario50"
+                    android:visibility="visible">
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/loadingIndicatorDesayuno"
+                        android:layout_width="81dp"
+                        android:layout_height="88dp"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        app:trackThickness="7dp"
+                        app:indicatorSize="60dp"
+                        android:visibility="visible" />
                     <LinearLayout
+                        android:id="@+id/DesayunoCV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -256,9 +270,21 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp">
+                    android:layout_margin="8dp"
+                    android:visibility="visible">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/loadingIndicatorComida"
+                        android:layout_width="81dp"
+                        android:layout_height="88dp"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="visible"
+                        app:indicatorSize="60dp"
+                        app:trackThickness="7dp" />
 
                     <LinearLayout
+                        android:id="@+id/ComidaCV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -452,12 +478,23 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/detailBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp">
+                    android:layout_margin="8dp"
+                    android:visibility="visible">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/loadingIndicatorCena"
+                        android:layout_width="81dp"
+                        android:layout_height="88dp"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="visible"
+                        app:indicatorSize="60dp"
+                        app:trackThickness="7dp" />
 
                     <LinearLayout
+                        android:id="@+id/CenaCV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -523,8 +560,8 @@
 
                             android:layout_width="match_parent"
                             android:layout_height="194dp"
-                            android:scaleType="centerCrop"
-                            android:contentDescription="@string/imagen_comida" />
+                            android:contentDescription="@string/imagen_comida"
+                            android:scaleType="centerCrop" />
 
                         <LinearLayout
                             android:layout_width="match_parent"

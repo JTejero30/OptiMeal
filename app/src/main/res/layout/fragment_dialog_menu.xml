@@ -79,13 +79,16 @@
                 android:orientation="vertical">
 
 
-                <ProgressBar
+                <com.google.android.material.progressindicator.CircularProgressIndicator
                     android:id="@+id/loadingIndicator"
-                    android:layout_width="match_parent"
-                    android:layout_height="88dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:layout_gravity="center"
+                    app:trackThickness="7dp"
+                    app:indicatorSize="60dp"
                     android:indeterminate="true"
                     android:visibility="visible" />
+
 
                 <com.google.android.material.circularreveal.cardview.CircularRevealCardView
                     android:id="@+id/dataLL"
