@@ -12,6 +12,7 @@ import com.example.app.model.InstruccionesNutri
 import com.example.app.model.PlatoNutri
 import com.example.app.ui.main.model.DayModel
 import com.example.app.ui.main.model.Ingrediente
+import com.example.app.ui.main.model.Instruccion
 import com.example.app.ui.main.model.MenuDelDia
 import com.example.app.ui.main.model.MenuModel
 import com.example.app.ui.main.model.Plato
@@ -75,9 +76,9 @@ class MenuViewModel : ViewModel() {
                     Log.d("MenuViewModel", "Docuenmntrefernce ${comidaReference}")
 
 
-                    val desayunoDeferred = async { fetchPlato(desayunoReference) }
-                    val comidaDeferred = async { fetchPlato(comidaReference) }
-                    val cenaDeferred = async { fetchPlato(cenaference) }
+                    val desayunoDeferred = async { fetchPlatoNutri(desayunoReference) }
+                    val comidaDeferred = async { fetchPlatoNutri(comidaReference) }
+                    val cenaDeferred = async { fetchPlatoNutri(cenaference) }
 
                     /*val desayuno = desayunoDeferred.await()
                     val comida = comidaDeferred.await()
@@ -85,6 +86,7 @@ class MenuViewModel : ViewModel() {
                     val desayuno = desayunoDeferred.await()
                     val comida = comidaDeferred.await()
                     val cena = cenaDeferred.await()
+
                     Log.d("MenuViewModel", "deayuonp data: ${desayuno}")
 
                     Log.d("MenuViewModel", "comida data: ${comida}")
@@ -112,56 +114,53 @@ class MenuViewModel : ViewModel() {
         }
     }
 
-    private suspend fun fetchPlato(reference: DocumentReference?): Plato? {
-        return try {
-            val document = reference?.get()?.await()
-            if (document != null && document.exists()) {
-                val menuData = document.data as Map<String, *>
-                Log.d("MenuViewModel", "Menu data fetchPlato: ${menuData}")
+    /*    private suspend fun fetchPlato(reference: DocumentReference?): Plato? {
+            return try {
+                val document = reference?.get()?.await()
+                if (document != null && document.exists()) {
+                    val menuData = document.data as Map<String, *>
+                    Log.d("MenuViewModel", "Menu data fetchPlato: ${menuData}")
 
-                createPlato(menuData)
-            } else {
+                    createPlato(menuData)
+                } else {
+                    null
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
                 null
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
         }
-    }
 
-    private fun createPlato(data: Map<*, *>?): Plato {
-        val plato = data?.get("plato").toString()
-        val imagen = data?.get("imagen").toString()
+        private fun createPlato(data: Map<*, *>?): Plato {
+            val plato = data?.get("plato").toString()
+            val imagen = data?.get("imagen").toString()
 
-        Log.d("MenuViewModel", "Menu data createPlato: ${data}")
+            Log.d("MenuViewModel", "Menu data createPlato: ${data}")
 
 
-        val ingredientesData = data?.get("ingredientes") as? List<Map<*, *>> ?: emptyList()
-        val ingredientes = ingredientesData.map { ingredienteData ->
-            Ingrediente(
-                ingredienteData["nombre"].toString(),
-                ingredienteData["cantidad"].toString()
-                /*ingredienteData["calorias"].toString().toDouble(),
-                    ingredienteData["tipo"].toString(),
-                    ingredienteData["gramos"].toString().toDouble()*/
+            val ingredientesData = data?.get("ingredientes") as? List<Map<*, *>> ?: emptyList()
+            val ingredientes = ingredientesData.map { ingredienteData ->
+                Ingrediente(
+                    ingredienteData["nombre"].toString(),
+                    ingredienteData["cantidad"].toString()
+                )
+
+            }
+            val total_grasa = data?.get("total_grasa").toString().toDouble()
+            val total_proteina = data?.get("total_proteina").toString().toDouble()
+            val total_carbohidratos = data?.get("total_carbohidratos").toString().toDouble()
+
+            val intrucciones = data?.get("instrucciones").toString()
+            return Plato(
+                plato,
+                ingredientes,
+                total_grasa,
+                total_proteina,
+                total_carbohidratos,
+                imagen,
+                intrucciones
             )
-
-        }
-        val total_grasa = data?.get("total_grasa").toString().toDouble()
-        val total_proteina = data?.get("total_proteina").toString().toDouble()
-        val total_carbohidratos = data?.get("total_carbohidratos").toString().toDouble()
-
-        val intrucciones = data?.get("instrucciones").toString()
-        return Plato(
-            plato,
-            ingredientes,
-            total_grasa,
-            total_proteina,
-            total_carbohidratos,
-            imagen,
-            intrucciones
-        )
-    }
+        }*/
 
     private suspend fun fetchPlatoNutri(reference: DocumentReference?): Plato? {
         return try {
@@ -170,7 +169,7 @@ class MenuViewModel : ViewModel() {
                 val menuData = document.data as Map<String, *>
                 Log.d("MenuViewModel", "Menu data fetchPlato: ${menuData}")
 
-                createPlato(menuData)
+                createPlatoNutri(menuData)
             } else {
                 null
             }
@@ -179,17 +178,29 @@ class MenuViewModel : ViewModel() {
             null
         }
     }
-    private fun createPlatoNutri(data: Map<*, *>?): PlatoNutri {
+
+    private fun createPlatoNutri(data: Map<*, *>?): Plato {
         val plato = data?.get("plato").toString()
         val imagen = data?.get("imagen").toString()
+        Log.d("MenuViewModel", "PLATO ANME: ${plato}")
+        Log.d("MenuViewModel", "PLATO IMAGEN: ${imagen}")
 
         Log.d("MenuViewModel", "Menu data createPlato: ${data}")
 
 
-        val ingredientesData = data?.get("ingredientes") as? List<IngredienteNutri> ?: emptyList()
+        val ingredientesData = data?.get("ingredientes") as? List<Map<*, *>> ?: emptyList()
+        Log.d("MenuViewModel", "PLATO ingredientesData: ${ingredientesData}")
+
         val ingredientes = ingredientesData.map { ingrediente ->
-            IngredienteNutri(ingrediente.toString())
+            Log.d("MenuViewModel", "PLATO INGREDIENTE: ${ingrediente}")
+
+            Ingrediente(ingrediente.toString())
         }
+
+        Log.d("MenuViewModel", "PLATO ingredientesData: ${ingredientesData}")
+        Log.d("MenuViewModel", "PLATO ingredientes: ${ingredientes}")
+
+
         val total_grasa = data?.get("total_grasa").toString().toDouble()
         val total_proteina = data?.get("total_proteina").toString().toDouble()
         val total_carbohidratos = data?.get("total_carbohidratos").toString().toDouble()
@@ -197,15 +208,17 @@ class MenuViewModel : ViewModel() {
 
         //val intrucciones = data?.get("instrucciones").toString()
         val instruccionesData =
-            data?.get("instrucciones") as? List<InstruccionesNutri> ?: emptyList()
+            data?.get("instrucciones") as? List<Map<*, *>> ?: emptyList()
 
         val instrucciones = instruccionesData.map { instruccion ->
-            InstruccionesNutri(instruccion.toString())
+            Instruccion(instruccion.toString())
         }
 
         val total_kilocalorias = data?.get("total_kilocalorias").toString().toInt()
+        Log.d("MenuViewModel", "total_kilocalorias: ${instrucciones}")
 
-        return PlatoNutri(
+
+        val platos = Plato(
             plato,
             ingredientes,
             contenido,
@@ -216,6 +229,7 @@ class MenuViewModel : ViewModel() {
             total_kilocalorias,
             imagen
         )
+        return platos
     }
 
 

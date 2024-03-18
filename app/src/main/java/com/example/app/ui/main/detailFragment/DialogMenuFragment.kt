@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
 import com.example.app.R
 import com.example.app.databinding.FragmentDialogMenuBinding
+import com.example.app.model.PlatoNutri
 import com.example.app.ui.main.model.MenuModel
 import com.example.app.ui.main.model.Plato
 import com.google.firebase.ktx.Firebase
@@ -35,6 +36,7 @@ class DialogMenuFragment : DialogFragment() {
     private val binding get() = _binding!!
 
     private lateinit var menuModelPlatoL: Plato
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,7 +84,7 @@ class DialogMenuFragment : DialogFragment() {
         binding.ivMenuLL.visibility = View.INVISIBLE
 
         val imageName = menuModelPlatoL.imagen
-        var imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
+        var imageRef = storage.reference.child("todas_comidas_imagenes/$imageName.jpg")
         Log.d("MenuFragment", "Image URL desayuno : $imageRef")
         imageRef.downloadUrl.addOnSuccessListener { uri ->
             val imageUrl = uri.toString()
@@ -96,6 +98,7 @@ class DialogMenuFragment : DialogFragment() {
                         binding.ivMenuLL.visibility = View.VISIBLE
                         binding.dataLL2.visibility = View.VISIBLE
                     }
+
                     override fun onError(e: Exception?) {
                         binding.loadingIndicator.visibility = View.GONE
                         binding.dataLL.visibility = View.VISIBLE
@@ -116,20 +119,32 @@ class DialogMenuFragment : DialogFragment() {
 
         binding.grasasTx.text = menuModelPlatoL.total_grasa.toString() + "g"
 
-        binding.instruccionesTx.text = menuModelPlatoL.intrucciones.toString()
+        //binding.instruccionesTx.text = menuModelPlatoL.instrucciones.toString()
 
-        for (ingrediente in menuModelPlatoL.ingredientes) {
-            val textViewCantidad = TextView(binding.listaIngredientesCardDesayuno.context)
+        for (ingrediente in menuModelPlatoL.ingredientes!!) {
+            /*val textViewCantidad = TextView(binding.listaIngredientesCardDesayuno.context)
             textViewCantidad.text = ingrediente.cantidad + " "
             textViewCantidad.textSize = 15F
-            binding.listaIngredientesCardDesayuno.addView(textViewCantidad)
+            binding.listaIngredientesCardDesayuno.addView(textViewCantidad)*/
 
             val textViewNombre = TextView(binding.listaIngredientesCardDesayuno.context)
-            textViewNombre.text = ingrediente.nombre
+            textViewNombre.text = ingrediente.ingredientes
             textViewNombre.textSize = 15F
 
             binding.listaIngredientesCardDesayuno.addView(textViewNombre)
         }
+
+        for (ingrediente in menuModelPlatoL.instrucciones!!) {
+
+
+            val textViewNombre = TextView(binding.listaInstruccionesCardDesayuno.context)
+            textViewNombre.text = ingrediente.instrucciones
+            textViewNombre.textSize = 15F
+
+            binding.listaInstruccionesCardDesayuno.addView(textViewNombre)
+        }
+
+
 
         binding.btnClose.setOnClickListener {
             Log.d("DialogMenuFragment", "Clickado")
@@ -141,6 +156,7 @@ class DialogMenuFragment : DialogFragment() {
     fun setMenuModel(menuModelPlato: Plato) {
         menuModelPlatoL = menuModelPlato
     }
+
 
     companion object {
         const val TAG = "example_dialog"

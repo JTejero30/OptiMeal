@@ -98,14 +98,45 @@ class MenuFragment : Fragment(), DayItemClickI {
 
                 //Desayuno
                 binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
-                Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
-                    .into(binding.ivDesayuno)
+               /* Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
+                    .into(binding.ivDesayuno)*/
+
+                val imageNameDesayuno = it.menu_del_dia.desayuno.imagen
+
+                Log.d("MenuFragment", "IMAGE REGEX--> ${imageNameDesayuno}")
+
+
+                val imageRefDesayuno = storage.reference.child("platos_nutri/$imageNameDesayuno.jpg")
+                imageRefDesayuno.downloadUrl.addOnSuccessListener { uri ->
+                    val imageUrl = uri.toString()
+                    /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
+                             .into(binding.ivDesayuno)*/
+                    Picasso.get()
+                        .load(imageUrl)
+                        .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {
+                            override fun onSuccess() {
+                                binding.loadingIndicator.visibility = View.GONE
+                                binding.menuSV.visibility = View.VISIBLE
+                            }
+
+                            override fun onError(e: Exception?) {
+                                binding.loadingIndicator.visibility = View.VISIBLE
+                                binding.menuSV.visibility = View.GONE
+                                Log.e("MenuFragment", "Error getting download URL", e)
+                            }
+                        })
+
+                }.addOnFailureListener { exception ->
+                    Log.e("MenuFragment", "Error getting download URL", exception)
+                }
+
                 binding.ivDesayuno.setOnClickListener {
                     val dialogFragment = DialogMenuFragment()
                     dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)
 
                     dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
                 }
+
                 /*
                 for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {
                     val textView = TextView(binding.listaIngredientesCardDesayuno.context)
@@ -130,6 +161,7 @@ class MenuFragment : Fragment(), DayItemClickI {
                         binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)
                     }
                 }*/
+                Log.d("MenuFragment", "Menu--> ${it.menu_del_dia.desayuno.toString()}")
 
                 //Comida
                 val imageName = it.menu_del_dia.comida.imagen
@@ -146,6 +178,7 @@ class MenuFragment : Fragment(), DayItemClickI {
                                 binding.loadingIndicator.visibility = View.GONE
                                 binding.menuSV.visibility = View.VISIBLE
                             }
+
                             override fun onError(e: Exception?) {
                                 binding.loadingIndicator.visibility = View.VISIBLE
                                 binding.menuSV.visibility = View.GONE
@@ -197,12 +230,40 @@ class MenuFragment : Fragment(), DayItemClickI {
                 }*/
 
                 //Cena
-                Glide.with(binding.ivCena.context).load(it.menu_del_dia.cena.imagen)
-                    .into(binding.ivCena)
+               /* Glide.with(binding.ivCena.context).load(it.menu_del_dia.cena.imagen)
+                    .into(binding.ivCena)*/
+
+                val imageNameCena = it.menu_del_dia.cena.imagen
+
+                val imageRefCena = storage.reference.child("platos_nutri/$imageNameCena.jpg")
+                imageRefCena.downloadUrl.addOnSuccessListener { uri ->
+                    val imageUrl = uri.toString()
+                    /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
+                             .into(binding.ivDesayuno)*/
+                    Picasso.get()
+                        .load(imageUrl)
+                        .into(binding.ivCena, object : com.squareup.picasso.Callback {
+                            override fun onSuccess() {
+                                binding.loadingIndicator.visibility = View.GONE
+                                binding.menuSV.visibility = View.VISIBLE
+                            }
+
+                            override fun onError(e: Exception?) {
+                                binding.loadingIndicator.visibility = View.VISIBLE
+                                binding.menuSV.visibility = View.GONE
+                                Log.e("MenuFragment", "Error getting download URL", e)
+                            }
+                        })
+
+                }.addOnFailureListener { exception ->
+                    Log.e("MenuFragment", "Error getting download URL", exception)
+                }
 
                 binding.ivCena.setOnClickListener {
                     val dialogFragment = DialogMenuFragment()
                     dialogFragment.setMenuModel(menuModel.menu_del_dia.cena)
+
+                    //dialogFragment.setMenuModelNutri(menuModel.menu_del_dia.cena)
 
                     dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
                 }
