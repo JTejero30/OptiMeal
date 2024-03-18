@@ -84,7 +84,6 @@
                 android:isScrollContainer="false"
                 android:text="@string/acceder"
                 android:textAlignment="center"
-                android:theme="@style/AppTheme"
                 app:icon="@drawable/baseline_arrow_forward_24"
                 app:iconGravity="textEnd"
                 app:iconSize="20dp" />
@@ -130,7 +129,6 @@
                 android:padding="15dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:theme="@style/AppTheme"
                 app:icon="@drawable/googleg_standard_color_18"
                 app:iconGravity="textStart"
                 app:iconPadding="10dp"
