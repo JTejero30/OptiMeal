@@ -16,11 +16,11 @@ class MenuViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         binding.nombreCard.text = menuModel.menu_del_dia.desayuno.plato
 
-        for (ingrediente in menuModel.menu_del_dia.desayuno.ingredientes) {
+      /*  for (ingrediente in menuModel.menu_del_dia.desayuno.ingredientes) {
             val textView = TextView(binding.listaIngredientesCard.context)
             textView.text = ingrediente.toString()
             binding.listaIngredientesCard.addView(textView)
-        }
+        }*/
 
         binding.displayIngredientes.setOnClickListener() {
 

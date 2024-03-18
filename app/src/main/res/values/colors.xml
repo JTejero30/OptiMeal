@@ -9,7 +9,7 @@
     <color name="texto_negro">#141414</color>
     <color name="negro">#000000</color>
 
-
+    <color name="transparente">#00E60A0A</color>
 
     <color name="seed">#D5FE73</color>
     <color name="md_theme_light_primary">#4D6700</color>

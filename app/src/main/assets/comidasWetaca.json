@@ -73,8 +73,6 @@
       "total_gramos": 460,
       "imagen": "cerdo-agridulce-arroz-y-verduritas_B"
     },
-
-
     {
       "plato": "Pollo con salsa a la crema y verduras",
       "ingredientes": [
@@ -160,7 +158,6 @@
       "total_gramos": 460,
       "imagen": "pollo-con-salsa-a-la-crema-y-verduras_B"
     },
-
     {
       "plato": "Pechuga de pollo con salsa curry verde thai, arroz y verduras",
       "ingredientes": [
@@ -274,7 +271,6 @@
       "total_gramos": 460,
       "imagen": "pechuga-de-pollo-con-salsa-curry-verde-thai-arroz-y-verduras_B"
     },
-
     {
       "plato": "Cazuela de fideos",
       "ingredientes": [
@@ -352,7 +348,6 @@
       "total_gramos": 450,
       "imagen": "cazuela-de-fideos_B"
     },
-
     {
       "plato": "Pavo con romescu verde, patatas asadas y verduras",
       "ingredientes": [
@@ -442,7 +437,6 @@
       "total_gramos": 460,
       "imagen": "pavo-con-romescu-verde-patatas-asadas-y-verduras_B"
     },
-
     {
       "plato": "Pastel de merluza, salsa de piquillos y sidra, patatas, cebollitas y champiñones",
       "ingredientes": [
@@ -544,7 +538,6 @@
       "total_gramos": 480,
       "imagen": "pastel-de-merluza-salsa-de-piquillos-y-sidra-patatas-cebollitas-y-champinones_B"
     },
-
     {
       "plato": "Filete ruso con salsa oporto, patatas y verduras escalivadas",
       "ingredientes": [
@@ -658,7 +651,6 @@
       "total_gramos": 460,
       "imagen": "filete-ruso-con-salsa-oporto-patatas-y-verduras-escalivadas_B"
     },
-
     {
       "plato": "Merluza con salsa marinera, patatas, brócoli, zanahorias y pimientos",
       "ingredientes": [
@@ -760,7 +752,6 @@
       "total_gramos": 500,
       "imagen": "merluza-con-salsa-marinera-patatas-brocoli-zanahorias-y-pimientos_B"
     },
-
     {
       "plato": "Pollo Kung Pao con verduras y noodles",
       "ingredientes": [
@@ -858,7 +849,6 @@
       "total_gramos": 420,
       "imagen": "pollo-kung-pao-con-verduras-y-noodles_B"
     },
-
     {
       "plato": "Pavo biryani, noodles de boniato y mix de verduras",
       "ingredientes": [
@@ -968,117 +958,6 @@
       "total_gramos": 460,
       "imagen": "pavo-biryani-noodles-de-boniato-y-mix-de-verduras_B"
     },
-
-    {
-      "plato": "Pavo biryani, noodles de boniato y mix de verduras",
-      "ingredientes": [
-        {
-          "nombre": "Pechuga de pavo",
-          "cantidad": "152g"
-        },
-        {
-          "nombre": "Caldo de pollo tostado",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Carcasa de pollo",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Alitas de pollo",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Zanahoria",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Cebolla",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Aceite de oliva",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Ajo",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Laurel",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Yogur natural",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Pasta de tomate",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Maicena",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Salsa de soja",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Aceite de oliva virgen extra",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Jengibre",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Cilantro",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Sal",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Pimentón dulce",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Pimienta negra",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Comino",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Coriandro",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Canela",
-          "cantidad": "Cantidad necesaria"
-        },
-        {
-          "nombre": "Noodles de boniato",
-          "cantidad": "115g"
-        },
-        {
-          "nombre": "Verduras",
-          "cantidad": "115g"
-        }
-      ],
-      "instrucciones": "Comenzamos cocinando el pavo a baja temperaturas, asegurándonos que la pechuga quede jugosa. Para la salsa sofreímos cebolla, ajo y jengibre con una mezcla de especias que confeccionamos. Incorporamos yogur y nuestro caldo casero, a último momento agregamos el cilantro fresco. Para rematar el plato acompañamos con noodles de boniato y un mix de verduras.",
-      "contenido": "Pechuga de pavo (33%), salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo, laurel y sal), yogur natural, cebolla morada, pasta de tomate, ajo confitado, maicena, salsa de soja, aceite de oliva virgen extra, jengibre, cilantro, sal, pimentón dulce, pimienta negra, comino, coriandro, canela y laurel), noodles de boniato (25%) y verduras (pimiento rojo, pimiento amarillo, cebolla morada, zanahoria, bok choi y shitake) (25%).",
-      "total_kilocalorias": 502.32,
-      "total_grasa": 11.96,
-      "total_proteina": 51.52,
-      "total_carbohidratos": 48.76,
-      "total_gramos": 460,
-      "imagen": "pavo-biryani-noodles-de-boniato-y-mix-de-verduras_B"
-    },
-
     {
       "plato": "Albóndigas con salsa de tomate, patatitas y verduras",
       "ingredientes": [
@@ -1272,7 +1151,6 @@
       "total_gramos": 460,
       "imagen": "albondigas-con-salsa-de-tomate-patatitas-y-verduras_B"
     },
-
     {
       "plato": "Milhojas de calabacín y atún",
       "ingredientes": [
@@ -1374,7 +1252,6 @@
       "total_gramos": 450,
       "imagen": "milhojas-de-calabacin-y-atun_B"
     },
-
     {
       "plato": "Salmón con salsa encebollada, patatas y verduras variadas",
       "ingredientes": [
@@ -1496,7 +1373,6 @@
       "total_gramos": 510,
       "imagen": "salmon-con-salsa-encebollada-patatas-y-verduras-variadas_B"
     },
-
     {
       "plato": "Guiso de legumbreta y setas",
       "ingredientes": [
@@ -1586,7 +1462,6 @@
       "total_gramos": 480,
       "imagen": "guiso-de-legumbreta-y-setas_B"
     },
-
     {
       "plato": "Contramuslo con salsa piri piri, arroz y verduras",
       "ingredientes": [
@@ -1660,7 +1535,6 @@
       "total_gramos": 460,
       "imagen": "contramuslo-con-salsa-piri-piri-arroz-y-verduras_B"
     },
-
     {
       "plato": "Lentejas veggie de kale y piquillo",
       "ingredientes": [
@@ -1710,7 +1584,6 @@
       "total_gramos": 400,
       "imagen": "lentejas-veggie-de-kale-y-piquillo_B"
     },
-
     {
       "plato": "Albóndigas de pollo a la aragonesa, arroz y verduras asadas",
       "ingredientes": [
@@ -1784,6 +1657,5 @@
       "total_gramos": 440,
       "imagen": "albondigas-de-pollo-a-la-aragonesa-arroz-y-verduras-asadas_B"
     }
-
   ]
 }

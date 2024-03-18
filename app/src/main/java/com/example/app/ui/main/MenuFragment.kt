@@ -78,8 +78,9 @@ class MenuFragment : Fragment(), DayItemClickI {
             }
         }
 
-        binding.loadingIndicator.visibility = View.VISIBLE
-        binding.menuSV.visibility = View.GONE
+        /*  binding.loadingIndicator.visibility = View.VISIBLE
+          binding.menuSV.visibility = View.GONE*/
+
 
         lifecycleScope.launch(Dispatchers.Main) {
             menuViewModel.fetchData(LocalDate.now())
@@ -91,45 +92,65 @@ class MenuFragment : Fragment(), DayItemClickI {
 
     private fun observeViewModel() {
         menuViewModel.menuModelL.observe(viewLifecycleOwner) { menuModel ->
-            // Update UI elements here with the new menuModel data
 
             menuModel?.let {
                 Log.d("MenuFragment", "weekMoidel--> ${menuModel.toString()}")
 
                 //Desayuno
                 binding.nombreCardDesayuno.text = it.menu_del_dia.desayuno.plato
-                Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
-                    .into(binding.ivDesayuno)
+                /* Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
+                     .into(binding.ivDesayuno)*/
+
+                val imageNameDesayuno = it.menu_del_dia.desayuno.imagen
+
+                Log.d("MenuFragment", "IMAGE REGEX--> ${imageNameDesayuno}")
+
+
+                val imageRefDesayuno =
+                    storage.reference.child("platos_nutri/$imageNameDesayuno.jpg")
+                imageRefDesayuno.downloadUrl.addOnSuccessListener { uri ->
+                    val imageUrl = uri.toString()
+                    /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
+                             .into(binding.ivDesayuno)*/
+                    Picasso.get()
+                        .load(imageUrl)
+                        .into(binding.ivDesayuno, object : com.squareup.picasso.Callback {
+                            override fun onSuccess() {
+                                binding.loadingIndicatorDesayuno.visibility = View.GONE
+                                binding.DesayunoCV.visibility = View.VISIBLE
+
+
+                                /*     binding.loadingIndicator.visibility = View.GONE
+                                     binding.menuSV.visibility = View.VISIBLE*/
+                            }
+
+                            override fun onError(e: Exception?) {
+
+                                binding.loadingIndicatorDesayuno.visibility = View.VISIBLE
+                                binding.DesayunoCV.visibility = View.GONE
+                                /* binding.loadingIndicatorDesayuno.visibility=View.VISIBLE
+
+                                 binding.loadingIndicator.visibility = View.VISIBLE
+                                 binding.menuSV.visibility = View.GONE
+                                 binding.DesayunoCV.visibility=View.VISIBLE*/
+
+                                Log.e("MenuFragment", "Error getting download URL", e)
+                            }
+                        })
+
+                }.addOnFailureListener { exception ->
+                    Log.e("MenuFragment", "Error getting download URL", exception)
+                }
+
                 binding.ivDesayuno.setOnClickListener {
                     val dialogFragment = DialogMenuFragment()
                     dialogFragment.setMenuModel(menuModel.menu_del_dia.desayuno)
 
                     dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
                 }
-                /*
-                for (ingrediente in it.menu_del_dia.desayuno.ingredientes) {
-                    val textView = TextView(binding.listaIngredientesCardDesayuno.context)
-                    textView.text = ingrediente.toString()
-                    binding.listaIngredientesCardDesayuno.addView(textView)
-                }
-                binding.displayIngredientesDesayuno.setOnClickListener() {
-                    if (binding.listaIngredientesCardDesayuno.visibility == View.VISIBLE) {
-                        binding.listaIngredientesCardDesayuno.visibility = View.GONE
-                        binding.displayIngredientesDesayuno.setIconResource(R.drawable.baseline_arrow_drop_down_24)
-                    } else {
-                        binding.listaIngredientesCardDesayuno.visibility = View.VISIBLE
-                        binding.displayIngredientesDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)
-                    }
-                }
-                binding.displayMacrosDesayuno.setOnClickListener() {
-                    if (binding.listaMacrosCardDesayuno.visibility == View.VISIBLE) {
-                        binding.listaMacrosCardDesayuno.visibility = View.GONE
-                        binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_down_24)
-                    } else {
-                        binding.listaMacrosCardDesayuno.visibility = View.VISIBLE
-                        binding.displayMacrosDesayuno.setIconResource(R.drawable.baseline_arrow_drop_up_24)
-                    }
-                }*/
+
+
+                Log.d("MenuFragment", "Menu--> ${it.menu_del_dia.desayuno.toString()}")
 
                 //Comida
                 val imageName = it.menu_del_dia.comida.imagen
@@ -143,12 +164,13 @@ class MenuFragment : Fragment(), DayItemClickI {
                         .load(imageUrl)
                         .into(binding.ivComida, object : com.squareup.picasso.Callback {
                             override fun onSuccess() {
-                                binding.loadingIndicator.visibility = View.GONE
-                                binding.menuSV.visibility = View.VISIBLE
+                                binding.loadingIndicatorComida.visibility = View.GONE
+                                binding.ComidaCV.visibility = View.VISIBLE
                             }
+
                             override fun onError(e: Exception?) {
-                                binding.loadingIndicator.visibility = View.VISIBLE
-                                binding.menuSV.visibility = View.GONE
+                                binding.loadingIndicatorComida.visibility = View.VISIBLE
+                                binding.ComidaCV.visibility = View.GONE
                                 Log.e("MenuFragment", "Error getting download URL", e)
                             }
                         })
@@ -165,74 +187,50 @@ class MenuFragment : Fragment(), DayItemClickI {
                     dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
                 }
 
-
-
-
-
                 binding.nombreCardComida.text = it.menu_del_dia.comida.plato
 
 
-                /*for (ingrediente in it.menu_del_dia.comida.ingredientes) {
-                    val textView = TextView(binding.listaIngredientesCardComida.context)
-                    textView.text = ingrediente.toString()
-                    binding.listaIngredientesCardComida.addView(textView)
-                }
-                binding.displayIngredientesComida.setOnClickListener() {
-                    if (binding.listaIngredientesCardComida.visibility == View.VISIBLE) {
-                        binding.listaIngredientesCardComida.visibility = View.GONE
-                        binding.displayIngredientesComida.setIconResource(R.drawable.baseline_arrow_drop_down_24)
-                    } else {
-                        binding.listaIngredientesCardComida.visibility = View.VISIBLE
-                        binding.displayIngredientesComida.setIconResource(R.drawable.baseline_arrow_drop_up_24)
-                    }
-                }
-                binding.displayMacrosComida.setOnClickListener() {
-                    if (binding.listaMacrosCardComida.visibility == View.VISIBLE) {
-                        binding.listaMacrosCardComida.visibility = View.GONE
-                        binding.displayMacrosComida.setIconResource(R.drawable.baseline_arrow_drop_down_24)
-                    } else {
-                        binding.listaMacrosCardComida.visibility = View.VISIBLE
-                        binding.displayMacrosComida.setIconResource(R.drawable.baseline_arrow_drop_up_24)
-                    }
-                }*/
-
                 //Cena
-                Glide.with(binding.ivCena.context).load(it.menu_del_dia.cena.imagen)
-                    .into(binding.ivCena)
+                /* Glide.with(binding.ivCena.context).load(it.menu_del_dia.cena.imagen)
+                     .into(binding.ivCena)*/
+
+                val imageNameCena = it.menu_del_dia.cena.imagen
+
+                val imageRefCena = storage.reference.child("platos_nutri/$imageNameCena.jpg")
+                imageRefCena.downloadUrl.addOnSuccessListener { uri ->
+                    val imageUrl = uri.toString()
+                    /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
+                             .into(binding.ivDesayuno)*/
+                    Picasso.get()
+                        .load(imageUrl)
+                        .into(binding.ivCena, object : com.squareup.picasso.Callback {
+                            override fun onSuccess() {
+                                binding.loadingIndicatorCena.visibility = View.GONE
+                                binding.CenaCV.visibility = View.VISIBLE
+                            }
+
+                            override fun onError(e: Exception?) {
+                                binding.loadingIndicatorCena.visibility = View.VISIBLE
+                                binding.CenaCV.visibility = View.GONE
+                                Log.e("MenuFragment", "Error getting download URL", e)
+                            }
+                        })
+
+                }.addOnFailureListener { exception ->
+                    Log.e("MenuFragment", "Error getting download URL", exception)
+                }
 
                 binding.ivCena.setOnClickListener {
                     val dialogFragment = DialogMenuFragment()
                     dialogFragment.setMenuModel(menuModel.menu_del_dia.cena)
+
 
                     dialogFragment.show(childFragmentManager, DialogMenuFragment.TAG)
                 }
 
                 binding.nombreCardCena.text = it.menu_del_dia.cena.plato
 
-                /*
-                for (ingrediente in it.menu_del_dia.cena.ingredientes) {
-                    val textView = TextView(binding.listaIngredientesCardCena.context)
-                    textView.text = ingrediente.toString()
-                    binding.listaIngredientesCardCena.addView(textView)
-                }
-                binding.displayIngredientesCena.setOnClickListener() {
-                    if (binding.listaIngredientesCardCena.visibility == View.VISIBLE) {
-                        binding.listaIngredientesCardCena.visibility = View.GONE
-                        binding.displayIngredientesCena.setIconResource(R.drawable.baseline_arrow_drop_down_24)
-                    } else {
-                        binding.listaIngredientesCardCena.visibility = View.VISIBLE
-                        binding.displayIngredientesCena.setIconResource(R.drawable.baseline_arrow_drop_up_24)
-                    }
-                }
-                binding.displayMacrosCena.setOnClickListener() {
-                    if (binding.listaMacrosCardCena.visibility == View.VISIBLE) {
-                        binding.listaMacrosCardCena.visibility = View.GONE
-                        binding.displayMacrosCena.setIconResource(R.drawable.baseline_arrow_drop_down_24)
-                    } else {
-                        binding.listaMacrosCardCena.visibility = View.VISIBLE
-                        binding.displayMacrosCena.setIconResource(R.drawable.baseline_arrow_drop_up_24)
-                    }
-                }*/
+
             }
         }
     }
@@ -254,8 +252,14 @@ class MenuFragment : Fragment(), DayItemClickI {
     override fun onDayItemClicked(dayModel: DayModel) {
         Log.d("MenuFragment", "dayModel--> ${dayModel}")
 
-        binding.loadingIndicator.visibility = View.VISIBLE
-        binding.menuSV.visibility = View.GONE
+
+        binding.loadingIndicatorDesayuno.visibility = View.VISIBLE
+        binding.DesayunoCV.visibility = View.GONE
+        binding.loadingIndicatorComida.visibility = View.VISIBLE
+        binding.ComidaCV.visibility = View.GONE
+        binding.loadingIndicatorCena.visibility = View.VISIBLE
+        binding.CenaCV.visibility = View.GONE
+
 
         lifecycleScope.launch(Dispatchers.Main) {
 

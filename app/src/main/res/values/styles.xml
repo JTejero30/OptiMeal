@@ -7,13 +7,13 @@
     </style>
 
 
-    <style name="greenButton" parent="android:Widget.Button">
+    <style name="greenButton" parent="">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:layout_margin">0dp</item>
-        <item name="android:background">@drawable/background_green</item>
+        <item name="android:background">@drawable/button_round</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="backgroundTint">@color/primario500</item>
         <item name="android:gravity">center</item>
         <item name="android:text">@string/acceder</item>
         <item name="android:textColor">#141414</item>
@@ -22,19 +22,20 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="blackButton" parent="android:Widget.Button">
+    <style name="blackButton" parent="">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:layout_margin">0dp</item>
-        <item name="android:background">@drawable/background_black</item>
+        <item name="backgroundTint">@color/negro</item>
+        <item name="android:background">@drawable/button_round</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
         <item name="android:gravity">center</item>
-        <item name="android:text">@string/acceder</item>
+        <item name="android:text">Continuar con google</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textColorLink">#FFFFFF</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+
     </style>
 
 
