@@ -21,17 +21,13 @@ import android.net.Uri as Uri1
 
 
 class userDataViewModel : ViewModel() {
-
     private val db = Firebase.firestore
-
     val userCollection = db.collection("users")
     private val auth = FirebaseAuth.getInstance()
     private val storage = FirebaseStorage.getInstance()
     val uidUser = auth.currentUser!!.uid
-    val userDocument = userCollection.document(uidUser).get()
-    val name= auth.currentUser?.displayName
-   // val document = userCollection.document(uidUser).get(document["imagen"])
-
+    val userDocument = userCollection.document(uidUser)
+    val name = auth.currentUser?.displayName
 
     suspend fun getData(): User? {
         //coger el documento del usuario que esta logeado
@@ -73,6 +69,7 @@ class userDataViewModel : ViewModel() {
         val data = hashMapOf(campo to dato)
         userCollection.document(user!!.uid!!).update(data as Map<String, Any>)
     }
+
     fun deleteAccount(requireContext: Context) {
         val db = FirebaseFirestore.getInstance()
         val user = Firebase.auth.currentUser!!
@@ -92,7 +89,7 @@ class userDataViewModel : ViewModel() {
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     requireContext.startActivity(intent)
 
-                }else{
+                } else {
                     Log.d("deleteAccount", "No borrado.")
                 }
             }
@@ -105,49 +102,20 @@ class userDataViewModel : ViewModel() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         requireContext.startActivity(intent)
     }
-    fun subirPhotoFirebase(uri: Uri1) {
+
+    fun updateProfilePhoto(photoUri: Uri1, userId: String) {
         val storageRef = storage.reference
-
-        // Crear un nombre único para el archivo
-        val imageName = UUID.randomUUID().toString()
-
-        // Crear una referencia al archivo en Firebase Storage usando el nombre único
-        val imageRef = storageRef.child("images/$imageName")
-
-        // Subir el archivo al almacenamiento de Firebase
-        val uploadTask = imageRef.putFile(uri)
-
-        // Manejar los resultados de la carga del archivo
-        uploadTask.continueWithTask { task ->
-            if (!task.isSuccessful) {
-                task.exception?.let {
-                    throw it
-                }
-            }
-            // Continuar con la tarea de obtener la URL de descarga del archivo
-            imageRef.downloadUrl
-        }.addOnCompleteListener { task ->
+        val photoRef = storageRef.child("profilePhotos/${userId}")
+        val uploadTask = photoRef.putFile(photoUri)
+        uploadTask.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                // URL de descarga del archivo
-                val downloadUri = task.result
-
-                // Obtener el ID de usuario actual
-                val uidUser = auth.currentUser!!.uid
-
-                // Referencia al documento del usuario
-                val userDocumentRef = db.collection("users").document(uidUser)
-
-                // Actualizar el campo de URL de imagen en el documento del usuario
-                userDocumentRef
-                    .update("imageUrl", downloadUri.toString())
-                    .addOnSuccessListener {
-                        // La URL de la imagen se ha guardado correctamente en Firestore
-                    }
-                    .addOnFailureListener { exception ->
-                        // Manejar el error al guardar la URL de la imagen
-                    }
-            } else {
-                // Manejar el error al obtener la URL de descarga del archivo
+                photoRef.downloadUrl.addOnSuccessListener { downloadUri ->
+                    val imageUrl = downloadUri.toString()
+                    userDocument.update("imageUrl", imageUrl)
+                        .addOnSuccessListener {
+                            // El campo "imageUrl" se actualizó correctamente en la base de datos del usuario
+                        }
+                }
             }
         }
     }

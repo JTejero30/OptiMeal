@@ -131,6 +131,7 @@ class RegisterActivity : AppCompatActivity() {
         val deficit = userData["deficit"].toString().toDouble()
         val alergiasArray = userData["allergies"].toString()
         val objetivo = userData["objetivo"].toString()
+        val imageUser= "https://firebasestorage.googleapis.com/v0/b/menuinteligente-4bc8f.appspot.com/o/profilePhotos%2Fuser_no_image.jpg?alt=media&token=7b3efdd0-c9b5-4af5-b956-3942dd1fa497"
 
         auth = FirebaseAuth.getInstance()
 
@@ -151,7 +152,8 @@ class RegisterActivity : AppCompatActivity() {
             TDEE,
             activityText,
             objetivo,
-            "gs://menuinteligente-4bc8f.appspot.com/images/user_no_image.jpg"
+            imageUser
+
         )
     }
     fun createUserFromJsonGoogle(id:String): User {
@@ -166,6 +168,8 @@ class RegisterActivity : AppCompatActivity() {
         val alergiasArray = userData["allergies"].toString()
         val objetivo = userData["objetivo"].toString()
         auth = FirebaseAuth.getInstance()
+        val imageUser= auth.currentUser?.photoUrl.toString()
+
 
 
         // val JSONObject= JSONObject(userData)
@@ -184,7 +188,7 @@ class RegisterActivity : AppCompatActivity() {
             TDEE,
             activityText,
             objetivo,
-            "gs://menuinteligente-4bc8f.appspot.com/images/user_no_image.jpg"
+            imageUser
         )
     }
     public fun showAlert() {

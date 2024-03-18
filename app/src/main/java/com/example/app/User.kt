@@ -16,7 +16,7 @@ data class User(
     val TDEE: Double,
     val activityText: String,
     val objetivo: String,
-    val image: String
+    val imageUrl: String
 
     /*     auth.currentUser?.uid,
                 auth.currentUser?.email,

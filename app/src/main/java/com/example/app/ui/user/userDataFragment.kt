@@ -42,7 +42,7 @@ class userDataFragment : Fragment() {
     private val inputMap: MutableMap<String, Any> = mutableMapOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        viewModel = ViewModelProvider(this).get(userDataViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -50,39 +50,38 @@ class userDataFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentUserDataBinding.inflate(inflater, container, false)
-        val userDataViewModel =ViewModelProvider(this).get(userDataViewModel::class.java)
-        val name = userDataViewModel.name
-        viewModel= userDataViewModel
+        //val userDataViewModel =ViewModelProvider(this).get(userDataViewModel::class.java)
+        val name = viewModel.name
         inputMap["peso"] = binding.weight
         inputMap["altura"] = binding.height
         inputMap["dietetic_preference"] = binding.dieteticType
         inputMap["activityText"]=binding.userActivities
         inputMap["objetivo"]=binding.userObjetives
+        //cargarPhoto(viewModel.image)
 
         //hacemos la llamada asyncrona del metodo getData()
         lifecycleScope.launch(Dispatchers.Main) {
-            val user = userDataViewModel.getData()
+            val user = viewModel.getData()
             binding.emailUser.text=user?.email
             binding.userName.text=name
             user.let {
-                Log.d("lambda", it.toString())
+                fillUserData(binding.weight, user?.peso.toString())
+                fillUserData(binding.height, user?.altura.toString())
+                fillUserData(binding.dieteticType, user?.dietetic_preference.toString())
+                fillUserData(binding.userActivities, user?.activityText.toString())
+                fillUserData(binding.userObjetives, user?.objetivo.toString())
+                fillDropDown(dietetics, binding.dieteticType)
+                fillDropDown(activities, binding.userActivities)
+                fillDropDown(objetives, binding.userObjetives)
+                cargarPhoto(user!!.imageUrl)
             }
-            fillUserData(binding.weight, user?.peso.toString())
-            fillUserData(binding.height, user?.altura.toString())
-            fillUserData(binding.dieteticType, user?.dietetic_preference.toString())
-            fillUserData(binding.userActivities, user?.activityText.toString())
-            fillUserData(binding.userObjetives, user?.objetivo.toString())
-            cargarPhoto(user?.image)
-            fillDropDown(dietetics, binding.dieteticType)
-            fillDropDown(activities, binding.userActivities)
-            fillDropDown(objetives, binding.userObjetives)
 //a cada campo le añadimos la propiedad de que se actualice cuando se cambia el foco
             inputMap.forEach { (campoBD, input) ->
                 run {
                     if (input.javaClass.toString().contains("TextInputEditText")) {
                         (input as? TextInputEditText)?.setOnFocusChangeListener { _, hasFocus ->
                             if (!hasFocus) {
-                                userDataViewModel.updateData(
+                                viewModel.updateData(
                                     user,
                                     input.text.toString().toDouble(),
                                     campoBD
@@ -95,7 +94,7 @@ class userDataFragment : Fragment() {
                         (input as? AutoCompleteTextView)?.setOnItemClickListener { parent, view, position, id ->
 
                             val selectedItem = parent.adapter.getItem(position)
-                            userDataViewModel.updateData(
+                            viewModel.updateData(
                                 user,
                                 selectedItem.toString(),
                                 campoBD
@@ -116,11 +115,8 @@ class userDataFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-//        cargarPhoto()
     }
-    private fun cargarPhoto(image: Any?) {
-        Glide.with(binding.userPhoto.context).load(image).into(binding.userPhoto)
-    }
+
 
     private fun fillUserData(dropDown: AutoCompleteTextView, userData: String) {
         val index = dietetics.indexOf(userData)
@@ -181,18 +177,31 @@ class userDataFragment : Fragment() {
     }
     private fun selectorPhotos() {
         val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
-            // Callback is invoked after the user selects a media item or closes the
-            // photo picker.
             if (uri != null) {
-                binding.userPhoto.setImageURI(uri)
-                viewModel.subirPhotoFirebase(uri)
-            } else {
-                Log.d("PhotoPicker", "No media selected")
+                cargarPhoto(uri.toString())
+                //binding.userPhoto.setImageURI(uri)
+                viewModel.updateProfilePhoto(uri,viewModel.uidUser)
             }
         }
         binding.userPhoto.setOnClickListener{
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
+    }
+    fun cargarPhoto(image: String) {
+
+        Picasso.get()
+            .load(image)
+            .into(binding.userPhoto, object : com.squareup.picasso.Callback {
+                override fun onSuccess() {
+                    binding.progressPhoto.visibility = View.GONE
+                    binding.userPhoto.visibility = View.VISIBLE
+                }
+                override fun onError(e: Exception?) {
+                    binding.progressPhoto.visibility = View.VISIBLE
+                    binding.userPhoto.visibility = View.GONE
+                }
+            })
+        //Glide.with(binding.userPhoto.context).load(image).into(binding.userPhoto)
     }
 
 
