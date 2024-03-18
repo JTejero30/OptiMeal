@@ -57,7 +57,6 @@ class userDataFragment : Fragment() {
         inputMap["dietetic_preference"] = binding.dieteticType
         inputMap["activityText"]=binding.userActivities
         inputMap["objetivo"]=binding.userObjetives
-        //cargarPhoto(viewModel.image)
 
         //hacemos la llamada asyncrona del metodo getData()
         lifecycleScope.launch(Dispatchers.Main) {
