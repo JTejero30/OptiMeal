@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ui.main.MenuFragment">
 
 
@@ -34,16 +35,15 @@
             android:paddingEnd="5dp"
             android:paddingBottom="5dp" />
 
- <!--       <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/loadingIndicator"
-            android:layout_width="81dp"
-            android:layout_height="88dp"
-            android:layout_gravity="center"
-            android:indeterminate="true"
-            app:trackThickness="7dp"
-            app:indicatorSize="60dp"
-            android:visibility="visible" />-->
-
+        <!--       <com.google.android.material.progressindicator.CircularProgressIndicator
+                   android:id="@+id/loadingIndicator"
+                   android:layout_width="81dp"
+                   android:layout_height="88dp"
+                   android:layout_gravity="center"
+                   android:indeterminate="true"
+                   app:trackThickness="7dp"
+                   app:indicatorSize="60dp"
+                   android:visibility="visible" />-->
 
 
         <!--Aqui uso nestedScrollView porque el hideOnScroll del navView de la vista inicio da problemas-->
@@ -65,15 +65,20 @@
                     android:layout_margin="8dp"
                     android:background="@color/primario50"
                     android:visibility="visible">
+
                     <com.google.android.material.progressindicator.CircularProgressIndicator
                         android:id="@+id/loadingIndicatorDesayuno"
-                        android:layout_width="81dp"
-                        android:layout_height="88dp"
+                        android:layout_width="194dp"
+                        android:layout_height="194dp"
                         android:layout_gravity="center"
                         android:indeterminate="true"
-                        app:trackThickness="7dp"
-                        app:indicatorSize="60dp"
-                        android:visibility="visible" />
+                        android:paddingTop="60dp"
+                        android:paddingBottom="60dp"
+                        android:visibility="visible"
+                        app:indicatorSize="70dp"
+                        app:trackThickness="7dp" />
+
+
                     <LinearLayout
                         android:id="@+id/DesayunoCV"
                         android:layout_width="match_parent"
@@ -91,7 +96,7 @@
 
                             <Button
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-
+                                android:theme="@style/AppTheme"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
@@ -116,6 +121,7 @@
 
                             <Button
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                                android:theme="@style/AppTheme"
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -279,8 +285,10 @@
                         android:layout_height="88dp"
                         android:layout_gravity="center"
                         android:indeterminate="true"
+                        android:paddingTop="60dp"
+                        android:paddingBottom="60dp"
                         android:visibility="visible"
-                        app:indicatorSize="60dp"
+                        app:indicatorSize="70dp"
                         app:trackThickness="7dp" />
 
                     <LinearLayout
@@ -300,6 +308,7 @@
 
                             <Button
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                                android:theme="@style/AppTheme"
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -325,6 +334,7 @@
 
                             <Button
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                                android:theme="@style/AppTheme"
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -489,8 +499,10 @@
                         android:layout_height="88dp"
                         android:layout_gravity="center"
                         android:indeterminate="true"
+                        android:paddingTop="60dp"
+                        android:paddingBottom="60dp"
                         android:visibility="visible"
-                        app:indicatorSize="60dp"
+                        app:indicatorSize="70dp"
                         app:trackThickness="7dp" />
 
                     <LinearLayout
@@ -509,6 +521,7 @@
 
                             <Button
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                                android:theme="@style/AppTheme"
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -534,6 +547,7 @@
 
                             <Button
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                                android:theme="@style/AppTheme"
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
