@@ -258,10 +258,10 @@ class LoginActivity : AppCompatActivity() {
         val pass : Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.pass,null)
 
         if(password){
-            binding.passwordEditText.setCompoundDrawablesWithIntrinsicBounds(pass,null,ver,null)
+            binding.passwordEditText.setCompoundDrawablesWithIntrinsicBounds(ver,null,null,null)
             binding.passwordEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
         }else{
-            binding.passwordEditText.setCompoundDrawablesWithIntrinsicBounds(pass,null,esconder,null)
+            binding.passwordEditText.setCompoundDrawablesWithIntrinsicBounds(esconder,null,null,null)
             binding.passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
 
         }
