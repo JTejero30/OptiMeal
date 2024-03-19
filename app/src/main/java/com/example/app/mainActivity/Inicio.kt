@@ -277,25 +277,26 @@ class Inicio : AppCompatActivity() {
                 }
                 val result: QuerySnapshot = db.collection(coleccion).get().await()
                 val documentsReferences = mutableListOf<DocumentReference>()
+                var dietaUserNumero = 3
 
+                when (dietaUser) {
+                    "Estándar" -> dietaUserNumero = 1
+                    "Vegetariana" -> dietaUserNumero = 2
+                    "Vegana" -> dietaUserNumero = 3
+                }
                 for (document in result.documents) {
                     val totalGrasa = document.getDouble("total_grasa") ?: 0.0
                     val totalProteina = document.getDouble("total_proteina") ?: 0.0
                     val totalCarbohidratos = document.getDouble("total_carbohidratos") ?: 0.0
                     val totalKilocalorias = document.getDouble("total_kilocalorias") ?: 0.0
                     val dieta = document.get("dieta") ?: 3
+                    val platoNumero= dieta.toString().toInt()
 
-                    when (dietaUser) {
-                        "Estándar" -> documentsReferences.add(document.reference)
-                        "Vegetariana" -> if (dieta != 1) {
-                            documentsReferences.add(document.reference)
-                        }
 
-                        "Vegana" -> if (dieta == 3) {
-                            documentsReferences.add(document.reference)
-                        }
+                    if (dietaUserNumero <= platoNumero) {
+                        Log.d("dietanumero2","user->${dietaUserNumero},plato-> ${platoNumero}")
+                        documentsReferences.add(document.reference)
                     }
-
 
                     /*  if (totalKilocalorias > calorias && totalGrasa > grasas && totalCarbohidratos > carbohidratos && totalProteina > proteinas) {
 

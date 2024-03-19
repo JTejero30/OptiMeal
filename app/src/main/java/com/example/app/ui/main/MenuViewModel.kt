@@ -200,6 +200,8 @@ class MenuViewModel : ViewModel() {
         Log.d("MenuViewModel", "PLATO ingredientesData: ${ingredientesData}")
         Log.d("MenuViewModel", "PLATO ingredientes: ${ingredientes}")
 
+        //TODO borrar
+        val tipo_dieta= data?.get("dieta").toString().toInt()
 
         val total_grasa = data?.get("total_grasa").toString().toDouble()
         val total_proteina = data?.get("total_proteina").toString().toDouble()
@@ -227,7 +229,8 @@ class MenuViewModel : ViewModel() {
             total_proteina,
             total_carbohidratos,
             total_kilocalorias,
-            imagen
+            imagen,
+            tipo_dieta
         )
         return platos
     }

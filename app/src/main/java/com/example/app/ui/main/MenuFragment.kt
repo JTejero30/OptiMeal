@@ -101,6 +101,9 @@ class MenuFragment : Fragment(), DayItemClickI {
                 /* Glide.with(binding.ivDesayuno.context).load(it.menu_del_dia.desayuno.imagen)
                      .into(binding.ivDesayuno)*/
 
+                //TODO borrar
+                binding.tipoDesayuno.text = it.menu_del_dia.desayuno.tipo.toString()
+
                 val imageNameDesayuno = it.menu_del_dia.desayuno.imagen
 
                 Log.d("MenuFragment", "IMAGE REGEX--> ${imageNameDesayuno}")
@@ -156,6 +159,11 @@ class MenuFragment : Fragment(), DayItemClickI {
                 val imageNameComida = it.menu_del_dia.comida.imagen
                 // val imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
 
+
+//TODO borrar
+                binding.tipoComida.text = it.menu_del_dia.comida.tipo.toString()
+
+
                 val imageRef = storage.reference.child("platos_nutri/$imageNameComida")
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
                     val imageUrl = uri.toString()
@@ -196,6 +204,9 @@ class MenuFragment : Fragment(), DayItemClickI {
                      .into(binding.ivCena)*/
 
                 val imageNameCena = it.menu_del_dia.cena.imagen
+//TODO borrar
+                binding.tipoCena.text= it.menu_del_dia.cena.tipo.toString()
+
 
                 val imageRefCena = storage.reference.child("platos_nutri/$imageNameCena")
                 imageRefCena.downloadUrl.addOnSuccessListener { uri ->

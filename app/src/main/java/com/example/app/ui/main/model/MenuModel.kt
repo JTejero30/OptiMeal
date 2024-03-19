@@ -24,6 +24,7 @@ data class Plato(
     val total_carbohidratos: Double?,
     val total_kilocalorias: Int?,
     val imagen: String?,
+    val tipo: Int
 )
 
 data class Ingrediente(

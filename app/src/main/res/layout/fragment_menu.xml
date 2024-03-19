@@ -94,6 +94,14 @@
                             android:orientation="horizontal"
                             android:paddingTop="10dp">
 
+                            <TextView
+                                android:id="@+id/tipo_desayuno"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".1"
+                                android:text="TextView"
+                                android:textSize="20sp" />
+
                             <Button
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
                                 android:theme="@style/AppTheme"
@@ -305,6 +313,14 @@
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/tipo_comida"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".1"
+                                android:text="TextView"
+                                android:textSize="20sp" />
 
                             <Button
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
@@ -518,6 +534,14 @@
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/tipo_cena"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".1"
+                                android:text="TextView"
+                                android:textSize="20sp" />
 
                             <Button
                                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
