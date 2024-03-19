@@ -15,9 +15,6 @@
                 <item name="colorOnContainerUnchecked">@color/md_theme_dark_errorContainer</item>
         -->
         <item name="colorContainer">@color/primario500</item>
-
-
-
         <!--Nose
                 <item name="colorSecondary">#F80000</item>
         -->
