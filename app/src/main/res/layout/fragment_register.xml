@@ -82,23 +82,22 @@
                 app:dividerInsetEnd="16dp"
                 app:dividerInsetStart="16dp" />
 
-            <android.widget.Button
+            <Button
                 android:id="@+id/SignIn_Button"
                 style="@style/blackButton"
                 android:layout_width="match_parent"
-                android:layout_height="57dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="0dp"
-                android:drawableStart="@drawable/google_white"
                 android:fontFamily="@font/montserrat_regular"
-                android:isScrollContainer="false"
                 android:padding="15dp"
-                android:text="@string/registrar_con_google"
-                android:textColor="#FFFFFF"
+                android:text="Registrar con google"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:icon="@drawable/google_white"
+                android:theme="@style/AppTheme"
+                app:icon="@drawable/googleg_standard_color_18"
                 app:iconGravity="textStart"
+                app:iconPadding="10dp"
                 app:iconTint="#FFFFFF" />
 
             <TextView
