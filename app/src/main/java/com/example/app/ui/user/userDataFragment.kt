@@ -3,7 +3,7 @@ package com.example.app.ui.user
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
-import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
@@ -14,15 +14,14 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.bumptech.glide.Glide
 import com.example.app.databinding.FragmentUserDataBinding
+import com.example.app.mainActivity.Inicio
+import com.example.app.register.RegisterActivity
 import com.google.android.material.textfield.TextInputEditText
-import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -42,16 +41,18 @@ class userDataFragment : Fragment() {
     private val inputMap: MutableMap<String, Any> = mutableMapOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(userDataViewModel::class.java)
+
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentUserDataBinding.inflate(inflater, container, false)
-        //val userDataViewModel =ViewModelProvider(this).get(userDataViewModel::class.java)
-        val name = viewModel.name
+        val userDataViewModel = ViewModelProvider(this).get(userDataViewModel::class.java)
+        val name = userDataViewModel.name
+        viewModel = userDataViewModel
         inputMap["peso"] = binding.weight
         inputMap["altura"] = binding.height
         inputMap["dietetic_preference"] = binding.dieteticType
@@ -60,45 +61,112 @@ class userDataFragment : Fragment() {
 
         //hacemos la llamada asyncrona del metodo getData()
         lifecycleScope.launch(Dispatchers.Main) {
-            val user = viewModel.getData()
-            binding.emailUser.text=user?.email
-            binding.userName.text=name
+            val user = userDataViewModel.getData()
+            binding.emailUser.text = user?.email
+            binding.userName.text = name
             user.let {
-                fillUserData(binding.weight, user?.peso.toString())
-                fillUserData(binding.height, user?.altura.toString())
-                fillUserData(binding.dieteticType, user?.dietetic_preference.toString())
-                fillUserData(binding.userActivities, user?.activityText.toString())
-                fillUserData(binding.userObjetives, user?.objetivo.toString())
-                fillDropDown(dietetics, binding.dieteticType)
-                fillDropDown(activities, binding.userActivities)
-                fillDropDown(objetives, binding.userObjetives)
-                cargarPhoto(user!!.imageUrl)
+                Log.d("lambda", it.toString())
             }
+
+            binding.cargarPlatosBtn.setOnClickListener {
+                (activity as? Inicio)?.cargarPlatosNutri("platosNutri.json")
+            }
+            binding.crearMenuBtn.setOnClickListener {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    //val data = getData("comidas_wetaca", 700, 23, 23, 60)
+                    val dataDesayuno = (activity as? Inicio)?.getData(
+                        1,
+                        user?.dietetic_preference.toString(),
+                        1,
+                        1,
+                        1,
+                        0
+                    )
+                    val dataComida = (activity as? Inicio)?.getData(
+                        2,
+                        user?.dietetic_preference.toString(),
+                        1,
+                        1,
+                        1,
+                        0
+                    )
+                    val dataCena = (activity as? Inicio)?.getData(
+                        3,
+                        user?.dietetic_preference.toString(),
+                        1,
+                        1,
+                        1,
+                        0
+                    )
+
+                    dataDesayuno?.let {
+
+                        Log.d("CreacionMenu", "PLatos ${it.random()}")
+                        Log.d("CreacionMenu", "PLatos ${it}")
+
+                        (activity as? Inicio)?.cargarMenu("menu_dia", it, "desayuno")
+                    }
+
+                    dataComida?.let {
+
+                        Log.d("CreacionMenu", "PLatos ${it.random()}")
+                        Log.d("CreacionMenu", "PLatos ${it}")
+
+                        (activity as? Inicio)?.cargarMenu("menu_dia", it, "comida")
+                    }
+
+                    dataCena?.let {
+
+                        Log.d("CreacionMenu", "PLatos ${it.random()}")
+                        Log.d("CreacionMenu", "PLatos ${it}")
+                        (activity as? Inicio)?.cargarMenu("menu_dia", it, "cena")
+
+                    }
+                }
+            }
+
+            fillUserData(binding.weight, user?.peso.toString())
+            fillUserData(binding.height, user?.altura.toString())
+            fillUserData(binding.dieteticType, user?.dietetic_preference.toString())
+            fillUserData(binding.userActivities, user?.activityText.toString())
+            fillUserData(binding.userObjetives, user?.objetivo.toString())
+
+            fillDropDown(dietetics, binding.dieteticType)
+            fillDropDown(activities, binding.userActivities)
+            fillDropDown(objetives, binding.userObjetives)
 //a cada campo le añadimos la propiedad de que se actualice cuando se cambia el foco
             inputMap.forEach { (campoBD, input) ->
                 run {
                     if (input.javaClass.toString().contains("TextInputEditText")) {
                         (input as? TextInputEditText)?.setOnFocusChangeListener { _, hasFocus ->
                             if (!hasFocus) {
-                                viewModel.updateData(
+                                userDataViewModel.updateData(
                                     user,
                                     input.text.toString().toDouble(),
                                     campoBD
                                 )
-                              hideKeyboard()
-                                Toast.makeText(requireContext(),"Perfil actualizado",Toast.LENGTH_LONG).show()
+                                hideKeyboard()
+                                Toast.makeText(
+                                    requireContext(),
+                                    "Perfil actualizado",
+                                    Toast.LENGTH_LONG
+                                ).show()
                             }
                         }
                     } else if (input.javaClass.toString().contains("AutoCompleteTextView")) {
                         (input as? AutoCompleteTextView)?.setOnItemClickListener { parent, view, position, id ->
 
                             val selectedItem = parent.adapter.getItem(position)
-                            viewModel.updateData(
+                            userDataViewModel.updateData(
                                 user,
                                 selectedItem.toString(),
                                 campoBD
                             )
-                            Toast.makeText(requireContext(),"Perfil actualizado",Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                requireContext(),
+                                "Perfil actualizado",
+                                Toast.LENGTH_LONG
+                            ).show()
                         }
                     }
                 }
@@ -112,9 +180,6 @@ class userDataFragment : Fragment() {
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 
 
     private fun fillUserData(dropDown: AutoCompleteTextView, userData: String) {

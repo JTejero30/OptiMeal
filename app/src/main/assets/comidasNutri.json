@@ -1,0 +1,1470 @@
+{
+  "comidasNutri": [
+    {
+      "plato": "Cerdo agridulce, arroz y verduritas",
+      "ingredientes": [
+        {
+          "ingredientes": "151.8 g de Aguja de cerdo"
+        },
+        {
+          "ingredientes": "115 g de Arroz"
+        },
+        {
+          "ingredientes": "115 g de Verduras"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de cerdo tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sidra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Tomate reducido 70%"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa de soja"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa mirin"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Azúcar moreno"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Maicena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo asado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de sésamo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Jengibre"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cayena"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Cocinamos la aguja de cerdo a baja temperatura, asegurándonos así que quede bien melosa."
+        },
+        {
+          "instrucciones": "Para la salsa, comenzamos sofriendo ajo junto con jengibre e incorporamos azúcar moreno, cayena y salsa de soja. Cocinamos el conjunto con nuestro caldo casero."
+        },
+        {
+          "instrucciones": "Finalmente, para rematar el plato, acompañamos con arroz y un mix de verduras."
+        }
+      ],
+      "total_kilocalorias": 759,
+      "total_grasa": 36.8,
+      "total_proteina": 46.46,
+      "total_carbohidratos": 62.56,
+      "total_gramos": 460,
+      "imagen": "cerdo-agridulce-arroz-y-verduritas_B"
+    },
+    {
+      "plato": "Pollo con salsa a la crema y verduras",
+      "ingredientes": [
+        {
+          "ingredientes": "152g de Contramuslo de pollo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de pollo tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Nata"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sofrito de cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vino blanco"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Oloroso río viejo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pan de picos tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cebollino"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo asado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón dulce"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "115g de Patatas asadas"
+        },
+        {
+          "ingredientes": "82.8g de Brócoli"
+        },
+        {
+          "ingredientes": "27.6g de Cebollitas"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Romero"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Cocinamos el pollo a alta temperatura asegurándonos que quede cocido y con un bonito color dorado."
+        },
+        {
+          "instrucciones": "Para la salsa comenzamos sofriendo cebolla junto con ajo, incorporamos pimienta y cebollino fresco. Mojamos con vino blanco y oloroso, cocinamos con nuestro caldo casero."
+        },
+        {
+          "instrucciones": "Para completar el plato acompañamos con patatas asadas, brócoli y cebollitas francesas."
+        }
+      ],
+      "total_kilocalorias": 575,
+      "total_grasa": 22.08,
+      "total_proteina": 48.76,
+      "total_carbohidratos": 42.78,
+      "total_gramos": 460,
+      "imagen": "pollo-con-salsa-a-la-crema-y-verduras_B"
+    },
+    {
+      "plato": "Pechuga de pollo con salsa curry verde thai, arroz y verduras",
+      "ingredientes": [
+        {
+          "ingredientes": "152g de Pechuga de pollo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de pollo tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Leche de coco infusionada"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sofrito de cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa de soja"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Albahaca"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cilantro"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Zumo de limón"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Fish sauce"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pipas de calabaza"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Zumo de lima"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pasta de curry verde"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Maicena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Espinaca"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Jengibre"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "115g de Arroz"
+        },
+        {
+          "ingredientes": "25g de Pimiento rojo"
+        },
+        {
+          "ingredientes": "25g de Pimiento amarillo"
+        },
+        {
+          "ingredientes": "25g de Cebolla morada"
+        },
+        {
+          "ingredientes": "25g de Judías verdes"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra molida"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Cocinamos la pechuga de pollo asegurándonos que quede jugosa y la vez cocida."
+        },
+        {
+          "instrucciones": "Para la salsa sofreímos pasta de curry verde a la que incorporamos pipas de calabaza, zumo de lima y jengibre. A último momento incorporamos cilantro y albahaca."
+        },
+        {
+          "instrucciones": "Para completar el plato acompañamos con arroz largo y un mix de verduras."
+        }
+      ],
+      "contenido": "Pechuga de pollo (33%), salsa (caldo de pollo tostado, leche de coco infusionada, sofrito de cebolla, ajo, salsa de soja, albahaca, cilantro, zumo de limón, fish sauce, pipas de calabaza, salsa de soja, zumo de lima, pasta de curry verde, maicena, espinaca, jengibre, cilantro, albahaca, sal y laurel), arroz (con aceite de oliva, agua, ajo confitado, sal y pimienta negra) (25%) y verduras (pimiento rojo, pimiento amarillo, cebolla morada, judías verdes, aceite de oliva, sal y pimienta negra molida) (25%). Gluten, pescado, frutos y soja.",
+      "total_kilocalorias": 589,
+      "total_grasa": 16.10,
+      "total_proteina": 57.50,
+      "total_carbohidratos": 53.82,
+      "total_gramos": 460,
+      "imagen": "pechuga-de-pollo-con-salsa-curry-verde-thai-arroz-y-verduras_B"
+    },
+    {
+      "plato": "Cazuela de fideos",
+      "ingredientes": [
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de jamón"
+        },
+        {
+          "ingredientes": "113g de Fideos"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de verduras"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Espinacas"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sofrito de cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimientos de piquillo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Jamón serrano"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ñoras"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vino blanco"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Oloroso río viejo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón dulce"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cayena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Para la base de estos fideos comenzamos sofriendo jamón junto con ajo asado y piquillo. Tostamos los fideos para evitar que se pasen. Mojamos a partes iguales con nuestros caldos caseros de jamón y verduras. Cuando faltan apenas unos minutos para terminar incorporamos espinacas frescas que terminan de redondear el sabor equilibrado del plato."
+        }
+      ],
+      "contenido": "Caldo de jamón (hueso de jamón y agua), fideos (de trigo) (25%), caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil, ajo, aceite de oliva, jengibre y laurel), espinacas, sofrito de cebolla, pimientos de piquillo, jamón serrano, ajo, ñoras, aceite de oliva, vino blanco, oloroso río viejo, pimentón dulce, cayena, sal y laurel. Gluten y apio.",
+      "total_kilocalorias": 588,
+      "total_grasa": 17.55,
+      "total_proteina": 21.60,
+      "total_carbohidratos": 86.85,
+      "total_gramos": 450,
+      "imagen": "cazuela-de-fideos_B"
+    },
+    {
+      "plato": "Pavo con romescu verde, patatas asadas y verduras",
+      "ingredientes": [
+        {
+          "ingredientes": "152g de Pechuga de pavo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de pollo tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimiento verde"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sofrito de cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Avellana"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Almendra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa de soja"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vinagre de manzana"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo asado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Maicena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Perejil"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Miel"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Jengibre"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Comino"
+        },
+        {
+          "ingredientes": "115g de Patatas asadas"
+        },
+        {
+          "ingredientes": "115g de Verduras"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Cocinamos las pechugas de pavo a baja temperatura asegurándonos que queden jugosas."
+        },
+        {
+          "instrucciones": "Para esta salsa tan particular comenzamos dorando los frutos secos a los que incorporamos perejil, pimiento verde asado y un golpe de vinagre."
+        },
+        {
+          "instrucciones": "Para rematar el conjunto acompañamos con patatas asadas y un mix de verduras."
+        }
+      ],
+      "contenido": "Pechuga de pavo (33%) con salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo, laurel, sal), pimiento verde, sofrito de cebolla, avellana, almendra, salsa de soja, vinagre de manzana, ajo asado, maicena, perejil, aceite de oliva, miel, sal, jengibre, pimienta negra y comino), patatas asadas (con aceite de oliva, sal, ajo asado, pimienta negra, romero y laurel) (25%) y verduras (cebolla morada, zanahoria, puerro, judías verdes, pimiento rojo, pimiento amarillo y pimiento verde) (25%). Gluten, frutos y soja.",
+      "total_kilocalorias": 533,
+      "total_grasa": 16.10,
+      "total_proteina": 56.12,
+      "total_carbohidratos": 41.86,
+      "total_gramos": 460,
+      "imagen": "pavo-con-romescu-verde-patatas-asadas-y-verduras_B"
+    },
+    {
+      "plato": "Pastel de merluza, salsa de piquillos y sidra, patatas, cebollitas y champiñones",
+      "ingredientes": [
+        {
+          "ingredientes": "67.2g de Migas de merluza"
+        },
+        {
+          "ingredientes": "79.2g de Nata"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Huevo pasteurizado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sofrito de cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Panko"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo confitado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Apio"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cabezas de gambón"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Jengibre"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Tomillo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "33.6g de Pimientos de piquillo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Fumet blanco"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sidra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pasta de tomate"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ñoras"
+        },
+        {
+          "ingredientes": "105.6g de Patatas panaderas"
+        },
+        {
+          "ingredientes": "28.8g de Cebollitas"
+        },
+        {
+          "ingredientes": "52.8g de Champiñones salteados"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Comenzamos pochando lentamente cebolla y ajo. Incorporamos un aceite hecho a partir de cabezas de gambón. Aliñamos con tomillo, pimentón e incorporamos la merluza desmigada. Para cocinar y cuajar los pasteles utilizamos nata y huevo."
+        },
+        {
+          "instrucciones": "Para la salsa de sidra comenzamos sofriendo cebolla, ajo, pimentón y piquillos. Mojamos el conjunto con sidra y nuestro fumet blanco."
+        },
+        {
+          "instrucciones": "Para acompañar el plato unas patatas, cebollitas francesas y champiñones salteados."
+        }
+      ],
+      "contenido": "Pastel (migas de merluza (14%), nata 36% (con leche pasteurizada), huevo pasteurizado, sofrito de cebolla, panko, ajo confitado, apio, cabezas de gambón, jengibre, sal, pimienta, tomillo, pimentón y laurel) con salsa (pimientos de piquillo (7%), fumet blanco (espina de pescado, puerro, vino, aceite de oliva), sidra (3%), pasta de tomate y ñoras), patatas panaderas  (con aceite de oliva, sal, ajo confitado, pimienta negra, orégano y laurel) (22%), cebollitas (6%) y champiñones salteados (11%).  Gluten, crustáceos, pescado, lácteos, apio y huevo.",
+      "total_kilocalorias": 609,
+      "total_grasa": 35.04,
+      "total_proteina": 24.00,
+      "total_carbohidratos": 48.96,
+      "total_gramos": 480,
+      "imagen": "pastel-de-merluza-salsa-de-piquillos-y-sidra-patatas-cebollitas-y-champinones_B"
+    },
+    {
+      "plato": "Filete ruso con salsa oporto, patatas y verduras escalivadas",
+      "ingredientes": [
+        {
+          "ingredientes": "152g de Filete ruso"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Carne de vacuno"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pan rallado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo en polvo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de ternera"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Huesos de rodilla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Zanahoria"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pie de ternera"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Morcillo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Puerro"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Apio"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pasta de tomate"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vino tinto"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Oloroso"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Champiñones"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vino Oporto de Bandeira"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Roux oscuro"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Maicena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Miel"
+        },
+        {
+          "ingredientes": "115g de Patatas asadas"
+        },
+        {
+          "ingredientes": "115g de Verduras"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Cocinamos el filete ruso en horno a alta temperatura para que obtenga un bonito color dorado y a la vez quede cocido."
+        },
+        {
+          "instrucciones": "Para la salsa oporto sofreímos champiñones con ajo previamente asado y mojamos con nuestro caldo de ternera casero. Incorporamos vino tinto y vino Oporto Bandeira."
+        },
+        {
+          "instrucciones": "Para completar el plato, en este caso acompañamos con patatas y verduras escalivadas."
+        }
+      ],
+      "contenido": "Filete ruso (carne de vacuno (67%), agua, pan rallado (harina de trigo, agua, sal, levadura), sal, ajo en polvo, pimienta) (33%) con salsa (caldo de ternera (agua, huesos de rodilla, cebolla, zanahoria, pie de ternera, morcillo, puerro, apio, aceite de oliva, ajo, pasta de tomate, laurel), vino tinto, Oloroso, champiñones, vino Oporto de Bandeira, roux oscuro (harina de trigo y mantequilla), maicena, ajo asado, sal, miel, pimienta negra y laurel), patatas asadas (con aceite de oliva, sal, ajo asado, pimienta negra, romero y laurel) (25%) y verduras (cebolla morada, pimiento rojo y pimiento verde) (25%).  Gluten, lácteos y apio.",
+      "total_kilocalorias": 690,
+      "total_grasa": 35.88,
+      "total_proteina": 30.82,
+      "total_carbohidratos": 48.30,
+      "total_gramos": 460,
+      "imagen": "filete-ruso-con-salsa-oporto-patatas-y-verduras-escalivadas_B"
+    },
+    {
+      "plato": "Merluza con salsa marinera, patatas, brócoli, zanahorias y pimientos",
+      "ingredientes": [
+        {
+          "ingredientes": "170g de Merluza"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Fumet tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Espina de pescado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Zanahoria"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vino blanco"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Apio"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vermut rojo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Perejil"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Katsuobushi"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sofrito de cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Oloroso río viejo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Roux"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón dulce"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "115g de Patatas asadas"
+        },
+        {
+          "ingredientes": "40g de Brócoli"
+        },
+        {
+          "ingredientes": "40g de Zanahorias glaseadas"
+        },
+        {
+          "ingredientes": "40g de Pimientos"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Cocinamos la merluza a baja temperatura dentro de la salsa marinera, hecha a partir de nuestro fumet casero al que le incorporamos pimentón, apio y vino blanco."
+        },
+        {
+          "instrucciones": "Para acompañar y rematar el conjunto un mix de verduras asadas y patatas."
+        }
+      ],
+      "contenido": "Merluza (34%) con salsa (fumet tostado (agua, espina de pescado, cebolla, zanahoria, vino blanco, apio, vermut rojo, aceite de oliva, ajo, perejil, katsuobushi, sal), sofrito de cebolla, vino blanco, Oloroso río viejo, ajo confitado, roux (harina de trigo y mantequilla), apio, aceite de oliva, perejil, sal, pimentón dulce y laurel), patatas asadas (con aceite de oliva, ajo asado, sal, pimienta negra y romero) (23%), brócoli (8%), zanahorias glaseadas (zanahoria (8%), sofrito de cebolla, aceite de oliva, sal, azúcar moreno, ajo confitado, pimienta negra, orégano y comino) y pimientos (verde, rojo y amarillo) (8%).",
+      "total_kilocalorias": 455,
+      "total_grasa": 17.50,
+      "total_proteina": 28.00,
+      "total_carbohidratos": 42.50,
+      "total_gramos": 500,
+      "imagen": "merluza-con-salsa-marinera-patatas-brocoli-zanahorias-y-pimientos_B"
+    },
+    {
+      "plato": "Pollo Kung Pao con verduras y noodles",
+      "ingredientes": [
+        {
+          "ingredientes": "130g de Contramuslo de pollo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de pollo tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Carcasa de pollo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Alitas de pollo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Zanahoria"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa de soja"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vinagre de arroz"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Setas"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pasta de soja amarilla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Azúcar moreno"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Maicena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de sésamo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sésamo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Jengibre"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cayena"
+        },
+        {
+          "ingredientes": "168g de Noodles de arroz"
+        },
+        {
+          "ingredientes": "100g de Verduras"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Salteamos el pollo previamente troceado junto con la salsa que lleva salsa de soja, setas y vinagre de arroz."
+        },
+        {
+          "instrucciones": "Incorporamos las verduras que también fueron previamente salteadas, logrando así una elevación del sabor."
+        },
+        {
+          "instrucciones": "Para acompañar en este caso nada mejor que unos noodles de arroz."
+        }
+      ],
+      "contenido": "Contramuslo de pollo (31%) con salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo, laurel y sal), salsa de soja, vinagre de arroz, setas, ajo asado, pasta de soja amarilla, sofrito de cebolla, azúcar moreno, maicena, aceite de sésamo, sésamo, jengibre y cayena), noodles de arroz (40%) y verduras (zanahoria, judías verdes, cebolleta china, pimiento rojo, pimiento amarillo y  shitake) (24%).",
+      "total_kilocalorias": 512,
+      "total_grasa": 8.82,
+      "total_proteina": 36.54,
+      "total_carbohidratos": 72.24,
+      "total_gramos": 420,
+      "imagen": "pollo-kung-pao-con-verduras-y-noodles_B"
+    },
+    {
+      "plato": "Pavo biryani, noodles de boniato y mix de verduras",
+      "ingredientes": [
+        {
+          "ingredientes": "152g de Pechuga de pavo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de pollo tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Carcasa de pollo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Alitas de pollo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Zanahoria"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Yogur natural"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pasta de tomate"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Maicena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa de soja"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva virgen extra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Jengibre"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cilantro"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón dulce"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Comino"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Coriandro"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Canela"
+        },
+        {
+          "ingredientes": "115g de Noodles de boniato"
+        },
+        {
+          "ingredientes": "115g de Verduras"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Comenzamos cocinando el pavo a baja temperaturas, asegurándonos que la pechuga quede jugosa."
+        },
+        {
+          "instrucciones": "Para la salsa sofreímos cebolla, ajo y jengibre con una mezcla de especias que confeccionamos."
+        },
+        {
+          "instrucciones": "Incorporamos yogur y nuestro caldo casero, a último momento agregamos el cilantro fresco."
+        },
+        {
+          "instrucciones": "Para rematar el plato acompañamos con noodles de boniato y un mix de verduras."
+        }
+      ],
+      "contenido": "Pechuga de pavo (33%), salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo, laurel y sal), yogur natural, cebolla morada, pasta de tomate, ajo confitado, maicena, salsa de soja, aceite de oliva virgen extra, jengibre, cilantro, sal, pimentón dulce, pimienta negra, comino, coriandro, canela y laurel), noodles de boniato (25%) y verduras (pimiento rojo, pimiento amarillo, cebolla morada, zanahoria, bok choi y shitake) (25%).",
+      "total_kilocalorias": 502,
+      "total_grasa": 11.96,
+      "total_proteina": 51.52,
+      "total_carbohidratos": 48.76,
+      "total_gramos": 460,
+      "imagen": "pavo-biryani-noodles-de-boniato-y-mix-de-verduras_B"
+    },
+    {
+      "plato": "Albóndigas con salsa de tomate, patatitas y verduras",
+      "ingredientes": [
+        {
+          "ingredientes": "106g de Albóndigas"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Carne picada de vacuno"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pan rallado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Proteína de soja"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Huevo pasteurizado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Leche pasteurizada"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo"
+        },
+        {
+          "ingredientes": "131g de Salsa"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Tomate reducido 70%"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de ternera"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Huesos de ternera"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Morcillo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Puerro"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Apio"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pasta de tomate"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Zanahoria"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vino tinto"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Oloroso"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pasta de tomate"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva virgen extra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vino Oporto"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pan de picos tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón dulce"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Tomillo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón picante"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Comino"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "115g de Patatas rústicas"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo confitado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Orégano"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "115g de Verduras"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimiento rojo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimiento amarillo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cebolla morada"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Judías verdes"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Comenzamos marcando las albóndigas a fuego fuerte, las reservamos."
+        },
+        {
+          "instrucciones": "Para la salsa sofreímos pimiento rojo, cebolla, zanahoria y ajo."
+        },
+        {
+          "instrucciones": "Incorporamos un golpe de pimentón y de comino, mojamos con vino y cocinamos el conjunto con tomate reducido y nuestro caldo de ternera casero."
+        },
+        {
+          "instrucciones": "Terminamos las albóndigas guisándolas en la salsa."
+        },
+        {
+          "instrucciones": "Para rematar el plato acompañamos con unas patatitas pequeñas aliñadas y un mix de verduras."
+        }
+      ],
+      "contenido": "Albóndigas (carne picada de vacuno, pan rallado, proteína de soja, huevo pasteurizado, leche (pasteurizada), sal, pimienta negra y ajo) (23%) con salsa (tomate reducido 70% (12%), caldo de ternera (agua, huesos de ternera, morcillo, puerro, aceite de oliva, apio, pasta de tomate, laurel), cebolla, zanahoria, vino tinto, Oloroso, pasta de tomate (1%), aceite de oliva virgen extra, vino Oporto, ajo, pan de picos tostado, pimentón dulce, tomillo, pimentón picante, comino y laurel), patatas rústicas (con aceite de oliva, ajo confitado, sal, pimienta negra, orégano y laurel) (25%) y verduras (pimiento rojo y amarillo, cebolla morada y judías verdes) (25%).",
+      "total_kilocalorias": 597,
+      "total_grasa": 26.68,
+      "total_proteina": 28.98,
+      "total_carbohidratos": 53.36,
+      "total_gramos": 460,
+      "imagen": "albondigas-con-salsa-de-tomate-patatitas-y-verduras_B"
+    },
+    {
+      "plato": "Milhojas de calabacín y atún",
+      "ingredientes": [
+        {
+          "ingredientes": "158g de Calabacín"
+        },
+        {
+          "ingredientes": "157g de Bechamel casera"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Leche entera pasteurizada"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Mantequilla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Harina de trigo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Nuez moscada"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra"
+        },
+        {
+          "ingredientes": "50g de Atún"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Queso Grana Padano"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Leche no pasteurizada"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pasta de tomate"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Tomate reducido 70%"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Requesón"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Leche pasteurizada"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sofrito de cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Panko"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo confitado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Orégano"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Intercalamos finas capas de calabacín con atún al que hemos combinado con requesón, tomate y ajo para lograr un perfecto equilibrio."
+        },
+        {
+          "instrucciones": "Gratinamos con bechamel y queso, logrando así un conjunto muy sabroso."
+        }
+      ],
+      "contenido": "Calabacín (35%), bechamel casera (leche entera pasteurizada, mantequilla, harina de trigo, sal, nuez moscada y pimienta negra), atún (11%), queso grana padano, pasta de tomate, tomate reducido 70%, requesón, sofrito de cebolla, panko, ajo confitado, sal, orégano, pimienta negra y laurel.",
+      "total_kilocalorias": 523,
+      "total_grasa": 27.9,
+      "total_proteina": 32.85,
+      "total_carbohidratos": 31.95,
+      "total_gramos": 450,
+      "imagen": "milhojas-de-calabacin-y-atun_B"
+    },
+    {
+      "plato": "Salmón con salsa encebollada, patatas y verduras variadas",
+      "ingredientes": [
+        {
+          "ingredientes": "219.3g de Salmón"
+        },
+        {
+          "ingredientes": "133.4g de Salsa"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Fumet tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vino blanco"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Oloroso río viejo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Maicena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo asado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón dulce"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Tomillo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "114.8g de Patatas panaderas"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo confitado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Orégano"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "114.8g de Verduras"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cebolla morada"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Zanahoria"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Puerro"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Judías verdes"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimiento rojo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimiento amarillo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimiento verde"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Cocinamos el salmón a baja temperatura asegurándonos que quede jugoso."
+        },
+        {
+          "instrucciones": "Para la salsa sofreímos muy lentamente cebolla a la que condimentamos con pimentón, tomillo y ajo, incorporamos nuestro fumet casero y cocinamos lentamente."
+        },
+        {
+          "instrucciones": "Para acompañar en este caso logramos un equilibrio justo con patatas panaderas y un mix de verduras."
+        }
+      ],
+      "contenido": "Salmón (43%) con salsa (fumet tostado, cebolla, aceite de oliva, vino blanco, Oloroso río viejo, maicena, ajo asado, sal, pimentón dulce, tomillo y laurel), patatas panaderas, verduras (cebolla morada, zanahoria, puerro, judías verdes, pimiento rojo, pimiento amarillo y pimiento verde).",
+      "total_kilocalorias": 778,
+      "total_grasa": 41.82,
+      "total_proteina": 52.02,
+      "total_carbohidratos": 43.35,
+      "total_gramos": 510,
+      "imagen": "salmon-con-salsa-encebollada-patatas-y-verduras-variadas_B"
+    },
+    {
+      "plato": "Guiso de legumbreta y setas",
+      "ingredientes": [
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de verduras"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sofrito de cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimiento rojo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Champiñones"
+        },
+        {
+          "ingredientes": "28.8g de Legumbreta"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Boletus"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vino blanco"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Oloroso río viejo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo asado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa de soja"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pasta de tomate"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Apio"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pulpa de choricero"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Perejil"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón dulce"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Patatas rústicas"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Para la base de este guiso comenzamos sofriendo lentamente cebolla junto con pimientos y champiñones."
+        },
+        {
+          "instrucciones": "Incorporamos la proteína 100% vegetal y mojamos con vino blanco y oloroso."
+        },
+        {
+          "instrucciones": "Para potenciar el sabor, incorporamos boletus que aportan un toque muy otoñal."
+        },
+        {
+          "instrucciones": "Para acompañar en este caso nada mejor que unas patatas rústicas."
+        }
+      ],
+      "contenido": "Caldo de verduras, sofrito de cebolla, pimiento rojo, champiñones, legumbreta, boletus, vino blanco, Oloroso río viejo, aceite de oliva, ajo asado, salsa de soja, pasta de tomate, apio, pulpa de choricero, perejil, sal, pimentón dulce, pimienta negra y patatas rústicas.",
+      "total_kilocalorias": 564,
+      "total_grasa": 30.24,
+      "total_proteina": 24,
+      "total_carbohidratos": 63.84,
+      "total_gramos": 480,
+      "imagen": "guiso-de-legumbreta-y-setas_B"
+    },
+    {
+      "plato": "Contramuslo con salsa piri piri, arroz y verduras",
+      "ingredientes": [
+        {
+          "ingredientes": "Cantidad necesaria de Contramuslo de pollo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de pollo tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pasta de tomate"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Maicena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo confitado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Zumo de limón"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Aceite de oliva virgen extra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón dulce"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Cayena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Orégano"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimienta negra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Arroz largo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Verduras"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Cocinamos los contramuslos de pollo en horno a alta temperatura hasta obtener un bonito color dorado y asegurándonos que queden bien cocidos."
+        },
+        {
+          "instrucciones": "Para la salsa piri piri de origen angoleña pero muy extendida por Portugal, comenzamos sofriendo lentamente ajo e incorporamos pasta de tomate."
+        },
+        {
+          "instrucciones": "La cayena y el pimentón dulce van a aportar el picante y la complejidad ahumada."
+        },
+        {
+          "instrucciones": "Perfumamos con orégano."
+        },
+        {
+          "instrucciones": "Añadimos un poco de limón que aporta la acidez justa para levantar y potenciar todos los matices de esta salsa."
+        },
+        {
+          "instrucciones": "Para completar el plato, nuestro arroz largo cocido y un mix de verduras."
+        }
+      ],
+      "contenido": "Contramuslo de pollo, caldo de pollo tostado, pasta de tomate, maicena, ajo confitado, zumo de limón, aceite de oliva virgen extra, sal, pimentón dulce, cayena, orégano, pimienta negra, laurel, arroz largo, verduras.",
+      "total_kilocalorias": 559,
+      "total_grasa": 18.4,
+      "total_proteina": 46,
+      "total_carbohidratos": 54.28,
+      "total_gramos": 460,
+      "imagen": "contramuslo-con-salsa-piri-piri-arroz-y-verduras_B"
+    },
+    {
+      "plato": "Lentejas veggie de kale y piquillo",
+      "ingredientes": [
+        {
+          "ingredientes": "180 g de Lentejas"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sofrito de cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Tomate reducido 70%"
+        },
+        {
+          "ingredientes": "40 g de Pimientos de piquillo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Zanahoria"
+        },
+        {
+          "ingredientes": "16 g de Kale"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sal"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Pimentón dulce"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Laurel"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Lentejas veggie estofadas con piquillo de Lodosa y kale 100% ecológica. No echarás de menos la carne."
+        }
+      ],
+      "contenido": "Lentejas, sofrito de cebolla, tomate reducido 70%, pimientos de piquillo, zanahoria, kale, sal, pimentón dulce y laurel.",
+      "total_kilocalorias": 360,
+      "total_grasa": 6.4,
+      "total_proteina": 22.8,
+      "total_carbohidratos": 49.2,
+      "total_gramos": 400,
+      "imagen": "lentejas-veggie-de-kale-y-piquillo_B"
+    },
+    {
+      "plato": "Albóndigas de pollo a la aragonesa, arroz y verduras asadas",
+      "ingredientes": [
+        {
+          "ingredientes": "88 g de Albóndigas de pollo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Caldo de pollo tostado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Sofrito de cebolla"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Vino blanco"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Oloroso río viejo"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa de soja"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Nata"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Harina de almendra"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Ajo asado"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Miel"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Maicena"
+        },
+        {
+          "ingredientes": "Cantidad necesaria de Salsa perrins"
+        },
+        {
+          "ingredientes": "114.4 g de Arroz largo al horno"
+        },
+        {
+          "ingredientes": "114.4 g de Verduras asadas"
+        }
+      ],
+      "instrucciones": [
+        {
+          "instrucciones": "Comenzamos sofriendo cebolla junto con ajo, comino y miel e incorporamos pimentón, pimienta y mojamos con nuestro caldo casero."
+        },
+        {
+          "instrucciones": "Después, cocinamos las albóndigas, previamente doradas, en la salsa hasta que estén melosas para, finalmente, acompañar con arroz largo y un mix de verduras asadas."
+        }
+      ],
+      "contenido": "Albóndigas de pollo, salsa, caldo de pollo tostado, sofrito de cebolla, vino blanco, Oloroso río viejo, salsa de soja, nata, harina de almendra, ajo asado, miel, maicena, salsa perrins, pimentón dulce, tomillo, comino, pimienta negra, laurel, arroz largo al horno y verduras asadas.",
+      "total_kilocalorias": 544,
+      "total_grasa": 14.52,
+      "total_proteina": 31.68,
+      "total_carbohidratos": 71.28,
+      "total_gramos": 440,
+      "imagen": "albondigas-de-pollo-a-la-aragonesa-arroz-y-verduras-asadas_B"
+    }
+  ]
+}

@@ -11,4 +11,16 @@
         <item name="android:layout_marginHorizontal">16dp</item>
         <item name="android:layout_marginVertical">8dp</item>
     </style>
+
+    <style name="TransparentButtonStyle2" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/button_round</item>
+        <item name="android:textColor">#141414</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_marginHorizontal">16dp</item>
+        <item name="android:layout_marginVertical">8dp</item>
+
+    </style>
 </resources>

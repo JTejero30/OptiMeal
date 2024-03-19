@@ -4,10 +4,22 @@
         <item name="colorPrimary">@color/primario700</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
-        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <!--
+                <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+        -->
+        <item name="colorOnPrimaryContainer">@color/primario700</item>
+
+        <!--Color texto-->
+        <item name="colorOnContainer">@color/md_theme_dark_background</item>
+        <!--
+                <item name="colorOnContainerUnchecked">@color/md_theme_dark_errorContainer</item>
+        -->
+        <item name="colorContainer">@color/primario500</item>
+        <!--Nose
+                <item name="colorSecondary">#F80000</item>
+        -->
         <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
-        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
+        <item name="colorSecondaryContainer">@color/input_border</item>
         <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
         <item name="colorTertiary">@color/md_theme_light_tertiary</item>
         <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
@@ -29,8 +41,9 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
     </style>
 
-    <style name="Theme.App.starting" parent = "Theme.SplashScreen">
-        <item name="android:windowSplashScreenAnimatedIcon" tools:ignore="NewApi">@drawable/logo</item>
+    <style name="Theme.App.starting" parent="Theme.SplashScreen">
+        <item name="android:windowSplashScreenAnimatedIcon" tools:ignore="NewApi">@drawable/logo
+        </item>
         <item name="postSplashScreenTheme">@style/AppTheme</item>
     </style>
 </resources>
