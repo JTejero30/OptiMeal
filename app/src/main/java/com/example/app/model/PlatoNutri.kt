@@ -9,6 +9,8 @@ data class PlatoNutri(
     val total_proteina: Double?,
     val total_carbohidratos: Double?,
     val total_kilocalorias: Int?,
+    val tipo: Int?,
+    val dieta: Int?,
     val imagen: String?,
 )
 

@@ -3,6 +3,7 @@ package com.example.app.ui.user
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
@@ -13,10 +14,13 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.app.databinding.FragmentUserDataBinding
+import com.example.app.mainActivity.Inicio
+import com.example.app.register.RegisterActivity
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -40,28 +44,87 @@ class userDataFragment : Fragment() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentUserDataBinding.inflate(inflater, container, false)
-        val userDataViewModel =ViewModelProvider(this).get(userDataViewModel::class.java)
+        val userDataViewModel = ViewModelProvider(this).get(userDataViewModel::class.java)
         val name = userDataViewModel.name
-        viewModel= userDataViewModel
+        viewModel = userDataViewModel
         inputMap["peso"] = binding.weight
         inputMap["altura"] = binding.height
         inputMap["dietetic_preference"] = binding.dieteticType
-        inputMap["activityText"]=binding.userActivities
-        inputMap["objetivo"]=binding.userObjetives
+        inputMap["activityText"] = binding.userActivities
+        inputMap["objetivo"] = binding.userObjetives
 
         //hacemos la llamada asyncrona del metodo getData()
         lifecycleScope.launch(Dispatchers.Main) {
             val user = userDataViewModel.getData()
-            binding.emailUser.text=user?.email
-            binding.userName.text=name
+            binding.emailUser.text = user?.email
+            binding.userName.text = name
             user.let {
                 Log.d("lambda", it.toString())
             }
+
+            binding.cargarPlatosBtn.setOnClickListener {
+                (activity as? Inicio)?.cargarPlatosNutri("platosNutri.json")
+            }
+            binding.crearMenuBtn.setOnClickListener {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    //val data = getData("comidas_wetaca", 700, 23, 23, 60)
+                    val dataDesayuno = (activity as? Inicio)?.getData(
+                        1,
+                        user?.dietetic_preference.toString(),
+                        1,
+                        1,
+                        1,
+                        0
+                    )
+                    val dataComida = (activity as? Inicio)?.getData(
+                        2,
+                        user?.dietetic_preference.toString(),
+                        1,
+                        1,
+                        1,
+                        0
+                    )
+                    val dataCena = (activity as? Inicio)?.getData(
+                        3,
+                        user?.dietetic_preference.toString(),
+                        1,
+                        1,
+                        1,
+                        0
+                    )
+
+                    dataDesayuno?.let {
+
+                        Log.d("CreacionMenu", "PLatos ${it.random()}")
+                        Log.d("CreacionMenu", "PLatos ${it}")
+
+                        (activity as? Inicio)?.cargarMenu("menu_dia", it, "desayuno")
+                    }
+
+                    dataComida?.let {
+
+                        Log.d("CreacionMenu", "PLatos ${it.random()}")
+                        Log.d("CreacionMenu", "PLatos ${it}")
+
+                        (activity as? Inicio)?.cargarMenu("menu_dia", it, "comida")
+                    }
+
+                    dataCena?.let {
+
+                        Log.d("CreacionMenu", "PLatos ${it.random()}")
+                        Log.d("CreacionMenu", "PLatos ${it}")
+                        (activity as? Inicio)?.cargarMenu("menu_dia", it, "cena")
+
+                    }
+                }
+            }
+
             fillUserData(binding.weight, user?.peso.toString())
             fillUserData(binding.height, user?.altura.toString())
             fillUserData(binding.dieteticType, user?.dietetic_preference.toString())
@@ -82,8 +145,12 @@ class userDataFragment : Fragment() {
                                     input.text.toString().toDouble(),
                                     campoBD
                                 )
-                              hideKeyboard()
-                                Toast.makeText(requireContext(),"Perfil actualizado",Toast.LENGTH_LONG).show()
+                                hideKeyboard()
+                                Toast.makeText(
+                                    requireContext(),
+                                    "Perfil actualizado",
+                                    Toast.LENGTH_LONG
+                                ).show()
                             }
                         }
                     } else if (input.javaClass.toString().contains("AutoCompleteTextView")) {
@@ -95,17 +162,20 @@ class userDataFragment : Fragment() {
                                 selectedItem.toString(),
                                 campoBD
                             )
-                            Toast.makeText(requireContext(),"Perfil actualizado",Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                requireContext(),
+                                "Perfil actualizado",
+                                Toast.LENGTH_LONG
+                            ).show()
                         }
                     }
                 }
             }
         }
-        binding.deleteAccountB.setOnClickListener{deleteAccount()}
-        binding.logOut.setOnClickListener{logOut()}
+        binding.deleteAccountB.setOnClickListener { deleteAccount() }
+        binding.logOut.setOnClickListener { logOut() }
         return binding.root
     }
-
 
 
     private fun fillUserData(dropDown: AutoCompleteTextView, userData: String) {
@@ -125,21 +195,26 @@ class userDataFragment : Fragment() {
         )
         dropDown.setAdapter(adapter)
     }
+
     /*https://dev.to/rohitjakhar/hide-keyboard-in-android-using-kotlin-in-20-second-18gp*/
     fun Fragment.hideKeyboard() {
         view?.let { activity?.hideKeyboard(it) }
     }
+
     fun Activity.hideKeyboard() {
         hideKeyboard(currentFocus ?: View(this))
     }
+
     fun Context.hideKeyboard(view: View) {
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
     /*https://dev.to/rohitjakhar/hide-keyboard-in-android-using-kotlin-in-20-second-18gp*/
     private fun deleteAccount() {
 
-       val builder = AlertDialog.Builder(requireContext())
+        val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Confirmar eliminación")
         builder.setMessage("¿Estás seguro de que deseas eliminar este usuario?")
         builder.setPositiveButton("Sí") { _, _ ->
@@ -152,6 +227,7 @@ class userDataFragment : Fragment() {
         builder.show()
 
     }
+
     private fun logOut() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Cerrar sesión")
@@ -165,4 +241,6 @@ class userDataFragment : Fragment() {
         builder.create()
         builder.show()
     }
+
+
 }

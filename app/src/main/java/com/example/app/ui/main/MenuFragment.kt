@@ -107,7 +107,7 @@ class MenuFragment : Fragment(), DayItemClickI {
 
 
                 val imageRefDesayuno =
-                    storage.reference.child("platos_nutri/$imageNameDesayuno.jpg")
+                    storage.reference.child("platos_nutri/$imageNameDesayuno")
                 imageRefDesayuno.downloadUrl.addOnSuccessListener { uri ->
                     val imageUrl = uri.toString()
                     /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
@@ -153,9 +153,10 @@ class MenuFragment : Fragment(), DayItemClickI {
                 Log.d("MenuFragment", "Menu--> ${it.menu_del_dia.desayuno.toString()}")
 
                 //Comida
-                val imageName = it.menu_del_dia.comida.imagen
+                val imageNameComida = it.menu_del_dia.comida.imagen
+                // val imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
 
-                val imageRef = storage.reference.child("comidas_wetaca/$imageName.jpg")
+                val imageRef = storage.reference.child("platos_nutri/$imageNameComida")
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
                     val imageUrl = uri.toString()
                     /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)
@@ -196,7 +197,7 @@ class MenuFragment : Fragment(), DayItemClickI {
 
                 val imageNameCena = it.menu_del_dia.cena.imagen
 
-                val imageRefCena = storage.reference.child("platos_nutri/$imageNameCena.jpg")
+                val imageRefCena = storage.reference.child("platos_nutri/$imageNameCena")
                 imageRefCena.downloadUrl.addOnSuccessListener { uri ->
                     val imageUrl = uri.toString()
                     /*     Glide.with(binding.ivDesayuno.context).load(imageUrl)

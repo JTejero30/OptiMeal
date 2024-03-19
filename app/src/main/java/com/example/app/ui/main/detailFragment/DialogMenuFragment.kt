@@ -84,7 +84,7 @@ class DialogMenuFragment : DialogFragment() {
         binding.ivMenuLL.visibility = View.INVISIBLE
 
         val imageName = menuModelPlatoL.imagen
-        var imageRef = storage.reference.child("todas_comidas_imagenes/$imageName.jpg")
+        var imageRef = storage.reference.child("todas_comidas_imagenes/$imageName")
         Log.d("MenuFragment", "Image URL desayuno : $imageRef")
         imageRef.downloadUrl.addOnSuccessListener { uri ->
             val imageUrl = uri.toString()

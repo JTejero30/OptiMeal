@@ -210,6 +210,38 @@
                 android:text="@string/borrar_cuenta"
                 app:icon="@drawable/trash_svgrepo_com__1_" />
 
+            <Button
+                android:id="@+id/crearMenuBtn"
+                style="@style/greenButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_marginBottom="10dp"
+                android:isScrollContainer="false"
+                android:text="Crear Menu"
+                android:textAlignment="center"
+                android:theme="@style/AppTheme"
+                app:icon="@drawable/baseline_arrow_forward_24"
+                app:iconGravity="textEnd"
+                app:iconSize="20dp" />
+
+            <Button
+                android:id="@+id/cargarPlatosBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cargar Platos"
+
+                style="@style/greenButton"
+
+                android:layout_gravity="center"
+                android:isScrollContainer="false"
+                android:textAlignment="center"
+                android:theme="@style/AppTheme"
+                app:icon="@drawable/baseline_arrow_forward_24"
+                app:iconGravity="textEnd"
+                app:iconSize="20dp"/>
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -88,29 +88,29 @@ class Inicio : AppCompatActivity() {
 
         /***************CARGAR MENUS*************/
 
-   /*              lifecycleScope.launch(Dispatchers.Main) {
-                     //val data = getData("comidas_wetaca", 700, 23, 23, 60)
-                     val dataComida = getData("comidas_wetaca_nutri", 200, 1, 1, 1)
-                     val dataCena = getData("platos_nutri", 200, 1, 1, 1)
-                     //val dataCena = getData("comidas_nutri", 200, 1, 1, 1)
+        /*              lifecycleScope.launch(Dispatchers.Main) {
+                          //val data = getData("comidas_wetaca", 700, 23, 23, 60)
+                          val dataComida = getData("comidas_wetaca_nutri", 200, 1, 1, 1)
+                          val dataCena = getData("platos_nutri", 200, 1, 1, 1)
+                          //val dataCena = getData("comidas_nutri", 200, 1, 1, 1)
 
-                     dataComida?.let {
+                          dataComida?.let {
 
-                         Log.d("CreacionMenu", "PLatos ${it.random()}")
-                         Log.d("CreacionMenu", "PLatos ${it}")
+                              Log.d("CreacionMenu", "PLatos ${it.random()}")
+                              Log.d("CreacionMenu", "PLatos ${it}")
 
-                         cargarMenu("menu_dia", it, "comida")
-                     }
+                              cargarMenu("menu_dia", it, "comida")
+                          }
 
-                     dataCena?.let {
+                          dataCena?.let {
 
-                         Log.d("CreacionMenu", "PLatos ${it.random()}")
-                         Log.d("CreacionMenu", "PLatos ${it}")
-                         cargarMenu("menu_dia", it, "desayuno")
+                              Log.d("CreacionMenu", "PLatos ${it.random()}")
+                              Log.d("CreacionMenu", "PLatos ${it}")
+                              cargarMenu("menu_dia", it, "desayuno")
 
-                         cargarMenu("menu_dia", it, "cena")
-                     }
-                 }*/
+                              cargarMenu("menu_dia", it, "cena")
+                          }
+                      }*/
 
         /***************CARGAR PLATOS*************/
         //cargarPlatos()
@@ -133,7 +133,7 @@ class Inicio : AppCompatActivity() {
     suspend fun cargarMenu(
         coleccion: String,
         documentReferenceList: MutableList<DocumentReference>,
-        comida: String
+        tipo: String
     ) {
         Log.d("CreacionMenu", "Uid suer-> ${uidUser}")
         Log.d("CreacionMenu", "Dia-> ${LocalDate.now()}")
@@ -152,7 +152,7 @@ class Inicio : AppCompatActivity() {
             val documentReference = listaAuxiliar.random()
             listaAuxiliar.remove(documentReference)
             val campo = hashMapOf(
-                comida to documentReference
+                tipo to documentReference
             )
             day.format(dateFormatter)
             Log.d("CreacionMenu", "dayformat--> ${day}")
@@ -167,14 +167,11 @@ class Inicio : AppCompatActivity() {
                 .addOnFailureListener { e ->
                     Log.w("CreacionMenu", "Error adding MenuDia", e)
                 }
-
         }
-
-
     }
 
-    fun cargarPlatosNutri(jsonFileName:String, platosCollectionString: String) {
-        data class PlatosData(val comidasNutri: List<Plato>)
+    fun cargarPlatosNutri(jsonFileName: String) {
+        data class PlatosData(val comidasNutri: List<PlatoNutri>)
 
         try {
             val inputStream: InputStream = this.assets.open(jsonFileName)
@@ -201,10 +198,16 @@ class Inicio : AppCompatActivity() {
 
             Log.d(TAG, "mealsList data: $platosList")
 
-            val platosCollection = db.collection(platosCollectionString)
+            val platosCollectionDesayuno = db.collection("platos_desayuno")
+            val platosCollectionComida = db.collection("platos_comida")
+            val platosCollectionCena = db.collection("platos_cena")
 
             for (plato in platosList) {
-                platosCollection.add(plato)
+                when (plato.tipo) {
+                    1 -> platosCollectionDesayuno.add(plato)
+                    2 -> platosCollectionComida.add(plato)
+                    3 -> platosCollectionCena.add(plato)
+                }
             }
 
         } catch (e: IOException) {
@@ -257,7 +260,8 @@ class Inicio : AppCompatActivity() {
     }
 
     suspend fun getData(
-        coleccion: String,
+        tipo: Int, dietaUser: String,
+
         calorias: Int,
         grasas: Int,
         proteinas: Int,
@@ -265,6 +269,12 @@ class Inicio : AppCompatActivity() {
     ): MutableList<DocumentReference>? {
         return withContext(Dispatchers.IO) {
             try {
+                var coleccion = ""
+                when (tipo) {
+                    1 -> coleccion = "platos_desayuno"
+                    2 -> coleccion = "platos_comida"
+                    3 -> coleccion = "platos_cena"
+                }
                 val result: QuerySnapshot = db.collection(coleccion).get().await()
                 val documentsReferences = mutableListOf<DocumentReference>()
 
@@ -273,11 +283,24 @@ class Inicio : AppCompatActivity() {
                     val totalProteina = document.getDouble("total_proteina") ?: 0.0
                     val totalCarbohidratos = document.getDouble("total_carbohidratos") ?: 0.0
                     val totalKilocalorias = document.getDouble("total_kilocalorias") ?: 0.0
+                    val dieta = document.get("dieta") ?: 3
 
-                    if (totalKilocalorias > calorias && totalGrasa > grasas && totalCarbohidratos > carbohidratos && totalProteina > proteinas) {
+                    when (dietaUser) {
+                        "Estándar" -> documentsReferences.add(document.reference)
+                        "Vegetariana" -> if (dieta != 1) {
+                            documentsReferences.add(document.reference)
+                        }
 
-                        documentsReferences.add(document.reference)
+                        "Vegana" -> if (dieta == 3) {
+                            documentsReferences.add(document.reference)
+                        }
                     }
+
+
+                    /*  if (totalKilocalorias > calorias && totalGrasa > grasas && totalCarbohidratos > carbohidratos && totalProteina > proteinas) {
+
+                          documentsReferences.add(document.reference)
+                      }*/
                 }
                 // _recipesList.postValue(ingredients)
 
