@@ -3043,27 +3043,51 @@
       "dieta": 2,
       "ingredientes": [
         {
-          "ingredientes": "100 g de fresas"
+          "Ingredientes": "100 g de fresas"
         },
         {
-          "ingredientes": "100 g de cerezas"
+          "Ingredientes": "100 g de cerezas"
         },
         {
-          "ingredientes": "10 g de azúcar o 1 sobre de sacarina"
+          "Ingredientes": "10 g de azúcar o 1 sobre de sacarina"
         },
         {
-          "ingredientes": "Un chorro de limón"
+          "Ingredientes": "Un chorro de limón"
+        },
+        {
+          "Ingredientes": "2 claras de huevo"
+        },
+        {
+          "Ingredientes": "15 g de azúcar"
+        },
+        {
+          "Ingredientes": "1 yogur natural"
         }
       ],
       "instrucciones": [
         {
-          "instrucciones": "2 claras de huevo"
+          "instrucciones": "Trocear las frutas."
         },
         {
-          "instrucciones": "15 g de azúcar"
+          "instrucciones": "Mezclar con los ingredientes restantes, es decir, el azúcar o sacarina y el chorro de limón."
         },
         {
-          "instrucciones": "1 yogur natural"
+          "instrucciones": "Mantener la mezcla 10 minutos a fuego suave y a la vez ir mezclándolo."
+        },
+        {
+          "instrucciones": "Triturar al gusto (o machacar con un tenedor)."
+        },
+        {
+          "instrucciones": "Dejar que se enfríe y refrigerar."
+        },
+        {
+          "instrucciones": "Montar las claras a punto de nieve."
+        },
+        {
+          "instrucciones": "Añadir el azúcar y el yogur, mezclándolo suavemente."
+        },
+        {
+          "instrucciones": "Para la presentación final, mejor montar todo en el último momento. Primero se coloca la compota, después añadir la mousse y decorar al gusto (P.e: colocando unas frutas encima)."
         }
       ],
       "contenido": "Las frutas de verano como las fresas o las cerezas son especialmente delicadas, pero con la mousse de hoy podremos aprovecharlas todas, de una forma muy original que le gustará a todo el mundo. La compota de frutas es muy ligera y es una muy buena opción para un postre tan elegante como el de esta ocasión.",

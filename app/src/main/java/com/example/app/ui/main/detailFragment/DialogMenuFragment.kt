@@ -1,6 +1,8 @@
 package com.example.app.ui.main.detailFragment
 
 import android.content.DialogInterface
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,8 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.marginBottom
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
@@ -66,6 +71,7 @@ class DialogMenuFragment : DialogFragment() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -128,19 +134,24 @@ class DialogMenuFragment : DialogFragment() {
             binding.listaIngredientesCardDesayuno.addView(textViewCantidad)*/
 
             val textViewNombre = TextView(binding.listaIngredientesCardDesayuno.context)
-            textViewNombre.text = ingrediente.ingredientes
-            textViewNombre.textSize = 15F
+            textViewNombre.text = ingrediente.ingredientes?.get("ingredientes").toString()
+            textViewNombre.setTextAppearance(R.style.text)
+            textViewNombre.setPadding(0, 0, 0, 15)
 
             binding.listaIngredientesCardDesayuno.addView(textViewNombre)
         }
-
-        for (ingrediente in menuModelPlatoL.instrucciones!!) {
+        var numeroInstruccion = 1
+        for (instruccion in menuModelPlatoL.instrucciones!!) {
 
 
             val textViewNombre = TextView(binding.listaInstruccionesCardDesayuno.context)
-            textViewNombre.text = ingrediente.instrucciones
-            textViewNombre.textSize = 15F
 
+            textViewNombre.text =
+                numeroInstruccion.toString() + ". " + instruccion.instrucciones?.get("instrucciones")
+                    .toString()
+            textViewNombre.setTextAppearance(R.style.text)
+            textViewNombre.setPadding(0, 0, 0, 20)
+            numeroInstruccion++
             binding.listaInstruccionesCardDesayuno.addView(textViewNombre)
         }
 

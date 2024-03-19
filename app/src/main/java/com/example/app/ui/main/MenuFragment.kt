@@ -62,6 +62,13 @@ class MenuFragment : Fragment(), DayItemClickI {
 
         menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
 
+        binding.loadingIndicatorDesayuno.visibility = View.VISIBLE
+        binding.DesayunoCV.visibility = View.GONE
+        binding.loadingIndicatorComida.visibility = View.VISIBLE
+        binding.ComidaCV.visibility = View.GONE
+        binding.loadingIndicatorCena.visibility = View.VISIBLE
+        binding.CenaCV.visibility = View.GONE
+
         menuViewModel.getDates()
         menuViewModel.weekModelL.observe(viewLifecycleOwner) { weekModelList ->
             weekModelList?.let {

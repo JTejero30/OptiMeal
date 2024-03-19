@@ -7,9 +7,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.app.model.IngredienteNutri
-import com.example.app.model.InstruccionesNutri
-import com.example.app.model.PlatoNutri
 import com.example.app.ui.main.model.DayModel
 import com.example.app.ui.main.model.Ingrediente
 import com.example.app.ui.main.model.Instruccion
@@ -194,7 +191,7 @@ class MenuViewModel : ViewModel() {
         val ingredientes = ingredientesData.map { ingrediente ->
             Log.d("MenuViewModel", "PLATO INGREDIENTE: ${ingrediente}")
 
-            Ingrediente(ingrediente.toString())
+            Ingrediente(ingrediente)
         }
 
         Log.d("MenuViewModel", "PLATO ingredientesData: ${ingredientesData}")
@@ -211,7 +208,7 @@ class MenuViewModel : ViewModel() {
             data?.get("instrucciones") as? List<Map<*, *>> ?: emptyList()
 
         val instrucciones = instruccionesData.map { instruccion ->
-            Instruccion(instruccion.toString())
+            Instruccion(instruccion)
         }
 
         val total_kilocalorias = data?.get("total_kilocalorias").toString().toInt()

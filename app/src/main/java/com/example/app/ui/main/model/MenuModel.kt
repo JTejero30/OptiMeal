@@ -1,9 +1,5 @@
 package com.example.app.ui.main.model
 
-import com.example.app.model.IngredienteNutri
-import com.example.app.model.InstruccionesNutri
-import com.example.app.model.PlatoNutri
-
 data class MenuModel(
     val menu_del_dia: MenuDelDia
 )
@@ -27,11 +23,12 @@ data class Plato(
 )
 
 data class Ingrediente(
-    val ingredientes: String?
+    val ingredientes: Map<*, *>?
 )
 
+
 data class Instruccion(
-    val instrucciones: String?
+    val instrucciones: Map<*, *>?
 )
 
 /*data class Ingrediente(
