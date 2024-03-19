@@ -3,13 +3,17 @@ package com.example.app.register
 import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.example.app.R
 import com.example.app.databinding.FragmentRegisterBinding
@@ -31,6 +35,7 @@ class EmailFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private var password = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +47,25 @@ class EmailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        binding.passwordEditText.setOnClickListener{
+            mostrarContrasena()
+        }
         return binding.root
+    }
+
+    private fun mostrarContrasena() {
+        password = !password
+        val ver : Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.ver,null)
+        val esconder : Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.esconder,null)
+
+        if(password){
+            binding.passwordEditText.setCompoundDrawablesWithIntrinsicBounds(ver,null,null,null)
+            binding.passwordEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
+        }else{
+            binding.passwordEditText.setCompoundDrawablesWithIntrinsicBounds(esconder,null,null,null)
+            binding.passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
+
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -215,7 +238,6 @@ class EmailFragment : Fragment() {
 
 
             }
-
 
     }
 }

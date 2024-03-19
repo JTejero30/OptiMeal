@@ -255,7 +255,6 @@ class LoginActivity : AppCompatActivity() {
         password = !password
         val ver : Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.ver,null)
         val esconder : Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.esconder,null)
-        val pass : Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.pass,null)
 
         if(password){
             binding.passwordEditText.setCompoundDrawablesWithIntrinsicBounds(ver,null,null,null)

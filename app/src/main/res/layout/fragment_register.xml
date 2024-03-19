@@ -22,27 +22,37 @@
             <EditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="57dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"
-
                 android:autofillHints=""
+                android:background="@drawable/border_input"
+                android:drawableStart="@drawable/email"
+                android:drawablePadding="10dp"
                 android:ems="10"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center_vertical"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:padding="15dp" />
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
 
             <EditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
                 android:autofillHints=""
+                android:background="@drawable/border_input"
+                android:drawableStart="@drawable/esconder"
+                android:drawablePadding="10dp"
                 android:ems="10"
+                android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:padding="15dp" />
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp" />
+
 
         </LinearLayout>
 
@@ -70,6 +80,7 @@
                 android:isScrollContainer="false"
                 android:text="@string/registrar"
                 android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:iconSize="20dp"
                 app:iconTint="@color/negro" />
 
@@ -82,23 +93,21 @@
                 app:dividerInsetEnd="16dp"
                 app:dividerInsetStart="16dp" />
 
-            <android.widget.Button
+            <Button
                 android:id="@+id/SignIn_Button"
                 style="@style/blackButton"
                 android:layout_width="match_parent"
-                android:layout_height="57dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="0dp"
-                android:drawableStart="@drawable/google_white"
                 android:fontFamily="@font/montserrat_regular"
-                android:isScrollContainer="false"
                 android:padding="15dp"
-                android:text="@string/registrar_con_google"
-                android:textColor="#FFFFFF"
+                android:text="Registrate con Google"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:icon="@drawable/google_white"
+                app:icon="@drawable/googleg_standard_color_18"
                 app:iconGravity="textStart"
+                app:iconPadding="10dp"
                 app:iconTint="#FFFFFF" />
 
             <TextView
