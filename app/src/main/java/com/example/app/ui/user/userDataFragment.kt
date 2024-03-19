@@ -14,6 +14,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -22,6 +24,7 @@ import com.example.app.databinding.FragmentUserDataBinding
 import com.example.app.mainActivity.Inicio
 import com.example.app.register.RegisterActivity
 import com.google.android.material.textfield.TextInputEditText
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -65,7 +68,17 @@ class userDataFragment : Fragment() {
             binding.emailUser.text = user?.email
             binding.userName.text = name
             user.let {
-                Log.d("lambda", it.toString())
+                fillUserData(binding.weight, user?.peso.toString())
+                fillUserData(binding.height, user?.altura.toString())
+                fillUserData(binding.dieteticType, user?.dietetic_preference.toString())
+                fillUserData(binding.userActivities, user?.activityText.toString())
+                fillUserData(binding.userObjetives, user?.objetivo.toString())
+
+                fillDropDown(dietetics, binding.dieteticType)
+                fillDropDown(activities, binding.userActivities)
+                fillDropDown(objetives, binding.userObjetives)
+
+                cargarPhoto(user!!.imageUrl)
             }
 
             binding.cargarPlatosBtn.setOnClickListener {
@@ -124,16 +137,6 @@ class userDataFragment : Fragment() {
                     }
                 }
             }
-
-            fillUserData(binding.weight, user?.peso.toString())
-            fillUserData(binding.height, user?.altura.toString())
-            fillUserData(binding.dieteticType, user?.dietetic_preference.toString())
-            fillUserData(binding.userActivities, user?.activityText.toString())
-            fillUserData(binding.userObjetives, user?.objetivo.toString())
-
-            fillDropDown(dietetics, binding.dieteticType)
-            fillDropDown(activities, binding.userActivities)
-            fillDropDown(objetives, binding.userObjetives)
 //a cada campo le añadimos la propiedad de que se actualice cuando se cambia el foco
             inputMap.forEach { (campoBD, input) ->
                 run {
